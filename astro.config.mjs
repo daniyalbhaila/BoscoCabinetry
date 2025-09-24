@@ -11,7 +11,7 @@ export default defineConfig({
   ],
   build: {
     // Enable aggressive build optimizations
-    inlineStylesheets: "auto", // Inline small CSS files
+    inlineStylesheets: "always", // Inline all CSS files for better performance
   },
   vite: {
     build: {

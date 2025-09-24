@@ -155,8 +155,8 @@ const optimizedImages = projectData.imageUrls.map((image, index) => ({
 								<Image
 									src={image.src}
 									alt={image.alt}
-									width={800}
-									height={600}
+									width={512}
+									height={384}
 									format="webp"
 									quality={80}
 									class="w-full h-full object-cover"
@@ -275,7 +275,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	imageStack.addEventListener('mousedown', (e) => {
 		mouseStartX = e.clientX;
 		mouseIsDragging = true;
-		imageStack.style.cursor = 'grabbing';
+		// Use RAF to avoid forced reflows
+		requestAnimationFrame(() => {
+			imageStack.style.cursor = 'grabbing';
+		});
 	});
 
 	imageStack.addEventListener('mousemove', (e) => {
@@ -296,12 +299,18 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		}
 		mouseIsDragging = false;
-		imageStack.style.cursor = 'grab';
+		// Use RAF to avoid forced reflows
+		requestAnimationFrame(() => {
+			imageStack.style.cursor = 'grab';
+		});
 	});
 
 	imageStack.addEventListener('mouseleave', () => {
 		mouseIsDragging = false;
-		imageStack.style.cursor = 'grab';
+		// Use RAF to avoid forced reflows
+		requestAnimationFrame(() => {
+			imageStack.style.cursor = 'grab';
+		});
 	});
 
 	// Initialize positions

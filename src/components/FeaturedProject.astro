@@ -16,18 +16,46 @@
 			<!-- Video Container -->
 			<div class="order-2 lg:order-1">
 				<div class="relative overflow-hidden rounded-2xl border border-brand-darkGray/40 bg-gradient-to-b from-white/5 to-white/2">
-					<div class="aspect-video w-full">
+					<div class="aspect-video w-full" role="region" aria-label="Featured Project Video">
+						<!-- YouTube Lazy Loading Facade -->
+						<div id="youtube-facade" class="relative h-full w-full cursor-pointer group">
+							<!-- Thumbnail -->
+							<img
+								src="https://img.youtube.com/vi/emMMuda6j1k/maxresdefault.jpg"
+								alt="Mississauga Full Home Remodel Project Video Thumbnail"
+								class="h-full w-full object-cover rounded-2xl"
+								loading="lazy"
+							/>
+							<!-- Play Button Overlay -->
+							<div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors rounded-2xl">
+								<div class="bg-red-600 hover:bg-red-700 transition-colors rounded-full p-4 shadow-2xl">
+									<svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M8 5v14l11-7z"/>
+									</svg>
+								</div>
+							</div>
+							<!-- Video Title -->
+							<div class="absolute bottom-4 left-4 right-4">
+								<p class="text-white font-medium text-sm bg-black/60 px-3 py-2 rounded backdrop-blur-sm">
+									Mississauga Full Home Remodel - Bosco Cabinetry
+								</p>
+							</div>
+						</div>
+						<!-- Actual iframe (hidden initially) -->
 						<iframe
+							id="youtube-iframe"
 							width="100%"
 							height="100%"
-							src="https://www.youtube.com/embed/emMMuda6j1k"
-							title="Mississauga Full Home Remodel - Bosco Cabinetry"
+							data-src="https://www.youtube.com/embed/emMMuda6j1k?autoplay=1"
+							title="Mississauga Full Home Remodel Project Video - Complete Kitchen and Home Renovation by Bosco Cabinetry"
 							frameborder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							allowfullscreen
-							loading="lazy"
-							class="h-full w-full rounded-2xl"
+							class="h-full w-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-white/50 hidden"
+							tabindex="0"
+							aria-label="Watch our complete home renovation project featuring custom kitchen cabinets, closets, and built-ins"
 						>
+							<p>Your browser does not support video embeds. You can <a href="https://www.youtube.com/watch?v=emMMuda6j1k" class="text-white underline hover:text-brand-accent">watch the video on YouTube</a> instead.</p>
 						</iframe>
 					</div>
 				</div>
@@ -101,5 +129,37 @@
 				}
 			});
 		});
+
+		// YouTube lazy loading facade
+		const youtubeFacade = document.getElementById('youtube-facade');
+		const youtubeIframe = document.getElementById('youtube-iframe');
+
+		if (youtubeFacade && youtubeIframe) {
+			youtubeFacade.addEventListener('click', function() {
+				// Set the iframe src to start loading YouTube
+				const dataSrc = youtubeIframe.getAttribute('data-src');
+				if (dataSrc) {
+					youtubeIframe.src = dataSrc;
+				}
+
+				// Hide facade and show iframe
+				youtubeFacade.style.display = 'none';
+				youtubeIframe.classList.remove('hidden');
+				youtubeIframe.focus();
+			});
+
+			// Keyboard accessibility
+			youtubeFacade.addEventListener('keydown', function(e) {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					youtubeFacade.click();
+				}
+			});
+
+			// Make facade focusable
+			youtubeFacade.setAttribute('tabindex', '0');
+			youtubeFacade.setAttribute('role', 'button');
+			youtubeFacade.setAttribute('aria-label', 'Load and play video: Mississauga Full Home Remodel');
+		}
 	});
 </script>
