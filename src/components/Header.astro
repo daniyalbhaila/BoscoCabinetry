@@ -42,12 +42,13 @@
   }
   body.cs-open #cs-navigation,
   body.scroll #cs-navigation {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
   body.cs-open #cs-navigation .cs-logo,
   body.scroll #cs-navigation .cs-logo {
-    filter: invert(0);
+    filter: invert(1);
   }
   body.cs-open #cs-navigation .cs-toggle,
   body.scroll #cs-navigation .cs-toggle {
@@ -263,23 +264,22 @@
 /* Desktop - 1024px */
 @media only screen and (min-width: 65rem) {
   body.scroll #cs-navigation {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
   body.scroll #cs-navigation .cs-logo {
-    filter: invert(0);
+    filter: invert(1);
   }
   body.scroll #cs-navigation .cs-li-link {
-    color: var(--bodyTextColor);
+    color: var(--headerColor);
   }
   body.scroll #cs-navigation .cs-li-link:before {
-    background: var(--primary);
+    background: var(--headerColor);
   }
-  body.scroll #cs-navigation .cs-button-solid:before {
-    background: #000;
-  }
-  body.scroll #cs-navigation .cs-button-solid:hover {
-    color: #fff;
+  body.scroll #cs-navigation .cs-nav-button {
+    background-color: var(--primary);
+    color: var(--headerColor);
   }
   #cs-navigation {
     font-family: "Inter", "Arial", sans-serif;
