@@ -129,3 +129,4 @@ src/
 - **No Emojis**: NEVER use emojis in any component or text. Always use Lucide React icons instead for visual elements
 - **Icons**: Use Lucide React icons (imported from `lucide-react`) for all iconography needs
 - **Consistency**: Maintain visual consistency by using proper icon components rather than emoji characters
+- **No Playwright**: DO NOT use Playwright MCP tools for screenshots or browser automation

@@ -17,7 +17,7 @@ export function AnimatedButton({
   size = "md",
 }: AnimatedButtonProps) {
   const variants = {
-    primary: "bg-brand-primary hover:bg-brand-bronze text-white",
+    primary: "bg-brand-accent hover:bg-[#E6E0CD] text-brand-charcoal",
     secondary: "bg-brand-accent hover:bg-brand-blush text-brand-charcoal",
     outline:
       "border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-brand-charcoal",

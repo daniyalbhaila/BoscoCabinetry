@@ -27,16 +27,72 @@ body {
   font-synthesis-style: none;
 }
 
-/***** Utility layer *****/
+/***** Utility layer - Unified Design System *****/
 @layer utilities {
+  /* UNIFIED BUTTONS - All use rounded-full with slide-in hover animation */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 disabled:opacity-50 disabled:pointer-events-none relative z-10 overflow-hidden;
+    transition: color 0.3s ease;
+  }
+  .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+  }
+  .btn:hover::before {
+    width: 100%;
   }
   .btn-primary {
-    @apply bg-brand-accent text-brand-charcoal hover:bg-[#E6E0CD];
+    @apply bg-brand-primary text-brand-dark-charcoal shadow-sm;
+  }
+  .btn-primary::before {
+    background-color: #D8C5BF;
+  }
+  .btn-primary:hover {
+    color: #393335;
   }
   .btn-ghost {
-    @apply bg-white/10 text-white hover:bg-white/15 backdrop-blur;
+    @apply bg-white/10 text-white backdrop-blur;
+  }
+  .btn-ghost::before {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  .btn-ghost:hover {
+    color: white;
+  }
+  .btn-secondary {
+    @apply bg-white/10 text-white backdrop-blur;
+  }
+  .btn-secondary::before {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  .btn-secondary:hover {
+    color: white;
+  }
+  .btn-outline {
+    @apply bg-transparent text-brand-bronze border border-brand-bronze/30;
+  }
+  .btn-outline::before {
+    background-color: rgba(96, 83, 60, 0.1);
+  }
+  .btn-outline:hover {
+    color: #60533C;
+  }
+
+  /* UNIFIED CARDS - All use rounded-lg */
+  .card {
+    @apply rounded-lg border border-brand-darkGray/40 bg-gradient-to-b from-white/[0.06] to-white/[0.03] transition-all hover:border-brand-accent/50;
+  }
+
+  /* UNIFIED CONTAINERS - All use rounded-lg */
+  .icon-container {
+    @apply rounded-lg bg-white/10 flex items-center justify-center;
   }
 }
 
