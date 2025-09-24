@@ -41,6 +41,7 @@ export default defineConfig({
   // Image optimization
   image: {
     // Enable responsive images
+    responsiveStyles: true,
     remotePatterns: [
       {
         protocol: "https",

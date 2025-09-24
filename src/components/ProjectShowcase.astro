@@ -242,12 +242,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		startX = e.touches[0].clientX;
 		startY = e.touches[0].clientY;
 		isDragging = true;
-	});
+	}, { passive: true });
 
 	imageStack.addEventListener('touchmove', (e) => {
 		if (!isDragging) return;
 		e.preventDefault(); // Prevent scrolling while swiping
-	});
+	}, { passive: false });
 
 	imageStack.addEventListener('touchend', (e) => {
 		if (!isDragging) return;
@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		}
 		isDragging = false;
-	});
+	}, { passive: true });
 
 	// Mouse drag support
 	let mouseStartX = 0;

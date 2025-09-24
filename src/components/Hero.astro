@@ -1,12 +1,12 @@
 ---
 import { Image } from 'astro:assets';
+import heroPoster from '../assets/hero-poster.png';
 
 interface Props {
 	titleHighlight?: string;
 	titleRest?: string;
 	kicker?: string;
 	description?: string;
-	poster?: string;
 	videoSrc?: string;
 }
 const {
@@ -14,7 +14,6 @@ const {
 	titleRest = 'Custom Kitchen Cabinets for Toronto Homes',
 	kicker = 'Luxury Cabinets Made Affordable in Toronto',
 	description = 'Toronto custom kitchen cabinets, closets, and built‑ins. Explore 100+ finishes in our 5,500 sq ft North York showroom. Transparent quotes, reliable timelines—luxury look without the luxury price tag.',
-	poster = '/media/hero-poster.png',
 	videoSrc = '/media/hero.mp4'
 } = Astro.props as Props;
 ---
@@ -23,13 +22,12 @@ const {
 	<div class="absolute inset-0 -z-10">
 		{/* Optimized poster image as background */}
 		<Image
-			src={poster}
+			src={heroPoster}
 			alt="Bosco Cabinetry kitchen showcase"
 			class="h-full w-full object-cover"
-			width={1920}
-			height={1080}
+			layout="full-width"
 			format="webp"
-			quality={80}
+			quality={75}
 			loading="eager"
 			fetchpriority="high"
 		/>
@@ -44,6 +42,7 @@ const {
 			loop
 			playsinline
 			preload="metadata"
+			loading="lazy"
 		>
 			<source src={videoSrc} type="video/mp4" />
 		</video>
@@ -51,7 +50,7 @@ const {
 		{/* Lightened gradient overlay so video is more visible, aligned to brand colors */}
 		<div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-darkGray/35 via-black/30 to-black/60"></div>
 		{/* Dark left fade to ensure text readability */}
-		<div class="pointer-events-none absolute inset-y-0 left-0 w-[80%] sm:w-2/3 md:w-1/2 lg:w-[45%] bg-gradient-to-r from-brand-charcoal/90 via-brand-darkGray/55 to-transparent"></div>
+		<div class="pointer-events-none absolute inset-y-0 left-0 w-[min(80%,100vw)] sm:w-2/3 md:w-1/2 lg:w-[45%] bg-gradient-to-r from-brand-charcoal/90 via-brand-darkGray/55 to-transparent"></div>
 	</div>
 
 	<div class="relative mx-auto flex min-h-screen max-w-7xl items-center px-6">

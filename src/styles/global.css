@@ -15,6 +15,11 @@ body,
   height: 100%;
 }
 
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+}
+
 /* Reduce CLS during font swap by approximating Poppins metrics */
 body {
   font-size-adjust: 0.52;
