@@ -1,0 +1,90 @@
+---
+interface ServiceItem {
+	key: string;
+	title: string;
+	description: string;
+	cta?: string;
+	href?: string;
+	emoji?: string;
+	variant?: 'image' | 'text';
+}
+
+const services: ServiceItem[] = [
+	{
+		key: 'kitchens',
+		title: 'Custom Kitchen Cabinets',
+		description: 'Modern kitchens designed for your home and budget. European hardware, premium finishes, professional installation.',
+		emoji: '🍽️',
+		href: '#get-quote',
+		cta: 'Get a Kitchen Quote',
+		variant: 'text'
+	},
+	{
+		key: 'closets',
+		title: 'Walk‑In & Reach‑In Closets',
+		description: 'Maximize storage with smart closet systems, lighting, and accessories tailored to your space.',
+		emoji: '🧥',
+		href: '#get-quote',
+		cta: 'Design My Closet',
+		variant: 'image'
+	},
+	{
+		key: 'wall-units',
+		title: 'Built‑Ins & Media Walls',
+		description: 'Seamless wall units, entertainment centers, and home offices that elevate your living space.',
+		emoji: '🧩',
+		href: '#get-quote',
+		cta: 'Plan My Built‑In',
+		variant: 'text'
+	},
+	{
+		key: 'paneling',
+		title: 'Decorative Paneling',
+		description: 'Fluted, ribbed, and acoustic panels for statement walls and cohesive interiors.',
+		emoji: '🎛️',
+		href: '#get-quote',
+		cta: 'Explore Paneling',
+		variant: 'image'
+	}
+];
+---
+<section id="services" class="relative isolate bg-brand-charcoal">
+	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+		<!-- Split header -->
+		<div class="mb-10 grid grid-cols-1 items-end gap-8 md:mb-14 md:grid-cols-12">
+			<div class="md:col-span-7">
+				<p class="text-[11px] uppercase tracking-[0.2em] text-white/50">[Services]</p>
+				<h2 class="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">How We Help You Reimagine Your Home</h2>
+			</div>
+			<p class="md:col-span-5 text-white/70 md:pb-2">We design, build, and install custom cabinetry across kitchens, closets, built‑ins, and more—delivering a cohesive, modern look with reliable timelines and transparent pricing.</p>
+		</div>
+
+		<!-- Cards -->
+		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+			{services.map((s, i) => (
+				<a href={s.href ?? '#'} class="group relative overflow-hidden rounded-3xl border border-brand-darkGray/40 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-0 shadow-sm transition hover:border-brand-accent/50">
+					{/* Tile body */}
+					<div class={"relative flex h-80 items-end rounded-3xl p-5 md:h-96 " + (s.variant === 'image' ? 'bg-[image:radial-gradient(ellipse_at_center,rgba(255,255,255,0.12),transparent_60%)]' : '')}>
+						{/* Centered title for image variant */}
+						{ s.variant === 'image' ? (
+							<div class="pointer-events-none absolute inset-0 grid place-items-center">
+								<span class="text-base font-medium text-white/90 md:text-lg">{s.title}</span>
+							</div>
+						) : (
+							<div>
+								<h3 class="text-lg font-medium tracking-tight text-white">{s.title}</h3>
+								<p class="mt-2 max-w-[28ch] text-sm text-white/75">{s.description}</p>
+							</div>
+						)}
+
+						{/* Bottom meta */}
+						<div class="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between p-5">
+							<div class="flex items-center gap-2">
+							</div>
+						</div>
+					</div>
+				</a>
+			))}
+		</div>
+	</div>
+</section> 

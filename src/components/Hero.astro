@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+	titleHighlight?: string;
+	titleRest?: string;
+	kicker?: string;
+	description?: string;
+	poster?: string;
+	videoSrc?: string;
+}
+const {
+	titleHighlight = 'Beautiful',
+	titleRest = 'Custom Kitchen Cabinets for Toronto Homes',
+	kicker = 'Luxury Cabinets Made Affordable in Toronto',
+	description = 'Toronto custom kitchen cabinets, closets, and built‑ins. Explore 100+ finishes in our 5,500 sq ft North York showroom. Transparent quotes, reliable timelines—luxury look without the luxury price tag.',
+	poster = '/media/hero-poster.png',
+	videoSrc = '/media/hero.mp4'
+} = Astro.props as Props;
+---
+<section class="relative isolate min-h-screen overflow-hidden">
+	{/* Background with optimized poster and video */}
+	<div class="absolute inset-0 -z-10">
+		{/* Optimized poster image as background */}
+		<Image
+			src={poster}
+			alt="Bosco Cabinetry kitchen showcase"
+			class="h-full w-full object-cover"
+			width={1920}
+			height={1080}
+			format="webp"
+			quality={80}
+			loading="eager"
+			fetchpriority="high"
+		/>
+
+		{/* Video overlay with optimized loading */}
+		<video
+			class="absolute inset-0 h-full w-full object-cover"
+			width="1920"
+			height="1080"
+			autoplay
+			muted
+			loop
+			playsinline
+			preload="metadata"
+		>
+			<source src={videoSrc} type="video/mp4" />
+		</video>
+
+		{/* Lightened gradient overlay so video is more visible, aligned to brand colors */}
+		<div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-darkGray/35 via-black/30 to-black/60"></div>
+		{/* Dark left fade to ensure text readability */}
+		<div class="pointer-events-none absolute inset-y-0 left-0 w-[80%] sm:w-2/3 md:w-1/2 lg:w-[45%] bg-gradient-to-r from-brand-charcoal/90 via-brand-darkGray/55 to-transparent"></div>
+	</div>
+
+	<div class="relative mx-auto flex min-h-screen max-w-7xl items-center px-6">
+		<div class="w-full max-w-xl pt-24 md:pt-28">
+			<p class="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-xs text-white/90 backdrop-blur">
+				{kicker}
+			</p>
+			<h1 class="max-w-xl text-3xl font-light leading-tight tracking-tight sm:text-4xl md:text-5xl">
+				<span class="italic mr-2">{titleHighlight}</span>
+				<span class="font-semibold">{titleRest}</span>
+			</h1>
+			<p class="mt-5 max-w-prose text-sm text-white/85 md:text-base">{description}</p>
+			<div class="mt-7 flex flex-wrap gap-3">
+				<a href="#book-consult" class="btn btn-primary px-5 py-2.5">Book Showroom Consultation</a>
+				<a href="#get-quote" class="btn btn-ghost px-5 py-2.5">Get a Free Quote</a>
+			</div>
+		</div>
+	</div>
+</section> 

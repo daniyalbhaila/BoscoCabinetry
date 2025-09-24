@@ -1,0 +1,38 @@
+{
+  "name": "bosco-cabinetry-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "format": "prettier --write .",
+    "build:analyze": "npm run build && node scripts/bundle-analyzer.js",
+    "performance:lighthouse": "npx lighthouse http://localhost:4321 --output=html --output-path=./lighthouse-report.html",
+    "performance:check": "npm run build && npm run preview & sleep 3 && npm run performance:lighthouse && pkill -f 'astro preview'"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.3.1",
+    "@astrojs/tailwind": "^5.1.2",
+    "@radix-ui/react-slot": "^1.2.3",
+    "astro": "^4.13.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.19",
+    "lucide-react": "^0.544.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "shadcn": "^3.3.1",
+    "tailwindcss": "^3.4.13"
+  }
+}

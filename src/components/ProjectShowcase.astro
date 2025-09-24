@@ -1,0 +1,310 @@
+---
+import Star from './icons/Star.astro';
+import Quote from './icons/Quote.astro';
+import ExternalLink from './icons/ExternalLink.astro';
+import ChevronRight from './icons/ChevronRight.astro';
+import ChevronLeft from './icons/ChevronLeft.astro';
+import { Image } from 'astro:assets';
+
+interface ProjectShowcaseData {
+	title: string;
+	review: {
+		name: string;
+		rating: number;
+		text: string;
+		project: string;
+		verified: boolean;
+	};
+	imageUrls: Array<{
+		src: string;
+		alt: string;
+	}>;
+}
+
+// Sample project data - replace with actual data
+const projectData: ProjectShowcaseData = {
+	title: "Kitchen Transformation: Oakville",
+	review: {
+		name: "Patricia Williams",
+		rating: 5,
+		text: "The team at Bosco Cabinetry transformed our outdated kitchen into a stunning modern space. The attention to detail is incredible - from the soft-close drawers to the beautiful crown molding. Our friends can't believe it's the same kitchen! The project was completed on time and within budget.",
+		project: "Complete Kitchen Renovation",
+		verified: true
+	},
+	imageUrls: [
+		{
+			src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop",
+			alt: "Modern kitchen with white cabinets and quartz countertops"
+		},
+		{
+			src: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&h=600&fit=crop",
+			alt: "Kitchen island with bar seating"
+		},
+		{
+			src: "https://images.unsplash.com/photo-1571508601891-ca5e7a713859?w=800&h=600&fit=crop",
+			alt: "Kitchen cabinet details and hardware"
+		},
+		{
+			src: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800&h=600&fit=crop",
+			alt: "Custom kitchen storage solutions"
+		},
+		{
+			src: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop",
+			alt: "Kitchen lighting and fixtures"
+		},
+		{
+			src: "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=800&h=600&fit=crop",
+			alt: "Kitchen backsplash and countertops"
+		}
+	]
+};
+
+// Generate optimized images using Astro's Image component
+const optimizedImages = projectData.imageUrls.map((image, index) => ({
+	id: index,
+	src: image.src,
+	alt: image.alt,
+	width: 800,
+	height: 600
+}));
+---
+
+<section id="project-showcase" class="relative isolate bg-white min-h-screen flex items-center">
+	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+		<!-- Header -->
+		<div class="mx-auto max-w-4xl text-center mb-16">
+			<p class="text-[11px] uppercase tracking-[0.2em] text-brand-primary/60 mb-4">[Project Showcase]</p>
+			<h2 class="text-3xl font-semibold tracking-tight text-brand-charcoal sm:text-4xl md:text-5xl">
+				{projectData.title}
+			</h2>
+		</div>
+
+		<!-- Side-by-Side Content -->
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+			<!-- Review Content (Left Side) -->
+			<div class="order-2 lg:order-1">
+				<div class="space-y-8">
+					<!-- Quote Icon -->
+					<div class="flex items-center justify-start">
+						<div class="rounded-xl bg-brand-primary/10 p-3">
+							<Quote class="h-8 w-8 text-brand-primary" />
+						</div>
+					</div>
+
+					<!-- Review Text -->
+					<blockquote class="text-xl text-brand-charcoal leading-relaxed font-light">
+						"{projectData.review.text}"
+					</blockquote>
+
+					<!-- Rating -->
+					<div class="flex items-center gap-4">
+						<div class="flex">
+							{Array.from({ length: projectData.review.rating }, (_, i) => (
+								<Star class="h-5 w-5 text-brand-accent" fill="currentColor" />
+							))}
+						</div>
+						{projectData.review.verified && (
+							<span class="rounded-full bg-green-500/20 px-3 py-1 text-sm text-green-600 font-medium">
+								Verified Review
+							</span>
+						)}
+					</div>
+
+					<!-- Author Info -->
+					<div class="border-t border-brand-accent/30 pt-6">
+						<div class="flex items-center justify-between">
+							<div>
+								<p class="font-semibold text-brand-charcoal text-lg">{projectData.review.name}</p>
+								<p class="text-brand-darkGray/70">{projectData.review.project}</p>
+							</div>
+							<div class="text-brand-primary/60">
+								<ExternalLink class="h-12 w-12" />
+							</div>
+						</div>
+					</div>
+
+					<!-- CTA -->
+					<div class="pt-4">
+						<a
+							href="#get-quote"
+							class="inline-flex items-center px-6 py-3 bg-brand-primary text-white font-medium rounded-lg hover:bg-brand-primary/90 transition-colors duration-200"
+						>
+							Start Your Project
+							<ChevronRight class="ml-2 w-4 h-4" />
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Image Carousel (Right Side) -->
+			<div class="order-1 lg:order-2">
+				<div class="relative">
+					<!-- Optimized Images Stack using Astro Image Component -->
+					<div class="relative w-full max-w-lg mx-auto h-96" style="perspective: 1000px;" id="image-stack">
+						{optimizedImages.map((image, index) => (
+							<div
+								class={`absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 cursor-grab active:cursor-grabbing image-card`}
+								data-index={index}
+								style={{
+									zIndex: optimizedImages.length - index,
+									transform: index === 0 ? 'none' :
+									`translateX(${index % 2 === 1 ? -index * 8 : index * 8}px) translateY(${index * 4}px) scale(${1 - index * 0.02}) rotate(${index % 2 === 1 ? -2 - index * 0.5 : 2 + index * 0.5}deg)`,
+									transformOrigin: 'center center',
+								}}
+							>
+								<Image
+									src={image.src}
+									alt={image.alt}
+									width={800}
+									height={600}
+									format="webp"
+									quality={80}
+									class="w-full h-full object-cover"
+									loading={index === 0 ? "eager" : "lazy"}
+									fetchpriority={index === 0 ? "high" : "low"}
+								/>
+							</div>
+						))}
+
+						<!-- Navigation Buttons -->
+						<button
+							class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white/90 rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
+							aria-label="Previous photo"
+							id="prev-btn"
+						>
+							<ChevronLeft class="w-5 h-5 text-gray-700" />
+						</button>
+
+						<button
+							class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white/90 rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
+							aria-label="Next photo"
+							id="next-btn"
+						>
+							<ChevronRight class="w-5 h-5 text-gray-700" />
+						</button>
+					</div>
+
+					<!-- Instruction text below carousel -->
+					<div class="mt-6 text-center">
+						<p class="text-sm text-brand-darkGray/70 font-medium">Click arrows or swipe to explore project photos</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	const imageStack = document.getElementById('image-stack');
+	if (!imageStack) return;
+
+	const cards = Array.from(imageStack.querySelectorAll('.image-card'));
+	const prevBtn = document.getElementById('prev-btn');
+	const nextBtn = document.getElementById('next-btn');
+	let currentIndex = 0;
+
+	function updateCardPositions() {
+		cards.forEach((card, index) => {
+			const relativeIndex = (index - currentIndex + cards.length) % cards.length;
+			const zIndex = cards.length - relativeIndex;
+			const translateX = relativeIndex === 0 ? 0 : relativeIndex % 2 === 1 ? -relativeIndex * 8 : relativeIndex * 8;
+			const translateY = relativeIndex * 4;
+			const scale = 1 - relativeIndex * 0.02;
+			const rotate = relativeIndex === 0 ? 0 : relativeIndex % 2 === 1 ? -2 - relativeIndex * 0.5 : 2 + relativeIndex * 0.5;
+
+			card.style.zIndex = zIndex.toString();
+			card.style.transform = relativeIndex === 0 ? 'none' :
+				`translateX(${translateX}px) translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`;
+		});
+	}
+
+	function moveToNext() {
+		currentIndex = (currentIndex + 1) % cards.length;
+		updateCardPositions();
+	}
+
+	function moveToPrevious() {
+		currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+		updateCardPositions();
+	}
+
+	// Button event listeners
+	nextBtn?.addEventListener('click', moveToNext);
+	prevBtn?.addEventListener('click', moveToPrevious);
+
+	// Touch/swipe support
+	let startX = 0;
+	let startY = 0;
+	let isDragging = false;
+
+	imageStack.addEventListener('touchstart', (e) => {
+		startX = e.touches[0].clientX;
+		startY = e.touches[0].clientY;
+		isDragging = true;
+	});
+
+	imageStack.addEventListener('touchmove', (e) => {
+		if (!isDragging) return;
+		e.preventDefault(); // Prevent scrolling while swiping
+	});
+
+	imageStack.addEventListener('touchend', (e) => {
+		if (!isDragging) return;
+
+		const endX = e.changedTouches[0].clientX;
+		const endY = e.changedTouches[0].clientY;
+		const deltaX = endX - startX;
+		const deltaY = endY - startY;
+
+		// Only trigger swipe if horizontal movement is greater than vertical
+		if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+			if (deltaX > 0) {
+				moveToPrevious();
+			} else {
+				moveToNext();
+			}
+		}
+		isDragging = false;
+	});
+
+	// Mouse drag support
+	let mouseStartX = 0;
+	let mouseIsDragging = false;
+
+	imageStack.addEventListener('mousedown', (e) => {
+		mouseStartX = e.clientX;
+		mouseIsDragging = true;
+		imageStack.style.cursor = 'grabbing';
+	});
+
+	imageStack.addEventListener('mousemove', (e) => {
+		if (!mouseIsDragging) return;
+		e.preventDefault();
+	});
+
+	imageStack.addEventListener('mouseup', (e) => {
+		if (!mouseIsDragging) return;
+
+		const deltaX = e.clientX - mouseStartX;
+
+		if (Math.abs(deltaX) > 50) {
+			if (deltaX > 0) {
+				moveToPrevious();
+			} else {
+				moveToNext();
+			}
+		}
+		mouseIsDragging = false;
+		imageStack.style.cursor = 'grab';
+	});
+
+	imageStack.addEventListener('mouseleave', () => {
+		mouseIsDragging = false;
+		imageStack.style.cursor = 'grab';
+	});
+
+	// Initialize positions
+	updateCardPositions();
+});
+</script>

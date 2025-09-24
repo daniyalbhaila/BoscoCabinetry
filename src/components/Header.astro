@@ -1,0 +1,77 @@
+---
+---
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all">
+	<nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:py-5">
+		<a href="/" class="text-xl font-semibold tracking-tight">Bosco</a>
+
+		<button id="menu-toggle" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-white hover:bg-white/15" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+			<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+		</button>
+
+		<ul class="hidden gap-8 md:flex text-sm text-white/85">
+			<li><a class="hover:text-white" href="#services">Services</a></li>
+			<li><a class="hover:text-white" href="#contact">Contact</a></li>
+		</ul>
+
+	</nav>
+
+	<!-- Backdrop -->
+	<div id="menu-backdrop" class="fixed inset-0 z-40 hidden bg-black/60 backdrop-blur-sm"></div>
+	<!-- Mobile drawer -->
+	<div id="mobile-menu" class="fixed inset-y-0 right-0 z-50 hidden w-72 max-w-full translate-x-0 bg-brand-charcoal/95 p-6 shadow-xl ring-1 ring-brand-darkGray/40">
+		<div class="flex items-center justify-between">
+			<span class="text-lg font-semibold">Menu</span>
+			<button id="menu-close" class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 hover:bg-white/15" aria-label="Close menu">
+				<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+			</button>
+		</div>
+		<ul class="mt-6 space-y-4 text-base">
+			<li><a class="block rounded-md px-2 py-2 hover:bg-white/10" href="#features">Features</a></li>
+			<li><a class="block rounded-md px-2 py-2 hover:bg-white/10" href="#services">Services</a></li>
+			<li><a class="block rounded-md px-2 py-2 hover:bg-white/10" href="#contact">Contact</a></li>
+		</ul>
+
+	</div>
+</header>
+
+<style>
+	/* Base: transparent so hero shows through */
+	#site-header { background: transparent; }
+	/* Applied when scrolled: brand-tinted bg with blur and subtle border */
+	#site-header.scrolled { backdrop-filter: blur(10px); background: color-mix(in srgb, #1D2026 80%, transparent); border-bottom: 1px solid color-mix(in srgb, #393335 40%, transparent); }
+</style>
+
+<script>
+	const header = document.getElementById('site-header');
+	const toggle = document.getElementById('menu-toggle');
+	const closeBtn = document.getElementById('menu-close');
+	const drawer = document.getElementById('mobile-menu');
+	const backdrop = document.getElementById('menu-backdrop');
+
+	const setOpen = (open) => {
+		if (!drawer || !backdrop || !toggle) return;
+		drawer.classList.toggle('hidden', !open);
+		backdrop.classList.toggle('hidden', !open);
+		toggle.setAttribute('aria-expanded', String(open));
+		// lock scroll when open
+		document.documentElement.style.overflow = open ? 'hidden' : '';
+		document.body.style.overflow = open ? 'hidden' : '';
+	};
+
+	const onScroll = () => {
+		if (!header) return;
+		if (window.scrollY > 8) header.classList.add('scrolled');
+		else header.classList.remove('scrolled');
+	};
+
+	onScroll();
+	window.addEventListener('scroll', onScroll, { passive: true });
+	if (toggle) toggle.addEventListener('click', () => setOpen(true));
+	if (closeBtn) closeBtn.addEventListener('click', () => setOpen(false));
+	if (backdrop) backdrop.addEventListener('click', () => setOpen(false));
+
+	// Close on ESC
+	window.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') setOpen(false);
+	});
+</script> 

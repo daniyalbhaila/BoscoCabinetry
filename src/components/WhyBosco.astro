@@ -1,0 +1,86 @@
+---
+import Sparkles from './icons/Sparkles.astro';
+import Trophy from './icons/Trophy.astro';
+import Building from './icons/Building.astro';
+import Wrench from './icons/Wrench.astro';
+
+interface DifferentiatorItem {
+	title: string;
+	description: string;
+	iconKey: string;
+}
+
+const differentiators: DifferentiatorItem[] = [
+	{
+		title: 'Affordable Luxury',
+		description: 'Premium quality without the luxury price tag. Beautiful custom cabinetry that fits your budget.',
+		iconKey: 'sparkles'
+	},
+	{
+		title: '20+ Years Experience',
+		description: 'Two decades of expertise in custom cabinetry design and installation across Toronto.',
+		iconKey: 'trophy'
+	},
+	{
+		title: '5,500 sq ft Showroom',
+		description: 'Explore our massive North York showroom featuring 100+ finishes and complete kitchen displays.',
+		iconKey: 'building'
+	},
+	{
+		title: 'Full-Service Experience',
+		description: 'From initial design consultation to final installation - we handle every step of your project.',
+		iconKey: 'wrench'
+	}
+];
+---
+ <section id="why-bosco" class="relative isolate bg-white min-h-screen flex items-center">
+    <div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+	<!-- Header -->
+		<div class="mx-auto max-w-3xl text-center mb-16">
+			<p class="text-[11px] uppercase tracking-[0.2em] text-brand-primary/60 mb-4">[Why Choose Bosco]</p>
+			<h2 class="text-3xl font-semibold tracking-tight text-brand-charcoal sm:text-4xl md:text-5xl mb-6">
+				What Makes Us Different
+			</h2>
+			<p class="text-lg text-brand-darkGray/80">
+				We've been perfecting the art of custom cabinetry for over two decades, delivering luxury results at affordable prices.
+			</p>
+		</div>
+
+		<!-- Differentiators Grid -->
+		<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+			{differentiators.map((item, i) => (
+				<div class="group relative">
+					<div class="rounded-2xl border border-brand-accent/30 bg-gradient-to-b from-white to-brand-accent/5 p-8 transition-all duration-300 hover:border-brand-primary/30 hover:shadow-lg">
+						<div class="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-brand-primary/10">
+							{item.iconKey === 'sparkles' && (
+								<Sparkles class="h-8 w-8 text-brand-primary" />
+							)}
+							{item.iconKey === 'trophy' && (
+								<Trophy class="h-8 w-8 text-brand-primary" />
+							)}
+							{item.iconKey === 'building' && (
+								<Building class="h-8 w-8 text-brand-primary" />
+							)}
+							{item.iconKey === 'wrench' && (
+								<Wrench class="h-8 w-8 text-brand-primary" />
+							)}
+						</div>
+						<h3 class="mb-4 text-xl font-semibold text-brand-charcoal">
+							{item.title}
+						</h3>
+						<p class="text-brand-darkGray/75 leading-relaxed">
+							{item.description}
+						</p>
+					</div>
+				</div>
+			))}
+		</div>
+
+		<!-- Bottom CTA -->
+		<div class="mt-16 text-center">
+			<a href="#book-consult" class="btn btn-primary px-8 py-3">
+				Experience the Bosco Difference
+			</a>
+		</div>
+	</div>
+</section>

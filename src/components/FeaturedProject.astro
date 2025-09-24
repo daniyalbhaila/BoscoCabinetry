@@ -1,0 +1,105 @@
+---
+// Featured Project with side-by-side layout
+---
+<section id="featured-project" class="relative isolate bg-brand-charcoal min-h-screen flex items-center">
+	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+		<!-- Header -->
+		<div class="mx-auto max-w-4xl text-center mb-16">
+			<p class="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-4">[Featured Project]</p>
+			<h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
+				Recent Renovation: Mississauga Full Home Remodel
+			</h2>
+		</div>
+
+		<!-- Side-by-Side Content -->
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+			<!-- Video Container -->
+			<div class="order-2 lg:order-1">
+				<div class="relative overflow-hidden rounded-2xl border border-brand-darkGray/40 bg-gradient-to-b from-white/5 to-white/2">
+					<div class="aspect-video w-full">
+						<iframe
+							width="100%"
+							height="100%"
+							src="https://www.youtube.com/embed/emMMuda6j1k"
+							title="Mississauga Full Home Remodel - Bosco Cabinetry"
+							frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allowfullscreen
+							loading="lazy"
+							class="h-full w-full rounded-2xl"
+						>
+						</iframe>
+					</div>
+				</div>
+			</div>
+
+			<!-- Project Description -->
+			<div class="order-1 lg:order-2">
+				<div class="space-y-6">
+					<!-- Preview Text (Always Visible) -->
+					<p class="text-lg text-white/90 leading-relaxed">
+						This stunning Toronto home renovation showcases 2,100+ sq ft of expertly crafted custom kitchen cabinets and built-in storage solutions. Our team delivered a complete kitchen remodel featuring premium quartz countertops, custom cabinetry with undermount lighting, and a show-stopping double waterfall island that serves as the centerpiece of this modern family home.
+					</p>
+
+					<!-- Expandable Content -->
+					<div id="expandable-content" class="hidden space-y-6">
+						<p class="text-lg text-white/90 leading-relaxed">
+							This full home renovation included custom built-in closets for every bedroom, creating seamless storage solutions that maximize space and functionality. Our custom millwork extends throughout the main living areas, including a bespoke feature wall with integrated electric fireplace and entertainment center, complemented by natural red oak hardwood flooring throughout.
+						</p>
+
+						<p class="text-lg text-white/90 leading-relaxed">
+							From the versatile basement apartment kitchen renovation to sophisticated bathroom vanities and built-in storage throughout multiple levels, this project demonstrates our expertise in residential cabinetry and custom home renovations. Every detail reflects Bosco Cabinetry's commitment to quality craftsmanship and functional design that transforms houses into dream homes.
+						</p>
+					</div>
+
+					<!-- Read More Button -->
+					<button
+						class="read-more-btn inline-flex items-center text-brand-accent hover:text-white transition-colors duration-200 font-medium"
+						data-target="expandable-content"
+					>
+						<span class="read-more-text">Read More</span>
+						<svg class="read-more-icon ml-1 w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</button>
+
+					<!-- CTA Button -->
+					<div class="pt-4">
+						<a href="#portfolio" class="inline-flex items-center px-6 py-3 bg-brand-primary text-white font-medium rounded-lg hover:bg-brand-primary/90 transition-colors duration-200">
+							View More Projects
+							<svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		// Reusable read more functionality
+		document.querySelectorAll('.read-more-btn').forEach(button => {
+			button.addEventListener('click', function() {
+				const targetId = this.getAttribute('data-target');
+				const content = document.getElementById(targetId);
+				const text = this.querySelector('.read-more-text');
+				const icon = this.querySelector('.read-more-icon');
+
+				if (content && content.classList.contains('hidden')) {
+					// Show content
+					content.classList.remove('hidden');
+					text.textContent = 'Read Less';
+					icon.classList.add('rotate-180');
+				} else if (content) {
+					// Hide content
+					content.classList.add('hidden');
+					text.textContent = 'Read More';
+					icon.classList.remove('rotate-180');
+				}
+			});
+		});
+	});
+</script>

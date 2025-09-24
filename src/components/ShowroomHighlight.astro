@@ -1,0 +1,82 @@
+---
+// Showroom Highlight with 360° Virtual Tour
+import Palette from './icons/Palette.astro';
+import House from './icons/House.astro';
+import Users from './icons/Users.astro';
+import MapPin from './icons/MapPin.astro';
+---
+<section id="showroom" class="relative isolate bg-white min-h-screen flex items-center">
+	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+		<!-- Header -->
+		<div class="mx-auto max-w-4xl text-center mb-12">
+			<p class="text-[11px] uppercase tracking-[0.2em] text-brand-primary/60 mb-4">[Virtual Showroom]</p>
+			<h2 class="text-3xl font-semibold tracking-tight text-brand-charcoal sm:text-4xl md:text-5xl mb-6">
+				Explore Our 5,500 sq ft North York Showroom
+			</h2>
+			<p class="text-lg text-brand-darkGray/80">
+				Walk through our space virtually, then come see it in person. Experience 100+ finishes and complete kitchen displays.
+			</p>
+		</div>
+
+		<!-- Virtual Tour Container -->
+		<div class="mx-auto max-w-6xl">
+			<div class="relative overflow-hidden rounded-2xl border border-brand-accent/30 bg-gradient-to-b from-brand-accent/5 to-white shadow-xl">
+				<div class="aspect-video w-full bg-brand-accent/10">
+					<!-- Kuula 360° Tour Embed -->
+					<div id="kuula-embed" class="h-full w-full rounded-2xl">
+						<iframe
+							src="https://kuula.co/share/collection/71zCg?logo=-1&info=0&fs=1&vr=1&zoom=1&autop=10&thumbs=2"
+							title="Bosco Cabinetry 5,500 sq ft North York Showroom Virtual Tour"
+							width="100%"
+							height="640"
+							frameborder="0"
+							allowfullscreen
+							loading="lazy"
+							class="h-full w-full rounded-2xl"
+						>
+						</iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Features Grid -->
+		<div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
+			<div class="text-center">
+				<div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-primary/10">
+					<Palette class="h-6 w-6 text-brand-primary" />
+				</div>
+				<h3 class="mb-2 text-lg font-semibold text-brand-charcoal">100+ Finishes</h3>
+				<p class="text-sm text-brand-darkGray/75">Explore our extensive collection of cabinet finishes and hardware options.</p>
+			</div>
+			<div class="text-center">
+				<div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-primary/10">
+					<House class="h-6 w-6 text-brand-primary" />
+				</div>
+				<h3 class="mb-2 text-lg font-semibold text-brand-charcoal">Complete Displays</h3>
+				<p class="text-sm text-brand-darkGray/75">See full kitchen setups and built-in solutions in our showroom displays.</p>
+			</div>
+			<div class="text-center">
+				<div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-primary/10">
+					<Users class="h-6 w-6 text-brand-primary" />
+				</div>
+				<h3 class="mb-2 text-lg font-semibold text-brand-charcoal">Expert Consultation</h3>
+				<p class="text-sm text-brand-darkGray/75">Meet with our design experts to plan your perfect custom solution.</p>
+			</div>
+		</div>
+
+		<!-- Bottom CTA -->
+		<div class="mt-16 text-center">
+			<div class="mb-6">
+				<p class="text-brand-darkGray/80 mb-6">Ready to see our showroom in person?</p>
+				<a href="#book-showroom" class="btn btn-primary px-8 py-3 mr-4">
+					Book Your Showroom Tour
+				</a>
+				<a href="#directions" class="inline-flex items-center gap-2 text-brand-primary hover:text-brand-primary/80 font-medium">
+					<MapPin class="h-4 w-4" />
+					Get Directions
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
