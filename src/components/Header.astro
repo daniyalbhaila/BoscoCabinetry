@@ -1,4 +1,10 @@
 ---
+import Button from './ui/Button.astro';
+import { primaryNavigation, servicesNavigation, getCurrentPage, isActiveNavItem } from '../content/navigation';
+
+// Get current page for active states
+const currentPath = Astro.url.pathname;
+const currentPage = getCurrentPage(currentPath);
 ---
 <header id="cs-navigation">
   <div class="cs-container">
@@ -15,22 +21,33 @@
       </button>
       <div class="cs-ul-wrapper">
         <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
-          <li class="cs-li">
-            <a href="#services" class="cs-li-link">Services</a>
-          </li>
-          <li class="cs-li">
-            <a href="#about" class="cs-li-link">About</a>
-          </li>
-          <li class="cs-li">
-            <a href="#portfolio" class="cs-li-link">Portfolio</a>
-          </li>
-          <li class="cs-li">
-            <a href="#contact" class="cs-li-link">Contact Us</a>
-          </li>
+          {primaryNavigation.map((item) => (
+            <li class="cs-li" data-dropdown={item.hasDropdown ? 'true' : 'false'}>
+              <a
+                href={item.href}
+                class={`cs-li-link ${isActiveNavItem(item.slug, currentPath) ? 'cs-active' : ''}`}
+                aria-haspopup={item.hasDropdown ? 'true' : 'false'}
+              >
+                {item.label}
+                {item.hasDropdown && <span class="cs-dropdown-arrow" aria-hidden="true">▼</span>}
+              </a>
+              {item.hasDropdown && (
+                <ul class="cs-dropdown" aria-label="Services submenu">
+                  {servicesNavigation.map((service) => (
+                    <li class="cs-dropdown-li">
+                      <a href={service.href} class="cs-dropdown-link">
+                        {service.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
-    <a href="#contact" class="btn btn-primary cs-nav-button">Get in Touch</a>
+    <Button href="/contact" variant="primary" class="cs-nav-button">Get in Touch</Button>
   </div>
 </header>
 
@@ -102,9 +119,7 @@
     align-items: center;
   }
   #cs-navigation .cs-logo {
-    width: 40%;
-    max-width: 13rem;
-    max-height: 4rem;
+    width: 120px;
     height: 100%;
     margin: 0 auto 0 0;
     box-sizing: border-box;
@@ -258,6 +273,48 @@
   #cs-navigation .cs-nav-button {
     display: none;
   }
+
+  /* Dropdown styles for mobile */
+  #cs-navigation .cs-dropdown-arrow {
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+  }
+
+  #cs-navigation .cs-dropdown {
+    list-style: none;
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+  }
+
+  #cs-navigation .cs-dropdown-li {
+    margin: 0;
+  }
+
+  #cs-navigation .cs-dropdown-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--headerColor);
+    text-decoration: none;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    font-weight: 500;
+    text-transform: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+  }
+
+  #cs-navigation .cs-dropdown-link:hover {
+    background-color: var(--primary);
+    color: var(--headerColor);
+  }
+
+  #cs-navigation .cs-dropdown-li:last-child .cs-dropdown-link {
+    border-bottom: none;
+  }
 }
 
 /* Desktop - 1024px */
@@ -304,8 +361,7 @@
     display: none;
   }
   #cs-navigation .cs-logo {
-    width: 18.4%;
-    max-width: 17rem;
+    width: 120px;
     height: 4.0625rem;
     margin: 0 auto 0 0;
     padding: 0;
@@ -334,6 +390,7 @@
     flex: none;
     text-transform: uppercase;
     font-weight: bold;
+    position: relative;
   }
   #cs-navigation .cs-li-link {
     font-size: clamp(0.875rem, 1vw, 1rem);
@@ -361,6 +418,62 @@
     bottom: 0rem;
     left: 0;
     transition: width 0.3s;
+  }
+
+  /* Desktop dropdown styles */
+  #cs-navigation .cs-dropdown-arrow {
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+  }
+
+  #cs-navigation .cs-li:hover .cs-dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  #cs-navigation .cs-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+
+  #cs-navigation .cs-li:hover .cs-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  #cs-navigation .cs-dropdown-li {
+    margin: 0;
+  }
+
+  #cs-navigation .cs-dropdown-link {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--headerColor);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: none;
+    transition: background-color 0.2s ease;
+    border: none;
+  }
+
+  #cs-navigation .cs-dropdown-link:hover {
+    background-color: var(--primary);
+    color: var(--headerColor);
   }
 }
 

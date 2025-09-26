@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ContentGrid from '../components/ContentGrid.astro';
+import Reviews from '../components/Reviews.astro';
+import ContactUs from '../components/ContactUs.astro';
+import { companyInfo, companyDescriptions } from '../content/shared';
+
+const companyStats = [
+  {
+    title: "20+ Years",
+    description: "Of experience in custom cabinetry"
+  },
+  {
+    title: "5,500 sq ft",
+    description: "Showroom in North York"
+  },
+  {
+    title: "100+ Finishes",
+    description: "Available for your project"
+  },
+  {
+    title: "4.9/5 Stars",
+    description: "From 200+ verified reviews"
+  }
+];
+
+const teamValues = [
+  {
+    title: "Quality Craftsmanship",
+    description: "We take pride in every detail, ensuring each piece meets our exacting standards for quality and durability."
+  },
+  {
+    title: "Personalized Service",
+    description: "Every client receives individual attention and customized solutions tailored to their specific needs."
+  },
+  {
+    title: "Timely Delivery",
+    description: "We respect your time and deliver projects on schedule with clear communication throughout the process."
+  },
+  {
+    title: "Fair Pricing",
+    description: "Luxury without the luxury price tag. We provide exceptional value for premium custom cabinetry."
+  }
+];
+---
+
+<BaseLayout title="About Us - Bosco Cabinetry" description="Learn about Bosco Cabinetry's 20+ years of experience creating custom kitchen cabinets, closets, and built-ins in Toronto. Visit our 5,500 sq ft North York showroom.">
+
+  <Hero
+    title="About Bosco Cabinetry"
+    subtitle="For over 20 years, we've been creating beautiful, functional custom cabinetry for homes throughout the Greater Toronto Area. Discover our commitment to quality, craftsmanship, and customer satisfaction."
+    backgroundImage="/images/about-hero.jpg"
+    theme="dark"
+    size="large"
+    showCTA={true}
+    ctaText="Visit Our Showroom"
+    ctaHref="/contact"
+  />
+
+  <SectionWrapper theme="light" id="our-story">
+    <div class="max-w-4xl mx-auto">
+      <SectionHeader
+        tag="Our Story"
+        title="Two Decades of Excellence"
+        description="Founded with a passion for creating exceptional custom cabinetry, Bosco Cabinetry has grown from a small workshop to the GTA's trusted name in custom storage solutions."
+        layout="center"
+        theme="light"
+      />
+
+      <div class="prose prose-lg mx-auto text-center">
+        <p>What started as a dream to create beautiful, functional cabinetry has evolved into a thriving business built on quality craftsmanship and satisfied customers. Our team combines traditional woodworking techniques with modern design principles to create pieces that are both timeless and contemporary.</p>
+
+        <p>Based in North York, our 5,500 square foot showroom showcases over 100 different finishes and styles, allowing you to see and feel the quality of our work before making decisions for your home. We believe in transparency, quality, and delivering exactly what we promise.</p>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <SectionWrapper theme="dark" id="company-stats">
+    <SectionHeader
+      tag="By The Numbers"
+      title="Proven Experience"
+      description="Our track record speaks for itself. Here's what two decades of dedication to excellence looks like."
+      layout="center"
+      theme="dark"
+    />
+
+    <ContentGrid
+      items={companyStats}
+      variant="stats"
+      columns={4}
+    />
+  </SectionWrapper>
+
+  <SectionWrapper theme="light" id="our-values">
+    <SectionHeader
+      tag="Our Values"
+      title="What Drives Us"
+      description="These core values guide everything we do, from initial consultation to final installation."
+      layout="center"
+      theme="light"
+    />
+
+    <ContentGrid
+      items={teamValues}
+      variant="features"
+      columns={2}
+      gap="large"
+    />
+  </SectionWrapper>
+
+  <SectionWrapper theme="light" id="showroom-info">
+    <div class="max-w-4xl mx-auto">
+      <SectionHeader
+        tag="Visit Us"
+        title="Experience Our Showroom"
+        description="See our craftsmanship up close in our expansive North York showroom."
+        layout="center"
+        theme="light"
+      />
+
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-2xl font-bold text-brand-primary mb-4">5,500 sq ft of Inspiration</h3>
+          <p class="text-lg mb-6">Our showroom features full kitchen displays, closet systems, and bathroom vanities showcasing the range of styles and finishes available. Touch and feel the quality of our materials and see examples of our craftsmanship.</p>
+
+          <div class="space-y-2 text-brand-primary">
+            <p><strong>Address:</strong> {companyInfo.location.address.full}</p>
+            <p><strong>Hours:</strong></p>
+            <ul class="ml-4 space-y-1">
+              <li>{companyInfo.hours.display.weekdays}</li>
+              <li>{companyInfo.hours.display.saturday}</li>
+              <li>{companyInfo.hours.display.sunday}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-brand-accent/20 p-6 rounded-2xl">
+          <h4 class="text-xl font-semibold mb-4">Book Your Visit</h4>
+          <p class="mb-4">Schedule a showroom appointment to discuss your project with our design team.</p>
+          <a href="/contact" class="inline-block bg-brand-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-primary/90 transition-colors">
+            Schedule Appointment
+          </a>
+        </div>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <Reviews />
+
+  <ContactUs />
+
+</BaseLayout>

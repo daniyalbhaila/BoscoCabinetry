@@ -20,16 +20,17 @@ npm run format
 
 ## Architecture Overview
 
-This is an Astro-based website for Bosco Cabinetry with the following structure:
+This is an Astro-based website for Bosco Cabinetry with a **componentized architecture** designed to support 30+ pages efficiently:
 
 - **Framework**: Astro 4.x with React and Tailwind CSS integration
 - **UI Components**: shadcn/ui integrated for reusable components and blocks
 - **Animations**: Framer Motion for smooth animations and transitions
 - **Styling**: Tailwind CSS with custom brand color palette and Poppins font
-- **Layout Pattern**: Component-based architecture using .astro files
+- **Architecture Pattern**: Building blocks system with reusable components
 - **Main Layout**: `src/layouts/BaseLayout.astro` - provides base HTML structure with header
-- **Components**: Modular components in `src/components/` (Header, Hero, Services)
-- **Pages**: Single page application with main page at `src/pages/index.astro`
+- **Components**: Modular component library in `src/components/` using building blocks pattern
+- **Content Management**: Centralized content in `src/content/shared.ts` for consistency
+- **Pages**: Scalable page system using component composition
 
 ## Brand Design System
 
@@ -92,22 +93,69 @@ import { motion } from 'framer-motion'
 - **Performance**: Consider `client:visible` for scroll-triggered animations
 - **Brand Animations**: Can be combined with custom brand colors and shadcn/ui components
 
+## Building Blocks Architecture
+
+This project uses a **building blocks** approach for maximum reusability and maintainability:
+
+### Core Building Blocks (Phase 1 ✅ Complete)
+- **`Hero.astro`** - Universal hero section with flexible themes, sizes, and CTAs
+- **`SectionWrapper.astro`** - Consistent spacing, backgrounds, and container widths
+- **`SectionHeader.astro`** - Standardized section titles with center/split layouts
+- **`ContentGrid.astro`** - Flexible grid system for services/features/reviews
+
+### Component Categories
+- **Layout Components**: `SectionWrapper`, `SectionHeader` - structural elements
+- **Content Components**: `ContentGrid`, `Hero` - flexible content presentation
+- **Section Components**: `ContactUs`, `FAQSection`, `ProcessSection` - full page sections
+- **UI Components**: `src/components/ui/` - shadcn/ui design system components
+- **Icon Components**: `src/components/icons/` - local SVG icon library
+
+### Development Speed Impact
+- **Before**: 4+ hours per new page (copy-paste-modify approach)
+- **After**: 30 minutes per new page (component assembly)
+- **Break-even**: After 6 pages built with new system
+
 ## File Organization
 
 ```
 src/
 ├── layouts/BaseLayout.astro    # Main layout wrapper
-├── pages/index.astro          # Homepage
-├── components/               # Reusable components
-│   ├── Header.astro
-│   ├── Hero.astro
-│   ├── Services.astro
-│   ├── motion/               # Animated React components
-│   └── ui/                   # shadcn/ui components (auto-generated)
+├── pages/index.astro          # Homepage (demonstrates building blocks usage)
+├── components/               # Component library
+│   ├── Hero.astro           # ✅ Universal hero (enhanced)
+│   ├── SectionWrapper.astro # ✅ Layout container
+│   ├── SectionHeader.astro  # ✅ Section titles
+│   ├── ContentGrid.astro    # ✅ Flexible grid system
+│   ├── ContactUs.astro      # Full contact section
+│   ├── FAQSection.astro     # Accordion FAQ component
+│   ├── ProcessSection.astro # Process steps component
+│   ├── Header.astro         # Site navigation
+│   ├── ui/                  # shadcn/ui components (auto-generated)
+│   └── icons/               # Local SVG icon components
+├── content/                  # Content and data management
+│   ├── shared.ts            # Company info, contact details, shared data
+│   └── pages/               # Page-specific content files
 ├── lib/
 │   └── utils.ts             # Utility functions (cn helper)
 └── styles/global.css         # Global styles and Tailwind imports
 ```
+
+## Content Management
+
+**Shared Company Information**: All reusable company data (contact info, addresses, business hours, project types, timelines) is centralized in `src/content/shared.ts`:
+
+```typescript
+import { companyInfo, companyDescriptions } from '../content/shared.ts';
+
+// Access company data
+companyInfo.contact.phone.display    // "(416) 123-4567"
+companyInfo.location.address.full    // "123 Industrial Road, North York, ON M3J 2K9"
+companyInfo.timelines.total          // "4-6 weeks from approval"
+companyInfo.projectTypes             // Array of project type options
+companyDescriptions.contact          // Contact section description
+```
+
+This ensures consistency across all components and makes updates easier when company information changes.
 
 ## Development Notes
 
@@ -126,7 +174,474 @@ src/
 
 ## Design Guidelines
 
-- **No Emojis**: NEVER use emojis in any component or text. Always use Lucide React icons instead for visual elements
-- **Icons**: Use Lucide React icons (imported from `lucide-react`) for all iconography needs
-- **Consistency**: Maintain visual consistency by using proper icon components rather than emoji characters
+- **No Emojis**: NEVER use emojis in any component or text. Always use local SVG icon components instead for visual elements
+- **Icons**: Use local SVG icon components from `src/components/icons/` for all iconography needs
+- **Icon Creation Process**:
+  1. Check [Lucide GitHub repo](https://github.com/lucide-icons/lucide/tree/main/icons) for the icon file name (uses kebab-case like `chevron-down.svg`)
+  2. Download the SVG using curl:
+     ```bash
+     curl -s https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/{icon-name}.svg
+     ```
+  3. Create a new `.astro` file in `src/components/icons/` using PascalCase (e.g., `ChevronDown.astro`)
+  4. Use this template structure:
+  ```astro
+  ---
+  const { class: className, ...props } = Astro.props;
+  ---
+  <svg
+      class={className}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      {...props}
+  >
+      <!-- Copy path/rect/circle elements from curl output here -->
+  </svg>
+  ```
+
+  5. Import and use: `import ChevronDown from './icons/ChevronDown.astro';`
+- **Icon Standards**: All icons should be 24x24 viewBox, use `currentColor` for stroke, and accept className props
+- **Consistency**: Maintain visual consistency by using proper local icon components rather than emoji characters or external libraries
 - **Screenshots**: Prefer using the screenshot-website-fast MCP tool over Playwright for screenshots
+
+## Component Development Workflow
+
+**IMPORTANT**: This project uses a building blocks architecture to support 30+ pages efficiently.
+
+### Development Process
+1. **Check `BUILDING_BLOCKS.md` first** - See documented components and their props
+2. **Reference `COMPONENTIZATION_PLAN.md`** - Follow the phased implementation plan
+3. **Use building blocks** - Compose new sections from existing building blocks
+4. **Update documentation** - Add new components to `BUILDING_BLOCKS.md` when created
+
+### Building Block Composition Pattern
+```astro
+<!-- RECOMMENDED: Use building blocks to create new sections -->
+<SectionWrapper theme="light" id="new-section">
+  <SectionHeader
+    tag="New Section"
+    title="Section Title"
+    description="Section description"
+    layout="center"
+    theme="light"
+  />
+  <ContentGrid
+    items={sectionData}
+    variant="features"
+  />
+</SectionWrapper>
+```
+
+### Component Creation Guidelines
+- **Prefer building blocks**: Use existing `SectionWrapper`, `SectionHeader`, `ContentGrid`
+- **Props-driven design**: All components accept props for customization
+- **Theme variants**: Support light/dark themes consistently
+- **Content from shared.ts**: Pull data from centralized content files
+- **TypeScript interfaces**: Define clear prop types for all components
+- **Performance first**: Prefer Astro components over React for static content
+
+### Quality Standards
+- **Responsive design**: Mobile-first approach with proper breakpoints
+- **Accessibility**: Proper ARIA labels and semantic HTML structure
+- **Brand consistency**: Use established brand colors and typography patterns
+- **DRY principle**: Avoid duplicating styles or functionality across components
+
+## Creating New Pages - DRY Architecture Guide
+
+**CRITICAL**: This website is built with a DRY (Don't Repeat Yourself) architecture supporting 30+ pages. ALWAYS reuse existing components and patterns.
+
+### 🔍 Before Creating ANY New Code - Check These Resources:
+
+1. **`src/components/`** - Full component library (building blocks, sections, UI components)
+2. **`src/content/shared.ts`** - Centralized company data (contact info, addresses, hours)
+3. **`BUILDING_BLOCKS.md`** - Complete building blocks documentation with props
+4. **`src/pages/index.astro`** - Reference implementation showing component composition
+5. **`src/styles/global.css`** - Unified design system (buttons, gradients, forms)
+
+### 🚫 What NOT to Create (Already Exists):
+
+- **Contact sections** → Use `ContactUs.astro`
+- **Hero sections** → Use `Hero.astro` with props
+- **FAQ sections** → Use `FAQSection.astro`
+- **Process/steps** → Use `ProcessSection.astro`
+- **Feature grids** → Use `ContentGrid.astro` variant="features"
+- **Service lists** → Use `ContentGrid.astro` variant="services"
+- **Review sections** → Use `Reviews.astro` or `ContentGrid.astro` variant="reviews"
+- **CTA sections** → Use existing CTA patterns or `SectionWrapper` + `Button.astro`
+- **Form components** → Use utility classes: `.form-input-light`, `.form-input-dark`
+- **Button components** → Use `Button.astro` (supports all variants)
+
+### ✅ New Page Creation Pattern:
+
+```astro
+---
+// src/pages/new-page.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ContentGrid from '../components/ContentGrid.astro';
+import ContactUs from '../components/ContactUs.astro';
+import { companyInfo } from '../content/shared.ts';
+
+// Page-specific data (keep minimal - most data should come from shared.ts)
+const pageData = {
+  hero: {
+    title: "New Page Title",
+    subtitle: "Page description using brand voice",
+    backgroundImage: "/images/page-bg.jpg"
+  },
+  features: [
+    // Only create new data if it's truly page-specific
+    // Otherwise, reference companyInfo or shared content
+  ]
+};
+---
+
+<BaseLayout title="New Page - Bosco Cabinetry">
+  <!-- Hero - Always use Hero.astro -->
+  <Hero
+    title={pageData.hero.title}
+    subtitle={pageData.hero.subtitle}
+    backgroundImage={pageData.hero.backgroundImage}
+    theme="dark"
+    size="large"
+    showCTA={true}
+  />
+
+  <!-- Content sections - Use building blocks -->
+  <SectionWrapper theme="light" id="content">
+    <SectionHeader
+      tag="Section Tag"
+      title="Section Title"
+      description="Section description"
+      layout="center"
+      theme="light"
+    />
+    <ContentGrid
+      items={pageData.features}
+      variant="features"
+    />
+  </SectionWrapper>
+
+  <!-- Contact - Always reuse ContactUs.astro -->
+  <ContactUs />
+</BaseLayout>
+```
+
+### 🎯 Page Type Patterns:
+
+#### Service Pages
+```astro
+<!-- Use Hero + ContentGrid(services) + ProcessSection + ContactUs -->
+<Hero theme="dark" size="large" />
+<ContentGrid variant="services" />
+<ProcessSection />
+<ContactUs />
+```
+
+#### About/Company Pages
+```astro
+<!-- Use Hero + ContentGrid(features) + Stats + Reviews + ContactUs -->
+<Hero theme="light" size="medium" />
+<ContentGrid variant="features" />
+<Reviews />
+<ContactUs />
+```
+
+#### Portfolio/Gallery Pages
+```astro
+<!-- Use Hero + ProjectGallery + FeaturedProject + ContactUs -->
+<Hero theme="dark" size="small" />
+<ProjectGallery />
+<FeaturedProject />
+<ContactUs />
+```
+
+### 📊 Content Strategy:
+
+#### Use Shared Content (src/content/shared.ts):
+```typescript
+// ✅ GOOD - Reference shared data
+import { companyInfo, companyDescriptions } from '../content/shared.ts';
+
+const pageContent = {
+  contact: companyInfo.contact,
+  businessHours: companyInfo.hours,
+  serviceAreas: companyInfo.serviceAreas,
+  description: companyDescriptions.services
+};
+```
+
+#### Avoid Duplicating Data:
+```typescript
+// ❌ BAD - Don't hardcode what's already in shared.ts
+const pageContent = {
+  phone: "(416) 123-4567",  // Already in companyInfo.contact.phone
+  address: "123 Industrial Road",  // Already in companyInfo.location
+  hours: "Mon-Fri 9-6"  // Already in companyInfo.hours
+};
+```
+
+### 🎨 Design System Usage:
+
+#### Use Existing Design Patterns:
+```astro
+<!-- ✅ GOOD - Use established patterns -->
+<div class="gradient-card-light border border-brand-accent/40 rounded-2xl p-8">
+  <Button variant="primary" size="lg">Call to Action</Button>
+</div>
+
+<!-- ❌ BAD - Don't create custom styling -->
+<div style="background: linear-gradient(...); border: 1px solid #DAD2BF40; ...">
+  <a class="custom-button">Call to Action</a>
+</div>
+```
+
+#### Form Components:
+```astro
+<!-- ✅ GOOD - Use utility classes -->
+<input class="form-input-light" type="text" placeholder="Name" />
+<select class="form-select-dark">
+  <option>Option</option>
+</select>
+
+<!-- ❌ BAD - Don't create custom form styling -->
+<input style="padding: 12px; border: 1px solid #ccc; ..." />
+```
+
+### 📋 New Page Checklist:
+
+1. **✅ Review existing components** - Check `src/components/` for reusable parts
+2. **✅ Use shared content** - Import from `src/content/shared.ts`
+3. **✅ Follow building blocks pattern** - Use `SectionWrapper`, `SectionHeader`, `ContentGrid`
+4. **✅ Reuse design system** - Use `.btn`, gradient utilities, form classes
+5. **✅ Include required sections** - Hero, content sections, ContactUs
+6. **✅ Test responsive design** - Ensure mobile-first approach
+7. **✅ Verify accessibility** - Proper headings, ARIA labels
+8. **✅ Update documentation** - Add new components to `BUILDING_BLOCKS.md`
+
+### 🚀 Development Speed Impact:
+- **With DRY approach**: 30 minutes per new page
+- **Without DRY approach**: 4+ hours per page
+- **Break-even point**: After 6 pages, the DRY architecture saves significant time
+
+### 📝 Remember:
+- **Components exist for a reason** - Don't recreate what's already built
+- **Shared content prevents errors** - One source of truth for company info
+- **Building blocks scale** - Proven pattern for 30+ page websites
+- **Consistency is key** - Users expect consistent experiences across pages
+
+## Navigation & Internal Linking Guidelines
+
+**CRITICAL**: This website uses a structured navigation system supporting 30+ pages. Follow these guidelines for all new pages and navigation updates.
+
+### 🧭 Navigation Architecture
+
+#### Primary Navigation Structure (Main Header)
+**KEEP FOCUSED** - Only 5 core items in main navigation:
+1. **Home** (`/`)
+2. **Services** (`/services`) - *with dropdown*
+3. **Portfolio** (`/portfolio`)
+4. **About** (`/about`)
+5. **Contact** (`/contact`)
+
+#### Services Dropdown (Conversion-Focused)
+**AUTO-GENERATED** from `companyInfo.projectTypes`:
+- Kitchen Cabinets (`/services/kitchen-cabinets`)
+- Closet Systems (`/services/closet-systems`)
+- Bathroom Vanities (`/services/bathroom-vanities`)
+- Built-in Units (`/services/built-ins`)
+- View All Services (`/services`)
+
+#### Footer Navigation (SEO-Focused)
+**COMPREHENSIVE LINKING** - All pages accessible via footer sections:
+- **Services Section**: All service types and combinations
+- **Service Areas**: All 8 cities from `companyInfo.serviceAreas`
+- **Company Pages**: About, Process, Showroom, Reviews, Blog
+- **Contact Section**: Contact, Quote, Showroom Visit, Careers
+
+### 📄 Adding New Pages
+
+#### ✅ Pages That Should Be Added to Navigation:
+
+**Core Service Pages**:
+```astro
+// Add to services dropdown automatically
+src/pages/services/[service-type].astro
+```
+
+**Location-Specific Pages**:
+```astro
+// Add to footer "Service Areas" section
+src/pages/locations/[city].astro
+src/pages/services/[service]/[city].astro
+```
+
+**Company Pages**:
+```astro
+// Add to footer "Company" section
+src/pages/process.astro
+src/pages/showroom.astro
+src/pages/financing.astro
+```
+
+#### ❌ Pages That Should NOT Be in Main Navigation:
+
+- Individual location pages (Toronto, North York, etc.) - *Footer only*
+- Service+Location combinations - *Contextual linking*
+- Blog posts or case studies - *Footer or dedicated sections*
+- Legal pages (Privacy, Terms) - *Footer utility section*
+
+### 🔧 Navigation Implementation
+
+**IMPORTANT**: Follow the complete navigation implementation plan in `NAVIGATION_IMPLEMENTATION_PLAN.md` for technical details.
+
+#### Dynamic Navigation Configuration
+**File**: `src/content/navigation.ts` (to be created)
+```typescript
+import { companyInfo } from './shared.ts';
+
+export const navigation = {
+  primary: [...],           // 5 core items (Home, Services, Portfolio, About, Contact)
+  services: [...],          // Auto from companyInfo.projectTypes
+  footer: {
+    services: [...],        // Comprehensive service pages
+    locations: [...],       // All cities from companyInfo.serviceAreas
+    company: [...],         // About, Process, etc.
+    contact: [...]          // Contact variations
+  }
+}
+```
+
+#### Current Navigation Status
+- **Header navigation**: Currently uses hash links (#services, #about) - needs updating to page links
+- **Services dropdown**: Not yet implemented - will auto-generate from projectTypes
+- **Footer navigation**: Not yet implemented - will be comprehensive SEO sitemap
+
+#### Adding New Service Types
+1. **Update shared data**: Add to `companyInfo.projectTypes` in `shared.ts`
+2. **Navigation updates automatically**: Dropdown and footer generate from shared data
+3. **Create page**: Use service page template with building blocks
+4. **No manual nav updates needed**: System is fully dynamic
+
+#### Adding New Locations
+1. **Update shared data**: Add to `companyInfo.serviceAreas` in `shared.ts`
+2. **Footer updates automatically**: Service Areas section generates from shared data
+3. **Create location page**: Use location page template
+4. **Add contextual links**: Related services, nearby cities
+
+### 🎯 Internal Linking Strategy
+
+#### Homepage Internal Linking
+- **Service Areas section**: Links to all location pages
+- **Services section**: Links to main service category pages
+- **CTA buttons**: Primary conversion paths
+
+#### Service Pages Internal Linking
+- **Breadcrumbs**: Service category → Specific service
+- **Related services**: Cross-link between service types
+- **Location callouts**: "Also serving Toronto, North York..." with links
+- **Process links**: Link to process/consultation pages
+
+#### Location Pages Internal Linking
+- **Service showcase**: Link to service+location combinations
+- **Nearby areas**: Link to neighboring cities
+- **Main services**: Back-links to primary service pages
+
+#### Footer Comprehensive Linking
+- **Every page accessible**: Complete sitemap for SEO
+- **Organized by intent**: Services, locations, company info
+- **No clutter in main nav**: Clean user experience maintained
+
+### 📋 New Page Development Checklist
+
+#### Before Creating Any New Page:
+1. **✅ Determine navigation placement**: Main nav, dropdown, footer, or contextual only?
+2. **✅ Update shared data**: Add to `companyInfo` if it affects multiple pages
+3. **✅ Check existing components**: Use building blocks, don't recreate
+4. **✅ Plan internal linking**: How does this page connect to others?
+
+#### Page Creation Process:
+1. **✅ Create page file**: Use building blocks architecture
+2. **✅ Add to navigation config**: If it belongs in structured navigation
+3. **✅ Add contextual links**: From related pages back to this page
+4. **✅ Test navigation flow**: Ensure users can find and return from page
+
+#### SEO & Accessibility:
+1. **✅ Add breadcrumbs**: For deep pages (services/locations)
+2. **✅ Include related links**: Connect to similar/relevant pages
+3. **✅ Update sitemap**: If implementing XML sitemap
+4. **✅ Test mobile navigation**: Ensure dropdowns work on all devices
+
+### 🚫 Navigation Anti-Patterns
+
+#### DON'T Put These in Main Navigation:
+- **Location pages** - Use service area callouts and footer
+- **Every service variation** - Use dropdowns and contextual links
+- **Blog posts** - Use dedicated blog section or footer
+- **Legal pages** - Footer utility section only
+
+#### DON'T Create Manual Navigation:
+- **Hardcoded dropdowns** - Generate from shared data
+- **Duplicate link lists** - Single source of truth in navigation.ts
+- **Static footers** - Dynamic generation from company data
+
+#### DON'T Break User Experience:
+- **Too many main nav items** - 5 maximum for clean UX
+- **Deep nested menus** - 2 levels maximum in dropdowns
+- **Broken internal links** - Always test cross-page navigation
+
+### 📊 Navigation Success Metrics
+
+#### User Experience Goals:
+- **≤5 items** in primary navigation
+- **≤2 clicks** to reach any service page
+- **100% mobile friendly** dropdown menus
+- **Clear active states** showing current page
+
+#### SEO Goals:
+- **Every page accessible** via structured navigation
+- **Strategic internal linking** between related content
+- **Comprehensive footer** for complete site discovery
+- **Location/service cross-linking** for local SEO
+
+### 🔍 Quick Reference
+
+#### When Adding Service Pages:
+```astro
+// 1. Update shared.ts
+export const companyInfo = {
+  projectTypes: [
+    // ... existing items
+    { value: 'new-service', label: 'New Service Name' }
+  ]
+}
+
+// 2. Navigation updates automatically
+// 3. Create page using building blocks
+// 4. Add contextual internal links
+```
+
+#### When Adding Location Pages:
+```astro
+// 1. Update shared.ts
+export const companyInfo = {
+  serviceAreas: [
+    // ... existing areas
+    { city: 'New City', region: 'Region Name' }
+  ]
+}
+
+// 2. Footer navigation updates automatically
+// 3. Create page using location template
+// 4. Add to homepage service areas section
+```
+
+**See `NAVIGATION_IMPLEMENTATION_PLAN.md`** for complete technical implementation details and development tasks.
