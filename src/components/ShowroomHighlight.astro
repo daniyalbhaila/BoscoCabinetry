@@ -25,8 +25,8 @@ import showroomImage from '../assets/showroom.jpg';
 		<div class="mx-auto max-w-6xl">
 			<div class="relative overflow-hidden rounded-2xl border border-brand-darkGray/40 gradient-card-dark-strong shadow-xl">
 				<div class="aspect-video w-full bg-white/10 relative overflow-hidden">
-					<!-- Kuula 360° Tour Embed with Lazy Loading -->
-					<div id="kuula-embed" class="h-full w-full rounded-2xl" role="application" aria-label="360° Virtual Showroom Tour">
+					<!-- Desktop - Kuula 360° Tour Embed with Lazy Loading -->
+					<div id="kuula-embed" class="hidden md:block h-full w-full rounded-2xl" role="application" aria-label="360° Virtual Showroom Tour">
 						<!-- Lazy loading placeholder with background image -->
 						<div id="kuula-placeholder" class="h-full w-full rounded-2xl flex items-center justify-center cursor-pointer group relative overflow-hidden">
 							<!-- Background Image -->
@@ -57,7 +57,7 @@ import showroomImage from '../assets/showroom.jpg';
 								</div>
 							</div>
 						</div>
-						<!-- Actual iframe (loaded on intersection/click) -->
+						<!-- Actual iframe (loaded on click) -->
 						<iframe
 							id="kuula-iframe"
 							data-src="https://kuula.co/share/collection/71zCg?logo=-1&info=0&fs=1&vr=1&zoom=1&autop=10&thumbs=2"
@@ -72,6 +72,46 @@ import showroomImage from '../assets/showroom.jpg';
 						>
 							<p>Your browser does not support iframes. Please visit our showroom at our North York location to see our displays in person.</p>
 						</iframe>
+					</div>
+
+					<!-- Mobile - Direct Link -->
+					<div class="md:hidden h-full w-full rounded-2xl">
+						<a
+							href="https://kuula.co/share/collection/71zCg?logo=-1&info=0&fs=1&vr=1&zoom=1&autop=10&thumbs=2"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="block h-full w-full rounded-2xl cursor-pointer group relative overflow-hidden"
+						>
+							<!-- Background Image -->
+							<div class="absolute inset-0">
+								<Image
+									src={showroomImage}
+									alt="Bosco Cabinetry Showroom Interior"
+									class="w-full h-full object-cover"
+									widths={[400, 800, 1200]}
+									sizes="(max-width: 768px) 400px, (max-width: 1200px) 800px, 1200px"
+									loading="lazy"
+								/>
+								<!-- Dark overlay for text readability -->
+								<div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+							</div>
+
+							<!-- Content overlay -->
+							<div class="relative z-10 text-center flex items-center justify-center h-full">
+								<div>
+									<div class="mb-3 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+										<svg class="w-12 h-12 mx-auto text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+										</svg>
+									</div>
+									<h3 class="text-base font-semibold text-white mb-2 drop-shadow-lg">Load Virtual Showroom</h3>
+									<p class="text-xs text-white/90 mb-4 leading-relaxed drop-shadow-md max-w-xs mx-auto px-4">Click to explore our 5,500 sq ft showroom in 360°</p>
+									<div class="inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-medium bg-brand-primary text-brand-charcoal shadow-lg hover:bg-brand-primary/90 hover:shadow-xl transition-all duration-200 transform hover:scale-105">
+										<span class="whitespace-nowrap">Open Virtual Tour</span>
+									</div>
+								</div>
+							</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -124,28 +164,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	const kuulaIframe = document.getElementById('kuula-iframe');
 	let kuulaLoaded = false;
 
-	// Check if device is mobile
-	function isMobile() {
-		return window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-	}
-
-	// Get the virtual tour URL
-	function getVirtualTourUrl() {
-		return kuulaIframe ? kuulaIframe.getAttribute('data-src') : 'https://kuula.co/share/collection/71zCg?logo=-1&info=0&fs=1&vr=1&zoom=1&autop=10&thumbs=2';
-	}
-
 	function loadKuula() {
-		if (!kuulaIframe || !kuulaPlaceholder) return;
-
-		// On mobile: open in new tab instead of loading iframe
-		if (isMobile()) {
-			const tourUrl = getVirtualTourUrl();
-			window.open(tourUrl, '_blank', 'noopener,noreferrer');
-			return;
-		}
-
-		// On desktop: load iframe (YouTube-style behavior)
-		if (kuulaLoaded) return;
+		if (!kuulaIframe || !kuulaPlaceholder || kuulaLoaded) return;
 
 		kuulaLoaded = true;
 		const dataSrc = kuulaIframe.getAttribute('data-src');
@@ -160,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		kuulaIframe.focus();
 	}
 
-	// Click to load (YouTube-style - only on click, no auto-load)
+	// Desktop click-to-load behavior
 	if (kuulaPlaceholder) {
 		kuulaPlaceholder.addEventListener('click', loadKuula);
 
@@ -176,49 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		kuulaPlaceholder.setAttribute('tabindex', '0');
 		kuulaPlaceholder.setAttribute('role', 'button');
 		kuulaPlaceholder.setAttribute('aria-label', 'Load virtual showroom tour');
-
-		// Update button text for mobile
-		if (isMobile()) {
-			const buttonElement = kuulaPlaceholder.querySelector('.inline-flex');
-			if (buttonElement) {
-				buttonElement.innerHTML = `
-					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-					</svg>
-					Open Virtual Tour
-				`;
-			}
-		}
 	}
-
-	// Remove auto-loading behavior - YouTube-style means click-only
-	// No IntersectionObserver for auto-loading
 });
 </script>
 
-<style>
-/* Simple mobile adjustments */
-@media (max-width: 768px) {
-	#kuula-placeholder h3 {
-		font-size: 1rem;
-		margin-bottom: 0.5rem;
-	}
-
-	#kuula-placeholder p {
-		font-size: 0.875rem;
-		margin-bottom: 1rem;
-		padding: 0 1rem;
-	}
-
-	#kuula-placeholder svg {
-		width: 3rem;
-		height: 3rem;
-		margin-bottom: 0.75rem;
-	}
-
-	#kuula-placeholder .inline-flex {
-		padding: 0.5rem 1rem;
-		font-size: 0.875rem;
-	}
-}
-</style>
