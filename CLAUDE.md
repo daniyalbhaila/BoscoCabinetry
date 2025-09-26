@@ -208,7 +208,7 @@ This ensures consistency across all components and makes updates easier when com
   5. Import and use: `import ChevronDown from './icons/ChevronDown.astro';`
 - **Icon Standards**: All icons should be 24x24 viewBox, use `currentColor` for stroke, and accept className props
 - **Consistency**: Maintain visual consistency by using proper local icon components rather than emoji characters or external libraries
-- **Screenshots**: Prefer using the screenshot-website-fast MCP tool over Playwright for screenshots
+- **Screenshots**: AVOID using screenshots and Playwright unless absolutely necessary as they use too many tokens. Prefer using the screenshot-website-fast MCP tool over Playwright only when screenshots are essential
 
 ## Component Development Workflow
 
