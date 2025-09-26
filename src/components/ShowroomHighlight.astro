@@ -5,6 +5,8 @@ import House from './icons/House.astro';
 import Users from './icons/Users.astro';
 import MapPin from './icons/MapPin.astro';
 import Button from './ui/Button.astro';
+import { Image } from 'astro:assets';
+import showroomImage from '../../public/media/showroom/showroom.jpg';
 ---
 <section id="showroom" class="relative isolate bg-brand-charcoal min-h-screen flex items-center">
 	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
@@ -22,24 +24,36 @@ import Button from './ui/Button.astro';
 		<!-- Virtual Tour Container -->
 		<div class="mx-auto max-w-6xl">
 			<div class="relative overflow-hidden rounded-2xl border border-brand-darkGray/40 gradient-card-dark-strong shadow-xl">
-				<div class="aspect-video w-full bg-white/10">
+				<div class="aspect-video w-full bg-white/10 relative overflow-hidden">
 					<!-- Kuula 360° Tour Embed with Lazy Loading -->
 					<div id="kuula-embed" class="h-full w-full rounded-2xl" role="application" aria-label="360° Virtual Showroom Tour">
-						<!-- Lazy loading placeholder -->
-						<div id="kuula-placeholder" class="h-full w-full gradient-brand-accent rounded-2xl flex items-center justify-center cursor-pointer group">
-							<div class="text-center">
-								<div class="mb-4 opacity-60 group-hover:opacity-80 transition-opacity">
-									<svg class="w-16 h-16 mx-auto text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+						<!-- Lazy loading placeholder with background image -->
+						<div id="kuula-placeholder" class="h-full w-full rounded-2xl flex items-center justify-center cursor-pointer group relative overflow-hidden">
+							<!-- Background Image -->
+							<div class="absolute inset-0">
+								<Image
+									src={showroomImage}
+									alt="Bosco Cabinetry Showroom Interior"
+									class="w-full h-full object-cover"
+									widths={[400, 800, 1200]}
+									sizes="(max-width: 768px) 400px, (max-width: 1200px) 800px, 1200px"
+									loading="lazy"
+								/>
+								<!-- Dark overlay for text readability -->
+								<div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+							</div>
+
+							<!-- Content overlay -->
+							<div class="relative z-10 text-center">
+								<div class="mb-4 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+									<svg class="w-16 h-16 mx-auto text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
 									</svg>
 								</div>
-								<h3 class="text-lg font-semibold text-white mb-2">Load Virtual Showroom</h3>
-								<p class="text-sm text-white/80 mb-4 max-w-xs mx-auto">Click to explore our 5,500 sq ft showroom in 360°</p>
-								<div class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium bg-brand-primary text-brand-charcoal shadow hover:bg-brand-primary/90 transition-colors duration-200">
-									<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M19 10a9 9 0 11-18 0 9 9 0 0118 0z"/>
-									</svg>
-									Start Virtual Tour
+								<h3 class="text-xl font-semibold text-white mb-3 drop-shadow-lg">Load Virtual Showroom</h3>
+								<p class="text-sm text-white/90 mb-6 leading-relaxed drop-shadow-md max-w-xs mx-auto">Click to explore our 5,500 sq ft showroom in 360°</p>
+								<div class="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium bg-brand-primary text-brand-charcoal shadow-lg hover:bg-brand-primary/90 hover:shadow-xl transition-all duration-200 transform hover:scale-105">
+									<span class="whitespace-nowrap">Start Virtual Tour</span>
 								</div>
 							</div>
 						</div>
@@ -110,8 +124,28 @@ document.addEventListener('DOMContentLoaded', function() {
 	const kuulaIframe = document.getElementById('kuula-iframe');
 	let kuulaLoaded = false;
 
+	// Check if device is mobile
+	function isMobile() {
+		return window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+	}
+
+	// Get the virtual tour URL
+	function getVirtualTourUrl() {
+		return kuulaIframe ? kuulaIframe.getAttribute('data-src') : 'https://kuula.co/share/collection/71zCg?logo=-1&info=0&fs=1&vr=1&zoom=1&autop=10&thumbs=2';
+	}
+
 	function loadKuula() {
-		if (kuulaLoaded || !kuulaIframe || !kuulaPlaceholder) return;
+		if (!kuulaIframe || !kuulaPlaceholder) return;
+
+		// On mobile: open in new tab instead of loading iframe
+		if (isMobile()) {
+			const tourUrl = getVirtualTourUrl();
+			window.open(tourUrl, '_blank', 'noopener,noreferrer');
+			return;
+		}
+
+		// On desktop: load iframe (YouTube-style behavior)
+		if (kuulaLoaded) return;
 
 		kuulaLoaded = true;
 		const dataSrc = kuulaIframe.getAttribute('data-src');
@@ -126,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		kuulaIframe.focus();
 	}
 
-	// Click to load
+	// Click to load (YouTube-style - only on click, no auto-load)
 	if (kuulaPlaceholder) {
 		kuulaPlaceholder.addEventListener('click', loadKuula);
 
@@ -142,26 +176,49 @@ document.addEventListener('DOMContentLoaded', function() {
 		kuulaPlaceholder.setAttribute('tabindex', '0');
 		kuulaPlaceholder.setAttribute('role', 'button');
 		kuulaPlaceholder.setAttribute('aria-label', 'Load virtual showroom tour');
-	}
 
-	// Intersection Observer for auto-loading when scrolled into view
-	if ('IntersectionObserver' in window) {
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-					// Only auto-load if user has scrolled significantly into view
-					loadKuula();
-					observer.unobserve(entry.target);
-				}
-			});
-		}, {
-			threshold: 0.5, // Load when 50% visible
-			rootMargin: '100px' // Start loading 100px before fully visible
-		});
-
-		if (kuulaPlaceholder) {
-			observer.observe(kuulaPlaceholder);
+		// Update button text for mobile
+		if (isMobile()) {
+			const buttonElement = kuulaPlaceholder.querySelector('.inline-flex');
+			if (buttonElement) {
+				buttonElement.innerHTML = `
+					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+					</svg>
+					Open Virtual Tour
+				`;
+			}
 		}
 	}
+
+	// Remove auto-loading behavior - YouTube-style means click-only
+	// No IntersectionObserver for auto-loading
 });
 </script>
+
+<style>
+/* Simple mobile adjustments */
+@media (max-width: 768px) {
+	#kuula-placeholder h3 {
+		font-size: 1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	#kuula-placeholder p {
+		font-size: 0.875rem;
+		margin-bottom: 1rem;
+		padding: 0 1rem;
+	}
+
+	#kuula-placeholder svg {
+		width: 3rem;
+		height: 3rem;
+		margin-bottom: 0.75rem;
+	}
+
+	#kuula-placeholder .inline-flex {
+		padding: 0.5rem 1rem;
+		font-size: 0.875rem;
+	}
+}
+</style>
