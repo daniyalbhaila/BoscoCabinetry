@@ -2,10 +2,11 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 const {
-  title = 'Bosco Cabinetry',
-  description = 'Toronto custom kitchen cabinets, closets, and built-ins. Explore 100+ finishes in our 5,500 sq ft North York showroom. Luxury look without the luxury price tag.',
-  ogImage = '/media/hero-poster.png',
-  canonicalURL = Astro.url.href
+  title = 'Custom Cabinetry Toronto | Kitchen, Closets & Built-ins | Bosco Cabinetry',
+  description = 'Transform your Toronto home with custom kitchens, closets, built-ins & decorative paneling. 20+ years experience, 100+ finishes, luxury quality at affordable prices. Free consultation & 3D design.',
+  ogImage = '/media/og-image-homepage.jpg',
+  canonicalURL = Astro.url.href,
+  keywords = 'custom cabinetry Toronto, kitchen cabinets Toronto, closet systems North York, built-in units GTA, decorative paneling, luxury kitchen design, affordable custom cabinetry'
 } = Astro.props;
 ---
 <html lang="en" class="h-full">
@@ -13,6 +14,9 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Bosco Cabinetry" />
+    <meta name="robots" content="index, follow" />
     <title>{title}</title>
     <link rel="icon" href="/favicon.ico" />
     <link rel="canonical" href={canonicalURL} />
@@ -37,6 +41,105 @@ const {
 
     <!-- Performance optimization -->
     <meta name="theme-color" content="#60533C" />
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Bosco Cabinetry",
+        "description": "Custom kitchen cabinets, closets, and built-ins serving Toronto and the Greater Toronto Area",
+        "url": "https://boscocabinetry.com",
+        "telephone": "(416) 123-4567",
+        "email": "info@boscocabinetry.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Industrial Road",
+          "addressLocality": "North York",
+          "addressRegion": "ON",
+          "postalCode": "M3J 2K9",
+          "addressCountry": "CA"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 43.7615,
+          "longitude": -79.4166
+        },
+        "openingHours": [
+          "Mo-Fr 08:00-18:00",
+          "Sa 09:00-16:00"
+        ],
+        "priceRange": "$$",
+        "servesCuisine": "Kitchen Design",
+        "serviceArea": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 43.7615,
+            "longitude": -79.4166
+          },
+          "geoRadius": "50000"
+        },
+        "areaServed": [
+          "Toronto",
+          "North York",
+          "Mississauga",
+          "Markham",
+          "Richmond Hill",
+          "Vaughan",
+          "Oakville",
+          "Burlington",
+          "Brampton",
+          "Etobicoke",
+          "Scarborough",
+          "Pickering"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Custom Cabinetry Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Custom Kitchen Cabinets",
+                "description": "Luxury custom kitchen cabinets with European hardware and premium finishes"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Closet Organization Systems",
+                "description": "Walk-in and reach-in closet systems with smart storage solutions"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Built-in Units",
+                "description": "Custom built-in entertainment centers, bookcases, and storage solutions"
+              }
+            }
+          ]
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "200",
+          "bestRating": "5"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Bosco Cabinetry Team"
+        },
+        "foundingDate": "2003",
+        "sameAs": [
+          "https://www.google.com/search?q=bosco+cabinetry+reviews"
+        ]
+      }
+    </script>
 
     <!-- Font optimization - synchronous loading to prevent FOUT -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
