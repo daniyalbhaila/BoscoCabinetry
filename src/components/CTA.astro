@@ -5,6 +5,7 @@ import MessageCircle from './icons/MessageCircle.astro';
 import Building from './icons/Building.astro';
 import Phone from './icons/Phone.astro';
 import Clock from './icons/Clock.astro';
+import Button from './ui/Button.astro';
 ---
 <section id="cta" class="relative isolate bg-brand-charcoal min-h-screen flex items-center">
 	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
@@ -19,14 +20,14 @@ import Clock from './icons/Clock.astro';
 
 			<!-- Primary CTAs -->
 			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-				<a href="#book-showroom" class="btn btn-primary px-8 py-4 text-lg inline-flex items-center gap-2">
+				<Button href="#book-showroom" variant="primary" size="lg">
 					<MapPin class="h-5 w-5" />
 					Book Showroom Visit
-				</a>
-				<a href="#get-quote" class="btn btn-ghost px-8 py-4 text-lg inline-flex items-center gap-2">
+				</Button>
+				<Button href="#get-quote" variant="ghost" size="lg">
 					<MessageCircle class="h-5 w-5" />
 					Request Quote
-				</a>
+				</Button>
 			</div>
 		</div>
 

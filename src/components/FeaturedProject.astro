@@ -1,5 +1,6 @@
 ---
 // Featured Project with side-by-side layout
+import Button from './ui/Button.astro';
 ---
 <section id="featured-project" class="relative isolate bg-brand-charcoal min-h-screen flex items-center">
 	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
@@ -15,7 +16,7 @@
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 			<!-- Video Container -->
 			<div class="order-2 lg:order-1">
-				<div class="relative overflow-hidden rounded-2xl border border-brand-darkGray/40 bg-gradient-to-b from-white/5 to-white/2">
+				<div class="relative overflow-hidden rounded-2xl border border-brand-darkGray/40 gradient-card-light-subtle">
 					<div class="aspect-video w-full" role="region" aria-label="Featured Project Video">
 						<!-- YouTube Lazy Loading Facade -->
 						<div id="youtube-facade" class="relative h-full w-full cursor-pointer group">
@@ -93,12 +94,12 @@
 
 					<!-- CTA Button -->
 					<div class="pt-4">
-						<a href="#portfolio" class="btn btn-primary">
+						<Button href="#portfolio" variant="primary" size="lg">
 							View More Projects
 							<svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
 							</svg>
-						</a>
+						</Button>
 					</div>
 				</div>
 			</div>

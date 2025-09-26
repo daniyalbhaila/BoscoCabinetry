@@ -1,11 +1,15 @@
 ---
+import SectionWrapper from './SectionWrapper.astro';
+import SectionHeader from './SectionHeader.astro';
+import ContentGrid from './ContentGrid.astro';
 import Star from './icons/Star.astro';
-import MessageCircle from './icons/MessageCircle.astro';
+import { companyInfo } from '../content/shared.ts';
+import Button from './ui/Button.astro';
 
 interface Review {
 	name: string;
 	rating: number;
-	text: string;
+	description: string;
 	project?: string;
 	verified?: boolean;
 }
@@ -15,106 +19,66 @@ const reviews: Review[] = [
 	{
 		name: "Sarah Chen",
 		rating: 5,
-		text: "Absolutely blown away by the quality and attention to detail. Our kitchen transformation exceeded all expectations. The team was professional, on time, and the final result is stunning. Worth every penny!",
+		description: "Absolutely blown away by the quality and attention to detail. Our kitchen transformation exceeded all expectations. The team was professional, on time, and the final result is stunning. Worth every penny!",
 		project: "Kitchen Renovation",
 		verified: true
 	},
 	{
 		name: "Michael Rodriguez",
 		rating: 5,
-		text: "From design to installation, Bosco Cabinetry delivered premium quality at a reasonable price. Their showroom helped us visualize our dream closet perfectly. Highly recommend!",
+		description: "From design to installation, Bosco Cabinetry delivered premium quality at a reasonable price. Their showroom helped us visualize our dream closet perfectly. Highly recommend!",
 		project: "Walk-in Closet",
 		verified: true
 	},
 	{
 		name: "Jennifer Park",
 		rating: 5,
-		text: "The entire process was seamless. Great communication, transparent pricing, and beautiful results. Our built-in media wall is the centerpiece of our living room now.",
+		description: "The entire process was seamless. Great communication, transparent pricing, and beautiful results. Our built-in media wall is the centerpiece of our living room now.",
 		project: "Built-in Media Wall",
 		verified: true
 	},
 	{
 		name: "David Thompson",
 		rating: 5,
-		text: "20+ years of experience really shows. The craftsmanship is exceptional and the team handled our complex project with expertise. Would definitely work with them again.",
+		description: "20+ years of experience really shows. The craftsmanship is exceptional and the team handled our complex project with expertise. Would definitely work with them again.",
 		project: "Full Home Renovation",
 		verified: true
 	}
 ];
 ---
-<section id="reviews" class="relative isolate bg-brand-charcoal min-h-screen flex items-center">
-	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
-		<!-- Header -->
-		<div class="mx-auto max-w-3xl text-center mb-16">
-			<p class="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-4">[Client Reviews]</p>
-			<h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl mb-6">
-				What Our Clients Say
-			</h2>
-			<p class="text-lg text-white/70">
-				Don't just take our word for it. Here's what our satisfied clients have to say about their Bosco experience.
-			</p>
-		</div>
+<SectionWrapper theme="dark" fullHeight={true} id="reviews">
+	<SectionHeader
+		tag="Client Reviews"
+		title="What Our Clients Say"
+		description="Don't just take our word for it. Here's what our satisfied clients have to say about their Bosco experience."
+		layout="center"
+		theme="dark"
+	/>
 
-		<!-- Reviews Grid -->
-		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-			{reviews.map((review, i) => (
-				<div class="group relative">
-					<div class="rounded-2xl border border-brand-darkGray/40 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-8 transition-all duration-300 hover:border-brand-accent/30">
-						<!-- Rating Stars -->
-						<div class="mb-4 flex items-center gap-2">
-							<div class="flex">
-								{Array.from({ length: review.rating }, (_, i) => (
-									<Star class="h-4 w-4 text-brand-accent" fill="currentColor" />
-								))}
-							</div>
-							{review.verified && (
-								<span class="rounded-full bg-green-500/20 px-2 py-1 text-xs text-green-400">
-									Verified
-								</span>
-							)}
-						</div>
+	<ContentGrid
+		items={reviews}
+		variant="reviews"
+	/>
 
-						<!-- Review Text -->
-						<blockquote class="mb-6 text-white/85 leading-relaxed">
-							"{review.text}"
-						</blockquote>
-
-						<!-- Author Info -->
-						<div class="flex items-center justify-between">
-							<div>
-								<p class="font-medium text-white">{review.name}</p>
-								{review.project && (
-									<p class="text-sm text-white/60">{review.project}</p>
-								)}
-							</div>
-							<div class="text-white/40">
-								<MessageCircle class="h-5 w-5" />
-							</div>
-						</div>
-					</div>
+	<!-- Google Reviews CTA -->
+	<div class="mt-16 text-center">
+		<div class="inline-flex items-center gap-4 rounded-2xl border border-white/20 gradient-card-dark p-6 shadow-lg">
+			<div class="flex items-center gap-2">
+				<Star class="h-6 w-6 text-brand-accent" fill="currentColor" />
+				<div>
+					<p class="text-lg font-semibold text-white">{companyInfo.stats.googleRating} on Google</p>
+					<p class="text-sm text-white/70">{companyInfo.stats.googleReviews}</p>
 				</div>
-			))}
-		</div>
-
-		<!-- Google Reviews CTA -->
-		<div class="mt-16 text-center">
-			<div class="inline-flex items-center gap-4 rounded-2xl border border-brand-darkGray/40 bg-white/5 p-6">
-				<div class="flex items-center gap-2">
-					<Star class="h-6 w-6 text-brand-accent" fill="currentColor" />
-					<div>
-						<p class="text-lg font-semibold text-white">4.9/5 on Google</p>
-						<p class="text-sm text-white/70">200+ verified reviews</p>
-					</div>
-				</div>
-				<a
-					href="https://www.google.com/search?q=bosco+cabinetry+reviews"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="btn btn-ghost px-6 py-2 text-sm"
-				>
-					See More on Google
-				</a>
 			</div>
+			<Button
+				href={companyInfo.urls.googleReviews}
+				target="_blank"
+				rel="noopener noreferrer"
+				variant="ghost"
+				size="sm"
+			>
+				See More on Google
+			</Button>
 		</div>
 	</div>
-</section>
+</SectionWrapper>

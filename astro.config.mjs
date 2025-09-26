@@ -24,9 +24,9 @@ export default defineConfig({
           // Manual chunk splitting for better caching
           manualChunks: {
             // Vendor chunks
-            react: ['react', 'react-dom'],
+            react: ["react", "react-dom"],
             // Motion library separate chunk
-            motion: ['framer-motion'],
+            motion: ["framer-motion"],
           },
         },
       },
@@ -50,7 +50,7 @@ export default defineConfig({
       {
         protocol: "https",
         hostname: "kuula.co",
-      }
+      },
     ],
   },
   // Enable compression and other optimizations

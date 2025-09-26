@@ -1,72 +1,144 @@
 ---
 import { Image } from 'astro:assets';
 import heroPoster from '../assets/hero-poster.png';
+import { companyInfo, companyDescriptions } from '../content/shared.ts';
+import Button from './ui/Button.astro';
 
-interface Props {
+export interface Props {
 	titleHighlight?: string;
 	titleRest?: string;
 	kicker?: string;
 	description?: string;
 	videoSrc?: string;
+	backgroundImage?: string;
+	theme?: 'dark' | 'light';
+	size?: 'full' | 'medium' | 'compact';
+	ctaButtons?: Array<{
+		text: string;
+		href: string;
+		variant: 'primary' | 'ghost' | 'secondary';
+	}>;
 }
 const {
 	titleHighlight = 'Beautiful',
 	titleRest = 'Custom Kitchens, Cabinets & Renovations in the GTA',
-	kicker = 'Luxury Cabinets Made Affordable in Toronto',
-	description = 'Explore 100+ finishes in our 5,500 sq ft North York showroom. Work with Bosco’s in-house designer to create kitchens, closets, and full-home renovations that fit your lifestyle. Luxury without the luxury price tag.',
-	videoSrc = '/media/hero.mp4'
+	kicker = companyInfo.tagline,
+	description = companyDescriptions.hero,
+	videoSrc = '/media/hero.mp4',
+	backgroundImage,
+	theme = 'dark',
+	size = 'full',
+	ctaButtons = [
+		{ text: 'Book Showroom Consultation', href: '#book-consult', variant: 'primary' },
+		{ text: 'Get a Free Quote', href: '#get-quote', variant: 'ghost' }
+	]
 } = Astro.props as Props;
+
+// Size variants
+const sizeClasses = {
+	full: 'min-h-screen',
+	medium: 'min-h-[70vh]',
+	compact: 'min-h-[50vh]'
+};
+
+// Theme variants
+const textClasses = {
+	dark: 'text-white',
+	light: 'text-brand-dark-charcoal'
+};
+
+const overlayClasses = {
+	dark: 'gradient-hero-dark',
+	light: 'gradient-hero-light'
+};
+
+const fadeClasses = {
+	dark: 'gradient-hero-fade-dark',
+	light: 'gradient-hero-fade-light'
+};
 ---
-<section class="relative isolate min-h-screen overflow-hidden">
+<section class={`relative isolate ${sizeClasses[size]} overflow-hidden`}>
 	{/* Background with optimized poster and video */}
 	<div class="absolute inset-0 -z-10">
-		{/* Optimized poster image as background */}
-		<Image
-			src={heroPoster}
-			alt="Bosco Cabinetry kitchen showcase"
-			class="h-full w-full object-cover"
-			width={1672}
-			height={940}
-			format="webp"
-			quality={75}
-			loading="eager"
-			fetchpriority="high"
-		/>
+		{/* Background Image */}
+		{backgroundImage ? (
+			<img
+				src={backgroundImage}
+				alt="Page background"
+				class="h-full w-full object-cover"
+				loading="eager"
+				fetchpriority="high"
+			/>
+		) : (
+			<Image
+				src={heroPoster}
+				alt="Bosco Cabinetry kitchen showcase"
+				class="h-full w-full object-cover"
+				width={1672}
+				height={940}
+				format="webp"
+				quality={75}
+				loading="eager"
+				fetchpriority="high"
+			/>
+		)}
 
-		{/* Video overlay with optimized loading */}
-		<video
-			class="absolute inset-0 h-full w-full object-cover"
-			width="1920"
-			height="1080"
-			autoplay
-			muted
-			loop
-			playsinline
-			preload="metadata"
-			loading="lazy"
-		>
-			<source src={videoSrc} type="video/mp4" />
-		</video>
+		{/* Video overlay (only if provided and size is full) */}
+		{videoSrc && size === 'full' && (
+			<video
+				class="absolute inset-0 h-full w-full object-cover"
+				width="1920"
+				height="1080"
+				autoplay
+				muted
+				loop
+				playsinline
+				preload="metadata"
+				loading="lazy"
+			>
+				<source src={videoSrc} type="video/mp4" />
+			</video>
+		)}
 
-		{/* Lightened gradient overlay so video is more visible, aligned to brand colors */}
-		<div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-darkGray/35 via-black/30 to-black/60"></div>
-		{/* Dark left fade to ensure text readability */}
-		<div class="pointer-events-none absolute inset-y-0 left-0 w-[min(80%,100vw)] sm:w-2/3 md:w-1/2 lg:w-[45%] bg-gradient-to-r from-brand-charcoal/90 via-brand-darkGray/55 to-transparent"></div>
+		{/* Theme-based overlay */}
+		<div class={`pointer-events-none absolute inset-0 ${overlayClasses[theme]}`}></div>
+		{/* Text readability gradient */}
+		<div class={`pointer-events-none absolute inset-y-0 left-0 w-[min(80%,100vw)] sm:w-2/3 md:w-1/2 lg:w-[45%] ${fadeClasses[theme]}`}></div>
 	</div>
 
-	<div class="relative mx-auto flex min-h-screen max-w-7xl items-center px-6">
+	<div class={`relative mx-auto flex ${sizeClasses[size]} max-w-7xl items-center px-6`}>
 		<div class="w-full max-w-xl pt-24 md:pt-28">
-			<p class="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-xs text-white/90 backdrop-blur">
-				{kicker}
-			</p>
-			<h1 class="max-w-xl text-3xl font-light leading-tight tracking-tight sm:text-4xl md:text-5xl">
-				<span class="italic mr-2">{titleHighlight}</span>
+			{/* Kicker/Badge */}
+			{kicker && (
+				<p class={`mb-5 inline-flex items-center gap-2 rounded-full ${theme === 'dark' ? 'bg-white/10 text-white/90' : 'bg-brand-dark-charcoal/10 text-brand-dark-charcoal/90'} px-3.5 py-1.5 text-xs backdrop-blur`}>
+					{kicker}
+				</p>
+			)}
+
+			{/* Title */}
+			<h1 class={`max-w-xl text-3xl font-light leading-tight tracking-tight sm:text-4xl md:text-5xl ${textClasses[theme]}`}>
+				{titleHighlight && <span class="italic mr-2">{titleHighlight}</span>}
 				<span class="font-semibold">{titleRest}</span>
 			</h1>
-			<p class="mt-5 max-w-prose text-sm text-white/85 md:text-base">{description}</p>
+
+			{/* Description */}
+			{description && (
+				<p class={`mt-5 max-w-prose text-sm md:text-base ${theme === 'dark' ? 'text-white/85' : 'text-brand-dark-charcoal/85'}`}>
+					{description}
+				</p>
+			)}
+
+			{/* CTA Buttons */}
 			<div class="mt-7 flex flex-wrap gap-3">
-				<a href="#book-consult" class="btn btn-primary px-5 py-2.5">Book Showroom Consultation</a>
-				<a href="#get-quote" class="btn btn-ghost px-5 py-2.5">Get a Free Quote</a>
+				{ctaButtons.map((button) => (
+					<Button
+						variant={button.variant}
+						href={button.href}
+						size="lg"
+					>
+						{button.text}
+					</Button>
+				))}
 			</div>
 		</div>
 	</div>

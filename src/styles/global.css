@@ -1,9 +1,8 @@
+/* Bosco design system base (optional) - removed non-existent import */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Bosco design system base (optional) */
-@import "../../bosco-design-system.css";
 
 :root {
   --radius: 0.75rem;
@@ -19,7 +18,8 @@ body,
 }
 
 /* Prevent horizontal scroll */
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -55,7 +55,7 @@ body {
     @apply bg-brand-primary text-brand-dark-charcoal shadow-sm;
   }
   .btn-primary::before {
-    background-color: #D8C5BF;
+    background-color: #d8c5bf;
   }
   .btn-primary:hover {
     color: #393335;
@@ -85,7 +85,7 @@ body {
     background-color: rgba(96, 83, 60, 0.1);
   }
   .btn-outline:hover {
-    color: #60533C;
+    color: #60533c;
   }
 
   /* UNIFIED CARDS - All use rounded-lg */
@@ -96,6 +96,111 @@ body {
   /* UNIFIED CONTAINERS - All use rounded-lg */
   .icon-container {
     @apply rounded-lg bg-white/10 flex items-center justify-center;
+  }
+
+  /* UNIFIED GRADIENTS - Standardized gradient patterns */
+  /* Card gradients for light theme */
+  .gradient-card-light {
+    @apply bg-gradient-to-b from-brand-accent/5 to-white;
+  }
+  .gradient-card-light-subtle {
+    @apply bg-gradient-to-b from-white/[0.05] to-white/[0.02];
+  }
+
+  /* Card gradients for dark theme */
+  .gradient-card-dark {
+    @apply bg-gradient-to-b from-white/10 to-white/5;
+  }
+  .gradient-card-dark-hover {
+    @apply hover:bg-gradient-to-b hover:from-white/[0.15] hover:to-white/[0.08];
+  }
+  .gradient-card-dark-strong {
+    @apply bg-gradient-to-br from-white/[0.08] to-white/[0.03];
+  }
+
+  /* Overlay gradients */
+  .gradient-overlay-dark {
+    @apply bg-gradient-to-t from-black/80 via-black/20 to-transparent;
+  }
+  .gradient-overlay-dark-strong {
+    @apply bg-gradient-to-t from-black/80 via-black/40 to-transparent;
+  }
+
+  /* Hero gradients */
+  .gradient-hero-dark {
+    @apply bg-gradient-to-br from-brand-darkGray/35 via-black/30 to-black/60;
+  }
+  .gradient-hero-light {
+    @apply bg-gradient-to-br from-white/60 via-white/40 to-white/20;
+  }
+  .gradient-hero-fade-dark {
+    @apply bg-gradient-to-r from-brand-charcoal/90 via-brand-darkGray/55 to-transparent;
+  }
+  .gradient-hero-fade-light {
+    @apply bg-gradient-to-r from-white/90 via-white/55 to-transparent;
+  }
+
+  /* Brand gradients */
+  .gradient-brand-primary {
+    @apply bg-gradient-to-br from-brand-primary to-brand-bronze;
+  }
+  .gradient-brand-accent {
+    @apply bg-gradient-to-br from-brand-accent/20 to-brand-primary/10;
+  }
+
+  /* CTA gradients */
+  .gradient-cta-dark {
+    @apply bg-gradient-to-br from-brand-charcoal/90 to-brand-darkGray/90;
+  }
+
+  /* Step/Process gradients */
+  .gradient-step-circle {
+    @apply bg-gradient-to-br from-white/10 to-white/5;
+  }
+  .gradient-step-circle-hover {
+    @apply hover:from-white/[0.15] hover:to-white/[0.08];
+  }
+  .gradient-connection-line {
+    @apply bg-gradient-to-b from-brand-primary/40 to-transparent;
+  }
+
+  /* UNIFIED FORM INPUTS - Standardized form field styling */
+  .form-input-dark {
+    @apply w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent;
+    min-height: 48px;
+  }
+
+  .form-input-light {
+    @apply w-full rounded-lg border border-brand-accent/40 bg-white px-4 py-3 text-brand-charcoal placeholder-brand-darkGray/50 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20;
+    min-height: 48px;
+  }
+
+  .form-select-dark {
+    @apply w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent;
+    min-height: 48px;
+  }
+
+  .form-select-light {
+    @apply w-full rounded-lg border border-brand-accent/40 bg-white px-4 py-3 text-brand-charcoal focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20;
+    min-height: 48px;
+  }
+
+  .form-textarea-dark {
+    @apply w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent resize-none;
+    min-height: 48px;
+  }
+
+  .form-textarea-light {
+    @apply w-full rounded-lg border border-brand-accent/40 bg-white px-4 py-3 text-brand-charcoal placeholder-brand-darkGray/50 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 resize-none;
+    min-height: 48px;
+  }
+
+  .form-label-dark {
+    @apply block text-sm font-medium text-white/90 mb-2;
+  }
+
+  .form-label-light {
+    @apply block text-sm font-medium text-brand-charcoal mb-2;
   }
 }
 

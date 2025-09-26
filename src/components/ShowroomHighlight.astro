@@ -4,37 +4,38 @@ import Palette from './icons/Palette.astro';
 import House from './icons/House.astro';
 import Users from './icons/Users.astro';
 import MapPin from './icons/MapPin.astro';
+import Button from './ui/Button.astro';
 ---
-<section id="showroom" class="relative isolate bg-white min-h-screen flex items-center">
+<section id="showroom" class="relative isolate bg-brand-charcoal min-h-screen flex items-center">
 	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
 		<!-- Header -->
 		<div class="mx-auto max-w-4xl text-center mb-12">
 			<p class="text-[11px] uppercase tracking-[0.2em] text-brand-primary/60 mb-4">[Virtual Showroom]</p>
-			<h2 class="text-3xl font-semibold tracking-tight text-brand-charcoal sm:text-4xl md:text-5xl mb-6">
+			<h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl mb-6">
 				Explore Our 5,500 sq ft North York Showroom
 			</h2>
-			<p class="text-lg text-brand-darkGray/80">
+			<p class="text-lg text-white/80">
 				Walk through our space virtually, then come see it in person. Experience 100+ finishes and complete kitchen displays.
 			</p>
 		</div>
 
 		<!-- Virtual Tour Container -->
 		<div class="mx-auto max-w-6xl">
-			<div class="relative overflow-hidden rounded-2xl border border-brand-accent/30 bg-gradient-to-b from-brand-accent/5 to-white shadow-xl">
-				<div class="aspect-video w-full bg-brand-accent/10">
+			<div class="relative overflow-hidden rounded-2xl border border-brand-darkGray/40 gradient-card-dark-strong shadow-xl">
+				<div class="aspect-video w-full bg-white/10">
 					<!-- Kuula 360° Tour Embed with Lazy Loading -->
 					<div id="kuula-embed" class="h-full w-full rounded-2xl" role="application" aria-label="360° Virtual Showroom Tour">
 						<!-- Lazy loading placeholder -->
-						<div id="kuula-placeholder" class="h-full w-full bg-gradient-to-br from-brand-accent/20 to-brand-primary/10 rounded-2xl flex items-center justify-center cursor-pointer group">
+						<div id="kuula-placeholder" class="h-full w-full gradient-brand-accent rounded-2xl flex items-center justify-center cursor-pointer group">
 							<div class="text-center">
 								<div class="mb-4 opacity-60 group-hover:opacity-80 transition-opacity">
 									<svg class="w-16 h-16 mx-auto text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
 									</svg>
 								</div>
-								<h3 class="text-lg font-semibold text-brand-charcoal mb-2">Load Virtual Showroom</h3>
-								<p class="text-sm text-brand-darkGray/80 mb-4 max-w-xs mx-auto">Click to explore our 5,500 sq ft showroom in 360°</p>
-								<div class="btn btn-primary inline-flex items-center gap-2">
+								<h3 class="text-lg font-semibold text-white mb-2">Load Virtual Showroom</h3>
+								<p class="text-sm text-white/80 mb-4 max-w-xs mx-auto">Click to explore our 5,500 sq ft showroom in 360°</p>
+								<div class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium bg-brand-primary text-brand-charcoal shadow hover:bg-brand-primary/90 transition-colors duration-200">
 									<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M19 10a9 9 0 11-18 0 9 9 0 0118 0z"/>
 									</svg>
@@ -68,32 +69,32 @@ import MapPin from './icons/MapPin.astro';
 				<div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-primary/10">
 					<Palette class="h-6 w-6 text-brand-primary" />
 				</div>
-				<h3 class="mb-2 text-lg font-semibold text-brand-charcoal">100+ Finishes</h3>
-				<p class="text-sm text-brand-darkGray/75">Explore our extensive collection of cabinet finishes and hardware options.</p>
+				<h3 class="mb-2 text-lg font-semibold text-white">100+ Finishes</h3>
+				<p class="text-sm text-white/75">Explore our extensive collection of cabinet finishes and hardware options.</p>
 			</div>
 			<div class="text-center">
 				<div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-primary/10">
 					<House class="h-6 w-6 text-brand-primary" />
 				</div>
-				<h3 class="mb-2 text-lg font-semibold text-brand-charcoal">Complete Displays</h3>
-				<p class="text-sm text-brand-darkGray/75">See full kitchen setups and built-in solutions in our showroom displays.</p>
+				<h3 class="mb-2 text-lg font-semibold text-white">Complete Displays</h3>
+				<p class="text-sm text-white/75">See full kitchen setups and built-in solutions in our showroom displays.</p>
 			</div>
 			<div class="text-center">
 				<div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-primary/10">
 					<Users class="h-6 w-6 text-brand-primary" />
 				</div>
-				<h3 class="mb-2 text-lg font-semibold text-brand-charcoal">Expert Consultation</h3>
-				<p class="text-sm text-brand-darkGray/75">Meet with our design experts to plan your perfect custom solution.</p>
+				<h3 class="mb-2 text-lg font-semibold text-white">Expert Consultation</h3>
+				<p class="text-sm text-white/75">Meet with our design experts to plan your perfect custom solution.</p>
 			</div>
 		</div>
 
 		<!-- Bottom CTA -->
 		<div class="mt-16 text-center">
 			<div class="mb-6">
-				<p class="text-brand-darkGray/80 mb-6">Ready to see our showroom in person?</p>
-				<a href="#book-showroom" class="btn btn-primary px-8 py-3 mr-4">
+				<p class="text-white/80 mb-6">Ready to see our showroom in person?</p>
+				<Button href="#book-showroom" variant="primary" size="lg" class="mr-4">
 					Book Your Showroom Tour
-				</a>
+				</Button>
 				<a href="#directions" class="inline-flex items-center gap-2 text-brand-primary hover:text-brand-primary/80 font-medium">
 					<MapPin class="h-4 w-4" />
 					Get Directions

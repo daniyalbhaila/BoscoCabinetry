@@ -23,18 +23,18 @@ module.exports = {
       colors: {
         brand: {
           // Primary Colors
-          charcoal: "#1D2026",          // Deep Charcoal - Background, dark sections
-          "dark-charcoal": "#393335",   // Dark Charcoal - Primary text, headers, accents
-          primary: "#DAD2BF",           // Warm Beige - Primary brand color, buttons
-          "light-gray": "#E6E6E6",      // Light Gray - Subtle backgrounds, borders
-          white: "#FFFFFF",             // Pure White - Clean backgrounds, text on dark
+          charcoal: "#1D2026", // Deep Charcoal - Background, dark sections
+          "dark-charcoal": "#393335", // Dark Charcoal - Primary text, headers, accents
+          primary: "#DAD2BF", // Warm Beige - Primary brand color, buttons
+          "light-gray": "#E6E6E6", // Light Gray - Subtle backgrounds, borders
+          white: "#FFFFFF", // Pure White - Clean backgrounds, text on dark
 
           // Secondary Colors
-          slate: "#373C49",             // Slate Blue - Secondary accents, navigation
-          forest: "#3F4740",            // Forest Green - Natural accents, subtle highlights
-          bronze: "#60533C",            // Bronze - Warm accents, secondary buttons
-          rose: "#D8C5BF",              // Dusty Rose - Soft accents, hover states
-          powder: "#BFCBD6",            // Powder Blue - Light accents, backgrounds
+          slate: "#373C49", // Slate Blue - Secondary accents, navigation
+          forest: "#3F4740", // Forest Green - Natural accents, subtle highlights
+          bronze: "#60533C", // Bronze - Warm accents, secondary buttons
+          rose: "#D8C5BF", // Dusty Rose - Soft accents, hover states
+          powder: "#BFCBD6", // Powder Blue - Light accents, backgrounds
 
           // Legacy aliases for compatibility
           darkGray: "#393335",
