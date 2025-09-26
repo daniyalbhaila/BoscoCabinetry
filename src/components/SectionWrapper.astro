@@ -1,0 +1,35 @@
+---
+export interface Props {
+  theme?: 'light' | 'dark';
+  fullHeight?: boolean;
+  className?: string;
+  id?: string;
+}
+
+const {
+  theme = 'light',
+  fullHeight = false,
+  className = '',
+  id
+} = Astro.props;
+
+// Theme variants based on actual homepage usage
+const themeClasses = {
+  light: 'bg-white',
+  dark: 'bg-brand-charcoal'
+};
+
+// Full height for feature sections
+const heightClasses = fullHeight ? 'min-h-screen flex items-center' : '';
+
+const combinedClasses = `relative isolate ${themeClasses[theme]} ${heightClasses} ${className}`.trim();
+---
+
+<section
+  class={combinedClasses}
+  {id}
+>
+  <div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+    <slot />
+  </div>
+</section>

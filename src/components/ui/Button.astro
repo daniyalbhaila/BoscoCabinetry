@@ -1,0 +1,57 @@
+---
+export interface Props {
+	variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
+	size?: 'default' | 'sm' | 'lg' | 'icon';
+	class?: string;
+	href?: string;
+	type?: 'button' | 'submit' | 'reset';
+	disabled?: boolean;
+	[key: string]: any;
+}
+
+const {
+	variant = 'default',
+	size = 'default',
+	class: className = '',
+	href,
+	type = 'button',
+	disabled = false,
+	...props
+} = Astro.props;
+
+// Map our brand button styles to unified btn classes (with rounded-full and slide-in animation)
+const getButtonClasses = (variant: string, size: string): string => {
+	const base = 'btn';
+
+	const variants = {
+		default: 'btn-primary',
+		primary: 'btn-primary',
+		secondary: 'btn-secondary',
+		outline: 'btn-outline',
+		ghost: 'btn-ghost',
+		link: 'text-brand-primary underline-offset-4 hover:underline'
+	};
+
+	const sizes = {
+		default: '',
+		sm: 'px-4 py-2 text-xs',
+		lg: 'px-8 py-4 text-base',
+		icon: 'p-3'
+	};
+
+	// For link variant, don't use btn base class
+	if (variant === 'link') {
+		return variants.link;
+	}
+
+	return `${base} ${variants[variant] || variants.default} ${sizes[size] || sizes.default}`;
+};
+
+const buttonClasses = `${getButtonClasses(variant, size)} ${className}`;
+const Element = href ? 'a' : 'button';
+const elementProps = href ? { href } : { type, disabled };
+---
+
+<Element class={buttonClasses} {...elementProps} {...props}>
+	<slot />
+</Element>

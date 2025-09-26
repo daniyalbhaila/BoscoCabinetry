@@ -1,0 +1,184 @@
+---
+import SectionWrapper from './SectionWrapper.astro';
+import SectionHeader from './SectionHeader.astro';
+import Users from './icons/Users.astro';
+import Ruler from './icons/Ruler.astro';
+import Hammer from './icons/Hammer.astro';
+import CheckCircle from './icons/CheckCircle.astro';
+import Button from './ui/Button.astro';
+
+const processSteps = [
+  {
+    step: '01',
+    title: 'Free Consultation',
+    description: 'We visit your home to discuss your vision, measure your space, and understand your budget and timeline preferences.',
+    icon: Users,
+    features: [
+      'In-home consultation within 48 hours',
+      'Professional space assessment',
+      'Style and finish recommendations',
+      'Budget and timeline discussion'
+    ]
+  },
+  {
+    step: '02',
+    title: 'Design & Quote',
+    description: 'Our team creates detailed 3D designs and provides a comprehensive quote with no hidden fees or surprises.',
+    icon: Ruler,
+    features: [
+      '3D renderings of your project',
+      'Detailed material specifications',
+      'Transparent, itemized pricing',
+      'Unlimited design revisions'
+    ]
+  },
+  {
+    step: '03',
+    title: 'Manufacturing',
+    description: 'Once approved, we craft your custom cabinetry in our North York facility using premium materials and precision techniques.',
+    icon: Hammer,
+    features: [
+      '3-4 week production timeline',
+      'European hardware and finishes',
+      'Quality control inspections',
+      'Regular progress updates'
+    ]
+  },
+  {
+    step: '04',
+    title: 'Installation',
+    description: 'Our certified installers complete your project with meticulous attention to detail and thorough cleanup.',
+    icon: CheckCircle,
+    features: [
+      'Professional installation team',
+      '2-year warranty on workmanship',
+      'Complete site cleanup',
+      'Final walkthrough and inspection'
+    ]
+  }
+];
+---
+
+<SectionWrapper theme="dark" id="process">
+	<SectionHeader
+		tag="Our Process"
+		title="From Concept to Completion in 4 Simple Steps"
+		description="Our proven process ensures every project is delivered on time, on budget, and exceeds your expectations."
+		layout="center"
+		theme="dark"
+	/>
+
+	<!-- Process Steps -->
+	<div class="space-y-16 max-w-[1200px] mx-auto">
+			{processSteps.map((step, index) => {
+				const Icon = step.icon;
+				const isEven = index % 2 === 1;
+
+				return (
+					<div class={`process-step grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isEven ? 'lg:flex-row-reverse' : ''}`}>
+						<!-- Content -->
+						<div class={isEven ? 'lg:order-2' : ''}>
+							<div class="flex items-center gap-4 mb-6">
+								<div class="step-number flex items-center justify-center w-16 h-16 gradient-step-circle border-2 border-white/20 rounded-full backdrop-blur-sm">
+									<span class="text-xl font-bold text-brand-primary">{step.step}</span>
+								</div>
+								<div class="step-icon flex items-center justify-center w-12 h-12 gradient-step-circle border border-white/20 rounded-full backdrop-blur-sm">
+									<Icon class="w-6 h-6 text-brand-primary" />
+								</div>
+							</div>
+
+							<h3 class="text-2xl font-semibold text-white mb-4">{step.title}</h3>
+							<p class="text-base text-white/80 mb-6 leading-relaxed">{step.description}</p>
+
+							<!-- Features List -->
+							<ul class="space-y-3">
+								{step.features.map((feature) => (
+									<li class="flex items-start gap-3">
+										<div class="flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary/20 text-brand-primary flex-shrink-0 mt-0.5">
+											<CheckCircle class="h-4 w-4" />
+										</div>
+										<span class="text-white/70 text-sm leading-relaxed">{feature}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+
+						<!-- Visual -->
+						<div class={`process-visual ${isEven ? 'lg:order-1' : ''}`}>
+							<div class="relative">
+								<!-- Main Circle -->
+								<div class="step-circle relative w-80 h-80 mx-auto gradient-step-circle gradient-step-circle-hover backdrop-blur-sm rounded-full border border-white/20 flex items-center justify-center shadow-lg transition-all duration-300 hover:border-brand-primary/40">
+									<div class="w-32 h-32 gradient-brand-primary rounded-full flex items-center justify-center">
+										<Icon class="w-16 h-16 text-brand-charcoal" />
+									</div>
+								</div>
+
+								<!-- Connecting Line (except for last step) -->
+								{index < processSteps.length - 1 && (
+									<div class="connection-line absolute top-full left-1/2 transform -translate-x-1/2 w-px h-16 gradient-connection-line lg:hidden"></div>
+								)}
+							</div>
+						</div>
+					</div>
+				);
+			})}
+		</div>
+
+	</div>
+
+	<!-- CTA -->
+	<div class="mt-16 text-center">
+		<div class="inline-flex flex-col sm:flex-row gap-4">
+			<Button href="#contact" variant="primary" size="lg">
+				Start Your Project Today
+			</Button>
+			<Button href="#portfolio" variant="outline" size="lg">
+				View Our Work
+			</Button>
+		</div>
+	</div>
+</SectionWrapper>
+
+<style>
+/* Process Step Animations - Design System Compliant */
+.process-step {
+	transition: all 0.3s ease-in-out;
+}
+
+.step-circle {
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.process-step:hover .step-circle {
+	transform: scale(1.05);
+	box-shadow: 0 20px 40px rgba(218, 210, 191, 0.1);
+}
+
+.step-number {
+	transition: all 0.3s ease-in-out;
+}
+
+.process-step:hover .step-number {
+	transform: scale(1.1);
+	background: rgba(218, 210, 191, 0.2);
+	border-color: rgba(218, 210, 191, 0.5);
+}
+
+/* Mobile Responsive - Grid Aligned Sizes */
+@media (max-width: 768px) {
+	.step-circle {
+		width: 240px;  /* Divisible by 8 */
+		height: 240px;
+	}
+
+	.step-circle div {
+		width: 96px;   /* Divisible by 8 */
+		height: 96px;
+	}
+
+	.step-circle div svg {
+		width: 48px;   /* Standard icon size */
+		height: 48px;
+	}
+}
+</style>

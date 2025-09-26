@@ -1,0 +1,78 @@
+---
+export interface Props {
+  tag?: string;
+  title: string;
+  description?: string;
+  layout?: 'center' | 'split';
+  theme?: 'light' | 'dark';
+  className?: string;
+}
+
+const {
+  tag,
+  title,
+  description,
+  layout = 'center',
+  theme = 'light',
+  className = ''
+} = Astro.props;
+
+// Theme classes based on actual homepage usage
+const themeClasses = {
+  light: {
+    tag: 'text-brand-primary/60',
+    title: 'text-brand-charcoal',
+    description: 'text-brand-darkGray'
+  },
+  dark: {
+    tag: 'text-brand-primary/60',
+    title: 'text-white',
+    description: 'text-white/80'
+  }
+};
+
+// Layout variants from actual homepage
+const layoutClasses = layout === 'center'
+  ? 'mx-auto max-w-3xl text-center mb-16'
+  : 'mb-10 grid grid-cols-1 items-end gap-8 md:mb-14 md:grid-cols-12';
+
+const wrapperClasses = `${layoutClasses} ${className}`.trim();
+---
+
+{layout === 'center' ? (
+  <!-- Centered Layout (WhyBosco, Reviews pattern) -->
+  <div class={wrapperClasses}>
+    {tag && (
+      <p class={`text-[11px] uppercase tracking-[0.2em] ${themeClasses[theme].tag} mb-4`}>
+        [{tag}]
+      </p>
+    )}
+    <h2 class={`text-3xl font-semibold tracking-tight ${themeClasses[theme].title} sm:text-4xl md:text-5xl mb-6`}>
+      {title}
+    </h2>
+    {description && (
+      <p class={`text-base leading-relaxed ${themeClasses[theme].description}`}>
+        {description}
+      </p>
+    )}
+  </div>
+) : (
+  <!-- Split Layout (Services pattern) -->
+  <div class={wrapperClasses}>
+    <div class="md:col-span-7">
+      {tag && (
+        <p class={`text-[11px] uppercase tracking-[0.2em] ${themeClasses[theme].tag}`}>
+          [{tag}]
+        </p>
+      )}
+      <h2 class={`mt-2 text-3xl font-semibold tracking-tight ${themeClasses[theme].title} sm:text-4xl md:text-5xl`}>
+        {title}
+      </h2>
+    </div>
+    {description && (
+      <p class={`md:col-span-5 ${themeClasses[theme].description} md:pb-2`}>
+        {description}
+      </p>
+    )}
+  </div>
+)}

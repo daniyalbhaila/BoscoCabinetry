@@ -1,0 +1,172 @@
+---
+export interface Props {
+  items: Array<{
+    title: string;
+    description?: string;
+    iconComponent?: any;  // For Astro icon components
+    image?: string;
+    link?: string;
+    cta?: string;
+    rating?: number;
+    name?: string;  // For reviews
+    project?: string;  // For reviews
+    verified?: boolean;  // For reviews
+  }>;
+  variant: 'services' | 'features' | 'reviews';
+  className?: string;
+}
+
+const {
+  items,
+  variant,
+  className = ''
+} = Astro.props;
+
+// Grid classes based on actual homepage patterns
+const gridClasses = {
+  services: 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4',
+  features: 'grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4',
+  reviews: 'grid grid-cols-1 gap-8 md:grid-cols-2'
+};
+
+const finalClasses = `${gridClasses[variant]} ${className}`.trim();
+---
+
+<div class={finalClasses}>
+  {variant === 'services' && items.map((item, i) => (
+    <!-- Services Cards (from Services.astro) -->
+    <div class="service-card group relative overflow-hidden rounded-3xl cursor-pointer border border-brand-accent/20 backdrop-blur-sm transition-all duration-300 hover:border-brand-primary/40 hover:shadow-xl">
+      {item.image && (
+        <div class="service-image absolute inset-0">
+          <img
+            src={item.image}
+            alt={item.title}
+            class="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="absolute inset-0 gradient-overlay-dark"></div>
+        </div>
+      )}
+
+      <div class="relative flex h-80 items-end p-6 md:h-96">
+        <div class="service-text-overlay absolute bottom-0 left-0 right-0 gradient-overlay-dark-strong backdrop-blur-sm p-6 transform translate-y-full transition-transform duration-300 ease-out border-t border-white/10">
+          <h3 class="service-title text-xl font-semibold text-white mb-3">{item.title}</h3>
+          <p class="service-description text-sm text-white/95 leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+
+        <div class="service-static-title absolute bottom-6 left-6 right-6 group-hover:opacity-0 transition-opacity duration-300">
+          <h3 class="text-xl font-semibold text-white">{item.title}</h3>
+        </div>
+      </div>
+    </div>
+  ))}
+
+  {variant === 'features' && items.map((item, i) => (
+    <!-- Feature Cards (from WhyBosco.astro) -->
+    <div class="group relative">
+      <div class="rounded-2xl border border-brand-accent/30 gradient-card-light p-8 transition-all duration-300 hover:border-brand-primary/30 hover:shadow-lg">
+        <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-brand-primary/10">
+          {item.iconComponent && <item.iconComponent class="h-8 w-8 text-brand-primary" />}
+        </div>
+        <h3 class="mb-4 text-xl font-semibold text-brand-charcoal">
+          {item.title}
+        </h3>
+        <p class="text-brand-darkGray/75 leading-relaxed">
+          {item.description}
+        </p>
+      </div>
+    </div>
+  ))}
+
+  {variant === 'reviews' && items.map((item, i) => (
+    <!-- Review Cards (from Reviews.astro) -->
+    <div class="group relative">
+      <div class="rounded-2xl border border-white/20 gradient-card-dark gradient-card-dark-hover p-8 shadow-lg transition-all duration-300 hover:border-brand-primary/40">
+        {item.rating && (
+          <div class="mb-4 flex items-center gap-2">
+            <div class="flex">
+              {Array.from({ length: item.rating }, (_, i) => (
+                <svg class="h-4 w-4 text-brand-accent" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            {item.verified && (
+              <span class="rounded-full bg-green-500/20 px-2 py-1 text-xs text-green-400">
+                Verified
+              </span>
+            )}
+          </div>
+        )}
+
+        <blockquote class="mb-6 text-white/90 leading-relaxed">
+          "{item.description}"
+        </blockquote>
+
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="font-medium text-white">{item.name}</p>
+            {item.project && (
+              <p class="text-sm text-white/70">{item.project}</p>
+            )}
+          </div>
+          <div class="text-brand-primary">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.959 8.959 0 01-4.906-1.456L3 21l2.544-5.094A8.959 8.959 0 013 12c0-4.418 3.582-8 8-8s8 3.582 8 8z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+/* Services Card Effects */
+.service-card {
+  background: transparent;
+  border: none;
+  outline: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+}
+
+.service-card:hover .service-image img {
+  transform: scale(1.05);
+}
+
+.service-image img {
+  transition: transform 0.6s ease;
+}
+
+.service-text-overlay {
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-text-overlay {
+  transform: translateY(0);
+}
+
+.service-static-title {
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-static-title {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+}
+</style>

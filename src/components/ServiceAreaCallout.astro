@@ -1,0 +1,125 @@
+---
+// Service Area Callout - cities list + CTA
+import MapPin from './icons/MapPin.astro';
+import Phone from './icons/Phone.astro';
+import Button from './ui/Button.astro';
+
+const serviceAreas = [
+  { city: 'Toronto', region: 'Downtown & GTA' },
+  { city: 'Mississauga', region: 'West GTA' },
+  { city: 'North York', region: 'North Toronto' },
+  { city: 'Markham', region: 'York Region' },
+  { city: 'Richmond Hill', region: 'York Region' },
+  { city: 'Vaughan', region: 'York Region' },
+  { city: 'Oakville', region: 'Halton Region' },
+  { city: 'Burlington', region: 'Halton Region' },
+  { city: 'Brampton', region: 'Peel Region' },
+  { city: 'Etobicoke', region: 'West Toronto' },
+  { city: 'Scarborough', region: 'East Toronto' },
+  { city: 'Pickering', region: 'Durham Region' }
+];
+---
+
+<section id="service-area" class="relative isolate bg-white">
+	<div class="mx-auto max-w-[1200px] px-6 py-16 md:py-20">
+		<!-- Header -->
+		<div class="text-center mb-16">
+			<p class="text-[11px] uppercase tracking-[0.2em] text-brand-primary/60 mb-4">[Service Areas]</p>
+			<h2 class="text-3xl font-semibold tracking-tight text-brand-charcoal sm:text-4xl md:text-5xl mb-6">
+				Proudly Serving the Greater Toronto Area
+			</h2>
+			<p class="text-base text-brand-darkGray/80 max-w-[600px] mx-auto leading-relaxed">
+				From downtown Toronto to the surrounding regions, we bring luxury custom cabinetry directly to your home with professional installation and ongoing support.
+			</p>
+		</div>
+
+		<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+			<!-- Cities Grid -->
+			<div class="lg:col-span-2">
+				<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+					{serviceAreas.map((area) => (
+						<div class="service-area-item group">
+							<div class="flex items-start gap-2">
+								<MapPin class="w-4 h-4 text-brand-primary mt-1 flex-shrink-0" />
+								<div>
+									<h3 class="font-semibold text-brand-charcoal group-hover:text-brand-primary transition-colors duration-200">
+										{area.city}
+									</h3>
+									<p class="text-sm text-brand-darkGray/70">{area.region}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+
+				<!-- Coverage Note -->
+				<div class="mt-12 p-6 gradient-card-light rounded-2xl border border-brand-accent/30 shadow-lg transition-all duration-300 hover:border-brand-primary/30 hover:shadow-xl">
+					<div class="flex items-start gap-3">
+						<MapPin class="w-6 h-6 text-brand-primary mt-0.5 flex-shrink-0" />
+						<div>
+							<h4 class="font-semibold text-brand-charcoal mb-2">Don't see your area listed?</h4>
+							<p class="text-brand-darkGray/80 mb-4">
+								We're expanding our service coverage regularly. Contact us to discuss your project—we may be able to accommodate special requests within reasonable travel distance.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- CTA Card -->
+			<div class="lg:sticky lg:top-8">
+				<div class="service-area-cta p-8 gradient-cta-dark backdrop-blur-sm rounded-2xl text-white border border-white/10 shadow-lg transition-all duration-300 hover:border-brand-primary/30">
+					<div class="text-center mb-6">
+						<div class="inline-flex items-center justify-center w-16 h-16 bg-brand-primary/20 rounded-full mb-4">
+							<Phone class="w-8 h-8 text-brand-accent" />
+						</div>
+						<h3 class="text-xl font-semibold mb-2">Ready to Start Your Project?</h3>
+						<p class="text-white/80 text-sm">
+							Get a free in-home consultation and quote within 48 hours
+						</p>
+					</div>
+
+					<div class="space-y-4">
+						<Button href="#contact" variant="primary" size="lg" class="w-full font-semibold">
+							Schedule Free Consultation
+						</Button>
+						<a href="tel:+1-416-123-4567" class="flex items-center justify-center gap-2 text-brand-accent hover:text-white transition-colors duration-200">
+							<Phone class="w-4 h-4" />
+							<span class="font-semibold">(416) 123-4567</span>
+						</a>
+					</div>
+
+					<!-- Business Hours -->
+					<div class="mt-6 pt-6 border-t border-white/10 text-center">
+						<p class="text-xs text-white/60 mb-2">Business Hours</p>
+						<p class="text-sm text-white/80">
+							Mon-Fri: 8AM-6PM<br>
+							Sat: 9AM-4PM<br>
+							Sun: By Appointment
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+.service-area-item {
+	transition: all 0.2s ease;
+}
+
+.service-area-item:hover {
+	transform: translateY(-2px);
+}
+
+.service-area-cta {
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-area-cta:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+</style>

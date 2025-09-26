@@ -1,0 +1,225 @@
+---
+import SectionWrapper from './SectionWrapper.astro';
+import SectionHeader from './SectionHeader.astro';
+import Phone from './icons/Phone.astro';
+import Mail from './icons/Mail.astro';
+import MapPin from './icons/MapPin.astro';
+import Clock from './icons/Clock.astro';
+import { companyInfo, companyDescriptions } from '../content/shared.ts';
+import Button from './ui/Button.astro';
+---
+
+<SectionWrapper theme="dark" id="contact">
+	<SectionHeader
+		tag="Contact Us"
+		title="Ready to Transform Your Space?"
+		description={companyDescriptions.contact}
+		layout="center"
+		theme="dark"
+	/>
+
+	<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-[1200px] mx-auto">
+			<!-- Contact Form -->
+			<div class="contact-form gradient-card-dark-strong backdrop-blur-sm border border-brand-primary/20 rounded-2xl p-8">
+				<h3 class="text-xl font-semibold text-white mb-6">Get Your Free Quote</h3>
+
+				<form class="space-y-6" action="#" method="POST">
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+						<div>
+							<label for="firstName" class="form-label-dark">First Name *</label>
+							<input
+								type="text"
+								id="firstName"
+								name="firstName"
+								required
+								class="form-input-dark"
+								placeholder="John"
+							>
+						</div>
+						<div>
+							<label for="lastName" class="form-label-dark">Last Name *</label>
+							<input
+								type="text"
+								id="lastName"
+								name="lastName"
+								required
+								class="form-input-dark"
+								placeholder="Smith"
+							>
+						</div>
+					</div>
+
+					<div>
+						<label for="email" class="form-label-dark">Email *</label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							required
+							class="form-input-dark"
+							placeholder="john@example.com"
+						>
+					</div>
+
+					<div>
+						<label for="phone" class="form-label-dark">Phone</label>
+						<input
+							type="tel"
+							id="phone"
+							name="phone"
+							class="form-input-dark"
+							placeholder={companyInfo.contact.phone.display}
+						>
+					</div>
+
+					<div>
+						<label for="projectType" class="form-label-dark">Project Type *</label>
+						<select
+							id="projectType"
+							name="projectType"
+							required
+							class="form-select-dark"
+						>
+							<option value="">Select a project type</option>
+							{companyInfo.projectTypes.map(type => (
+								<option value={type.value}>{type.label}</option>
+							))}
+						</select>
+					</div>
+
+					<div>
+						<label for="message" class="form-label-dark">Project Details</label>
+						<textarea
+							id="message"
+							name="message"
+							rows="4"
+							class="form-textarea-dark"
+							placeholder="Tell us about your project, budget, and timeline..."
+						></textarea>
+					</div>
+
+					<Button
+						type="submit"
+						variant="primary"
+						size="lg"
+						class="w-full font-semibold"
+					>
+						Send My Request
+					</Button>
+				</form>
+			</div>
+
+			<!-- Contact Info & Map -->
+			<div class="space-y-8">
+				<!-- Contact Details -->
+				<div class="contact-info space-y-6">
+					<div class="flex items-start gap-4">
+						<div class="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+							<Phone class="w-6 h-6 text-brand-primary" />
+						</div>
+						<div>
+							<h4 class="text-lg font-semibold text-white mb-1">Call Us</h4>
+							<a href={companyInfo.contact.phone.href} class="text-brand-primary hover:text-white transition-colors duration-200">
+								{companyInfo.contact.phone.display}
+							</a>
+							<p class="text-sm text-white/60 mt-1">Free consultation available</p>
+						</div>
+					</div>
+
+					<div class="flex items-start gap-4">
+						<div class="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+							<Mail class="w-6 h-6 text-brand-primary" />
+						</div>
+						<div>
+							<h4 class="text-lg font-semibold text-white mb-1">Email Us</h4>
+							<a href={companyInfo.contact.email.href} class="text-brand-primary hover:text-white transition-colors duration-200">
+								{companyInfo.contact.email.address}
+							</a>
+							<p class="text-sm text-white/60 mt-1">Response {companyInfo.timelines.emailResponse}</p>
+						</div>
+					</div>
+
+					<div class="flex items-start gap-4">
+						<div class="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+							<MapPin class="w-6 h-6 text-brand-primary" />
+						</div>
+						<div>
+							<h4 class="text-lg font-semibold text-white mb-1">Visit Our Showroom</h4>
+							<p class="text-white/80" set:html={companyInfo.location.address.display}>
+							</p>
+							<p class="text-sm text-white/60 mt-1">{companyInfo.location.showroom.size} showroom</p>
+						</div>
+					</div>
+
+					<div class="flex items-start gap-4">
+						<div class="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+							<Clock class="w-6 h-6 text-brand-primary" />
+						</div>
+						<div>
+							<h4 class="text-lg font-semibold text-white mb-1">Business Hours</h4>
+							<div class="text-white/80 text-sm leading-relaxed">
+								<p>{companyInfo.hours.display.weekdays}</p>
+								<p>{companyInfo.hours.display.saturday}</p>
+								<p>{companyInfo.hours.display.sunday}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Embedded Map -->
+				<div class="map-container bg-brand-primary/10 rounded-2xl p-4 border border-brand-primary/20">
+					<div class="aspect-video gradient-brand-accent rounded-lg flex items-center justify-center">
+						<div class="text-center">
+							<MapPin class="w-12 h-12 text-brand-primary mx-auto mb-4" />
+							<p class="text-white/80 mb-2">Interactive Map</p>
+							<p class="text-sm text-white/60">
+								{companyInfo.location.address.full}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+</SectionWrapper>
+
+<style>
+/* Contact Form Styling - Design System Compliant */
+.contact-form {
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.contact-form:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Input Styling */
+input, select, textarea {
+	transition: all 0.3s ease-in-out;
+}
+
+input:focus, select:focus, textarea:focus {
+	background: rgba(255, 255, 255, 0.15);
+	border-color: rgba(218, 210, 191, 0.5);
+}
+
+/* Touch target compliance */
+input, select, textarea, button {
+	min-height: 48px;
+}
+
+/* Contact Info Hover Effects */
+.contact-info a {
+	transition: color 0.3s ease-in-out;
+}
+
+/* Map Container Hover */
+.map-container {
+	transition: all 0.3s ease-in-out;
+}
+
+.map-container:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 12px 24px rgba(218, 210, 191, 0.1);
+}
+</style>
