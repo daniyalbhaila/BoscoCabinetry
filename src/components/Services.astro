@@ -2,6 +2,8 @@
 import SectionWrapper from './SectionWrapper.astro';
 import SectionHeader from './SectionHeader.astro';
 import ContentGrid from './ContentGrid.astro';
+import KitchenImage from '../assets/kitchen.jpg';
+import ShowroomImage from '../assets/showroom.jpg';
 
 interface ServiceItem {
 	key: string;
@@ -23,7 +25,7 @@ const services: ServiceItem[] = [
 		href: '#get-quote',
 		cta: 'Get a Kitchen Quote',
 		variant: 'image',
-		image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=800&fit=crop&crop=center'
+		image: KitchenImage.src
 	},
 	{
 		key: 'closets',
@@ -33,7 +35,7 @@ const services: ServiceItem[] = [
 		href: '#get-quote',
 		cta: 'Design My Closet',
 		variant: 'image',
-		image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=800&fit=crop&crop=center'
+		image: ShowroomImage.src
 	},
 	{
 		key: 'wall-units',
@@ -43,17 +45,17 @@ const services: ServiceItem[] = [
 		href: '#get-quote',
 		cta: 'Plan My Built‑In',
 		variant: 'image',
-		image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=800&fit=crop&crop=center'
+		image: KitchenImage.src
 	},
 	{
 		key: 'paneling',
-		title: 'Decorative Paneling',
+		title: 'Full Home Cabinetry',
 		description: 'Fluted, ribbed, and acoustic panels for statement walls and cohesive interiors.',
 		emoji: '🎛️',
 		href: '#get-quote',
 		cta: 'Explore Paneling',
 		variant: 'image',
-		image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=600&h=800&fit=crop&crop=center'
+		image: ShowroomImage.src
 	}
 ];
 ---

@@ -8,9 +8,9 @@ export const companyInfo = {
   // Contact Information
   contact: {
     phone: {
-      number: '+1-416-123-4567',
-      display: '(416) 123-4567',
-      href: 'tel:+1-416-123-4567'
+      number: '+1-647-766-7744',
+      display: '(647) 766-7744',
+      href: 'tel:+1-647-766-7744'
     },
     email: {
       address: 'info@boscocabinetry.com',
@@ -21,12 +21,17 @@ export const companyInfo = {
   // Physical Location
   location: {
     address: {
-      street: '123 Industrial Road',
+      street: '85 Brisbane Rd',
       city: 'North York',
       province: 'ON',
-      postalCode: 'M3J 2K9',
-      full: '123 Industrial Road, North York, ON M3J 2K9',
-      display: '123 Industrial Road<br>North York, ON M3J 2K9'
+      postalCode: 'M3J 2K3',
+      full: '85 Brisbane Rd, North York, ON M3J 2K3',
+      display: '85 Brisbane Rd<br>North York, ON M3J 2K3'
+    },
+    coordinates: {
+      lat: 43.7615,
+      lng: -79.4665,
+      zoom: 15
     },
     showroom: {
       size: '5,500 sq ft',
@@ -79,10 +84,10 @@ export const companyInfo = {
   // Project Types
   projectTypes: [
     { value: 'kitchen', label: 'Kitchen Cabinets' },
-    { value: 'closet', label: 'Closet Organization' },
-    { value: 'bathroom', label: 'Bathroom Vanity' },
+    { value: 'closet', label: 'Closets' },
+    { value: 'mediawall', label: 'Media Walls' },
     { value: 'builtin', label: 'Built-in Units' },
-    { value: 'other', label: 'Other Custom Work' }
+    { value: 'fullhome', label: 'Full Home Cabinetry' }
   ],
 
   // Timelines

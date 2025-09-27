@@ -6,6 +6,8 @@ import ChevronRight from './icons/ChevronRight.astro';
 import ChevronLeft from './icons/ChevronLeft.astro';
 import { Image } from 'astro:assets';
 import Button from './ui/Button.astro';
+import KitchenImage from '../assets/kitchen.jpg';
+import ShowroomImage from '../assets/showroom.jpg';
 
 interface ProjectShowcaseData {
 	title: string;
@@ -34,28 +36,28 @@ const projectData: ProjectShowcaseData = {
 	},
 	imageUrls: [
 		{
-			src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop",
+			src: KitchenImage,
 			alt: "Modern kitchen with white cabinets and quartz countertops"
 		},
 		{
-			src: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&h=600&fit=crop",
-			alt: "Kitchen island with bar seating"
+			src: ShowroomImage,
+			alt: "Bosco Cabinetry showroom and design center"
 		},
 		{
-			src: "https://images.unsplash.com/photo-1571508601891-ca5e7a713859?w=800&h=600&fit=crop",
+			src: KitchenImage,
 			alt: "Kitchen cabinet details and hardware"
 		},
 		{
-			src: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800&h=600&fit=crop",
-			alt: "Custom kitchen storage solutions"
+			src: ShowroomImage,
+			alt: "Custom cabinetry display and samples"
 		},
 		{
-			src: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop",
-			alt: "Kitchen lighting and fixtures"
+			src: KitchenImage,
+			alt: "Kitchen lighting and cabinet features"
 		},
 		{
-			src: "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=800&h=600&fit=crop",
-			alt: "Kitchen backsplash and countertops"
+			src: ShowroomImage,
+			alt: "Professional cabinetry craftsmanship"
 		}
 	]
 };

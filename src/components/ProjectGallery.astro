@@ -1,5 +1,7 @@
 ---
 import Button from './ui/Button.astro';
+import KitchenImage from '../assets/kitchen.jpg';
+import ShowroomImage from '../assets/showroom.jpg';
 ---
 <section class="project-gallery" id="gallery">
   <div class="cs-container">
@@ -18,7 +20,7 @@ import Button from './ui/Button.astro';
       <!-- Large Left Image -->
       <div class="gallery-item item-1">
         <picture class="cs-picture">
-          <img class="cs-image" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=800&fit=crop&crop=center" alt="Toronto Kitchen Renovation" loading="lazy" decoding="async">
+          <img class="cs-image" src={KitchenImage.src} alt="Toronto Kitchen Renovation" loading="lazy" decoding="async">
         </picture>
         <div class="cs-item-text">
           <h3 class="cs-h3">Toronto Kitchen Renovation</h3>
@@ -29,7 +31,7 @@ import Button from './ui/Button.astro';
       <!-- Top Right Image -->
       <div class="gallery-item item-2">
         <picture class="cs-picture">
-          <img class="cs-image" src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop&crop=center" alt="Mississauga Custom Walk-in Closet" loading="lazy" decoding="async">
+          <img class="cs-image" src={ShowroomImage.src} alt="Mississauga Custom Walk-in Closet" loading="lazy" decoding="async">
         </picture>
         <div class="cs-item-text">
           <h3 class="cs-h3">Mississauga Custom Closet</h3>
@@ -40,7 +42,7 @@ import Button from './ui/Button.astro';
       <!-- Middle Right Image -->
       <div class="gallery-item item-3">
         <picture class="cs-picture">
-          <img class="cs-image" src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=400&h=400&fit=crop&crop=center" alt="Oakville Bathroom Vanity" loading="lazy" decoding="async">
+          <img class="cs-image" src={KitchenImage.src} alt="Oakville Bathroom Vanity" loading="lazy" decoding="async">
         </picture>
         <div class="cs-item-text">
           <h3 class="cs-h3">Oakville Bathroom Vanity</h3>
@@ -51,7 +53,7 @@ import Button from './ui/Button.astro';
       <!-- Bottom Left Image -->
       <div class="gallery-item item-4">
         <picture class="cs-picture">
-          <img class="cs-image" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center" alt="North York Built-in Entertainment Unit" loading="lazy" decoding="async">
+          <img class="cs-image" src={ShowroomImage.src} alt="North York Built-in Entertainment Unit" loading="lazy" decoding="async">
         </picture>
         <div class="cs-item-text">
           <h3 class="cs-h3">North York Built-in</h3>
@@ -62,7 +64,7 @@ import Button from './ui/Button.astro';
       <!-- Bottom Center Image -->
       <div class="gallery-item item-5">
         <picture class="cs-picture">
-          <img class="cs-image" src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400&h=400&fit=crop&crop=center" alt="Richmond Hill Traditional Kitchen" loading="lazy" decoding="async">
+          <img class="cs-image" src={KitchenImage.src} alt="Richmond Hill Traditional Kitchen" loading="lazy" decoding="async">
         </picture>
         <div class="cs-item-text">
           <h3 class="cs-h3">Richmond Hill Kitchen</h3>
@@ -73,7 +75,7 @@ import Button from './ui/Button.astro';
       <!-- Bottom Right Image -->
       <div class="gallery-item item-6">
         <picture class="cs-picture">
-          <img class="cs-image" src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=600&fit=crop&crop=center" alt="Markham Decorative Wall Paneling" loading="lazy" decoding="async">
+          <img class="cs-image" src={ShowroomImage.src} alt="Markham Decorative Wall Paneling" loading="lazy" decoding="async">
         </picture>
         <div class="cs-item-text">
           <h3 class="cs-h3">Markham Wall Paneling</h3>
