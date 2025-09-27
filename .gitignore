@@ -33,3 +33,10 @@ lerna-debug.log*
 # Temporary files
 *.tmp
 *.temp
+*.Zone.Identifier
+
+# Screenshots and test files
+.playwright-mcp/
+screenshots/
+*.png:screenshot
+*analysis.png

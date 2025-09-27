@@ -30,6 +30,16 @@ body {
   font-synthesis-style: none;
 }
 
+/* Font loading states managed in BaseLayout head styles for critical CSS */
+/* These rules are for specificity override if needed */
+body.font-loading * {
+  font-family: 'Poppins Fallback', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+body.font-loaded * {
+  font-family: 'Poppins', 'Poppins Fallback', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+}
+
 /***** Utility layer - Unified Design System *****/
 @layer utilities {
   /* UNIFIED BUTTONS - All use rounded-full with slide-in hover animation */

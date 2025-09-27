@@ -1,6 +1,7 @@
 ---
 import Button from './ui/Button.astro';
 import { primaryNavigation, servicesNavigation, getCurrentPage, isActiveNavItem } from '../content/navigation';
+import LogoSvg from '../assets/Logo-Light.svg?raw';
 
 // Get current page for active states
 const currentPath = Astro.url.pathname;
@@ -9,7 +10,7 @@ const currentPage = getCurrentPage(currentPath);
 <header id="cs-navigation">
   <div class="cs-container">
     <a href="/" class="cs-logo" aria-label="back to home">
-      <img src="/Logo-Light.webp" alt="Bosco Cabinetry Logo" width="15" height="2" aria-hidden="true" decoding="async">
+      <div class="logo-svg w-[120px] h-[40px]" set:html={LogoSvg} />
     </a>
     <nav class="cs-nav" role="navigation">
       <button class="cs-toggle" aria-label="mobile menu toggle">
@@ -72,7 +73,7 @@ const currentPage = getCurrentPage(currentPath);
     filter: invert(0);
   }
   #cs-navigation {
-    font-family: "Inter", "Arial", sans-serif;
+    font-family: "Poppins", system-ui, sans-serif;
     width: 100%;
     box-sizing: border-box;
     padding: 0.5rem 0.75rem;
@@ -129,11 +130,10 @@ const currentPage = getCurrentPage(currentPath);
     align-items: center;
     z-index: 10;
   }
-  #cs-navigation .cs-logo img {
+  #cs-navigation .cs-logo .logo-svg svg {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: contain;
-    object-position: left;
   }
   #cs-navigation .cs-toggle {
     width: clamp(2.75rem, 6vw, 3rem);
@@ -252,7 +252,7 @@ const currentPage = getCurrentPage(currentPath);
     line-height: 1.2em;
     text-decoration: none;
     margin: 0;
-    color: var(--headerColor);
+    color: #393335;
     display: inline-block;
     position: relative;
   }
@@ -298,7 +298,7 @@ const currentPage = getCurrentPage(currentPath);
   #cs-navigation .cs-dropdown-link {
     display: block;
     padding: 0.75rem 1rem;
-    color: var(--headerColor);
+    color: #393335;
     text-decoration: none;
     font-size: clamp(0.875rem, 2vw, 1rem);
     font-weight: 500;
@@ -308,8 +308,8 @@ const currentPage = getCurrentPage(currentPath);
   }
 
   #cs-navigation .cs-dropdown-link:hover {
-    background-color: var(--primary);
-    color: var(--headerColor);
+    background-color: #DAD2BF;
+    color: #393335;
   }
 
   #cs-navigation .cs-dropdown-li:last-child .cs-dropdown-link {
@@ -328,17 +328,17 @@ const currentPage = getCurrentPage(currentPath);
     filter: invert(1);
   }
   body.scroll #cs-navigation .cs-li-link {
-    color: var(--headerColor);
+    color: #393335;
   }
   body.scroll #cs-navigation .cs-li-link:before {
-    background: var(--headerColor);
+    background: #393335;
   }
   body.scroll #cs-navigation .cs-nav-button {
-    background-color: var(--primary);
-    color: var(--headerColor);
+    background-color: #DAD2BF;
+    color: #393335;
   }
   #cs-navigation {
-    font-family: "Inter", "Arial", sans-serif;
+    font-family: "Poppins", system-ui, sans-serif;
     width: 100%;
     box-sizing: border-box;
     padding: 0 1rem;
@@ -370,9 +370,9 @@ const currentPage = getCurrentPage(currentPath);
     align-items: center;
     z-index: 100;
   }
-  #cs-navigation .cs-logo img {
+  #cs-navigation .cs-logo .logo-svg svg {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: contain;
   }
   #cs-navigation .cs-ul {
@@ -462,7 +462,7 @@ const currentPage = getCurrentPage(currentPath);
   #cs-navigation .cs-dropdown-link {
     display: block;
     padding: 0.75rem 1.5rem;
-    color: var(--headerColor);
+    color: #393335;
     text-decoration: none;
     font-size: 0.875rem;
     font-weight: 500;
@@ -472,16 +472,12 @@ const currentPage = getCurrentPage(currentPath);
   }
 
   #cs-navigation .cs-dropdown-link:hover {
-    background-color: var(--primary);
-    color: var(--headerColor);
+    background-color: #DAD2BF;
+    color: #393335;
   }
 }
 
-:root {
-  --primary: #DAD2BF;
-  --headerColor: #393335;
-  --bodyTextColor: #393335;
-}
+/* Color variables removed - using Tailwind brand colors */
 </style>
 
 <script>
