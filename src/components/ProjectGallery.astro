@@ -1,5 +1,6 @@
 ---
 import Button from './ui/Button.astro';
+import { Image } from 'astro:assets';
 import KitchenImage from '../assets/kitchen.jpg';
 import ShowroomImage from '../assets/showroom.jpg';
 ---
@@ -20,7 +21,7 @@ import ShowroomImage from '../assets/showroom.jpg';
       <!-- Large Left Image -->
       <div class="gallery-item item-1">
         <picture class="cs-picture">
-          <img class="cs-image" src={KitchenImage.src} alt="Toronto Kitchen Renovation" loading="lazy" decoding="async">
+          <Image class="cs-image" src={KitchenImage} alt="Toronto Kitchen Renovation" width={600} height={400} format="webp" quality={80} loading="lazy" decoding="async" />
         </picture>
         <div class="cs-item-text">
           <h3 class="cs-h3">Toronto Kitchen Renovation</h3>
@@ -31,7 +32,7 @@ import ShowroomImage from '../assets/showroom.jpg';
       <!-- Top Right Image -->
       <div class="gallery-item item-2">
         <picture class="cs-picture">
-          <img class="cs-image" src={ShowroomImage.src} alt="Mississauga Custom Walk-in Closet" loading="lazy" decoding="async">
+          <Image class="cs-image" src={ShowroomImage} alt="Mississauga Custom Walk-in Closet" width={400} height={300} format="webp" quality={80} loading="lazy" decoding="async" />
         </picture>
         <div class="cs-item-text">
           <h3 class="cs-h3">Mississauga Custom Closet</h3>
@@ -42,7 +43,7 @@ import ShowroomImage from '../assets/showroom.jpg';
       <!-- Middle Right Image -->
       <div class="gallery-item item-3">
         <picture class="cs-picture">
-          <img class="cs-image" src={KitchenImage.src} alt="Oakville Bathroom Vanity" loading="lazy" decoding="async">
+          <Image class="cs-image" src={KitchenImage} alt="Oakville Bathroom Vanity" width={400} height={300} format="webp" quality={80} loading="lazy" decoding="async" />
         </picture>
         <div class="cs-item-text">
           <h3 class="cs-h3">Oakville Bathroom Vanity</h3>
@@ -53,7 +54,7 @@ import ShowroomImage from '../assets/showroom.jpg';
       <!-- Bottom Left Image -->
       <div class="gallery-item item-4">
         <picture class="cs-picture">
-          <img class="cs-image" src={ShowroomImage.src} alt="North York Built-in Entertainment Unit" loading="lazy" decoding="async">
+          <Image class="cs-image" src={ShowroomImage} alt="North York Built-in Entertainment Unit" width={400} height={300} format="webp" quality={80} loading="lazy" decoding="async" />
         </picture>
         <div class="cs-item-text">
           <h3 class="cs-h3">North York Built-in</h3>
@@ -64,7 +65,7 @@ import ShowroomImage from '../assets/showroom.jpg';
       <!-- Bottom Center Image -->
       <div class="gallery-item item-5">
         <picture class="cs-picture">
-          <img class="cs-image" src={KitchenImage.src} alt="Richmond Hill Traditional Kitchen" loading="lazy" decoding="async">
+          <Image class="cs-image" src={KitchenImage} alt="Richmond Hill Traditional Kitchen" width={400} height={300} format="webp" quality={80} loading="lazy" decoding="async" />
         </picture>
         <div class="cs-item-text">
           <h3 class="cs-h3">Richmond Hill Kitchen</h3>
@@ -75,7 +76,7 @@ import ShowroomImage from '../assets/showroom.jpg';
       <!-- Bottom Right Image -->
       <div class="gallery-item item-6">
         <picture class="cs-picture">
-          <img class="cs-image" src={ShowroomImage.src} alt="Markham Decorative Wall Paneling" loading="lazy" decoding="async">
+          <Image class="cs-image" src={ShowroomImage} alt="Markham Decorative Wall Paneling" width={400} height={300} format="webp" quality={80} loading="lazy" decoding="async" />
         </picture>
         <div class="cs-item-text">
           <h3 class="cs-h3">Markham Wall Paneling</h3>

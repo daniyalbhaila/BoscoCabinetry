@@ -19,7 +19,7 @@ interface ProjectShowcaseData {
 		verified: boolean;
 	};
 	imageUrls: Array<{
-		src: string;
+		src: any;
 		alt: string;
 	}>;
 }
@@ -65,7 +65,7 @@ const projectData: ProjectShowcaseData = {
 // Generate optimized images using Astro's Image component
 const optimizedImages = projectData.imageUrls.map((image, index) => ({
 	id: index,
-	src: image.src,
+	src: image,
 	alt: image.alt,
 	width: 800,
 	height: 600
@@ -153,7 +153,7 @@ const optimizedImages = projectData.imageUrls.map((image, index) => ({
 								}}
 							>
 								<Image
-									src={image.src}
+									src={image}
 									alt={image.alt}
 									width={512}
 									height={384}

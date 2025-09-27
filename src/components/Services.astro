@@ -13,7 +13,7 @@ interface ServiceItem {
 	href?: string;
 	emoji?: string;
 	variant?: 'image' | 'text';
-	image?: string;
+	image?: any;
 }
 
 const services: ServiceItem[] = [
@@ -25,7 +25,7 @@ const services: ServiceItem[] = [
 		href: '#get-quote',
 		cta: 'Get a Kitchen Quote',
 		variant: 'image',
-		image: KitchenImage.src
+		image: KitchenImage
 	},
 	{
 		key: 'closets',
@@ -35,7 +35,7 @@ const services: ServiceItem[] = [
 		href: '#get-quote',
 		cta: 'Design My Closet',
 		variant: 'image',
-		image: ShowroomImage.src
+		image: ShowroomImage
 	},
 	{
 		key: 'wall-units',
@@ -45,7 +45,7 @@ const services: ServiceItem[] = [
 		href: '#get-quote',
 		cta: 'Plan My Built‑In',
 		variant: 'image',
-		image: KitchenImage.src
+		image: KitchenImage
 	},
 	{
 		key: 'paneling',
@@ -55,7 +55,7 @@ const services: ServiceItem[] = [
 		href: '#get-quote',
 		cta: 'Explore Paneling',
 		variant: 'image',
-		image: ShowroomImage.src
+		image: ShowroomImage
 	}
 ];
 ---
