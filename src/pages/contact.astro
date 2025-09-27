@@ -4,7 +4,8 @@ import Hero from '../components/Hero.astro';
 import SectionWrapper from '../components/SectionWrapper.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ContactUs from '../components/ContactUs.astro';
-import { companyInfo, companyDescriptions } from '../content/shared';
+import KitchenImage from '../assets/kitchen.jpg';
+import { companyInfo } from '../content/shared';
 
 const contactMethods = [
   {
@@ -62,7 +63,7 @@ const faqs = [
   <Hero
     title="Get Your Free Consultation"
     subtitle="Ready to transform your space with custom cabinetry? Contact our team today to discuss your project and schedule your free consultation."
-    backgroundImage="/images/contact-hero.jpg"
+    backgroundImage={KitchenImage}
     theme="dark"
     size="medium"
     showCTA={false}

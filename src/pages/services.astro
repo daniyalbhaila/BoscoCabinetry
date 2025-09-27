@@ -6,7 +6,8 @@ import SectionHeader from '../components/SectionHeader.astro';
 import ContentGrid from '../components/ContentGrid.astro';
 import ProcessSection from '../components/ProcessSection.astro';
 import ContactUs from '../components/ContactUs.astro';
-import { companyInfo, companyDescriptions } from '../content/shared';
+import KitchenImage from '../assets/kitchen.jpg';
+import { companyInfo } from '../content/shared';
 
 const servicesData = companyInfo.projectTypes.map(service => ({
   title: service.label,
@@ -43,7 +44,7 @@ function getServiceIcon(serviceType: string): string {
   <Hero
     title="Custom Cabinetry Services"
     subtitle="From kitchen cabinets to complete home storage solutions. Explore our full range of custom cabinetry services designed to transform your space."
-    backgroundImage="/images/services-hero.jpg"
+    backgroundImage={KitchenImage}
     theme="dark"
     size="large"
     showCTA={true}

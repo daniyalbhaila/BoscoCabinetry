@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SectionWrapper from '../components/SectionWrapper.astro';
@@ -6,31 +7,45 @@ import SectionHeader from '../components/SectionHeader.astro';
 import ProjectGallery from '../components/ProjectGallery.astro';
 import FeaturedProject from '../components/FeaturedProject.astro';
 import ContactUs from '../components/ContactUs.astro';
+import KitchenImage from '../assets/kitchen.jpg';
+import ShowroomImage from '../assets/showroom.jpg';
 import { companyInfo } from '../content/shared';
 
 const portfolioCategories = [
   {
     title: "Kitchen Cabinets",
     description: "Custom kitchen cabinetry projects showcasing various styles and finishes",
-    image: "/images/portfolio/kitchen-category.jpg",
+    image: {
+      src: KitchenImage,
+      alt: "Modern custom kitchen cabinetry with quartz countertops"
+    },
     href: "/portfolio/kitchens"
   },
   {
     title: "Closet Systems",
     description: "Organized closet solutions maximizing storage and functionality",
-    image: "/images/portfolio/closet-category.jpg",
+    image: {
+      src: ShowroomImage,
+      alt: "Walk-in closet with custom organization system"
+    },
     href: "/portfolio/closets"
   },
   {
     title: "Bathroom Vanities",
     description: "Elegant bathroom storage solutions combining style and utility",
-    image: "/images/portfolio/bathroom-category.jpg",
+    image: {
+      src: KitchenImage,
+      alt: "Bathroom vanity with custom cabinetry and lighting"
+    },
     href: "/portfolio/bathrooms"
   },
   {
     title: "Built-in Units",
     description: "Custom built-in storage for entertainment, office, and living spaces",
-    image: "/images/portfolio/builtin-category.jpg",
+    image: {
+      src: ShowroomImage,
+      alt: "Built-in shelving and media wall cabinetry"
+    },
     href: "/portfolio/built-ins"
   }
 ];
@@ -41,7 +56,7 @@ const portfolioCategories = [
   <Hero
     title="Our Portfolio"
     subtitle="Explore our collection of custom cabinetry projects. From modern kitchens to organized closets, see how we transform spaces with quality craftsmanship and thoughtful design."
-    backgroundImage="/images/portfolio-hero.jpg"
+    backgroundImage={KitchenImage}
     theme="dark"
     size="large"
     showCTA={true}
@@ -63,11 +78,15 @@ const portfolioCategories = [
         <div class="group cursor-pointer">
           <a href={category.href} class="block">
             <div class="relative overflow-hidden rounded-2xl mb-4">
-              <img
-                src={category.image}
-                alt={category.title}
+              <Image
+                src={category.image.src}
+                alt={category.image.alt}
                 class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                width={800}
+                height={533}
                 loading="lazy"
+                decoding="async"
+                sizes="(max-width: 1024px) 100vw, 600px"
               />
               <div class="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300"></div>
               <div class="absolute inset-0 flex items-center justify-center">

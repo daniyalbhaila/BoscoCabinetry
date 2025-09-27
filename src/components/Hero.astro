@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro:assets';
 import heroPoster from '../assets/hero-poster.png';
 import { companyInfo, companyDescriptions } from '../content/shared.ts';
 import Button from './ui/Button.astro';
@@ -10,7 +11,7 @@ export interface Props {
 	kicker?: string;
 	description?: string;
 	videoSrc?: string;
-	backgroundImage?: string;
+  backgroundImage?: ImageMetadata | string;
 	theme?: 'dark' | 'light';
 	size?: 'full' | 'medium' | 'compact';
 	ctaButtons?: Array<{
@@ -62,13 +63,25 @@ const fadeClasses = {
 	<div class="absolute inset-0 -z-10">
 		{/* Background Image */}
 		{backgroundImage ? (
-			<img
-				src={backgroundImage}
-				alt="Page background"
-				class="h-full w-full object-cover"
-				loading="eager"
-				fetchpriority="high"
-			/>
+			typeof backgroundImage === 'string' ? (
+				<img
+					src={backgroundImage}
+					alt="Page background"
+					class="h-full w-full object-cover"
+					loading="eager"
+					fetchpriority="high"
+				/>
+			) : (
+				<Image
+					src={backgroundImage}
+					alt="Page background"
+					class="h-full w-full object-cover"
+					width={backgroundImage.width}
+					height={backgroundImage.height}
+					loading="eager"
+					fetchpriority="high"
+				/>
+			)
 		) : (
 			<Image
 				src={heroPoster}

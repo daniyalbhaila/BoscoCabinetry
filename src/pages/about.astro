@@ -6,6 +6,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 import ContentGrid from '../components/ContentGrid.astro';
 import Reviews from '../components/Reviews.astro';
 import ContactUs from '../components/ContactUs.astro';
+import ShowroomImage from '../assets/showroom.jpg';
 import { companyInfo, companyDescriptions } from '../content/shared';
 
 const companyStats = [
@@ -52,7 +53,7 @@ const teamValues = [
   <Hero
     title="About Bosco Cabinetry"
     subtitle="For over 20 years, we've been creating beautiful, functional custom cabinetry for homes throughout the Greater Toronto Area. Discover our commitment to quality, craftsmanship, and customer satisfaction."
-    backgroundImage="/images/about-hero.jpg"
+    backgroundImage={ShowroomImage}
     theme="dark"
     size="large"
     showCTA={true}

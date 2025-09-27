@@ -1,5 +1,6 @@
 ---
 import MapBackground from '../assets/map.png';
+import { Image } from 'astro:assets';
 
 interface Props {
 	lat: number;
@@ -46,10 +47,13 @@ const directMapUrl = `https://www.google.com/maps?q=${lat},${lng}&z=${zoom}`;
 		<!-- Fallback: Clickable map screenshot that opens Google Maps -->
 		<div class="map-fallback relative rounded-lg border border-brand-primary/20 h-full cursor-pointer transition-all duration-300 hover:border-brand-primary/40 overflow-hidden">
 			<!-- Background Map Image -->
-			<img
-				src={MapBackground.src}
+			<Image
+				src={MapBackground}
 				alt="Map showing location of Bosco Cabinetry"
 				class="w-full h-full object-cover"
+				loading="lazy"
+				decoding="async"
+				sizes="100vw"
 			/>
 
 			<!-- Business info overlay (no gradient) -->

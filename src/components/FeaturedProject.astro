@@ -1,5 +1,7 @@
 ---
 // Featured Project with side-by-side layout
+import { Image } from 'astro:assets';
+import featuredProjectPoster from '../assets/hero-poster.png';
 import Button from './ui/Button.astro';
 ---
 <section id="featured-project" class="relative isolate bg-brand-charcoal min-h-screen flex items-center">
@@ -21,10 +23,12 @@ import Button from './ui/Button.astro';
 						<!-- YouTube Lazy Loading Facade -->
 						<div id="youtube-facade" class="relative h-full w-full cursor-pointer group">
 							<!-- Thumbnail -->
-							<img
-								src="https://img.youtube.com/vi/emMMuda6j1k/maxresdefault.jpg"
+							<Image
+								src={featuredProjectPoster}
 								alt="Mississauga Full Home Remodel Project Video Thumbnail"
 								class="h-full w-full object-cover rounded-2xl"
+								width={featuredProjectPoster.width}
+								height={featuredProjectPoster.height}
 								loading="lazy"
 							/>
 							<!-- Play Button Overlay -->

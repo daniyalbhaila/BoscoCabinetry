@@ -65,7 +65,7 @@ const projectData: ProjectShowcaseData = {
 // Generate optimized images using Astro's Image component
 const optimizedImages = projectData.imageUrls.map((image, index) => ({
 	id: index,
-	src: image,
+	src: image.src,
 	alt: image.alt,
 	width: 800,
 	height: 600
@@ -153,10 +153,10 @@ const optimizedImages = projectData.imageUrls.map((image, index) => ({
 								}}
 							>
 								<Image
-									src={image}
+									src={image.src}
 									alt={image.alt}
-									width={512}
-									height={384}
+									width={image.width}
+									height={image.height}
 									format="webp"
 									quality={80}
 									class="w-full h-full object-cover"
