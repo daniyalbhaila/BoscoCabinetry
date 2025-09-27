@@ -8,6 +8,7 @@ import { Image } from 'astro:assets';
 import Button from './ui/Button.astro';
 import KitchenImage from '../assets/kitchen.jpg';
 import ShowroomImage from '../assets/showroom.jpg';
+import { CARD_IMAGE_DIMENSIONS } from '../lib/imageConfig';
 
 interface ProjectShowcaseData {
 	title: string;
@@ -67,8 +68,8 @@ const optimizedImages = projectData.imageUrls.map((image, index) => ({
 	id: index,
 	src: image.src,
 	alt: image.alt,
-	width: 800,
-	height: 600
+	width: CARD_IMAGE_DIMENSIONS.width,
+	height: CARD_IMAGE_DIMENSIONS.height
 }));
 ---
 
@@ -140,7 +141,7 @@ const optimizedImages = projectData.imageUrls.map((image, index) => ({
 			<div class="order-1 lg:order-2">
 				<div class="relative">
 					<!-- Optimized Images Stack using Astro Image Component -->
-					<div class="relative w-full max-w-lg mx-auto h-96" style="perspective: 1000px;" id="image-stack">
+					<div class="relative mx-auto h-96 w-full max-w-lg cursor-grab select-none" style="perspective: 1000px;" id="image-stack">
 						{optimizedImages.map((image, index) => (
 							<div
 								class={`absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 cursor-grab active:cursor-grabbing image-card`}
@@ -157,9 +158,10 @@ const optimizedImages = projectData.imageUrls.map((image, index) => ({
 									alt={image.alt}
 									width={image.width}
 									height={image.height}
+									sizes={CARD_IMAGE_DIMENSIONS.sizes}
 									format="webp"
 									quality={80}
-									class="w-full h-full object-cover"
+									class="h-full w-full object-cover"
 									loading={index === 0 ? "eager" : "lazy"}
 									fetchpriority={index === 0 ? "high" : "low"}
 								/>
@@ -275,10 +277,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	imageStack.addEventListener('mousedown', (e) => {
 		mouseStartX = e.clientX;
 		mouseIsDragging = true;
-		// Use RAF to avoid forced reflows
-		requestAnimationFrame(() => {
-			imageStack.style.cursor = 'grabbing';
-		});
+		imageStack.classList.add('cursor-grabbing');
+		imageStack.classList.remove('cursor-grab');
 	});
 
 	imageStack.addEventListener('mousemove', (e) => {
@@ -299,18 +299,14 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		}
 		mouseIsDragging = false;
-		// Use RAF to avoid forced reflows
-		requestAnimationFrame(() => {
-			imageStack.style.cursor = 'grab';
-		});
+		imageStack.classList.remove('cursor-grabbing');
+		imageStack.classList.add('cursor-grab');
 	});
 
 	imageStack.addEventListener('mouseleave', () => {
 		mouseIsDragging = false;
-		// Use RAF to avoid forced reflows
-		requestAnimationFrame(() => {
-			imageStack.style.cursor = 'grab';
-		});
+		imageStack.classList.remove('cursor-grabbing');
+		imageStack.classList.add('cursor-grab');
 	});
 
 	// Initialize positions

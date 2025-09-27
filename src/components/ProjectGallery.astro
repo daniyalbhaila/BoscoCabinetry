@@ -3,355 +3,86 @@ import Button from './ui/Button.astro';
 import { Image } from 'astro:assets';
 import KitchenImage from '../assets/kitchen.jpg';
 import ShowroomImage from '../assets/showroom.jpg';
+import { CARD_IMAGE_DIMENSIONS } from '../lib/imageConfig';
 ---
-<section class="project-gallery" id="gallery">
-  <div class="cs-container">
+<section id="gallery" class="bg-[#f7f7f7] py-20">
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-12 px-6">
     <!-- Section Header -->
-    <div class="cs-content">
-      <p class="text-[11px] uppercase tracking-[0.2em] text-brand-primary/60 mb-4">[Our Work]</p>
-      <h2 class="cs-title">Recent Projects</h2>
-      <p class="cs-text">Transforming homes across the Greater Toronto Area with custom cabinetry, closets, and built-ins. Each project showcases our commitment to quality craftsmanship and attention to detail.</p>
+    <div class="max-w-2xl text-center">
+      <p class="mb-4 text-[11px] uppercase tracking-[0.2em] text-brand-primary/60">[Our Work]</p>
+      <h2 class="text-3xl font-semibold text-brand-charcoal sm:text-4xl md:text-5xl">
+        Recent Projects
+      </h2>
+      <p class="mt-4 text-base text-brand-darkGray/80">
+        Transforming homes across the Greater Toronto Area with custom cabinetry, closets, and built-ins. Each project showcases our commitment to quality craftsmanship and attention to detail.
+      </p>
 
-      <!-- CTA Button -->
       <Button href="#portfolio" variant="primary" class="mt-6">View All Projects</Button>
     </div>
 
     <!-- Mosaic Gallery Grid -->
-    <div class="gallery-mosaic">
-      <!-- Large Left Image -->
-      <div class="gallery-item item-1">
-        <picture class="cs-picture">
-          <Image class="cs-image" src={KitchenImage} alt="Toronto Kitchen Renovation" width={600} height={400} format="webp" quality={80} loading="lazy" decoding="async" />
-        </picture>
-        <div class="cs-item-text">
-          <h3 class="cs-h3">Toronto Kitchen Renovation</h3>
-          <p class="cs-item-p">Modern luxury kitchen with custom cabinetry and quartz countertops in Forest Hill</p>
-        </div>
-      </div>
+    <div class="grid w-full auto-rows-[220px] gap-4 md:auto-rows-[300px] md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)]">
+      {[
+        {
+          title: 'Toronto Kitchen Renovation',
+          description: 'Modern luxury kitchen with custom cabinetry and quartz countertops in Forest Hill',
+          image: KitchenImage,
+          layout: 'md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-3'
+        },
+        {
+          title: 'Mississauga Custom Closet',
+          description: 'Luxury walk-in closet with custom organization system',
+          image: ShowroomImage,
+          layout: 'md:col-start-2 md:col-end-4 md:row-start-1 md:row-end-2'
+        },
+        {
+          title: 'Oakville Bathroom Vanity',
+          description: 'Custom floating vanity with integrated storage solutions',
+          image: KitchenImage,
+          layout: 'md:col-start-2 md:col-end-3 md:row-start-2 md:row-end-3'
+        },
+        {
+          title: 'North York Built-in',
+          description: 'Custom entertainment unit with hidden wire management',
+          image: ShowroomImage,
+          layout: 'md:col-start-1 md:col-end-2 md:row-start-3 md:row-end-4'
+        },
+        {
+          title: 'Richmond Hill Kitchen',
+          description: 'Traditional style kitchen renovation with classic details',
+          image: KitchenImage,
+          layout: 'md:col-start-2 md:col-end-3 md:row-start-3 md:row-end-4'
+        },
+        {
+          title: 'Markham Wall Paneling',
+          description: 'Custom decorative wall paneling for accent features',
+          image: ShowroomImage,
+          layout: 'md:col-start-3 md:col-end-4 md:row-start-2 md:row-end-4'
+        }
+      ].map((card) => (
+        <article class={`group surface-card ${card.layout}`}>
+          <div class="surface-card-media">
+            <Image
+              src={card.image}
+              alt={card.title}
+              class="h-full w-full object-cover"
+              width={CARD_IMAGE_DIMENSIONS.width}
+              height={CARD_IMAGE_DIMENSIONS.height}
+              sizes={CARD_IMAGE_DIMENSIONS.sizes}
+              format="webp"
+              quality={80}
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="surface-card-overlay"></div>
+          </div>
 
-      <!-- Top Right Image -->
-      <div class="gallery-item item-2">
-        <picture class="cs-picture">
-          <Image class="cs-image" src={ShowroomImage} alt="Mississauga Custom Walk-in Closet" width={400} height={300} format="webp" quality={80} loading="lazy" decoding="async" />
-        </picture>
-        <div class="cs-item-text">
-          <h3 class="cs-h3">Mississauga Custom Closet</h3>
-          <p class="cs-item-p">Luxury walk-in closet with custom organization system</p>
-        </div>
-      </div>
-
-      <!-- Middle Right Image -->
-      <div class="gallery-item item-3">
-        <picture class="cs-picture">
-          <Image class="cs-image" src={KitchenImage} alt="Oakville Bathroom Vanity" width={400} height={300} format="webp" quality={80} loading="lazy" decoding="async" />
-        </picture>
-        <div class="cs-item-text">
-          <h3 class="cs-h3">Oakville Bathroom Vanity</h3>
-          <p class="cs-item-p">Custom floating vanity with integrated storage solutions</p>
-        </div>
-      </div>
-
-      <!-- Bottom Left Image -->
-      <div class="gallery-item item-4">
-        <picture class="cs-picture">
-          <Image class="cs-image" src={ShowroomImage} alt="North York Built-in Entertainment Unit" width={400} height={300} format="webp" quality={80} loading="lazy" decoding="async" />
-        </picture>
-        <div class="cs-item-text">
-          <h3 class="cs-h3">North York Built-in</h3>
-          <p class="cs-item-p">Custom entertainment unit with hidden wire management</p>
-        </div>
-      </div>
-
-      <!-- Bottom Center Image -->
-      <div class="gallery-item item-5">
-        <picture class="cs-picture">
-          <Image class="cs-image" src={KitchenImage} alt="Richmond Hill Traditional Kitchen" width={400} height={300} format="webp" quality={80} loading="lazy" decoding="async" />
-        </picture>
-        <div class="cs-item-text">
-          <h3 class="cs-h3">Richmond Hill Kitchen</h3>
-          <p class="cs-item-p">Traditional style kitchen renovation with classic details</p>
-        </div>
-      </div>
-
-      <!-- Bottom Right Image -->
-      <div class="gallery-item item-6">
-        <picture class="cs-picture">
-          <Image class="cs-image" src={ShowroomImage} alt="Markham Decorative Wall Paneling" width={400} height={300} format="webp" quality={80} loading="lazy" decoding="async" />
-        </picture>
-        <div class="cs-item-text">
-          <h3 class="cs-h3">Markham Wall Paneling</h3>
-          <p class="cs-item-p">Custom decorative wall paneling for accent features</p>
-        </div>
-      </div>
+          <div class="relative z-10 flex h-full flex-col justify-end gap-3 p-6 text-white">
+            <h3 class="hidden text-xl font-semibold">{card.title}</h3>
+            <p class="hidden text-sm text-white/85">{card.description}</p>
+          </div>
+        </article>
+      ))}
     </div>
   </div>
 </section>
-
-<style>
-/* Project Gallery Section - Matches website design system */
-.project-gallery {
-  padding: var(--sectionPadding);
-  background-color: #f7f7f7;
-  overflow: hidden;
-}
-
-.cs-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(3rem, 6vw, 4rem);
-  padding: 0 1rem;
-}
-
-.cs-content {
-  text-align: center;
-  width: 100%;
-  max-width: 41.875rem;
-  margin: auto;
-}
-
-
-.cs-title {
-  font-size: clamp(1.9375rem, 3.9vw, 3.0625rem);
-  font-weight: 900;
-  line-height: 1.2em;
-  text-align: center;
-  max-width: 43.75rem;
-  margin: 0 auto 1rem;
-  color: var(--headerColor);
-  position: relative;
-}
-
-.cs-text {
-  font-size: var(--bodyFontSize);
-  line-height: 1.5em;
-  text-align: center;
-  width: 100%;
-  max-width: 40.625rem;
-  margin: 0 auto;
-  color: var(--bodyTextColor);
-}
-
-/* Mosaic Gallery Grid - Matches your reference image */
-.gallery-mosaic {
-  width: 100%;
-  max-width: 1200px;
-  display: grid;
-  grid-template-columns: 1fr 0.6fr 0.6fr;
-  grid-template-rows: 300px 300px 300px;
-  gap: 1rem;
-  margin-bottom: 3rem;
-}
-
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.gallery-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-/* Grid positioning to match reference image */
-.item-1 {
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
-}
-
-.item-2 {
-  grid-column: 2 / 4;
-  grid-row: 1 / 2;
-}
-
-.item-3 {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-}
-
-.item-4 {
-  grid-column: 1 / 2;
-  grid-row: 3 / 4;
-}
-
-.item-5 {
-  grid-column: 2 / 3;
-  grid-row: 3 / 4;
-}
-
-.item-6 {
-  grid-column: 3 / 4;
-  grid-row: 2 / 4;
-}
-
-.cs-picture {
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: relative;
-}
-
-.cs-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.gallery-item:hover .cs-image {
-  transform: scale(1.05);
-}
-
-/* Text overlay */
-.cs-item-text {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-  color: white;
-  padding: 2rem 1.5rem 1.5rem;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
-}
-
-.gallery-item:hover .cs-item-text {
-  transform: translateY(0);
-}
-
-.cs-h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.2em;
-  margin: 0 0 0.75rem;
-  color: #DAD2BF;
-}
-
-.cs-item-p {
-  font-size: 0.875rem;
-  line-height: 1.5em;
-  margin: 0;
-  opacity: 0.9;
-}
-
-/* Remove custom button styling - using website's unified .btn system */
-
-/* Responsive Design */
-@media only screen and (max-width: 1024px) {
-  .gallery-mosaic {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 250px 250px 250px;
-    gap: 0.75rem;
-  }
-
-  .item-1 {
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
-  }
-
-  .item-2 {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-  }
-
-  .item-3 {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-  }
-
-  .item-4 {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-  }
-
-  .item-5 {
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
-  }
-
-  .item-6 {
-    grid-column: 1 / 3;
-    grid-row: 4 / 5;
-  }
-
-  .gallery-mosaic {
-    grid-template-rows: 250px 250px 250px 250px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .project-gallery {
-    padding: var(--sectionPadding) 0 clamp(3.75rem, 7.82vw, 6.25rem);
-  }
-
-  .gallery-mosaic {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 280px);
-    gap: 1rem;
-  }
-
-  .item-1,
-  .item-2,
-  .item-3,
-  .item-4,
-  .item-5,
-  .item-6 {
-    grid-column: 1 / 2;
-  }
-
-  .item-1 {
-    grid-row: 1 / 2;
-  }
-
-  .item-2 {
-    grid-row: 2 / 3;
-  }
-
-  .item-3 {
-    grid-row: 3 / 4;
-  }
-
-  .item-4 {
-    grid-row: 4 / 5;
-  }
-
-  .item-5 {
-    grid-row: 5 / 6;
-  }
-
-  .item-6 {
-    grid-row: 6 / 7;
-  }
-
-  .cs-item-text {
-    transform: translateY(0);
-    position: relative;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(29, 32, 38, 0.9) 100%);
-    padding: 1rem;
-  }
-}
-
-/* CSS Variables to match website design system */
-:root {
-  --primary: #DAD2BF;
-  --primaryLight: #f7f7f7;
-  --secondary: #ffba43;
-  --secondaryLight: #ffba43;
-  --headerColor: #1a1a1a;
-  --bodyTextColor: #4e4b66;
-  --bodyTextColorWhite: #fafbfc;
-  --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
-  --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
-  --bodyFontSize: 1rem;
-  --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
-}
-</style>
