@@ -62,7 +62,25 @@ import Button from './ui/Button.astro';
 					</div>
 
 					<!-- Form -->
-					<form class="space-y-4" action="#" method="POST">
+					<form
+						name="design-catalog"
+						method="POST"
+						action="/thank-you"
+						data-netlify="true"
+						netlify-honeypot="bot-field"
+						class="space-y-4"
+					>
+						<!-- Required hidden fields for Netlify Forms -->
+						<input type="hidden" name="form-name" value="design-catalog" />
+
+						<!-- Honeypot field for spam protection -->
+						<div style="display: none;">
+							<label>
+								Don't fill this out if you're human:
+								<input name="bot-field" tabindex="-1" autocomplete="off" />
+							</label>
+						</div>
+
 						<div>
 							<label for="firstName" class="form-label-light">
 								First Name *
