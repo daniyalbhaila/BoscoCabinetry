@@ -1,156 +1,523 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
+import AboutTrustHeader from '../components/AboutTrustHeader.astro';
 import SectionWrapper from '../components/SectionWrapper.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ContentGrid from '../components/ContentGrid.astro';
+import ExpandableContent from '../components/ExpandableContent.astro';
+import ShowroomHighlight from '../components/ShowroomHighlight.astro';
 import Reviews from '../components/Reviews.astro';
 import ContactUs from '../components/ContactUs.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
 import ShowroomImage from '../assets/showroom.jpg';
-import { companyInfo, companyDescriptions } from '../content/shared';
 
-const companyStats = [
+import { companyInfo, companyDescriptions, holikePartnership, sustainability } from '../content/shared.ts';
+
+// Import icons for "What Makes Us Different" section
+import Sparkles from '../components/icons/Sparkles.astro';
+import Building from '../components/icons/Building.astro';
+import Check from '../components/icons/Check.astro';
+import Trophy from '../components/icons/Trophy.astro';
+
+// What Makes Us Different - 4 Pillars
+const differentiators = [
   {
-    title: "20+ Years",
-    description: "Of experience in custom cabinetry"
+    title: 'Luxury Made Affordable',
+    description: 'Premium kitchen cabinets with builder-direct pricing. No luxury brand markup.',
+    iconComponent: Sparkles
   },
   {
-    title: "5,500 sq ft",
-    description: "Showroom in North York"
+    title: '5,500 sq ft Showroom',
+    description: 'See, touch, and compare 100+ finishes. In-house designer consultations.',
+    iconComponent: Building
   },
   {
-    title: "100+ Finishes",
-    description: "Available for your project"
+    title: 'Builder-Backed Reliability',
+    description: '20+ years custom-home experience. Systems that prevent delays and callbacks.',
+    iconComponent: Check
   },
   {
-    title: "4.9/5 Stars",
-    description: "From 200+ verified reviews"
+    title: 'Eco-Certified Materials',
+    description: 'Zero-added formaldehyde (NAF). CARB certified for healthier Toronto homes.',
+    iconComponent: Trophy
   }
 ];
 
-const teamValues = [
-  {
-    title: "Quality Craftsmanship",
-    description: "We take pride in every detail, ensuring each piece meets our exacting standards for quality and durability."
+// SEO structured data
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Bosco Cabinetry",
+  "alternateName": "Bosco Custom Cabinetry Toronto",
+  "description": "Custom kitchen cabinets, closets, and cabinetry in Toronto. Exclusive Canadian distributor of Holike. Builder-founded, eco-certified.",
+  "foundingDate": "2003",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": companyInfo.location.address.street,
+    "addressLocality": companyInfo.location.address.city,
+    "addressRegion": companyInfo.location.address.province,
+    "postalCode": companyInfo.location.address.postalCode,
+    "addressCountry": "CA"
   },
-  {
-    title: "Personalized Service",
-    description: "Every client receives individual attention and customized solutions tailored to their specific needs."
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": companyInfo.location.coordinates.lat.toString(),
+    "longitude": companyInfo.location.coordinates.lng.toString()
   },
-  {
-    title: "Timely Delivery",
-    description: "We respect your time and deliver projects on schedule with clear communication throughout the process."
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "200",
+    "bestRating": "5",
+    "worstRating": "1"
   },
-  {
-    title: "Fair Pricing",
-    description: "Luxury without the luxury price tag. We provide exceptional value for premium custom cabinetry."
-  }
-];
+  "areaServed": companyInfo.serviceAreas.map(area => ({
+    "@type": "City",
+    "name": area.city
+  })),
+  "knowsAbout": [
+    "Custom Kitchen Cabinets",
+    "Closet Systems",
+    "Sustainable Cabinetry",
+    "NAF Cabinets",
+    "CARB Certified Cabinets"
+  ]
+};
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Bosco Cabinetry use sustainable materials?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, all our custom kitchen cabinets and closet systems use zero-added formaldehyde (NAF) materials certified by EPA, CARB, and Japanese F4 Star standards. We use sustainable bamboo boards with nano-clean air technology that purifies indoor air 24/7."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is Bosco Cabinetry located?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Our 5,500 sq ft showroom is located at ${companyInfo.location.address.full}. We serve Toronto, North York, Vaughan, Markham, Richmond Hill, Mississauga, Scarborough, Etobicoke, and the Greater Toronto Area.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who founded Bosco Cabinetry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bosco Cabinetry was founded by Toronto custom-home builders with 20+ years of experience. We saw homeowners struggling to find affordable luxury kitchen cabinets and closet systems, so we created Bosco to bring builder-backed expertise and accessible prices to Toronto."
+      }
+    }
+  ]
+};
 ---
 
-<BaseLayout title="About Us - Bosco Cabinetry" description="Learn about Bosco Cabinetry's 20+ years of experience creating custom kitchen cabinets, closets, and built-ins in Toronto. Visit our 5,500 sq ft North York showroom.">
+<BaseLayout
+  title="About Bosco Cabinetry | Custom Kitchen Cabinets Toronto | Builder-Founded Since 2003"
+  description="Founded by Toronto custom-home builders, Bosco Cabinetry delivers luxury kitchen cabinets, closets & renovations at accessible prices. Exclusive Holike distributor. 20+ years experience, 5,500 sq ft North York showroom, eco-certified (CARB/NAF). Serving Toronto, North York, Vaughan, Markham, Mississauga."
+>
+  <!-- Header stays transparent on dark background -->
+  <script slot="head">
+    // This runs in <head> before body is parsed
+    document.documentElement.classList.add('about-page');
+  </script>
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} slot="head" />
 
-  <Hero
-    title="About Bosco Cabinetry"
-    subtitle="For over 20 years, we've been creating beautiful, functional custom cabinetry for homes throughout the Greater Toronto Area. Discover our commitment to quality, craftsmanship, and customer satisfaction."
-    backgroundImage={ShowroomImage}
-    theme="dark"
-    size="large"
-    showCTA={true}
-    ctaText="Visit Our Showroom"
-    ctaHref="/contact"
-  />
+  <!-- Trust Header (No Hero) -->
+  <AboutTrustHeader />
 
-  <SectionWrapper theme="light" id="our-story">
-    <div class="max-w-4xl mx-auto">
-      <SectionHeader
-        tag="Our Story"
-        title="Two Decades of Excellence"
-        description="Founded with a passion for creating exceptional custom cabinetry, Bosco Cabinetry has grown from a small workshop to the GTA's trusted name in custom storage solutions."
-        layout="center"
-        theme="light"
-      />
+  <!-- Origin Story Section (Light theme) -->
+  <SectionWrapper theme="light" id="origin-story">
+    <div class="grid md:grid-cols-12 gap-12 items-center">
+      <!-- Text Content -->
+      <div class="md:col-span-7">
+        <h2 class="text-3xl md:text-4xl font-bold text-brand-charcoal mb-6">
+          We Built Custom Homes for 15 Years.<br>
+          Then We Saw Our Clients Struggling.
+        </h2>
 
-      <div class="prose prose-lg mx-auto text-center">
-        <p>What started as a dream to create beautiful, functional cabinetry has evolved into a thriving business built on quality craftsmanship and satisfied customers. Our team combines traditional woodworking techniques with modern design principles to create pieces that are both timeless and contemporary.</p>
+        <ExpandableContent contentId="origin-story">
+          <!-- Preview Content (Always Visible) -->
+          <div slot="preview">
+            <p class="text-lg text-brand-darkGray mb-4">
+              Every homeowner in Toronto faced the same impossible choice for custom kitchen cabinets:
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-3 text-brand-darkGray">
+                <span class="text-brand-primary mt-1">→</span>
+                <span>Overpriced luxury brands that broke budgets</span>
+              </li>
+              <li class="flex items-start gap-3 text-brand-darkGray">
+                <span class="text-brand-primary mt-1">→</span>
+                <span>Cheap big-box cabinets that looked and felt cheap</span>
+              </li>
+              <li class="flex items-start gap-3 text-brand-darkGray">
+                <span class="text-brand-primary mt-1">→</span>
+                <span>Mid-range options with zero design flexibility</span>
+              </li>
+            </ul>
+            <p class="text-lg text-brand-darkGray">
+              We founded Bosco Cabinetry to fix this: builder-backed expertise, luxury finishes, and accessible prices for Toronto homeowners.
+            </p>
+          </div>
 
-        <p>Based in North York, our 5,500 square foot showroom showcases over 100 different finishes and styles, allowing you to see and feel the quality of our work before making decisions for your home. We believe in transparency, quality, and delivering exactly what we promise.</p>
+          <!-- Full Content (Hidden - SEO Optimized) -->
+          <div slot="full">
+            <h3 class="text-2xl font-bold text-brand-charcoal mb-4">
+              From Custom Home Builders to Cabinetry Specialists
+            </h3>
+            <p class="text-brand-darkGray mb-4">
+              After 15 years building custom homes across Toronto, North York, Vaughan, and the Greater Toronto Area (GTA), we saw a recurring problem: homeowners couldn't find affordable luxury cabinetry that met their design vision.
+            </p>
+            <p class="text-brand-darkGray mb-4">
+              Traditional luxury kitchen cabinet brands in Toronto charged premium prices with little transparency. Big-box retailers offered cheap cabinets that compromised quality. Mid-range cabinet suppliers provided limited customization options.
+            </p>
+            <p class="text-brand-darkGray mb-4">
+              We knew there was a better way. With our background in custom home construction, we understood what Toronto homeowners truly needed: designer-quality kitchen cabinets, custom closet systems, and built-in cabinetry at fair, transparent prices.
+            </p>
+            <p class="text-brand-darkGray">
+              Today, Bosco Cabinetry serves Toronto, North York, Scarborough, Etobicoke, Vaughan, Richmond Hill, Markham, and Mississauga from our 5,500 square foot showroom in North York. As the exclusive Canadian distributor of Holike—one of the world's largest cabinetry manufacturers—we bring Toronto homeowners globally-proven quality with local, personalized service.
+            </p>
+          </div>
+        </ExpandableContent>
+      </div>
+
+      <!-- Image Content -->
+      <div class="md:col-span-5">
+        <div class="group card-hover-elevate">
+          <div class="rounded-2xl border border-brand-accent/30 overflow-hidden shadow-xl">
+            <Image
+              src={ShowroomImage}
+              alt="Bosco Cabinetry Toronto showroom design consultation"
+              class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              format="webp"
+              quality={80}
+            />
+          </div>
+        </div>
       </div>
     </div>
   </SectionWrapper>
 
-  <SectionWrapper theme="dark" id="company-stats">
+  <!-- What Makes Us Different (Dark theme) -->
+  <SectionWrapper theme="dark" id="differentiators">
     <SectionHeader
-      tag="By The Numbers"
-      title="Proven Experience"
-      description="Our track record speaks for itself. Here's what two decades of dedication to excellence looks like."
+      tag="Why Choose Bosco"
+      title="What Makes Bosco Cabinetry Different"
+      description="Four pillars that set us apart from other Toronto cabinet makers."
       layout="center"
       theme="dark"
     />
-
     <ContentGrid
-      items={companyStats}
-      variant="stats"
-      columns={4}
+      items={differentiators}
+      variant="features"
+      theme="dark"
     />
   </SectionWrapper>
 
-  <SectionWrapper theme="light" id="our-values">
+  <!-- Holike Partnership Section (Light theme) -->
+  <SectionWrapper theme="light" id="holike-partnership">
     <SectionHeader
-      tag="Our Values"
-      title="What Drives Us"
-      description="These core values guide everything we do, from initial consultation to final installation."
+      tag="Global Partnership"
+      title="Powered by Global Excellence"
+      description="Bosco Cabinetry is the exclusive Canadian distributor of Holike—one of the world's largest cabinetry manufacturers serving 2,000+ showrooms globally."
       layout="center"
       theme="light"
     />
 
-    <ContentGrid
-      items={teamValues}
-      variant="features"
-      columns={2}
-      gap="large"
-    />
-  </SectionWrapper>
+    <ExpandableContent contentId="holike-partnership">
+      <!-- Preview Content (Always Visible) -->
+      <div slot="preview">
 
-  <SectionWrapper theme="light" id="showroom-info">
-    <div class="max-w-4xl mx-auto">
-      <SectionHeader
-        tag="Visit Us"
-        title="Experience Our Showroom"
-        description="See our craftsmanship up close in our expansive North York showroom."
-        layout="center"
-        theme="light"
-      />
-
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h3 class="text-2xl font-bold text-brand-primary mb-4">5,500 sq ft of Inspiration</h3>
-          <p class="text-lg mb-6">Our showroom features full kitchen displays, closet systems, and bathroom vanities showcasing the range of styles and finishes available. Touch and feel the quality of our materials and see examples of our craftsmanship.</p>
-
-          <div class="space-y-2 text-brand-primary">
-            <p><strong>Address:</strong> {companyInfo.location.address.full}</p>
-            <p><strong>Hours:</strong></p>
-            <ul class="ml-4 space-y-1">
-              <li>{companyInfo.hours.display.weekdays}</li>
-              <li>{companyInfo.hours.display.saturday}</li>
-              <li>{companyInfo.hours.display.sunday}</li>
-            </ul>
+        <!-- Stats Grid -->
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+          <div class="group card-hover-elevate">
+            <div class="text-center p-6 rounded-2xl border border-brand-accent/30 gradient-card-light transition-all duration-300">
+              <div class="text-3xl font-bold text-brand-primary mb-2">{holikePartnership.stats.showrooms}</div>
+              <div class="text-brand-darkGray">Showrooms Globally</div>
+            </div>
+          </div>
+          <div class="group card-hover-elevate">
+            <div class="text-center p-6 rounded-2xl border border-brand-accent/30 gradient-card-light transition-all duration-300">
+              <div class="text-3xl font-bold text-brand-primary mb-2">German</div>
+              <div class="text-brand-darkGray">HOMAG Technology</div>
+            </div>
+          </div>
+          <div class="group card-hover-elevate">
+            <div class="text-center p-6 rounded-2xl border border-brand-accent/30 gradient-card-light transition-all duration-300">
+              <div class="text-3xl font-bold text-brand-primary mb-2">{holikePartnership.stats.manufacturing}</div>
+              <div class="text-brand-darkGray">Factory Space</div>
+            </div>
           </div>
         </div>
 
-        <div class="bg-brand-accent/20 p-6 rounded-2xl">
-          <h4 class="text-xl font-semibold mb-4">Book Your Visit</h4>
-          <p class="mb-4">Schedule a showroom appointment to discuss your project with our design team.</p>
-          <a href="/contact" class="inline-block bg-brand-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-primary/90 transition-colors">
-            Schedule Appointment
-          </a>
+        <div class="max-w-3xl mx-auto">
+          <h3 class="text-xl font-semibold text-brand-charcoal mb-6 text-center">What this means for you</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            {holikePartnership.benefits.homeowners.map(benefit => (
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-primary/10 flex items-center justify-center mt-0.5">
+                  <svg class="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-brand-darkGray">{benefit}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+
+      <!-- Full Content (Hidden - SEO Optimized) -->
+      <div slot="full">
+        <h3 class="text-2xl font-bold text-brand-charcoal mb-4">
+          Why We Partner with Holike for Toronto Cabinetry
+        </h3>
+        <p class="text-brand-darkGray mb-4">
+          Holike Creative Home is a publicly-traded cabinetry manufacturer established in {holikePartnership.established}, with over 20 years of experience in custom kitchen cabinets, wardrobes, closet systems, and interior doors.
+        </p>
+
+        <h4 class="text-xl font-bold text-brand-charcoal mb-3">Global Manufacturing Excellence:</h4>
+        <ul class="space-y-2 mb-6 text-brand-darkGray">
+          <li>• {holikePartnership.stats.facilities} totaling {holikePartnership.stats.manufacturing}</li>
+          <li>• {holikePartnership.stats.employees} employees</li>
+          <li>• 90% German HOMAG production equipment</li>
+          <li>• Production capacity: {holikePartnership.stats.production.kitchens} kitchen sets/day, {holikePartnership.stats.production.wardrobes} wardrobes/day</li>
+          <li>• {holikePartnership.stats.showrooms} brand showrooms established globally</li>
+          <li>• Primary markets: {holikePartnership.stats.markets.join(', ')}</li>
+        </ul>
+
+        <h4 class="text-xl font-bold text-brand-charcoal mb-3">Quality Certifications:</h4>
+        <ul class="space-y-2 mb-6 text-brand-darkGray">
+          {holikePartnership.certifications.map(cert => (
+            <li>• {cert} certified</li>
+          ))}
+          <li>• 5-year warranty on all products</li>
+        </ul>
+
+        <p class="text-brand-darkGray mb-4">
+          By partnering with Holike, Bosco Cabinetry brings Toronto homeowners access to world-class custom cabinetry manufacturing at accessible prices—without sacrificing quality, sustainability, or design flexibility.
+        </p>
+        <p class="text-brand-darkGray">
+          Whether you're renovating a kitchen in downtown Toronto, designing a custom closet system in North York, or building a new home in Vaughan, you benefit from global manufacturing scale with local, personalized service.
+        </p>
+
+        <div class="mt-8 p-6 rounded-2xl border border-brand-accent/30 gradient-card-light">
+          <p class="text-brand-charcoal font-medium">
+            <strong>Builders & Designers:</strong> Interested in partnering with us as the exclusive Holike distributor?
+            <a href="/trade" class="text-brand-primary hover:underline ml-2">Learn about trade partnership →</a>
+          </p>
+        </div>
+      </div>
+    </ExpandableContent>
   </SectionWrapper>
 
-  <Reviews />
+  <!-- Sustainability Section (Dark theme) -->
+  <SectionWrapper theme="dark" id="sustainability">
+    <SectionHeader
+      tag="Eco-Friendly"
+      title="Our Commitment to Sustainable Cabinetry"
+      description="Beautiful design can be eco-friendly. From materials to craftsmanship, we create stylish custom kitchen cabinets that are kind to the environment and your Toronto home."
+      layout="center"
+      theme="dark"
+    />
 
+    <ExpandableContent contentId="sustainability">
+      <!-- Preview Content (Always Visible) -->
+      <div slot="preview">
+        <div class="grid md:grid-cols-2 gap-12 mb-8">
+          <!-- NAF Materials -->
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-4">{sustainability.naf.title}</h3>
+            <p class="text-gray-300 mb-4">
+              {sustainability.naf.description}
+            </p>
+            <div class="flex flex-wrap gap-3">
+              {sustainability.naf.certifications.map(cert => (
+                <span class="px-4 py-2 bg-brand-primary/20 text-brand-accent rounded-full text-sm font-medium">
+                  {cert}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Bamboo Technology -->
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-4">{sustainability.bamboo.title}</h3>
+            <p class="text-gray-300 mb-4">
+              {sustainability.bamboo.description}
+            </p>
+            <ul class="space-y-2 text-gray-300">
+              {sustainability.bamboo.benefits.slice(0, 3).map(benefit => (
+                <li class="flex items-start gap-2">
+                  <span class="text-brand-accent mt-1">•</span>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Content (Hidden - SEO Optimized) -->
+      <div slot="full">
+        <h3 class="text-2xl font-bold text-white mb-4">Sustainable Kitchen Cabinets for Toronto Homes</h3>
+
+        <h4 class="text-xl font-bold text-white mb-3">Why Zero-Added Formaldehyde (NAF) Matters</h4>
+        <p class="text-gray-300 mb-4">
+          Traditional kitchen cabinets and closet systems use adhesives containing formaldehyde—a harmful chemical that emits VOCs (volatile organic compounds) into your Toronto home's indoor air for years after installation.
+        </p>
+        <p class="text-gray-300 mb-4">
+          Bosco Cabinetry prioritizes materials that protect both your health and the environment. Every custom kitchen cabinet, closet system, bathroom vanity, and built-in unit we craft uses special adhesives that contain no added formaldehyde (NAF).
+        </p>
+        <p class="text-gray-300 mb-6">
+          Our NAF materials meet strict safety standards set by: U.S. Environmental Protection Agency (EPA), California Air Resources Board (CARB), and Japanese F4 Star certification. This ensures your Toronto home, whether in North York, Scarborough, or Vaughan, stays free from harmful emissions.
+        </p>
+
+        <h4 class="text-xl font-bold text-white mb-3">Bamboo Board Technology: Sustainable + Air-Purifying</h4>
+        <p class="text-gray-300 mb-4">
+          While materials like MDF, plywood, and particle board are part of our offerings for affordable custom cabinetry, our bamboo boards are a real game-changer for eco-conscious Toronto homeowners.
+        </p>
+        <div class="rounded-2xl border border-white/20 gradient-card-dark p-6 mb-6">
+          <p class="text-white font-medium mb-3">Why Bamboo?</p>
+          <ul class="space-y-2 text-gray-300">
+            {sustainability.bamboo.benefits.map(benefit => (
+              <li class="flex items-start gap-2">
+                <span class="text-brand-accent">•</span>
+                <span>{benefit}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <h4 class="text-xl font-bold text-white mb-3">{sustainability.nanoClean.title}</h4>
+        <p class="text-gray-300 mb-4">
+          {sustainability.nanoClean.description}
+        </p>
+        <ul class="space-y-2 text-gray-300 mb-6">
+          {sustainability.nanoClean.features.map(feature => (
+            <li class="flex items-start gap-2">
+              <span class="text-brand-accent">✓</span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="text-gray-300 mb-6">
+          {sustainability.nanoClean.howItWorks}
+        </p>
+
+        <h4 class="text-xl font-bold text-white mb-3">{sustainability.sourcing.title}</h4>
+        <p class="text-gray-300 mb-4">
+          {sustainability.sourcing.description}
+        </p>
+        <p class="text-gray-300">
+          {sustainability.sourcing.commitment}
+        </p>
+        <p class="text-gray-300 mt-4">
+          By choosing Bosco Cabinetry for your custom kitchen cabinets, closet systems, or built-in units, you are not just investing in beautiful, high-quality furniture—you are also helping to build a more sustainable future for both your Toronto family and the planet.
+        </p>
+
+        <!-- Certification Badges -->
+        <div class="mt-8 flex flex-wrap gap-4 justify-center">
+          {holikePartnership.certifications.map(cert => (
+            <div class="group card-hover-elevate">
+              <div class="px-6 py-3 rounded-xl border border-white/20 gradient-card-dark text-center transition-all duration-300">
+                <span class="text-white font-medium">{cert}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </ExpandableContent>
+  </SectionWrapper>
+
+  <!-- Showroom Section (Light theme) -->
+  <ShowroomHighlight theme="light" />
+
+  <!-- Service Areas Section (Dark theme) -->
+  <SectionWrapper theme="dark" id="service-areas">
+    <SectionHeader
+      tag="Service Areas"
+      title="Serving Toronto & the GTA"
+      description="Bosco Cabinetry proudly serves homeowners, builders, and designers across the Greater Toronto Area with custom kitchen cabinets, closet systems, bathroom vanities, and built-in cabinetry."
+      layout="center"
+      theme="dark"
+    />
+
+    <ExpandableContent contentId="service-areas">
+      <!-- Preview Content (Always Visible) -->
+      <div slot="preview">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {companyInfo.serviceAreas.map(area => (
+            <div class="text-center">
+              <div class="float-highlight rounded-lg p-4 bg-white/5 hover:bg-white/10 transition-colors">
+                <div class="text-white font-medium">{area.city}</div>
+                <div class="text-white/70 text-sm">{area.region}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Full Content (Hidden - SEO Optimized) -->
+      <div slot="full">
+        <div class="space-y-6 text-white/90">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-3">Toronto Custom Kitchen Cabinets</h3>
+            <p>From condos in downtown Toronto to luxury homes in Rosedale and Forest Hill, we design and install custom kitchen cabinets that maximize space, functionality, and style. Our Toronto kitchen cabinet clients benefit from our 5,500 sq ft North York showroom where they can see 100+ finish options in person.</p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-white mb-3">North York Cabinetry Showroom</h3>
+            <p>Located at {companyInfo.location.address.street}, our North York facility serves as both our showroom and design center. North York homeowners can visit to explore custom kitchen cabinets, walk-in closet systems, bathroom vanities, and built-in cabinetry with our in-house designers.</p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-white mb-3">Vaughan Custom Home Cabinetry</h3>
+            <p>Vaughan's growing community of custom homes and luxury developments benefit from our builder partnerships. We provide custom cabinetry solutions for new home builds, renovations, and whole-home cabinetry projects across Vaughan and York Region.</p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-white mb-3">Markham & Richmond Hill Kitchen Renovations</h3>
+            <p>Richmond Hill and Markham homeowners trust Bosco Cabinetry for kitchen renovations, custom closet systems, and built-in units. Our proximity to York Region makes us the ideal partner for Markham and Richmond Hill cabinetry projects.</p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-white mb-3">Mississauga Custom Cabinets</h3>
+            <p>From Mississauga condos to detached homes, we deliver custom kitchen cabinets and closet systems with the same quality and service that Toronto clients experience. Our Mississauga cabinet clients appreciate our transparent pricing and showroom experience.</p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-white mb-3">Scarborough & Etobicoke Cabinetry Services</h3>
+            <p>Scarborough and Etobicoke homeowners benefit from our local Toronto expertise and builder-backed reliability. Whether it's a condo kitchen renovation in Scarborough or a custom closet system in Etobicoke, we bring 20+ years of experience to every project.</p>
+          </div>
+
+          <div class="mt-8 p-6 rounded-2xl border border-white/20 gradient-card-dark">
+            <h3 class="text-xl font-bold text-white mb-3">Serving Builders & Designers Across the GTA</h3>
+            <p>Bosco Cabinetry partners with custom home builders, general contractors, and interior designers across Toronto and the GTA as the exclusive Canadian distributor of Holike cabinetry. Our trade partners benefit from competitive pricing, reliable timelines, shop drawings, and a showroom for client approvals.</p>
+            <p class="mt-4">
+              <a href="/trade" class="text-brand-accent hover:underline font-medium">Builders & Designers: Explore Trade Partnership →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </ExpandableContent>
+  </SectionWrapper>
+
+  <!-- Social Proof / Reviews (Light theme) -->
+  <Reviews theme="light" />
+
+  <!-- Contact Section (Dark theme) -->
   <ContactUs />
 
+  <!-- Footer -->
+  <Footer />
 </BaseLayout>

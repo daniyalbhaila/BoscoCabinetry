@@ -40,3 +40,5 @@ lerna-debug.log*
 screenshots/
 *.png:screenshot
 *analysis.png
+# Moat task system
+.moat/

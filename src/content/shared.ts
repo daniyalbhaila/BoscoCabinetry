@@ -105,9 +105,89 @@ export const companyInfo = {
   }
 };
 
+// Holike Partnership Data
+export const holikePartnership = {
+  status: 'Exclusive Canadian Distributor',
+  company: 'Holike Creative Home',
+  established: '2002',
+  stats: {
+    showrooms: '2,000+',
+    manufacturing: '1,000,000 sqm',
+    facilities: '4 manufacturing bases',
+    employees: '4,000+',
+    technology: 'German HOMAG equipment',
+    production: {
+      kitchens: '1,200 sets/day',
+      wardrobes: '2,500 sets/day'
+    },
+    markets: ['North America', 'Southeast Asia', 'Global']
+  },
+  certifications: ['CARB', 'NAF', 'SGS', 'Japanese F4 Star', 'ISO9001', 'ISO14001'],
+  benefits: {
+    homeowners: [
+      'Globally-proven quality and reliability',
+      'Advanced German manufacturing technology',
+      'Eco-certifications for healthier homes',
+      'Scale to handle any project size',
+      'Local Toronto expertise and service'
+    ],
+    trade: [
+      'Scalable manufacturing capacity',
+      'Proven global supply chain',
+      'Technical support and training',
+      '5-year warranty program',
+      'German precision equipment'
+    ]
+  }
+};
+
+// Sustainability Information
+export const sustainability = {
+  naf: {
+    title: 'Zero-Added Formaldehyde (NAF) Materials',
+    description: 'Every cabinet uses special adhesives with no added formaldehyde—meeting strict EPA and CARB standards for healthier homes.',
+    certifications: ['EPA', 'CARB', 'F4 Star'],
+    benefits: [
+      'Protects your health and the environment',
+      'No harmful VOC emissions',
+      'Meets strict California Air Resources Board (CARB) standards',
+      'EPA certified for indoor air quality'
+    ]
+  },
+  bamboo: {
+    title: 'Innovative Bamboo Board Technology',
+    description: 'Made from highly sustainable bamboo which grows 30 times faster than hardwoods.',
+    benefits: [
+      'Grows 30x faster than hardwoods',
+      'Zero-added formaldehyde (NAF)',
+      'Advanced air-cleaning technology',
+      'Highly renewable and sustainable',
+      'CARB, EPA, and F4 Star certified'
+    ]
+  },
+  nanoClean: {
+    title: 'Nano-Clean Air Technology',
+    description: 'Advanced technology that continuously purifies indoor air using negative oxygen ions.',
+    features: [
+      'Breaks down harmful chemicals like formaldehyde and toluene into harmless substances',
+      'Antibacterial coating prevents harmful bacteria growth',
+      'Mold prevention and protection',
+      'No electricity needed—works 24/7 naturally',
+      'Powered by negative oxygen ions'
+    ],
+    howItWorks: 'Using a special nano-coating that releases negative oxygen ions, this system provides triple purification: active air cleaning, antibacterial protection, and mold prevention—all without requiring power or maintenance.'
+  },
+  sourcing: {
+    title: 'Sustainable Sourcing',
+    description: 'We prioritize renewable resources and formaldehyde-free adhesives to minimize environmental impact.',
+    commitment: 'At Bosco Cabinetry, we are proud to contribute to Canada\'s growing focus on sustainable building practices.'
+  }
+};
+
 // Company description variations for different contexts
 export const companyDescriptions = {
   hero: 'Explore 100+ finishes in our 5,500 sq ft North York showroom. Work with Bosco\'s in-house designer to create kitchens, closets, and full-home renovations that fit your lifestyle. Luxury without the luxury price tag.',
   about: 'With 20+ years of experience, Bosco Cabinetry specializes in custom kitchen cabinets, closet systems, and built-in units. Visit our massive North York showroom to explore over 100 finish options.',
+  aboutOrigin: 'Founded by Toronto custom-home builders who saw homeowners struggling with impossible choices: overpriced luxury brands, cheap big-box cabinets, or mid-range options with zero flexibility. We created Bosco Cabinetry to bring builder-backed expertise, luxury finishes, and accessible prices to Toronto.',
   contact: 'Get your free consultation and quote within 48 hours. Let\'s bring your vision to life.'
 };

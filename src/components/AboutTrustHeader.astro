@@ -1,0 +1,104 @@
+---
+/**
+ * AboutTrustHeader Component
+ *
+ * Purpose: Compact trust-building header for About page (NO hero section)
+ * Displays immediate credibility signals without taking up prime real estate
+ *
+ * Props:
+ * - None (pulls from shared.ts)
+ */
+
+import { companyInfo } from '../content/shared.ts';
+import Star from './icons/Star.astro';
+---
+
+<!-- Dark theme trust header -->
+<div class="bg-brand-charcoal border-b border-white/10" data-header-theme="dark">
+  <div class="mx-auto max-w-7xl px-6 pt-24 pb-12 md:pt-32 md:pb-16">
+    <!-- Breadcrumb -->
+    <nav class="mb-8 text-sm" aria-label="Breadcrumb">
+      <ol class="flex items-center space-x-2">
+        <li>
+          <a href="/" class="text-white/70 hover:text-brand-accent transition-colors">Home</a>
+        </li>
+        <li>
+          <span class="text-white/30">/</span>
+        </li>
+        <li class="text-white font-medium" aria-current="page">About</li>
+      </ol>
+    </nav>
+
+    <!-- Main Heading -->
+    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+      About Bosco Cabinetry
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-lg md:text-xl text-white/80 mb-8">
+      Founded by Toronto Custom-Home Builders | {companyInfo.stats.experience} Experience
+    </p>
+
+    <!-- Trust Signals Grid -->
+    <div class="flex flex-wrap gap-6 md:gap-8 items-center text-sm md:text-base">
+      <!-- Google Rating -->
+      <div class="flex items-center gap-2">
+        <div class="flex items-center">
+          {[...Array(5)].map(() => (
+            <Star class="w-4 h-4 md:w-5 md:h-5 text-yellow-400 fill-yellow-400" />
+          ))}
+        </div>
+        <span class="text-white font-medium">
+          {companyInfo.stats.googleRating}
+        </span>
+        <span class="text-white/70">
+          ({companyInfo.stats.googleReviews})
+        </span>
+      </div>
+
+      <!-- Divider -->
+      <span class="hidden md:block text-brand-accent">|</span>
+
+      <!-- Showroom Size -->
+      <div class="text-white/70">
+        <span class="font-medium text-white">{companyInfo.stats.showroomSize}</span> Showroom
+      </div>
+
+      <!-- Divider -->
+      <span class="hidden md:block text-brand-accent">|</span>
+
+      <!-- Holike Partnership -->
+      <div class="text-white/70">
+        <span class="font-medium text-white">Exclusive Holike Distributor</span>
+      </div>
+
+      <!-- Divider -->
+      <span class="hidden md:block text-brand-accent">|</span>
+
+      <!-- Location -->
+      <div class="text-white/70">
+        Serving <span class="font-medium text-white">Toronto & GTA</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Ensure consistent spacing */
+  h1 {
+    line-height: 1.2;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .flex-wrap > div {
+      white-space: nowrap;
+    }
+  }
+</style>
+
+<script>
+  // Keep header transparent on dark background
+  // The header will naturally stay transparent at top, then show white background on scroll
+  // No override needed - let normal scroll behavior work
+</script>

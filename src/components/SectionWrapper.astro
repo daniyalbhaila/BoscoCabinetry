@@ -1,6 +1,8 @@
 ---
+import { getThemeClasses, type Theme } from '../lib/themeUtils';
+
 export interface Props {
-  theme?: 'light' | 'dark';
+  theme?: Theme;
   fullHeight?: boolean;
   className?: string;
   id?: string;
@@ -13,16 +15,13 @@ const {
   id
 } = Astro.props;
 
-// Theme variants based on actual homepage usage
-const themeClasses = {
-  light: 'bg-white',
-  dark: 'bg-brand-charcoal'
-};
+// Get theme classes from centralized utilities
+const classes = getThemeClasses(theme);
 
 // Full height for feature sections
 const heightClasses = fullHeight ? 'min-h-screen flex items-center' : '';
 
-const combinedClasses = `relative isolate ${themeClasses[theme]} ${heightClasses} ${className}`.trim();
+const combinedClasses = `relative isolate ${classes.bg} ${heightClasses} ${className}`.trim();
 ---
 
 <section

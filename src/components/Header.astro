@@ -1,5 +1,6 @@
 ---
 import Button from './ui/Button.astro';
+import ChevronDown from './icons/ChevronDown.astro';
 import { primaryNavigation, servicesNavigation, getCurrentPage, isActiveNavItem } from '../content/navigation';
 import LogoSvg from '../assets/Logo-Light.svg?raw';
 
@@ -30,7 +31,7 @@ const currentPage = getCurrentPage(currentPath);
                 aria-haspopup={item.hasDropdown ? 'true' : 'false'}
               >
                 {item.label}
-                {item.hasDropdown && <span class="cs-dropdown-arrow" aria-hidden="true">▼</span>}
+                {item.hasDropdown && <ChevronDown class="cs-dropdown-arrow" />}
               </a>
               {item.hasDropdown && (
                 <ul class="cs-dropdown" aria-label="Services submenu">
@@ -277,8 +278,19 @@ const currentPage = getCurrentPage(currentPath);
   /* Dropdown styles for mobile */
   #cs-navigation .cs-dropdown-arrow {
     margin-left: 0.5rem;
-    font-size: 0.75rem;
+    width: 1rem;
+    height: 1rem;
     transition: transform 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  #cs-navigation .cs-li[data-dropdown="true"] .cs-dropdown-arrow {
+    cursor: pointer;
+  }
+
+  #cs-navigation .cs-li[data-dropdown="true"].dropdown-active .cs-dropdown-arrow {
+    transform: rotate(180deg);
   }
 
   #cs-navigation .cs-dropdown {
@@ -289,6 +301,14 @@ const currentPage = getCurrentPage(currentPath);
     border-radius: 0.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+
+  #cs-navigation .cs-li[data-dropdown="true"].dropdown-active .cs-dropdown {
+    max-height: 1000px; /* Large enough for any dropdown content */
+    opacity: 1;
   }
 
   #cs-navigation .cs-dropdown-li {
@@ -423,8 +443,11 @@ const currentPage = getCurrentPage(currentPath);
   /* Desktop dropdown styles */
   #cs-navigation .cs-dropdown-arrow {
     margin-left: 0.5rem;
-    font-size: 0.75rem;
+    width: 1rem;
+    height: 1rem;
     transition: transform 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
   }
 
   #cs-navigation .cs-li:hover .cs-dropdown-arrow {
@@ -509,16 +532,44 @@ function ariaExpanded() {
 
 // Scroll functionality
 document.addEventListener('scroll', (e) => {
+    // Don't change header state if page has fixed header theme
+    if (document.body.getAttribute('data-fixed-header') === 'true') {
+        return;
+    }
+
+    const body = document.querySelector('body');
+    if (!body) return; // Guard against null
+
     const scroll = document.documentElement.scrollTop;
     if(scroll >= 100){
-        document.querySelector('body').classList.add('scroll')
+        body.classList.add('scroll')
     } else {
-        document.querySelector('body').classList.remove('scroll')
+        body.classList.remove('scroll')
     }
 });
 
-// Close navigation on link click
-const navLinks = Array.from(document.querySelectorAll('#cs-navigation a'));
+// Mobile dropdown toggle functionality with event delegation
+const navigation = document.querySelector('#cs-navigation');
+if (navigation) {
+    // Initialize ARIA states on dropdown links
+    const dropdownLinks = navigation.querySelectorAll('.cs-li[data-dropdown="true"] .cs-li-link');
+    dropdownLinks.forEach(link => link.setAttribute('aria-expanded', 'false'));
+
+    // Use event delegation for better performance
+    navigation.addEventListener('click', (e) => {
+        const dropdownLink = e.target.closest('.cs-li[data-dropdown="true"] .cs-li-link');
+        if (!dropdownLink || window.innerWidth > 1023) return;
+
+        e.preventDefault();
+        const item = dropdownLink.closest('.cs-li');
+        const isExpanded = item.classList.toggle('dropdown-active');
+        // Update ARIA state
+        dropdownLink.setAttribute('aria-expanded', isExpanded.toString());
+    });
+}
+
+// Close navigation on link click (excluding dropdown toggles)
+const navLinks = Array.from(document.querySelectorAll('#cs-navigation a:not(.cs-li-link[aria-haspopup="true"])'));
 for (const link of navLinks) {
     link.addEventListener('click', () => {
         if (CShamburgerMenu && CSnavbarMenu && CSbody) {

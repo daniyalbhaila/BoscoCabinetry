@@ -3,60 +3,70 @@
 import Check from './icons/Check.astro';
 import BookOpen from './icons/BookOpen.astro';
 import Button from './ui/Button.astro';
+import { getThemeClasses, type Theme } from '../lib/themeUtils';
+
+export interface Props {
+	theme?: Theme;
+}
+
+const { theme = 'light' } = Astro.props;
+
+// Get theme classes from centralized utilities
+const classes = getThemeClasses(theme);
 ---
-<section id="design-inspiration" class="relative isolate bg-white min-h-screen flex items-center">
+<section id="design-inspiration" class={`relative isolate ${classes.bg} min-h-screen flex items-center`}>
 	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 			<!-- Left Content -->
 			<div>
-				<p class="text-[11px] uppercase tracking-[0.2em] text-brand-primary/60 mb-4">[Free Design Guide]</p>
-				<h2 class="text-3xl font-semibold tracking-tight text-brand-charcoal sm:text-4xl md:text-5xl mb-6">
+				<p class={`text-[11px] uppercase tracking-[0.2em] ${classes.tag} mb-4`}>[Free Design Guide]</p>
+				<h2 class={`text-3xl font-semibold tracking-tight ${classes.heading} sm:text-4xl md:text-5xl mb-6`}>
 					Get Inspired with Our Free Design Catalog
 				</h2>
-				<p class="text-lg text-brand-darkGray mb-8">
+				<p class={`text-lg ${classes.body} mb-8`}>
 					Download our comprehensive design guide featuring the latest kitchen and closet trends, finish options, and real project transformations to spark your creativity.
 				</p>
 
 				<!-- Benefits List -->
 				<div class="space-y-4 mb-8">
 					<div class="flex items-start gap-3">
-						<div class="flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary/10 text-brand-primary flex-shrink-0 mt-0.5">
+						<div class={`flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary/10 ${classes.icon} flex-shrink-0 mt-0.5`}>
 							<Check class="h-3 w-3" />
 						</div>
-						<p class="text-brand-darkGray">100+ kitchen and closet design inspirations</p>
+						<p class={classes.body}>100+ kitchen and closet design inspirations</p>
 					</div>
 					<div class="flex items-start gap-3">
-						<div class="flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary/10 text-brand-primary flex-shrink-0 mt-0.5">
+						<div class={`flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary/10 ${classes.icon} flex-shrink-0 mt-0.5`}>
 							<Check class="h-3 w-3" />
 						</div>
-						<p class="text-brand-darkGray">Complete finish and hardware catalog</p>
+						<p class={classes.body}>Complete finish and hardware catalog</p>
 					</div>
 					<div class="flex items-start gap-3">
-						<div class="flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary/10 text-brand-primary flex-shrink-0 mt-0.5">
+						<div class={`flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary/10 ${classes.icon} flex-shrink-0 mt-0.5`}>
 							<Check class="h-3 w-3" />
 						</div>
-						<p class="text-brand-darkGray">Before & after project transformations</p>
+						<p class={classes.body}>Before & after project transformations</p>
 					</div>
 					<div class="flex items-start gap-3">
-						<div class="flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary/10 text-brand-primary flex-shrink-0 mt-0.5">
+						<div class={`flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary/10 ${classes.icon} flex-shrink-0 mt-0.5`}>
 							<Check class="h-3 w-3" />
 						</div>
-						<p class="text-brand-darkGray">Design tips from our expert team</p>
+						<p class={classes.body}>Design tips from our expert team</p>
 					</div>
 				</div>
 			</div>
 
 			<!-- Right Form -->
 			<div class="lg:pl-8">
-				<div class="rounded-2xl border border-brand-accent/40 gradient-card-light p-8 shadow-lg">
+				<div class={`rounded-2xl ${classes.card} p-8 shadow-lg`}>
 					<div class="mb-6 text-center">
 						<div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-brand-primary/10">
-							<BookOpen class="h-8 w-8 text-brand-primary" />
+							<BookOpen class={`h-8 w-8 ${classes.icon}`} />
 						</div>
-						<h3 class="text-xl font-semibold text-brand-charcoal mb-2">
+						<h3 class={`text-xl font-semibold ${classes.heading} mb-2`}>
 							Download Your Free Catalog
 						</h3>
-						<p class="text-sm text-brand-darkGray/75">
+						<p class={`text-sm ${classes.muted}`}>
 							Get instant access to our complete design inspiration guide.
 						</p>
 					</div>
@@ -74,12 +84,12 @@ import Button from './ui/Button.astro';
 						<input type="hidden" name="form-name" value="design-catalog" />
 
 						<!-- Honeypot field for spam protection -->
-						<div style="display: none;">
+						<p class="hidden">
 							<label>
 								Don't fill this out if you're human:
 								<input name="bot-field" tabindex="-1" autocomplete="off" />
 							</label>
-						</div>
+						</p>
 
 						<div>
 							<label for="firstName" class="form-label-light">

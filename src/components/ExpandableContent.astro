@@ -1,0 +1,170 @@
+---
+/**
+ * ExpandableContent Component
+ *
+ * Purpose: SEO-optimized expandable content sections with "Read More" functionality
+ * Use Case: Long-form content that shouldn't interrupt user flow but needs to be indexed by search engines
+ *
+ * Props:
+ * - buttonText: Text for "Read More" button (default: "Read More")
+ * - buttonTextCollapsed: Text for "Read Less" button (default: "Read Less")
+ * - className: Additional CSS classes
+ * - contentId: Unique ID for the expandable content (required for accessibility)
+ */
+
+interface Props {
+  buttonText?: string;
+  buttonTextCollapsed?: string;
+  className?: string;
+  contentId: string;
+}
+
+const {
+  buttonText = "Read More",
+  buttonTextCollapsed = "Read Less",
+  className = "",
+  contentId
+} = Astro.props;
+
+const uniqueId = `expandable-${contentId}`;
+---
+
+<div class={`expandable-content ${className}`}>
+  <!-- Preview Content (Always Visible) -->
+  <div class="preview-content">
+    <slot name="preview" />
+  </div>
+
+  <!-- Full Content (Initially Hidden) -->
+  <div
+    class="full-content hidden"
+    id={uniqueId}
+    aria-hidden="true"
+  >
+    <slot name="full" />
+  </div>
+
+  <!-- Read More / Read Less Button -->
+  <button
+    class="read-more-btn group"
+    aria-expanded="false"
+    aria-controls={uniqueId}
+    type="button"
+  >
+    <span class="read-more-text flex items-center gap-2">
+      <span>{buttonText}</span>
+      <svg class="w-4 h-4 transform transition-transform group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </span>
+    <span class="read-less-text hidden flex items-center gap-2">
+      <span>{buttonTextCollapsed}</span>
+      <svg class="w-4 h-4 transform transition-transform group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+      </svg>
+    </span>
+  </button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.read-more-btn');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const contentId = button.getAttribute('aria-controls');
+        const content = document.getElementById(contentId);
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+        if (content) {
+          // Toggle visibility
+          content.classList.toggle('hidden');
+          content.setAttribute('aria-hidden', String(isExpanded));
+          button.setAttribute('aria-expanded', String(!isExpanded));
+
+          // Toggle button text
+          const readMoreText = button.querySelector('.read-more-text');
+          const readLessText = button.querySelector('.read-less-text');
+          readMoreText?.classList.toggle('hidden');
+          readLessText?.classList.toggle('hidden');
+
+          // Smooth scroll to content if expanding
+          if (!isExpanded) {
+            setTimeout(() => {
+              content.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'nearest'
+              });
+            }, 100);
+          } else {
+            // Scroll back to button when collapsing
+            button.scrollIntoView({
+              behavior: 'smooth',
+              block: 'nearest',
+              inline: 'nearest'
+            });
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .expandable-content {
+    position: relative;
+  }
+
+  .full-content {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(218, 210, 191, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .full-content.hidden {
+    display: none;
+  }
+
+  .read-more-btn {
+    margin-top: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.75rem 0;
+    font-size: 1rem;
+    color: #60533C; /* brand-primary */
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .read-more-btn:hover {
+    color: #DAD2BF; /* brand-accent */
+  }
+
+  .read-more-btn:focus {
+    outline: 2px solid #60533C;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Dark theme adjustments */
+  .bg-brand-charcoal .full-content,
+  [data-theme="dark"] .full-content {
+    border-top-color: rgba(218, 210, 191, 0.1);
+  }
+</style>

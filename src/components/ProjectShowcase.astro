@@ -9,6 +9,16 @@ import Button from './ui/Button.astro';
 import KitchenImage from '../assets/kitchen.jpg';
 import ShowroomImage from '../assets/showroom.jpg';
 import { CARD_IMAGE_DIMENSIONS } from '../lib/imageConfig';
+import { getThemeClasses, type Theme } from '../lib/themeUtils';
+
+export interface Props {
+	theme?: Theme;
+}
+
+const { theme = 'dark' } = Astro.props;
+
+// Get theme classes from centralized utilities
+const classes = getThemeClasses(theme);
 
 interface ProjectShowcaseData {
 	title: string;
@@ -73,12 +83,12 @@ const optimizedImages = projectData.imageUrls.map((image, index) => ({
 }));
 ---
 
-<section id="project-showcase" class="relative isolate bg-brand-charcoal min-h-screen flex items-center">
+<section id="project-showcase" class={`relative isolate ${classes.bg} min-h-screen flex items-center`}>
 	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
 		<!-- Header -->
 		<div class="mx-auto max-w-4xl text-center mb-16">
-			<p class="text-[11px] uppercase tracking-[0.2em] text-brand-primary/60 mb-4">[Project Showcase]</p>
-			<h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
+			<p class={`text-[11px] uppercase tracking-[0.2em] ${classes.tag} mb-4`}>[Project Showcase]</p>
+			<h2 class={`text-3xl font-semibold tracking-tight ${classes.heading} sm:text-4xl md:text-5xl`}>
 				{projectData.title}
 			</h2>
 		</div>
@@ -96,7 +106,7 @@ const optimizedImages = projectData.imageUrls.map((image, index) => ({
 					</div>
 
 					<!-- Review Text -->
-					<blockquote class="text-xl text-white leading-relaxed font-light">
+					<blockquote class={`text-xl ${classes.body} leading-relaxed font-light`}>
 						"{projectData.review.text}"
 					</blockquote>
 
@@ -115,11 +125,11 @@ const optimizedImages = projectData.imageUrls.map((image, index) => ({
 					</div>
 
 					<!-- Author Info -->
-					<div class="border-t border-white/20 pt-6">
+					<div class={`border-t ${classes.borderSubtle} pt-6`}>
 						<div class="flex items-center justify-between">
 							<div>
-								<p class="font-semibold text-white text-lg">{projectData.review.name}</p>
-								<p class="text-white/70">{projectData.review.project}</p>
+								<p class={`font-semibold ${classes.heading} text-lg`}>{projectData.review.name}</p>
+								<p class={classes.muted}>{projectData.review.project}</p>
 							</div>
 							<div class="text-brand-primary/60">
 								<ExternalLink class="h-12 w-12" />

@@ -4,16 +4,26 @@ import { Image } from 'astro:assets';
 import KitchenImage from '../assets/kitchen.jpg';
 import ShowroomImage from '../assets/showroom.jpg';
 import { CARD_IMAGE_DIMENSIONS } from '../lib/imageConfig';
+import { getThemeClasses, type Theme } from '../lib/themeUtils';
+
+export interface Props {
+	theme?: Theme;
+}
+
+const { theme = 'light' } = Astro.props;
+
+// Get theme classes from centralized utilities
+const classes = getThemeClasses(theme);
 ---
-<section id="gallery" class="bg-[#f7f7f7] py-20">
+<section id="gallery" class={`${classes.bgAlt} py-20`}>
   <div class="mx-auto flex max-w-6xl flex-col items-center gap-12 px-6">
     <!-- Section Header -->
     <div class="max-w-2xl text-center">
-      <p class="mb-4 text-[11px] uppercase tracking-[0.2em] text-brand-primary/60">[Our Work]</p>
-      <h2 class="text-3xl font-semibold text-brand-charcoal sm:text-4xl md:text-5xl">
+      <p class={`mb-4 text-[11px] uppercase tracking-[0.2em] ${classes.tag}`}>[Our Work]</p>
+      <h2 class={`text-3xl font-semibold ${classes.heading} sm:text-4xl md:text-5xl`}>
         Recent Projects
       </h2>
-      <p class="mt-4 text-base text-brand-darkGray/80">
+      <p class={`mt-4 text-base ${classes.muted}`}>
         Transforming homes across the Greater Toronto Area with custom cabinetry, closets, and built-ins. Each project showcases our commitment to quality craftsmanship and attention to detail.
       </p>
 

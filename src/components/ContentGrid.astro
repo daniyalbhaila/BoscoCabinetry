@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { CARD_IMAGE_DIMENSIONS } from '../lib/imageConfig';
+import { getThemeClasses, type Theme } from '../lib/themeUtils';
 
 export interface Props {
   items: Array<{
@@ -16,14 +17,19 @@ export interface Props {
     verified?: boolean;  // For reviews
   }>;
   variant: 'services' | 'features' | 'reviews';
+  theme?: Theme;
   className?: string;
 }
 
 const {
   items,
   variant,
+  theme = 'light',
   className = ''
 } = Astro.props;
+
+// Get theme classes from centralized utilities
+const classes = getThemeClasses(theme);
 
 // Grid classes based on actual homepage patterns
 const gridClasses = {
@@ -74,15 +80,15 @@ const finalClasses = `${gridClasses[variant]} ${className}`.trim();
 
   {variant === 'features' && items.map((item, i) => (
     <!-- Feature Cards (from WhyBosco.astro) -->
-    <div class="group card-hover-elevate">
-      <div class="rounded-2xl border border-brand-accent/30 gradient-card-light p-8 transition-all duration-300">
+    <div class="group card-hover-elevate h-full">
+      <div class={`rounded-2xl ${classes.card} p-8 transition-all duration-300 h-full flex flex-col`}>
         <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-brand-primary/10">
-          {item.iconComponent && <item.iconComponent class="h-8 w-8 text-brand-primary" />}
+          {item.iconComponent && <item.iconComponent class={`h-8 w-8 ${classes.icon}`} />}
         </div>
-        <h3 class="mb-4 text-xl font-semibold text-brand-charcoal">
+        <h3 class={`mb-4 text-xl font-semibold ${classes.heading}`}>
           {item.title}
         </h3>
-        <p class="text-brand-darkGray/75 leading-relaxed">
+        <p class={`${classes.muted} leading-relaxed flex-grow`}>
           {item.description}
         </p>
       </div>
@@ -92,7 +98,7 @@ const finalClasses = `${gridClasses[variant]} ${className}`.trim();
   {variant === 'reviews' && items.map((item, i) => (
     <!-- Review Cards (from Reviews.astro) -->
     <div class="group card-hover-elevate">
-      <div class="rounded-2xl border border-white/20 gradient-card-dark gradient-card-dark-hover p-8 shadow-lg transition-all duration-300">
+      <div class={`rounded-2xl ${classes.reviewCard} ${classes.reviewCardHover} p-8 shadow-lg transition-all duration-300`}>
         {item.rating && (
           <div class="mb-4 flex items-center gap-2">
             <div class="flex">
@@ -110,18 +116,18 @@ const finalClasses = `${gridClasses[variant]} ${className}`.trim();
           </div>
         )}
 
-        <blockquote class="mb-6 text-white/90 leading-relaxed">
+        <blockquote class={`mb-6 ${classes.body} leading-relaxed`}>
           "{item.description}"
         </blockquote>
 
         <div class="flex items-center justify-between">
           <div>
-            <p class="font-medium text-white">{item.name}</p>
+            <p class={`font-medium ${classes.heading}`}>{item.name}</p>
             {item.project && (
-              <p class="text-sm text-white/70">{item.project}</p>
+              <p class={`text-sm ${classes.muted}`}>{item.project}</p>
             )}
           </div>
-          <div class="text-brand-primary">
+          <div class={classes.icon}>
             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.959 8.959 0 01-4.906-1.456L3 21l2.544-5.094A8.959 8.959 0 013 12c0-4.418 3.582-8 8-8s8 3.582 8 8z" />
             </svg>
