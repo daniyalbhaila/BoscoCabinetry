@@ -1,14 +1,17 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, type ImageMetadata } from 'astro:assets';
 import { CARD_IMAGE_DIMENSIONS } from '../lib/imageConfig';
 import { getThemeClasses, type Theme } from '../lib/themeUtils';
+
+// Type for Astro component imports
+type AstroComponentImport = (_props: Record<string, any>) => any;
 
 export interface Props {
   items: Array<{
     title: string;
     description?: string;
-    iconComponent?: any;  // For Astro icon components
-    image?: any;
+    iconComponent?: AstroComponentImport;  // For Astro icon components
+    image?: ImageMetadata;  // Astro's image type
     link?: string;
     cta?: string;
     rating?: number;
@@ -19,23 +22,52 @@ export interface Props {
   variant: 'services' | 'features' | 'reviews';
   theme?: Theme;
   className?: string;
+  columns?: 2 | 3 | 4;  // Optional: override default column count
 }
 
 const {
   items,
   variant,
   theme = 'light',
-  className = ''
+  className = '',
+  columns
 } = Astro.props;
 
 // Get theme classes from centralized utilities
 const classes = getThemeClasses(theme);
 
+// Determine column count: use explicit prop, or auto-detect based on item count, or use defaults
+const getColumnClass = () => {
+  if (columns) {
+    // Map column numbers to complete Tailwind classes (required for build-time compilation)
+    const colMap: Record<number, string> = {
+      2: 'lg:grid-cols-2',
+      3: 'lg:grid-cols-3',
+      4: 'lg:grid-cols-4'
+    };
+    return colMap[columns] || 'lg:grid-cols-4';
+  }
+
+  // Auto-detect for features variant if exactly 3 items
+  if (variant === 'features' && items.length === 3) {
+    return 'lg:grid-cols-3';
+  }
+
+  // Default column classes
+  const defaults = {
+    services: 'lg:grid-cols-4',
+    features: 'lg:grid-cols-4',
+    reviews: 'md:grid-cols-2'
+  };
+
+  return defaults[variant];
+};
+
 // Grid classes based on actual homepage patterns
 const gridClasses = {
-  services: 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4',
-  features: 'grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4',
-  reviews: 'grid grid-cols-1 gap-8 md:grid-cols-2'
+  services: `grid grid-cols-1 gap-6 sm:grid-cols-2 ${getColumnClass()}`,
+  features: `grid grid-cols-1 gap-8 sm:grid-cols-2 ${getColumnClass()}`,
+  reviews: `grid grid-cols-1 gap-8 ${getColumnClass()}`
 };
 
 const finalClasses = `${gridClasses[variant]} ${className}`.trim();
@@ -81,7 +113,10 @@ const finalClasses = `${gridClasses[variant]} ${className}`.trim();
   {variant === 'features' && items.map((item, i) => (
     <!-- Feature Cards (from WhyBosco.astro) -->
     <div class="group card-hover-elevate h-full">
-      <div class={`rounded-2xl ${classes.card} p-8 transition-all duration-300 h-full flex flex-col`}>
+      {/* Note: Using specific theme classes instead of getThemeClasses utility
+          because this variant needs gradient-card-dark-hover and backdrop-blur-sm
+          which aren't in the centralized utility */}
+      <div class={`rounded-2xl border ${theme === 'dark' ? 'border-brand-primary/20 gradient-card-dark gradient-card-dark-hover backdrop-blur-sm' : 'border-brand-accent/40 gradient-card-light'} p-8 transition-all duration-300 h-full flex flex-col`}>
         <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-brand-primary/10">
           {item.iconComponent && <item.iconComponent class={`h-8 w-8 ${classes.icon}`} />}
         </div>

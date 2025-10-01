@@ -4,7 +4,7 @@ import { companyInfo } from './shared';
 export const primaryNavigation = [
   { label: 'Home', href: '/', slug: 'home' },
   { label: 'Services', href: '/services', slug: 'services', hasDropdown: true },
-  { label: 'Portfolio', href: '/portfolio', slug: 'portfolio' },
+  { label: 'Trade Program', href: '/trade', slug: 'trade' },
   { label: 'About', href: '/about', slug: 'about' },
   { label: 'Contact', href: '/contact', slug: 'contact' }
 ];
@@ -35,11 +35,7 @@ export const locationNavigation = companyInfo.serviceAreas.map(area => ({
 export const footerNavigation = {
   services: {
     title: 'Services',
-    links: [
-      ...servicesNavigation.slice(0, -1), // All services except "View All"
-      { label: 'Custom Millwork', href: '/services/custom-millwork', slug: 'custom-millwork' },
-      { label: 'Refinishing', href: '/services/refinishing', slug: 'refinishing' }
-    ]
+    links: servicesNavigation.slice(0, -1) // All services except "View All"
   },
 
   serviceAreas: {
@@ -51,6 +47,7 @@ export const footerNavigation = {
     title: 'Company',
     links: [
       { label: 'About Us', href: '/about', slug: 'about' },
+      { label: 'Trade Program', href: '/trade', slug: 'trade' },
       { label: 'Our Process', href: '/process', slug: 'process' },
       { label: 'Showroom', href: '/showroom', slug: 'showroom' },
       { label: 'Reviews', href: '/reviews', slug: 'reviews' },

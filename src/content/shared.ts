@@ -87,7 +87,9 @@ export const companyInfo = {
     { value: 'closet', label: 'Closets' },
     { value: 'mediawall', label: 'Media Walls' },
     { value: 'builtin', label: 'Built-in Units' },
-    { value: 'fullhome', label: 'Full Home Cabinetry' }
+    { value: 'fullhome', label: 'Full Home Cabinetry' },
+    { value: 'custom-millwork', label: 'Custom Millwork' },
+    { value: 'refinishing', label: 'Refinishing' }
   ],
 
   // Timelines
@@ -189,5 +191,38 @@ export const companyDescriptions = {
   hero: 'Explore 100+ finishes in our 5,500 sq ft North York showroom. Work with Bosco\'s in-house designer to create kitchens, closets, and full-home renovations that fit your lifestyle. Luxury without the luxury price tag.',
   about: 'With 20+ years of experience, Bosco Cabinetry specializes in custom kitchen cabinets, closet systems, and built-in units. Visit our massive North York showroom to explore over 100 finish options.',
   aboutOrigin: 'Founded by Toronto custom-home builders who saw homeowners struggling with impossible choices: overpriced luxury brands, cheap big-box cabinets, or mid-range options with zero flexibility. We created Bosco Cabinetry to bring builder-backed expertise, luxury finishes, and accessible prices to Toronto.',
-  contact: 'Get your free consultation and quote within 48 hours. Let\'s bring your vision to life.'
+  contact: 'Get your free consultation and quote within 48 hours. Let\'s bring your vision to life.',
+  serviceAreaExpanded: `
+    <div class="space-y-6">
+      <div>
+        <h3 class="text-xl font-bold mb-3">Toronto Custom Kitchen Cabinets</h3>
+        <p>From condos in downtown Toronto to luxury homes in Rosedale and Forest Hill, we design and install custom kitchen cabinets that maximize space, functionality, and style. Our Toronto kitchen cabinet clients benefit from our 5,500 sq ft North York showroom where they can see 100+ finish options in person.</p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold mb-3">North York Cabinetry Showroom</h3>
+        <p>Located at 85 Brisbane Rd, our North York facility serves as both our showroom and design center. North York homeowners can visit to explore custom kitchen cabinets, walk-in closet systems, bathroom vanities, and built-in cabinetry with our in-house designers.</p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold mb-3">Vaughan Custom Home Cabinetry</h3>
+        <p>Vaughan's growing community of custom homes and luxury developments benefit from our builder partnerships. We provide custom cabinetry solutions for new home builds, renovations, and whole-home cabinetry projects across Vaughan and York Region.</p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold mb-3">Markham & Richmond Hill Kitchen Renovations</h3>
+        <p>Richmond Hill and Markham homeowners trust Bosco Cabinetry for kitchen renovations, custom closet systems, and built-in units. Our proximity to York Region makes us the ideal partner for Markham and Richmond Hill cabinetry projects.</p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold mb-3">Mississauga Custom Cabinets</h3>
+        <p>From Mississauga condos to detached homes, we deliver custom kitchen cabinets and closet systems with the same quality and service that Toronto clients experience. Our Mississauga cabinet clients appreciate our transparent pricing and showroom experience.</p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold mb-3">Scarborough & Etobicoke Cabinetry Services</h3>
+        <p>Scarborough and Etobicoke homeowners benefit from our local Toronto expertise and builder-backed reliability. Whether it's a condo kitchen renovation in Scarborough or a custom closet system in Etobicoke, we bring 20+ years of experience to every project.</p>
+      </div>
+    </div>
+  `
 };

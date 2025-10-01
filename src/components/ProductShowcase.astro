@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import Check from './icons/Check.astro';
+import ArrowRight from './icons/ArrowRight.astro';
+import kitchenImage from '../assets/kitchen.jpg';
+import type { Theme } from '../lib/themeUtils';
+
+export interface Props {
+	collections: Array<{
+		name: string;
+		image: string;
+		features: string[];
+		description?: string;
+		link: string;
+	}>;
+	theme?: Theme;
+}
+
+const { collections, theme = 'light' } = Astro.props;
+
+const isDark = theme === 'dark';
+
+// Map image names to actual imports
+const imageMap: Record<string, any> = {
+	kitchen: kitchenImage
+};
+---
+
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+	{collections.map((collection) => (
+		<div class={`group relative overflow-hidden rounded-2xl border transition-all duration-300 hover:shadow-lg ${isDark ? 'border-brand-primary/20 gradient-card-dark backdrop-blur-sm hover:border-brand-primary/40' : 'border-brand-accent/20 gradient-card-light hover:border-brand-primary/40'}`}>
+			{/* Image */}
+			<div class="aspect-[4/3] overflow-hidden">
+				{imageMap[collection.image] ? (
+					<Image
+						src={imageMap[collection.image]}
+						alt={collection.name}
+						class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+						loading="lazy"
+					/>
+				) : (
+					/* Fallback for dynamic/external images that can't be pre-imported.
+					   This is intentional - allows flexibility for CMS or external image sources
+					   while using optimized Image component for known local assets. */
+					<img
+						src={collection.image}
+						alt={collection.name}
+						class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+						loading="lazy"
+					/>
+				)}
+			</div>
+
+			{/* Content */}
+			<div class="p-6">
+				<h3 class={`mb-4 text-xl font-semibold ${isDark ? 'text-white' : 'text-brand-charcoal'}`}>
+					{collection.name}
+				</h3>
+
+				{collection.description && (
+					<p class={`mb-4 text-sm leading-relaxed ${isDark ? 'text-white/70' : 'text-brand-darkGray'}`}>
+						{collection.description}
+					</p>
+				)}
+
+				<ul class="mb-6 space-y-2">
+					{collection.features.map((feature) => (
+						<li class="flex items-start gap-2">
+							<Check class="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-primary" />
+							<span class={`text-sm ${isDark ? 'text-white/70' : 'text-brand-darkGray'}`}>{feature}</span>
+						</li>
+					))}
+				</ul>
+
+				<a
+					href={collection.link}
+					class={`inline-flex items-center gap-2 text-sm font-medium transition-colors ${isDark ? 'text-brand-accent hover:text-white' : 'text-brand-bronze hover:text-brand-charcoal'}`}
+				>
+					<span>View Specifications</span>
+					<ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+				</a>
+			</div>
+		</div>
+	))}
+</div>
