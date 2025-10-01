@@ -5,6 +5,7 @@ import SectionWrapper from '../components/SectionWrapper.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ContentGrid from '../components/ContentGrid.astro';
 import ExpandableContent from '../components/ExpandableContent.astro';
+import ServiceAreaSection from '../components/ServiceAreaSection.astro';
 import ShowroomHighlight from '../components/ShowroomHighlight.astro';
 import Reviews from '../components/Reviews.astro';
 import ContactUs from '../components/ContactUs.astro';
@@ -444,72 +445,15 @@ const faqStructuredData = {
 
   <!-- Service Areas Section (Dark theme) -->
   <SectionWrapper theme="dark" id="service-areas">
-    <SectionHeader
-      tag="Service Areas"
+    <ServiceAreaSection
+      theme="dark"
       title="Serving Toronto & the GTA"
       description="Bosco Cabinetry proudly serves homeowners, builders, and designers across the Greater Toronto Area with custom kitchen cabinets, closet systems, bathroom vanities, and built-in cabinetry."
-      layout="center"
-      theme="dark"
+      cities={companyInfo.serviceAreas}
+      showCTA={true}
+      expandableContent={companyDescriptions.serviceAreaExpanded}
+      expandableContentId="about-service-areas"
     />
-
-    <ExpandableContent contentId="service-areas">
-      <!-- Preview Content (Always Visible) -->
-      <div slot="preview">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-          {companyInfo.serviceAreas.map(area => (
-            <div class="text-center">
-              <div class="float-highlight rounded-lg p-4 bg-white/5 hover:bg-white/10 transition-colors">
-                <div class="text-white font-medium">{area.city}</div>
-                <div class="text-white/70 text-sm">{area.region}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <!-- Full Content (Hidden - SEO Optimized) -->
-      <div slot="full">
-        <div class="space-y-6 text-white/90">
-          <div>
-            <h3 class="text-xl font-bold text-white mb-3">Toronto Custom Kitchen Cabinets</h3>
-            <p>From condos in downtown Toronto to luxury homes in Rosedale and Forest Hill, we design and install custom kitchen cabinets that maximize space, functionality, and style. Our Toronto kitchen cabinet clients benefit from our 5,500 sq ft North York showroom where they can see 100+ finish options in person.</p>
-          </div>
-
-          <div>
-            <h3 class="text-xl font-bold text-white mb-3">North York Cabinetry Showroom</h3>
-            <p>Located at {companyInfo.location.address.street}, our North York facility serves as both our showroom and design center. North York homeowners can visit to explore custom kitchen cabinets, walk-in closet systems, bathroom vanities, and built-in cabinetry with our in-house designers.</p>
-          </div>
-
-          <div>
-            <h3 class="text-xl font-bold text-white mb-3">Vaughan Custom Home Cabinetry</h3>
-            <p>Vaughan's growing community of custom homes and luxury developments benefit from our builder partnerships. We provide custom cabinetry solutions for new home builds, renovations, and whole-home cabinetry projects across Vaughan and York Region.</p>
-          </div>
-
-          <div>
-            <h3 class="text-xl font-bold text-white mb-3">Markham & Richmond Hill Kitchen Renovations</h3>
-            <p>Richmond Hill and Markham homeowners trust Bosco Cabinetry for kitchen renovations, custom closet systems, and built-in units. Our proximity to York Region makes us the ideal partner for Markham and Richmond Hill cabinetry projects.</p>
-          </div>
-
-          <div>
-            <h3 class="text-xl font-bold text-white mb-3">Mississauga Custom Cabinets</h3>
-            <p>From Mississauga condos to detached homes, we deliver custom kitchen cabinets and closet systems with the same quality and service that Toronto clients experience. Our Mississauga cabinet clients appreciate our transparent pricing and showroom experience.</p>
-          </div>
-
-          <div>
-            <h3 class="text-xl font-bold text-white mb-3">Scarborough & Etobicoke Cabinetry Services</h3>
-            <p>Scarborough and Etobicoke homeowners benefit from our local Toronto expertise and builder-backed reliability. Whether it's a condo kitchen renovation in Scarborough or a custom closet system in Etobicoke, we bring 20+ years of experience to every project.</p>
-          </div>
-
-          <div class="mt-8 p-6 rounded-2xl border border-white/20 gradient-card-dark">
-            <h3 class="text-xl font-bold text-white mb-3">Serving Builders & Designers Across the GTA</h3>
-            <p>Bosco Cabinetry partners with custom home builders, general contractors, and interior designers across Toronto and the GTA as the exclusive Canadian distributor of Holike cabinetry. Our trade partners benefit from competitive pricing, reliable timelines, shop drawings, and a showroom for client approvals.</p>
-            <p class="mt-4">
-              <a href="/trade" class="text-brand-accent hover:underline font-medium">Builders & Designers: Explore Trade Partnership →</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </ExpandableContent>
   </SectionWrapper>
 
   <!-- Social Proof / Reviews (Light theme) -->
