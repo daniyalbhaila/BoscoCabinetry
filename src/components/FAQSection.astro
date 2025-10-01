@@ -4,63 +4,86 @@ import SectionHeader from './SectionHeader.astro';
 import ChevronDown from './icons/ChevronDown.astro';
 import { companyInfo } from '../content/shared.ts';
 import Button from './ui/Button.astro';
+import type { Theme } from '../lib/themeUtils';
 
-const faqs = [
-  {
-    question: 'How long does a typical kitchen renovation take?',
-    answer: `Most kitchen cabinet projects are completed ${companyInfo.timelines.total}. This includes ${companyInfo.timelines.manufacturing} for manufacturing in our ${companyInfo.location.facility.description} and ${companyInfo.timelines.installation} for professional installation. Timeline may vary based on project complexity and customization requirements.`
-  },
-  {
-    question: 'What is included in your free consultation?',
-    answer: 'Our complimentary in-home consultation includes professional space assessment, style and finish recommendations, 3D design concepts, and a detailed quote with transparent pricing. We also discuss your timeline, budget, and any special requirements during this visit.'
-  },
-  {
-    question: 'Do you offer financing options?',
-    answer: 'Yes, we provide flexible financing solutions to make your dream kitchen or closet more accessible. We work with several financing partners to offer competitive rates and payment plans that fit your budget. Contact us to discuss available options.'
-  },
-  {
-    question: 'What warranty do you provide on your work?',
-    answer: 'We stand behind our craftsmanship with a comprehensive 2-year warranty on all installation work and manufacturing defects. Our European hardware comes with manufacturer warranties, and we provide ongoing support for any issues that may arise.'
-  },
-  {
-    question: 'Can you work with my existing layout?',
-    answer: 'Absolutely! We specialize in maximizing your current space, whether you want to keep the existing layout or make modifications. Our designers will assess your space and recommend the best approach to achieve your goals within your budget.'
-  },
-  {
-    question: 'What makes Bosco Cabinetry different from other companies?',
-    answer: 'Our combination of affordable luxury, 20+ years experience, massive 5,500 sq ft showroom, and full-service approach sets us apart. We handle everything from design to installation, use premium European hardware, and offer over 100 finish options at competitive prices.'
-  },
-  {
-    question: 'How much do your custom cabinets cost?',
-    answer: 'Pricing varies based on size, materials, finishes, and complexity. Kitchen cabinet projects typically start around $15,000 and can range up to $50,000+ for luxury installations. We provide detailed, transparent quotes with no hidden fees during your free consultation.'
-  },
-  {
-    question: 'Do you handle permits and inspections?',
-    answer: 'We assist with permit applications when required and ensure all work meets local building codes. For major renovations involving electrical or plumbing changes, we coordinate with licensed contractors and handle inspection scheduling as needed.'
-  }
-];
+interface FAQ {
+	question: string;
+	answer: string;
+}
+
+export interface Props {
+	theme?: Theme;
+	tag?: string;
+	title?: string;
+	description?: string;
+	items?: FAQ[];
+}
+
+const {
+	theme = 'light',
+	tag = 'FAQ',
+	title = 'Frequently Asked Questions',
+	description = 'Get answers to common questions about our custom cabinetry process, pricing, and services.',
+	items = [
+		{
+			question: 'How long does a typical kitchen renovation take?',
+			answer: `Most kitchen cabinet projects are completed ${companyInfo.timelines.total}. This includes ${companyInfo.timelines.manufacturing} for manufacturing in our ${companyInfo.location.facility.description} and ${companyInfo.timelines.installation} for professional installation. Timeline may vary based on project complexity and customization requirements.`
+		},
+		{
+			question: 'What is included in your free consultation?',
+			answer: 'Our complimentary in-home consultation includes professional space assessment, style and finish recommendations, 3D design concepts, and a detailed quote with transparent pricing. We also discuss your timeline, budget, and any special requirements during this visit.'
+		},
+		{
+			question: 'Do you offer financing options?',
+			answer: 'Yes, we provide flexible financing solutions to make your dream kitchen or closet more accessible. We work with several financing partners to offer competitive rates and payment plans that fit your budget. Contact us to discuss available options.'
+		},
+		{
+			question: 'What warranty do you provide on your work?',
+			answer: 'We stand behind our craftsmanship with a comprehensive 2-year warranty on all installation work and manufacturing defects. Our European hardware comes with manufacturer warranties, and we provide ongoing support for any issues that may arise.'
+		},
+		{
+			question: 'Can you work with my existing layout?',
+			answer: 'Absolutely! We specialize in maximizing your current space, whether you want to keep the existing layout or make modifications. Our designers will assess your space and recommend the best approach to achieve your goals within your budget.'
+		},
+		{
+			question: 'What makes Bosco Cabinetry different from other companies?',
+			answer: 'Our combination of affordable luxury, 20+ years experience, massive 5,500 sq ft showroom, and full-service approach sets us apart. We handle everything from design to installation, use premium European hardware, and offer over 100 finish options at competitive prices.'
+		},
+		{
+			question: 'How much do your custom cabinets cost?',
+			answer: 'Pricing varies based on size, materials, finishes, and complexity. Kitchen cabinet projects typically start around $15,000 and can range up to $50,000+ for luxury installations. We provide detailed, transparent quotes with no hidden fees during your free consultation.'
+		},
+		{
+			question: 'Do you handle permits and inspections?',
+			answer: 'We assist with permit applications when required and ensure all work meets local building codes. For major renovations involving electrical or plumbing changes, we coordinate with licensed contractors and handle inspection scheduling as needed.'
+		}
+	]
+} = Astro.props;
+
+const faqs = items;
+const isDark = theme === 'dark';
 ---
 
-<SectionWrapper theme="light" id="faq">
+<SectionWrapper theme={theme} id="faq">
 	<SectionHeader
-		tag="FAQ"
-		title="Frequently Asked Questions"
-		description="Get answers to common questions about our custom cabinetry process, pricing, and services."
+		tag={tag}
+		title={title}
+		description={description}
 		layout="center"
-		theme="light"
+		theme={theme}
 	/>
 
 	<!-- FAQ Accordion -->
 	<div class="max-w-4xl mx-auto">
 			<div class="space-y-4">
 				{faqs.map((faq, index) => (
-					<div class="faq-item gradient-card-light border border-brand-accent/30 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-primary/30 hover:shadow-lg">
+					<div class={`faq-item rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg ${isDark ? 'gradient-card-dark border border-brand-primary/20 hover:border-brand-primary/40' : 'gradient-card-light border border-brand-accent/30 hover:border-brand-primary/30'}`}>
 						<button
-							class="faq-question w-full px-6 py-6 text-left flex items-center justify-between gap-4 hover:bg-brand-primary/5 transition-colors duration-200"
+							class={`faq-question w-full px-6 py-6 text-left flex items-center justify-between gap-4 transition-colors duration-200 ${isDark ? 'hover:bg-white/5' : 'hover:bg-brand-primary/5'}`}
 							aria-expanded="false"
 							data-faq-index={index}
 						>
-							<h3 class="text-lg font-semibold text-brand-charcoal leading-tight flex-1">
+							<h3 class={`text-lg font-semibold leading-tight flex-1 ${isDark ? 'text-white' : 'text-brand-charcoal'}`}>
 								{faq.question}
 							</h3>
 							<div class="faq-icon w-6 h-6 text-brand-primary flex-shrink-0 transition-transform duration-200">
@@ -70,7 +93,7 @@ const faqs = [
 
 						<div class="faq-answer overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0px;">
 							<div class="px-6 pb-6 pt-2">
-								<p class="text-base text-brand-darkGray/80 leading-relaxed">
+								<p class={`text-base leading-relaxed ${isDark ? 'text-white/70' : 'text-brand-darkGray/80'}`}>
 									{faq.answer}
 								</p>
 							</div>

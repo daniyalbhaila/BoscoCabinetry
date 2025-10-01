@@ -9,66 +9,92 @@ import Button from './ui/Button.astro';
 import ShowroomImage from '../assets/showroom.jpg';
 import { Image } from 'astro:assets';
 import { CARD_IMAGE_DIMENSIONS } from '../lib/imageConfig';
+import type { Theme } from '../lib/themeUtils';
 
-const processSteps = [
-  {
-    step: '01',
-    title: 'Free Consultation',
-    description: 'We visit your home to discuss your vision, measure your space, and understand your budget and timeline preferences.',
-    icon: Users,
-    features: [
-      'In-home consultation within 48 hours',
-      'Professional space assessment',
-      'Style and finish recommendations',
-      'Budget and timeline discussion'
-    ]
-  },
-  {
-    step: '02',
-    title: 'Design & Quote',
-    description: 'Our team creates detailed 3D designs and provides a comprehensive quote with no hidden fees or surprises.',
-    icon: Ruler,
-    features: [
-      '3D renderings of your project',
-      'Detailed material specifications',
-      'Transparent, itemized pricing',
-      'Unlimited design revisions'
-    ]
-  },
-  {
-    step: '03',
-    title: 'Manufacturing',
-    description: 'Once approved, we craft your custom cabinetry in our North York facility using premium materials and precision techniques.',
-    icon: Hammer,
-    features: [
-      '3-4 week production timeline',
-      'European hardware and finishes',
-      'Quality control inspections',
-      'Regular progress updates'
-    ]
-  },
-  {
-    step: '04',
-    title: 'Installation',
-    description: 'Our certified installers complete your project with meticulous attention to detail and thorough cleanup.',
-    icon: CheckCircle,
-    features: [
-      'Professional installation team',
-      '2-year warranty on workmanship',
-      'Complete site cleanup',
-      'Final walkthrough and inspection'
-    ]
-  }
-];
+interface ProcessStep {
+	step: string;
+	title: string;
+	description: string;
+	icon?: any;
+	features: string[];
+}
+
+export interface Props {
+	theme?: Theme;
+	tag?: string;
+	title?: string;
+	description?: string;
+	steps?: ProcessStep[];
+}
+
+const {
+	theme = 'dark',
+	tag = 'Our Process',
+	title = 'From Concept to Completion in 4 Simple Steps',
+	description = 'Our proven process ensures every project is delivered on time, on budget, and exceeds your expectations.',
+	steps = [
+		{
+			step: '01',
+			title: 'Free Consultation',
+			description: 'We visit your home to discuss your vision, measure your space, and understand your budget and timeline preferences.',
+			icon: Users,
+			features: [
+				'In-home consultation within 48 hours',
+				'Professional space assessment',
+				'Style and finish recommendations',
+				'Budget and timeline discussion'
+			]
+		},
+		{
+			step: '02',
+			title: 'Design & Quote',
+			description: 'Our team creates detailed 3D designs and provides a comprehensive quote with no hidden fees or surprises.',
+			icon: Ruler,
+			features: [
+				'3D renderings of your project',
+				'Detailed material specifications',
+				'Transparent, itemized pricing',
+				'Unlimited design revisions'
+			]
+		},
+		{
+			step: '03',
+			title: 'Manufacturing',
+			description: 'Once approved, we craft your custom cabinetry in our North York facility using premium materials and precision techniques.',
+			icon: Hammer,
+			features: [
+				'3-4 week production timeline',
+				'European hardware and finishes',
+				'Quality control inspections',
+				'Regular progress updates'
+			]
+		},
+		{
+			step: '04',
+			title: 'Installation',
+			description: 'Our certified installers complete your project with meticulous attention to detail and thorough cleanup.',
+			icon: CheckCircle,
+			features: [
+				'Professional installation team',
+				'2-year warranty on workmanship',
+				'Complete site cleanup',
+				'Final walkthrough and inspection'
+			]
+		}
+	]
+} = Astro.props;
+
+const processSteps = steps;
+const isDark = theme === 'dark';
 ---
 
-<SectionWrapper theme="dark" id="process">
+<SectionWrapper theme={theme} id="process">
 	<SectionHeader
-		tag="Our Process"
-		title="From Concept to Completion in 4 Simple Steps"
-		description="Our proven process ensures every project is delivered on time, on budget, and exceeds your expectations."
+		tag={tag}
+		title={title}
+		description={description}
 		layout="center"
-		theme="dark"
+		theme={theme}
 	/>
 
 	<!-- Process Steps - Split Layout -->
@@ -77,7 +103,7 @@ const processSteps = [
 			<!-- Left Side - Process Image -->
 			<div class="process-visual">
 				<div class="relative">
-					<div class="process-image relative w-full max-w-lg mx-auto aspect-[3/2] rounded-2xl overflow-hidden border border-white/20">
+					<div class={`process-image relative w-full max-w-lg mx-auto aspect-[3/2] rounded-2xl overflow-hidden border ${isDark ? 'border-white/20' : 'border-brand-accent/30'}`}>
 						<Image
 							src={ShowroomImage}
 							alt="Bosco Cabinetry showroom and manufacturing process"
@@ -102,7 +128,7 @@ const processSteps = [
 									<div class="w-3 h-3 bg-brand-primary/50 rounded-full animate-pulse" style="animation-delay: 1s"></div>
 								</div>
 							</div>
-							<p class="text-white/80 text-sm mt-3">Quality craftsmanship in our North York facility</p>
+							<p class={`text-sm mt-3 ${isDark ? 'text-white/80' : 'text-white/90'}`}>Quality craftsmanship in our North York facility</p>
 						</div>
 					</div>
 				</div>
@@ -123,10 +149,10 @@ const processSteps = [
 
 									<!-- Step Content -->
 									<div class="flex-1">
-										<h3 class="text-xl font-semibold text-white mb-2 group-hover:text-brand-accent transition-colors duration-200">
+										<h3 class={`text-xl font-semibold mb-2 group-hover:text-brand-accent transition-colors duration-200 ${isDark ? 'text-white' : 'text-brand-charcoal'}`}>
 											{step.title}
 										</h3>
-										<p class="text-white/80 text-sm leading-relaxed">
+										<p class={`text-sm leading-relaxed ${isDark ? 'text-white/80' : 'text-brand-darkGray'}`}>
 											{step.description}
 										</p>
 									</div>

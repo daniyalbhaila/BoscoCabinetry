@@ -8,12 +8,6 @@ import { companyInfo } from '../content/shared.ts';
 import Button from './ui/Button.astro';
 import { getThemeClasses, type Theme } from '../lib/themeUtils';
 
-export interface Props {
-	theme?: Theme;
-}
-
-const { theme = 'dark' } = Astro.props;
-
 interface Review {
 	name: string;
 	rating: number;
@@ -22,60 +16,73 @@ interface Review {
 	verified?: boolean;
 }
 
+export interface Props {
+	theme?: Theme;
+	tag?: string;
+	title?: string;
+	description?: string;
+	reviews?: Review[];
+}
+
+const {
+	theme = 'dark',
+	tag = 'Client Reviews',
+	title = 'What Our Clients Say',
+	description = "Don't just take our word for it. Here's what our satisfied clients have to say about their Bosco experience.",
+	reviews = [
+		{
+			name: "Sarah Chen",
+			rating: 5,
+			description: "Absolutely blown away by the quality and attention to detail. Our kitchen transformation exceeded all expectations. The team was professional, on time, and the final result is stunning. Worth every penny!",
+			project: "Kitchen Renovation",
+			verified: true
+		},
+		{
+			name: "Michael Rodriguez",
+			rating: 5,
+			description: "From design to installation, Bosco Cabinetry delivered premium quality at a reasonable price. Their showroom helped us visualize our dream closet perfectly. Highly recommend!",
+			project: "Walk-in Closet",
+			verified: true
+		},
+		{
+			name: "Jennifer Park",
+			rating: 5,
+			description: "The entire process was seamless. Great communication, transparent pricing, and beautiful results. Our built-in media wall is the centerpiece of our living room now.",
+			project: "Built-in Media Wall",
+			verified: true
+		},
+		{
+			name: "David Thompson",
+			rating: 5,
+			description: "20+ years of experience really shows. The craftsmanship is exceptional and the team handled our complex project with expertise. Would definitely work with them again.",
+			project: "Full Home Renovation",
+			verified: true
+		},
+		{
+			name: "Lisa Williams",
+			rating: 5,
+			description: "The design consultation was thorough and the installation team was incredibly professional. Our new bathroom vanity is exactly what we envisioned. Great value for the quality received.",
+			project: "Bathroom Vanity",
+			verified: true
+		},
+		{
+			name: "Robert Kim",
+			rating: 5,
+			description: "Outstanding service from start to finish. The team accommodated all our requests and delivered ahead of schedule. The pantry organization system has transformed our kitchen storage.",
+			project: "Pantry Organization",
+			verified: true
+		}
+	]
+} = Astro.props;
+
 // Get theme classes from centralized utilities
 const classes = getThemeClasses(theme);
-
-// Sample strong Google reviews - these should be replaced with actual reviews
-const reviews: Review[] = [
-	{
-		name: "Sarah Chen",
-		rating: 5,
-		description: "Absolutely blown away by the quality and attention to detail. Our kitchen transformation exceeded all expectations. The team was professional, on time, and the final result is stunning. Worth every penny!",
-		project: "Kitchen Renovation",
-		verified: true
-	},
-	{
-		name: "Michael Rodriguez",
-		rating: 5,
-		description: "From design to installation, Bosco Cabinetry delivered premium quality at a reasonable price. Their showroom helped us visualize our dream closet perfectly. Highly recommend!",
-		project: "Walk-in Closet",
-		verified: true
-	},
-	{
-		name: "Jennifer Park",
-		rating: 5,
-		description: "The entire process was seamless. Great communication, transparent pricing, and beautiful results. Our built-in media wall is the centerpiece of our living room now.",
-		project: "Built-in Media Wall",
-		verified: true
-	},
-	{
-		name: "David Thompson",
-		rating: 5,
-		description: "20+ years of experience really shows. The craftsmanship is exceptional and the team handled our complex project with expertise. Would definitely work with them again.",
-		project: "Full Home Renovation",
-		verified: true
-	},
-	{
-		name: "Lisa Williams",
-		rating: 5,
-		description: "The design consultation was thorough and the installation team was incredibly professional. Our new bathroom vanity is exactly what we envisioned. Great value for the quality received.",
-		project: "Bathroom Vanity",
-		verified: true
-	},
-	{
-		name: "Robert Kim",
-		rating: 5,
-		description: "Outstanding service from start to finish. The team accommodated all our requests and delivered ahead of schedule. The pantry organization system has transformed our kitchen storage.",
-		project: "Pantry Organization",
-		verified: true
-	}
-];
 ---
 <SectionWrapper theme={theme} id="reviews" className={`reviews-section-${theme}`}>
 	<SectionHeader
-		tag="Client Reviews"
-		title="What Our Clients Say"
-		description="Don't just take our word for it. Here's what our satisfied clients have to say about their Bosco experience."
+		tag={tag}
+		title={title}
+		description={description}
 		layout="center"
 		theme={theme}
 	/>
