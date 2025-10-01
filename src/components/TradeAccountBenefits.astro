@@ -1,0 +1,81 @@
+---
+import Check from './icons/Check.astro';
+import Button from './ui/Button.astro';
+import type { Theme } from '../lib/themeUtils';
+
+export interface Props {
+	tag?: string;
+	title: string;
+	benefits: string[];
+	ctaCard: {
+		title: string;
+		points: string[];
+		primaryCta: { text: string; href: string };
+		secondaryCta: { text: string; href: string };
+	};
+	theme?: Theme;
+}
+
+const { tag, title, benefits, ctaCard, theme = 'light' } = Astro.props;
+
+const isDark = theme === 'dark';
+---
+
+<div class="mx-auto max-w-7xl">
+	{tag && (
+		<p class={`mb-4 text-center text-[11px] uppercase tracking-[0.2em] ${isDark ? 'text-brand-accent' : 'text-brand-primary'}`}>
+			[{tag}]
+		</p>
+	)}
+	<h3 class={`mb-12 text-center text-2xl font-semibold md:text-3xl ${isDark ? 'text-white' : 'text-brand-charcoal'}`}>
+		{title}
+	</h3>
+
+	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+		<!-- Benefits List -->
+		<div class="space-y-4">
+			{benefits.map((benefit) => (
+				<div class="flex items-start gap-3">
+					<div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-primary/20">
+						<Check class="h-3.5 w-3.5 text-brand-primary" />
+					</div>
+					<p class={`text-base md:text-lg ${isDark ? 'text-white/90' : 'text-brand-darkGray'}`}>{benefit}</p>
+				</div>
+			))}
+		</div>
+
+		<!-- CTA Card -->
+		<div class={`rounded-2xl border p-8 ${isDark ? 'gradient-card-dark-strong border-brand-primary/30 backdrop-blur-sm' : 'gradient-card-light border-brand-accent/40'}`}>
+			<h4 class={`mb-6 text-xl font-semibold ${isDark ? 'text-white' : 'text-brand-charcoal'}`}>
+				{ctaCard.title}
+			</h4>
+
+			<ul class="mb-8 space-y-3">
+				{ctaCard.points.map((point) => (
+					<li class="flex items-start gap-3">
+						<span class={`mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full ${isDark ? 'bg-brand-accent' : 'bg-brand-primary'}`}></span>
+						<span class={isDark ? 'text-white/80' : 'text-brand-darkGray'}>{point}</span>
+					</li>
+				))}
+			</ul>
+
+			<div class="space-y-3">
+				<Button
+					variant="primary"
+					href={ctaCard.primaryCta.href}
+					size="lg"
+					class="w-full"
+				>
+					{ctaCard.primaryCta.text}
+				</Button>
+
+				<a
+					href={ctaCard.secondaryCta.href}
+					class={`block text-center text-sm font-medium transition-colors ${isDark ? 'text-brand-accent hover:text-white' : 'text-brand-primary hover:text-brand-bronze'}`}
+				>
+					{ctaCard.secondaryCta.text}
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

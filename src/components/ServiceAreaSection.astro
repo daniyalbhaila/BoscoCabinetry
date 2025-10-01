@@ -1,0 +1,166 @@
+---
+/**
+ * ServiceAreaSection Component
+ *
+ * Reusable service area section with optional CTA card, highlights, and expandable SEO content.
+ * Uses consistent layout across all pages - only difference is whether expandable content is shown.
+ *
+ * Props:
+ * - theme: 'light' | 'dark' (default: 'light')
+ * - tag: Section tag text (default: "Service Areas")
+ * - title: Section title (required)
+ * - description: Section description (required)
+ * - cities: Array of city objects { city/name, region } (required)
+ * - showCTA: Show CTA card on the right side (default: false)
+ * - highlights: Array of highlight strings (optional)
+ * - expandableContent: HTML string for expandable section (optional - for SEO)
+ * - expandableContentId: Unique ID for expandable content (required if expandableContent provided)
+ * - expandablePreviewText: Custom preview text for "read more" button
+ */
+
+import SectionHeader from './SectionHeader.astro';
+import ExpandableContent from './ExpandableContent.astro';
+import Button from './ui/Button.astro';
+import MapPin from './icons/MapPin.astro';
+import Phone from './icons/Phone.astro';
+import Check from './icons/Check.astro';
+import { companyInfo } from '../content/shared.ts';
+
+export interface Props {
+	theme?: 'light' | 'dark';
+	tag?: string;
+	title: string;
+	description: string;
+	cities: Array<{
+		city?: string;
+		name?: string;
+		region: string;
+	}>;
+	showCTA?: boolean;
+	highlights?: string[];
+	expandableContent?: string;
+	expandableContentId?: string;
+	expandablePreviewText?: string;
+}
+
+const {
+	theme = 'light',
+	tag = 'Service Areas',
+	title,
+	description,
+	cities,
+	showCTA = false,
+	highlights = [],
+	expandableContent,
+	expandableContentId,
+	expandablePreviewText = 'Learn more about our comprehensive coverage across the GTA...'
+} = Astro.props;
+
+// Normalize city data
+const normalizedCities = cities.map(c => ({
+	name: c.city || c.name || '',
+	region: c.region
+}));
+---
+
+<section id="service-area">
+	<SectionHeader
+		tag={tag}
+		title={title}
+		description={description}
+		layout="center"
+		theme={theme}
+	/>
+
+	<div class={`grid grid-cols-1 gap-12 items-start ${showCTA ? 'lg:grid-cols-3' : ''}`}>
+		<!-- Cities Grid -->
+		<div class={showCTA ? 'lg:col-span-2' : ''}>
+			<!-- Cities with icons -->
+			<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-12">
+				{normalizedCities.map((area) => (
+					<div class="group">
+						<div class="flex items-start gap-2">
+							<MapPin class={`w-4 h-4 ${theme === 'dark' ? 'text-brand-accent' : 'text-brand-primary'} mt-1 flex-shrink-0`} />
+							<div>
+								<h3 class={`font-semibold ${theme === 'dark' ? 'text-white' : 'text-brand-charcoal'} group-hover:text-brand-primary transition-colors duration-200`}>
+									{area.name}
+								</h3>
+								<p class={`text-sm ${theme === 'dark' ? 'text-white/70' : 'text-brand-darkGray'}`}>
+									{area.region}
+								</p>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+
+			<!-- Coverage Note -->
+			<div class={`mb-8 p-6 rounded-2xl ${theme === 'dark' ? 'border-white/10 bg-white/5' : 'border-brand-accent/20 bg-brand-accent/5'} border shadow-lg`}>
+				<div class="flex items-start gap-3">
+					<MapPin class={`w-6 h-6 ${theme === 'dark' ? 'text-brand-accent' : 'text-brand-primary'} mt-0.5 flex-shrink-0`} />
+					<div>
+						<h4 class={`font-semibold ${theme === 'dark' ? 'text-white' : 'text-brand-charcoal'} mb-2`}>
+							Don't see your area listed?
+						</h4>
+						<p class={theme === 'dark' ? 'text-white/80' : 'text-brand-darkGray'}>
+							We're expanding our service coverage regularly. Contact us to discuss your project—we may be able to accommodate special requests within reasonable travel distance.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			{highlights.length > 0 && (
+				<!-- Highlights -->
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+					{highlights.map((highlight) => (
+						<div class="flex items-start gap-3">
+							<Check class={`h-5 w-5 ${theme === 'dark' ? 'text-brand-primary' : 'text-brand-bronze'} flex-shrink-0 mt-0.5`} />
+							<p class={theme === 'dark' ? 'text-white/90' : 'text-brand-darkGray'}>
+								{highlight}
+							</p>
+						</div>
+					))}
+				</div>
+			)}
+
+			{expandableContent && expandableContentId && (
+				<!-- Expandable SEO Content -->
+				<ExpandableContent contentId={expandableContentId}>
+					<div slot="preview">
+						<p class={theme === 'dark' ? 'text-white/80' : 'text-brand-darkGray'}>
+							{expandablePreviewText}
+						</p>
+					</div>
+					<div slot="full" set:html={expandableContent} class={theme === 'dark' ? 'text-white/90' : 'text-brand-darkGray'} />
+				</ExpandableContent>
+			)}
+		</div>
+
+		{showCTA && (
+			<!-- CTA Card -->
+			<div class="lg:sticky lg:top-8">
+				<div class="p-8 gradient-cta-dark backdrop-blur-sm rounded-2xl text-white border border-white/10 shadow-lg">
+					<div class="text-center mb-6">
+						<div class="inline-flex items-center justify-center w-16 h-16 bg-brand-primary/20 rounded-full mb-4">
+							<Phone class="w-8 h-8 text-brand-accent" />
+						</div>
+						<h3 class="text-xl font-semibold mb-2">Ready to Start Your Project?</h3>
+						<p class="text-white/80 text-sm">
+							Get a free in-home consultation and quote within 48 hours
+						</p>
+					</div>
+
+					<div class="space-y-4">
+						<Button href="#contact" variant="primary" size="lg" class="w-full font-semibold">
+							Schedule Free Consultation
+						</Button>
+						<a href={companyInfo.contact.phone.href} class="flex items-center justify-center gap-2 text-brand-accent hover:text-white transition-colors duration-200">
+							<Phone class="w-4 h-4" />
+							<span class="font-semibold">{companyInfo.contact.phone.display}</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		)}
+	</div>
+</section>

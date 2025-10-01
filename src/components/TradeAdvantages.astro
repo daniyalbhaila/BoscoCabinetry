@@ -1,0 +1,52 @@
+---
+import SectionWrapper from './SectionWrapper.astro';
+import SectionHeader from './SectionHeader.astro';
+
+export interface Advantage {
+	title: string;
+	description: string;
+	icon: any;
+}
+
+export interface Props {
+	tag: string;
+	title: string;
+	description: string;
+	advantages: Advantage[];
+}
+
+const { tag, title, description, advantages } = Astro.props;
+---
+
+<SectionWrapper theme="dark" id="advantages">
+	<SectionHeader
+		tag={tag}
+		title={title}
+		description={description}
+		layout="split"
+		theme="dark"
+	/>
+
+	<div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+		{advantages.map((advantage) => (
+			<div class="group">
+				<div class="flex items-start gap-6">
+					<!-- Icon -->
+					<div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl gradient-card-dark border border-brand-primary/20 transition-all duration-300 group-hover:border-brand-primary/40 group-hover:scale-110">
+						<advantage.icon class="h-8 w-8 text-brand-primary" />
+					</div>
+
+					<!-- Content -->
+					<div class="flex-1">
+						<h3 class="mb-3 text-xl font-semibold text-white">
+							{advantage.title}
+						</h3>
+						<p class="text-base leading-relaxed text-white/70">
+							{advantage.description}
+						</p>
+					</div>
+				</div>
+			</div>
+		))}
+	</div>
+</SectionWrapper>
