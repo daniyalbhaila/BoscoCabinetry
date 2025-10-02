@@ -1,12 +1,20 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
+  site: 'https://boscocabinetry.com',
   integrations: [
     react(),
     tailwind({
       applyBaseStyles: false,
+    }),
+    sitemap({
+      filter: (page) => !page.includes('/admin') && !page.includes('/private'),
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
     }),
   ],
   build: {

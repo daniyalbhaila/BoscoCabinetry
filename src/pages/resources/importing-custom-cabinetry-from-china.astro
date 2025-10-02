@@ -1,0 +1,218 @@
+---
+import ArticleLayout from '../../components/blog/ArticleLayout.astro';
+import { getArticleBySlug } from '../../content/blog/blogConfig';
+import { chinaImportContent } from '../../content/blog/chinaImportArticle';
+
+const article = getArticleBySlug('importing-custom-cabinetry-from-china');
+if (!article) throw new Error('Article not found');
+
+const { quickGuide, complexities, localSolution, comparisonTable, cta } = chinaImportContent;
+---
+
+<ArticleLayout
+  title={article.title}
+  description={article.description}
+  keywords={article.keywords}
+  author={article.author}
+  publishDate={article.publishDate}
+  lastUpdated={article.lastUpdated}
+  ogImage={article.ogImage}
+  category={article.category}
+  slug={article.slug}
+>
+  <!-- FAQPage Schema for Quick Guide (AEO optimization) -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you find a reliable cabinetry vendor in China?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Finding a trustworthy manufacturer is the necessary first step. You can source vendors through B2B Marketplaces like Alibaba or GlobalSources.com, by attending international trade shows, or via a simple Google search. Without a sourcing agent, finding the right supplier can be lengthy and draining due to communication barriers and the need to verify credentials."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is ordering product samples difficult?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the process is mandatory but risky. You must request and evaluate samples to confirm the quality and product details. Samples are typically paid for by the buyer, who is also responsible for all shipping costs. You are taking a 'leap of faith' on the final quality, as inconsistent quality control can be a significant challenge without a physical inspection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the key shipping terms (Incoterms) for importing cabinetry?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The shipping term you negotiate with your vendor fundamentally dictates your final cost and liability. EXW (Ex Works): The supplier's responsibility ends at their warehouse. FOB (Free on Board): The supplier covers all costs until the goods are dispatched from the port of origin. This term is generally recommended for new buyers. DDP (Delivered Duty Paid): The supplier handles everything, delivering the product right to your door with all duties paid."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the biggest risk when importing custom cabinetry?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The biggest risk is product quality discrepancy and lack of recourse. You are taking a 'leap of faith' since you cannot inspect the product before it is loaded. If items arrive damaged, there is often no warranty or easy way to claim. Furthermore, international freight (which can cost thousands per container) and customs brokerage fees are significant hidden costs, and first-time importers are highly likely to be inspected at the border, incurring unexpected examination fees."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <!-- HowTo Schema for 7-Step Import Process (AEO optimization) -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Import Custom Cabinetry from China to Canada",
+      "description": "Step-by-step guide to importing custom cabinetry from China, including costs, risks, and regulatory requirements.",
+      "totalTime": "PT8W",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Obtain Your Business Number (BN)",
+          "text": "Register with the CRA for an Import/Export account."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Source & Vet Supplier",
+          "text": "Find a reliable vendor, ideally with export experience and certifications."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Define Requirements & Sample",
+          "text": "Finalize material, design, and 3D drawings; then, order and approve product samples."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Negotiate Incoterms",
+          "text": "Agree on shipping terms (e.g., FOB or EXW) to define cost and liability."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Determine Compliance",
+          "text": "Classify the product using the HS Code to determine tariffs, duties, and regulatory requirements (like fumigation)."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Arrange Logistics",
+          "text": "Choose sea freight (LCL or FCL) and work with a Customs Broker to manage paperwork and clearance."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Manage Final Delivery",
+          "text": "Pay all duties/fees and coordinate final delivery from the port to your location."
+        }
+      ]
+    }
+  </script>
+
+  <!-- Answer Card (AEO: Featured Snippet Target) -->
+  <div class="answer-card">
+    {chinaImportContent.answerCard}
+  </div>
+
+  <!-- Introduction -->
+  <section id="introduction">
+    {chinaImportContent.introduction.paragraphs.map(p => <p>{p}</p>)}
+  </section>
+
+  <!-- Quick Guide (AEO: Featured Snippet + FAQ Target) -->
+  <section id="quick-guide">
+    <h2>{quickGuide.heading}</h2>
+    <ol>
+      {quickGuide.steps.map(step => (
+        <li>
+          <strong>{step.title}:</strong> {step.description}
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- Complexities Section (Question-Style Headings) -->
+  <section id="complexities">
+    <h2>The Complexities and Risks of Direct Cabinetry Import</h2>
+    <p>While the steps above are simple on paper, the process is fraught with risks and complications that significantly add to the final cost and project timeline.</p>
+
+    {complexities.sections.map(section => (
+      <section id={section.question.toLowerCase().replace(/[^a-z0-9]+/g, '-')}>
+        <h3>{section.question}</h3>
+        <p>{section.answer}</p>
+        {section.details && <p>{section.details}</p>}
+
+        {section.disclaimer && (
+          <blockquote>
+            <strong>Disclaimer:</strong> {section.disclaimer}
+          </blockquote>
+        )}
+
+        {section.incoterms && (
+          <ul>
+            {section.incoterms.map(term => (
+              <li>
+                <strong>{term.term}:</strong> {term.description}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {section.requirements && (
+          <ul>
+            {section.requirements.map(req => (
+              <li>
+                <strong>{req.title}:</strong> {req.description}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {section.additionalRisks && <p>{section.additionalRisks}</p>}
+      </section>
+    ))}
+  </section>
+
+  <!-- Local Solution Section -->
+  <section id="local-solution">
+    <h2>{localSolution.heading}</h2>
+    <p>{localSolution.pricingContext}</p>
+    <p><strong>{localSolution.tagline}</strong></p>
+    <p>{localSolution.intro}</p>
+
+    <!-- Comparison Table (AEO: AI-Parsable Table) -->
+    <table>
+      <caption>{comparisonTable.title}</caption>
+      <thead>
+        <tr>
+          {comparisonTable.headers.map(header => <th>{header}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {comparisonTable.rows.map(row => (
+          <tr>
+            <th>{row[0]}</th>
+            <td>{row[1]}</td>
+            <td>{row[2]}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="cta">
+    <p><strong>{cta.tagline}</strong></p>
+    <p>{cta.callToAction}</p>
+    <p><strong>Showroom Location:</strong> {cta.showroomAddress}</p>
+    <p><a href={cta.contactLink}>{cta.contactText}</a></p>
+  </section>
+</ArticleLayout>

@@ -1,0 +1,131 @@
+---
+/**
+ * TrustHeader Component
+ *
+ * Purpose: Reusable dark header for secondary pages (DRY principle)
+ * Used on: About, Resources, Blog articles, and other secondary pages
+ *
+ * Props:
+ * - title: string (required) - Main H1 heading
+ * - subtitle?: string (optional) - Subheading text
+ * - breadcrumbs: Array<{label: string, href?: string}> (required) - Breadcrumb navigation
+ * - showTrustSignals?: boolean (default: false) - Show company stats/ratings
+ */
+
+import { companyInfo } from '../content/shared.ts';
+import Star from './icons/Star.astro';
+
+interface Breadcrumb {
+  label: string;
+  href?: string; // No href for current page
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  breadcrumbs: Breadcrumb[];
+  showTrustSignals?: boolean;
+}
+
+const {
+  title,
+  subtitle,
+  breadcrumbs,
+  showTrustSignals = false
+} = Astro.props;
+---
+
+<!-- Dark theme trust header -->
+<div class="bg-brand-charcoal border-b border-white/10" data-header-theme="dark">
+  <div class="mx-auto max-w-7xl px-6 pt-24 pb-12 md:pt-32 md:pb-16">
+    <!-- Breadcrumb -->
+    <nav class="mb-8 text-sm" aria-label="Breadcrumb">
+      <ol class="flex items-center space-x-2">
+        {breadcrumbs.map((crumb, index) => (
+          <>
+            {index > 0 && <span class="text-white/30">/</span>}
+            <li>
+              {crumb.href ? (
+                <a href={crumb.href} class="text-white/70 hover:text-brand-accent transition-colors">
+                  {crumb.label}
+                </a>
+              ) : (
+                <span class="text-white font-medium" aria-current="page">{crumb.label}</span>
+              )}
+            </li>
+          </>
+        ))}
+      </ol>
+    </nav>
+
+    <!-- Main Heading -->
+    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+      {title}
+    </h1>
+
+    <!-- Subtitle (if provided) -->
+    {subtitle && (
+      <p class="text-lg md:text-xl text-white/80 mb-8">
+        {subtitle}
+      </p>
+    )}
+
+    <!-- Trust Signals Grid (optional - shown on About page) -->
+    {showTrustSignals && (
+      <div class="flex flex-wrap gap-6 md:gap-8 items-center text-sm md:text-base">
+        <!-- Google Rating -->
+        <div class="flex items-center gap-2">
+          <div class="flex items-center">
+            {[...Array(5)].map(() => (
+              <Star class="w-4 h-4 md:w-5 md:h-5 text-yellow-400 fill-yellow-400" />
+            ))}
+          </div>
+          <span class="text-white font-medium">
+            {companyInfo.stats.googleRating}
+          </span>
+          <span class="text-white/70">
+            ({companyInfo.stats.googleReviews})
+          </span>
+        </div>
+
+        <!-- Divider -->
+        <span class="hidden md:block text-brand-accent">|</span>
+
+        <!-- Showroom Size -->
+        <div class="text-white/70">
+          <span class="font-medium text-white">{companyInfo.stats.showroomSize}</span> Showroom
+        </div>
+
+        <!-- Divider -->
+        <span class="hidden md:block text-brand-accent">|</span>
+
+        <!-- Holike Partnership -->
+        <div class="text-white/70">
+          <span class="font-medium text-white">Exclusive Holike Distributor</span>
+        </div>
+
+        <!-- Divider -->
+        <span class="hidden md:block text-brand-accent">|</span>
+
+        <!-- Location -->
+        <div class="text-white/70">
+          Serving <span class="font-medium text-white">Toronto & GTA</span>
+        </div>
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  /* Ensure consistent spacing */
+  h1 {
+    line-height: 1.2;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .flex-wrap > div {
+      white-space: nowrap;
+    }
+  }
+</style>

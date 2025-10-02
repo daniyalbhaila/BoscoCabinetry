@@ -1,0 +1,263 @@
+---
+// AEO-Optimized Blog Article Layout
+// Implements best practices from AEO_GUIDE.md
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustHeader from '../TrustHeader.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  keywords: string;
+  author: string;
+  publishDate: string;
+  lastUpdated: string;
+  ogImage?: string;
+  category: string;
+  slug: string;
+}
+
+const {
+  title,
+  description,
+  keywords,
+  author,
+  publishDate,
+  lastUpdated,
+  ogImage = '/media/og-image-homepage.jpg',
+  category,
+  slug
+} = Astro.props;
+
+const canonicalURL = `https://boscocabinetry.com/resources/${slug}`;
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Resources', href: '/resources' },
+  { label: title }
+];
+
+// Format dates for display
+const publishDateFormatted = new Date(publishDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+const lastUpdatedFormatted = new Date(lastUpdated).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<BaseLayout
+  title={`${title} | Bosco Cabinetry Resources`}
+  description={description}
+  keywords={keywords}
+  ogImage={ogImage}
+  canonicalURL={canonicalURL}
+>
+  <!-- Article Schema.org structured data -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "{title}",
+      "description": "{description}",
+      "author": {
+        "@type": "Organization",
+        "name": "{author}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bosco Cabinetry",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://boscocabinetry.com/logo.png"
+        }
+      },
+      "datePublished": "{publishDate}",
+      "dateModified": "{lastUpdated}",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{canonicalURL}"
+      },
+      "keywords": "{keywords}"
+    }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://boscocabinetry.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Resources",
+          "item": "https://boscocabinetry.com/resources"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{title}",
+          "item": "{canonicalURL}"
+        }
+      ]
+    }
+  </script>
+
+  <!-- Trust Header with Breadcrumbs (DRY - consistent with About & Resources pages) -->
+  <TrustHeader
+    title={title}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <!-- Article Meta Information -->
+  <div class="bg-white border-b border-gray-200">
+    <div class="mx-auto max-w-4xl px-6 py-6">
+      <div class="flex flex-wrap items-center gap-4 text-sm">
+        <!-- Category Badge -->
+        <span class="inline-flex items-center rounded-full bg-brand-primary/15 px-3 py-1 text-sm font-semibold text-brand-charcoal border border-brand-primary/20">
+          {category.charAt(0).toUpperCase() + category.slice(1)}
+        </span>
+
+        <!-- Meta Information -->
+        <div class="flex flex-wrap items-center gap-4 text-brand-darkGray">
+          <div class="flex items-center gap-2">
+            <span class="font-semibold text-brand-charcoal">By {author}</span>
+          </div>
+          <span class="text-brand-darkGray">•</span>
+          <div class="flex items-center gap-2">
+            <span class="font-medium">Published: {publishDateFormatted}</span>
+          </div>
+          <span class="text-brand-darkGray">•</span>
+          <div class="flex items-center gap-2">
+            <span class="text-brand-primary font-semibold">Updated: {lastUpdatedFormatted}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Article Container -->
+  <article class="relative isolate bg-white">
+    <!-- Article Body (AEO-optimized content area) -->
+    <div class="mx-auto max-w-4xl px-6 py-16">
+      <!-- Main content slot - implements answer-first, atomic paragraphs -->
+      <div class="prose prose-lg max-w-none">
+        <slot />
+      </div>
+
+      <!-- Author Bio / CTA Section -->
+      <div class="mt-16 border-t border-gray-200 pt-12">
+        <div class="rounded-2xl bg-gradient-to-br from-brand-primary/5 to-brand-accent/5 p-8 border border-brand-accent/20">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            Ready to Simplify Your Cabinetry Sourcing?
+          </h3>
+          <p class="text-gray-700 mb-6">
+            Visit the Bosco Cabinetry / Holike showroom in North York to experience custom cabinetry
+            designed to the highest standards, without the cross-border complications.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="/contact"
+              class="inline-flex items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold rounded-lg hover:bg-brand-primary/90 transition-colors"
+            >
+              Book Consultation
+            </a>
+            <a
+              href="/trade"
+              class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-brand-primary text-brand-primary font-semibold rounded-lg hover:bg-brand-primary/5 transition-colors"
+            >
+              Learn About Trade Program
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Custom styles for AEO-optimized content -->
+  <style>
+    /* Answer Card styling (featured snippet target) */
+    :global(.answer-card) {
+      @apply bg-brand-accent/10 border-l-4 border-brand-primary p-6 mb-8 font-medium text-lg text-gray-800 rounded-r-lg;
+      max-width: 65ch; /* Optimal reading length for AI extraction */
+    }
+
+    /* Question-style headings (AEO optimization) */
+    :global(.prose h2) {
+      @apply text-3xl font-bold text-gray-900 mt-12 mb-6 scroll-mt-20;
+    }
+
+    :global(.prose h3) {
+      @apply text-2xl font-bold text-gray-900 mt-8 mb-4 scroll-mt-20;
+    }
+
+    /* Atomic paragraphs (max 80 words for AEO) */
+    :global(.prose p) {
+      @apply text-gray-700 leading-relaxed mb-6;
+    }
+
+    /* Table styling for AI extraction */
+    :global(.prose table) {
+      @apply w-full border-collapse my-8;
+    }
+
+    :global(.prose th) {
+      @apply bg-brand-primary text-white px-4 py-3 text-left font-semibold;
+    }
+
+    :global(.prose td) {
+      @apply border border-gray-200 px-4 py-3 text-gray-700;
+    }
+
+    :global(.prose caption) {
+      @apply text-lg font-semibold text-gray-900 mb-4 text-left;
+    }
+
+    /* Ordered/Unordered lists */
+    :global(.prose ol) {
+      @apply list-decimal list-inside space-y-3 mb-6;
+    }
+
+    :global(.prose ul) {
+      @apply list-disc list-inside space-y-2 mb-6;
+    }
+
+    :global(.prose li) {
+      @apply text-gray-700 leading-relaxed;
+    }
+
+    /* Section anchors for deep linking */
+    :global(.prose section) {
+      @apply scroll-mt-20;
+    }
+
+    /* Emphasis and strong text */
+    :global(.prose strong) {
+      @apply font-semibold text-gray-900;
+    }
+
+    :global(.prose em) {
+      @apply italic text-gray-800;
+    }
+
+    /* Links within content */
+    :global(.prose a) {
+      @apply text-brand-primary hover:text-brand-primary/80 underline font-semibold transition-colors;
+    }
+
+    /* Blockquotes (for disclaimers) */
+    :global(.prose blockquote) {
+      @apply border-l-4 border-yellow-400 bg-yellow-50 p-4 my-6 italic text-gray-700;
+    }
+  </style>
+</BaseLayout>
