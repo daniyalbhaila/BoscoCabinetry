@@ -83,13 +83,10 @@ export const companyInfo = {
 
   // Project Types
   projectTypes: [
-    { value: 'kitchen', label: 'Kitchen Cabinets' },
-    { value: 'closet', label: 'Closets' },
-    { value: 'mediawall', label: 'Media Walls' },
-    { value: 'builtin', label: 'Built-in Units' },
-    { value: 'fullhome', label: 'Full Home Cabinetry' },
-    { value: 'custom-millwork', label: 'Custom Millwork' },
-    { value: 'refinishing', label: 'Refinishing' }
+    { value: 'kitchen-cabinets', label: 'Kitchen Cabinets' },
+    { value: 'custom-closets', label: 'Custom Closets' },
+    { value: 'built-ins', label: 'Built-ins & Media Walls' },
+    { value: 'full-home-cabinetry', label: 'Full Home Cabinetry' }
   ],
 
   // Timelines

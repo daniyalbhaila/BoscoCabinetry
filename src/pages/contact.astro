@@ -6,6 +6,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 import ContactUs from '../components/ContactUs.astro';
 import KitchenImage from '../assets/kitchen.jpg';
 import { companyInfo } from '../content/shared';
+import { seoMetadata } from '../content/seo-metadata';
 
 const contactMethods = [
   {
@@ -58,7 +59,12 @@ const faqs = [
 ];
 ---
 
-<BaseLayout title="Contact Us - Bosco Cabinetry" description="Contact Bosco Cabinetry for your custom kitchen cabinets, closets, and built-ins. Free consultations available. Call (416) 123-4567 or visit our North York showroom.">
+<BaseLayout
+  title={seoMetadata.contact.title}
+  description={seoMetadata.contact.description}
+  keywords={seoMetadata.contact.keywords}
+  ogImage={seoMetadata.contact.ogImage}
+>
 
   <Hero
     title="Get Your Free Consultation"

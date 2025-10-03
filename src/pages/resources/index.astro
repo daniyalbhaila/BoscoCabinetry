@@ -3,21 +3,26 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustHeader from '../../components/TrustHeader.astro';
 import BlogCard from '../../components/blog/BlogCard.astro';
 import { blogArticles } from '../../content/blog/blogConfig';
-
-const title = 'Resources & Guides | Bosco Cabinetry';
-const description = 'Expert guides and resources for trade professionals. Learn about custom cabinetry sourcing, import processes, and industry best practices.';
-const keywords = 'cabinetry resources, import guides, trade resources, custom cabinet sourcing, professional guides';
+import { seoMetadata } from '../../content/seo-metadata';
+import { generateBreadcrumbs } from '../../content/structured-data';
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
   { label: 'Resources' }
 ];
+
+// Generate breadcrumb schema
+const breadcrumbSchema = generateBreadcrumbs([
+  { name: 'Home', url: '/' },
+  { name: 'Resources' }
+]);
 ---
 
 <BaseLayout
-  title={title}
-  description={description}
-  keywords={keywords}
+  title={seoMetadata.resourcesHub.title}
+  description={seoMetadata.resourcesHub.description}
+  keywords={seoMetadata.resourcesHub.keywords}
+  ogImage={seoMetadata.resourcesHub.ogImage}
   canonicalURL="https://boscocabinetry.com/resources"
 >
   <!-- Discrete Resources Page - SEO-focused, minimal consumer visibility -->
@@ -92,6 +97,9 @@ const breadcrumbs = [
       </div>
     </div>
   </section>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <!-- CollectionPage Schema for Resources Index -->
   <script type="application/ld+json" slot="head">

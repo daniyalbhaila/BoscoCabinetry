@@ -4,6 +4,7 @@
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustHeader from '../TrustHeader.astro';
+import { validateSEO } from '../../content/seo-metadata.ts';
 
 interface Props {
   title: string;
@@ -28,6 +29,14 @@ const {
   category,
   slug
 } = Astro.props;
+
+// Validate SEO metadata in development mode
+if (import.meta.env.DEV) {
+  const validation = validateSEO({ title, description, keywords, ogImage });
+  if (validation.warnings.length > 0) {
+    console.warn(`⚠️ SEO Validation Warnings for "${title}":`, validation.warnings);
+  }
+}
 
 const canonicalURL = `https://boscocabinetry.com/resources/${slug}`;
 const breadcrumbs = [

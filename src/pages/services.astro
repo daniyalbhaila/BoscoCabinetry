@@ -1,129 +1,81 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
 import SectionWrapper from '../components/SectionWrapper.astro';
 import SectionHeader from '../components/SectionHeader.astro';
-import ContentGrid from '../components/ContentGrid.astro';
-import ProcessSection from '../components/ProcessSection.astro';
-import ContactUs from '../components/ContactUs.astro';
-import KitchenImage from '../assets/kitchen.jpg';
 import { companyInfo } from '../content/shared';
+import { seoMetadata } from '../content/seo-metadata';
 
-const servicesData = companyInfo.projectTypes.map(service => ({
-  title: service.label,
-  description: getServiceDescription(service.value),
-  href: `/services/${service.value.replace('_', '-')}`,
-  icon: getServiceIcon(service.value)
-}));
-
-function getServiceDescription(serviceType: string): string {
-  const descriptions: Record<string, string> = {
-    kitchen: 'Custom kitchen cabinets designed to maximize storage and style. From modern minimalist to traditional warmth.',
-    closet: 'Organized closet systems that transform your storage. Custom shelving, drawers, and hanging solutions.',
-    bathroom: 'Beautiful bathroom vanities that combine function and elegance. Custom sizing for any space.',
-    builtin: 'Built-in storage solutions for any room. Entertainment centers, bookcases, and office units.',
-    other: 'Custom millwork and specialty projects. Let us bring your unique vision to life.'
-  };
-  return descriptions[serviceType] || 'Custom cabinetry solutions tailored to your needs.';
-}
-
-function getServiceIcon(serviceType: string): string {
-  const icons: Record<string, string> = {
-    kitchen: 'kitchen-icon',
-    closet: 'closet-icon',
-    bathroom: 'bathroom-icon',
-    builtin: 'builtin-icon',
-    other: 'custom-icon'
-  };
-  return icons[serviceType] || 'service-icon';
-}
+// Service descriptions for each type
+const serviceDescriptions: Record<string, string> = {
+  'kitchen-cabinets': 'Custom kitchen cabinets designed and installed in Toronto. 100+ premium finishes, professional installation, 4-6 week turnaround.',
+  'custom-closets': 'Walk-in closets, reach-in systems, and mudroom organization. Transform your storage with custom closet solutions.',
+  'built-ins': 'Entertainment centers, bookshelves, home offices, and custom storage. Built-in cabinetry for every room.',
+  'full-home-cabinetry': 'Complete home cabinetry solutions with coordinated design throughout your entire property.'
+};
 ---
 
-<BaseLayout title="Services - Bosco Cabinetry" description="Custom kitchen cabinets, closet systems, bathroom vanities, and built-in units. Expert craftsmanship with 20+ years experience in Toronto area.">
-
-  <Hero
-    title="Custom Cabinetry Services"
-    subtitle="From kitchen cabinets to complete home storage solutions. Explore our full range of custom cabinetry services designed to transform your space."
-    backgroundImage={KitchenImage}
-    theme="dark"
-    size="large"
-    showCTA={true}
-    ctaText="Get Free Consultation"
-    ctaHref="/contact"
-  />
-
-  <SectionWrapper theme="light" id="our-services">
+<BaseLayout
+  title={seoMetadata.servicesHub.title}
+  description={seoMetadata.servicesHub.description}
+  keywords={seoMetadata.servicesHub.keywords}
+  ogImage={seoMetadata.servicesHub.ogImage}
+>
+  <!-- Services Directory -->
+  <SectionWrapper theme="dark" id="services-directory">
     <SectionHeader
       tag="Our Services"
-      title="Complete Custom Cabinetry Solutions"
-      description="Whether you're renovating your kitchen, organizing your closets, or adding built-in storage, we have the expertise to bring your vision to life."
-      layout="center"
-      theme="light"
-    />
-
-    <ContentGrid
-      items={servicesData}
-      variant="services"
-      columns={2}
-      gap="large"
-    />
-  </SectionWrapper>
-
-  <SectionWrapper theme="dark" id="why-choose-us">
-    <SectionHeader
-      tag="Why Choose Bosco"
-      title="20+ Years of Excellence"
-      description="Experience the difference that comes with expert craftsmanship, premium materials, and personalized service."
+      title="Custom Cabinetry Solutions"
+      description="Explore our specialized cabinetry services. Each service includes professional design, premium materials, and expert installation."
       layout="center"
       theme="dark"
     />
 
-    <ContentGrid
-      items={[
-        {
-          title: "Expert Craftsmanship",
-          description: "Over 20 years of experience creating beautiful, functional cabinetry."
-        },
-        {
-          title: "Premium Materials",
-          description: "We use only the finest materials and hardware for lasting quality."
-        },
-        {
-          title: "Custom Solutions",
-          description: "Every project is tailored to your specific needs and space requirements."
-        },
-        {
-          title: "Full Service",
-          description: "From design consultation to installation, we handle every step."
-        }
-      ]}
-      variant="features"
-      columns={2}
-    />
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 mt-12">
+      {companyInfo.projectTypes.map((service) => (
+        <a
+          href={`/services/${service.value}`}
+          class="group block rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm p-8 transition-all duration-300 hover:border-brand-accent hover:bg-white/10"
+        >
+          <h3 class="mb-4 text-2xl font-semibold text-white group-hover:text-brand-accent transition-colors">
+            {service.label}
+          </h3>
+          <p class="mb-6 text-white/75 leading-relaxed">
+            {serviceDescriptions[service.value]}
+          </p>
+          <span class="inline-flex items-center gap-2 text-brand-accent font-medium group-hover:gap-3 transition-all">
+            Learn More
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
   </SectionWrapper>
 
-  <ProcessSection />
-
-  <SectionWrapper theme="light" id="service-areas">
-    <SectionHeader
-      tag="Service Areas"
-      title="Serving Greater Toronto Area"
-      description="We provide custom cabinetry services throughout the GTA and surrounding regions."
-      layout="center"
-      theme="light"
-    />
-
-    <ContentGrid
-      items={companyInfo.serviceAreas.map(area => ({
-        title: area.city,
-        description: `Custom cabinetry services in ${area.city}, ${area.region}`,
-        href: `/locations/${area.city.toLowerCase().replace(/\s+/g, '-')}`
-      }))}
-      variant="locations"
-      columns={4}
-    />
+  <!-- Quick Contact CTA -->
+  <SectionWrapper theme="light" id="contact-cta">
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 class="text-3xl font-semibold text-brand-charcoal mb-4 md:text-4xl">
+        Ready to Get Started?
+      </h2>
+      <p class="text-brand-darkGray mb-8 text-lg">
+        Book a free consultation to discuss your project. We'll visit your space, understand your needs, and create a custom solution that fits your vision and budget.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center rounded-full bg-brand-primary px-8 py-3 text-white font-medium transition-all hover:bg-brand-primary/90 hover:scale-105"
+        >
+          Book Free Consultation
+        </a>
+        <a
+          href={`tel:${companyInfo.contact.phone.number}`}
+          class="inline-flex items-center justify-center rounded-full border-2 border-brand-primary px-8 py-3 text-brand-primary font-medium transition-all hover:bg-brand-primary hover:text-white"
+        >
+          {companyInfo.contact.phone.display}
+        </a>
+      </div>
+    </div>
   </SectionWrapper>
-
-  <ContactUs />
-
 </BaseLayout>

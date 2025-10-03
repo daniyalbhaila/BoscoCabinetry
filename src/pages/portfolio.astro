@@ -10,6 +10,7 @@ import ContactUs from '../components/ContactUs.astro';
 import KitchenImage from '../assets/kitchen.jpg';
 import ShowroomImage from '../assets/showroom.jpg';
 import { companyInfo } from '../content/shared';
+import { seoMetadata } from '../content/seo-metadata';
 
 const portfolioCategories = [
   {
@@ -51,7 +52,12 @@ const portfolioCategories = [
 ];
 ---
 
-<BaseLayout title="Portfolio - Bosco Cabinetry" description="View our portfolio of custom kitchen cabinets, closet systems, bathroom vanities, and built-in units. See examples of our craftsmanship throughout the GTA.">
+<BaseLayout
+  title={seoMetadata.portfolio.title}
+  description={seoMetadata.portfolio.description}
+  keywords={seoMetadata.portfolio.keywords}
+  ogImage={seoMetadata.portfolio.ogImage}
+>
 
   <Hero
     title="Our Portfolio"

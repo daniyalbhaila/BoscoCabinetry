@@ -6,11 +6,14 @@ import Button from '../components/ui/Button.astro';
 import Check from '../components/icons/Check.astro';
 import Phone from '../components/icons/Phone.astro';
 import { companyInfo } from '../content/shared.ts';
+import { seoMetadata } from '../content/seo-metadata.ts';
 ---
 
 <BaseLayout
-  title="Thank You - Message Sent | Bosco Cabinetry"
-  description="Thank you for contacting Bosco Cabinetry. We've received your message and will respond within 24 hours."
+  title={seoMetadata.thankYou.title}
+  description={seoMetadata.thankYou.description}
+  keywords={seoMetadata.thankYou.keywords}
+  ogImage={seoMetadata.thankYou.ogImage}
 >
   <SectionWrapper theme="light" id="thank-you">
     <div class="max-w-3xl mx-auto text-center py-16">

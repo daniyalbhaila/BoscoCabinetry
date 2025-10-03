@@ -16,12 +16,17 @@ import FAQSection from '../components/FAQSection.astro';
 import DesignInspiration from '../components/DesignInspiration.astro';
 import ContactUs from '../components/ContactUs.astro';
 import Footer from '../components/Footer.astro';
+import { seoMetadata } from '../content/seo-metadata.ts';
+import { localBusinessSchema } from '../content/structured-data.ts';
 ---
 <BaseLayout
-  title="Custom Cabinetry Toronto | Kitchen, Closets & Built-ins | Bosco Cabinetry"
-  description="Transform your Toronto home with custom kitchens, closets, built-ins & decorative paneling. 20+ years experience, 100+ finishes, luxury quality at affordable prices. Free consultation & 3D design in our 5,500 sq ft North York showroom."
-  ogImage="/media/og-image-homepage.jpg"
+  title={seoMetadata.homepage.title}
+  description={seoMetadata.homepage.description}
+  keywords={seoMetadata.homepage.keywords}
+  ogImage={seoMetadata.homepage.ogImage}
 >
+	<!-- LocalBusiness Schema -->
+	<script type="application/ld+json" slot="head" set:html={JSON.stringify(localBusinessSchema)} />
 	<!-- Hero (dark) -->
 	<Hero />
 	<!-- Services Snapshot (light) -->

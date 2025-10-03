@@ -1,0 +1,201 @@
+---
+import ArticleLayout from '../../components/blog/ArticleLayout.astro';
+import { getArticleBySlug } from '../../content/blog/blogConfig';
+import { boscoVsIkeaContent } from '../../content/blog/boscoVsIkeaArticle';
+
+const article = getArticleBySlug('bosco-vs-ikea-kitchen-cabinets');
+if (!article) throw new Error('Article not found');
+
+const { summary, comparisonTable, costAnalysis, decisionFramework, faqs, cta } = boscoVsIkeaContent;
+---
+
+<ArticleLayout
+  title={article.title}
+  description={article.description}
+  keywords={article.keywords}
+  author={article.author}
+  publishDate={article.publishDate}
+  lastUpdated={article.lastUpdated}
+  ogImage={article.ogImage}
+  category={article.category}
+  slug={article.slug}
+>
+  <!-- FAQPage Schema for AEO -->
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  })} />
+
+  <!-- Article Schema -->
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.title,
+    "description": article.description,
+    "author": {
+      "@type": "Organization",
+      "name": article.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bosco Cabinetry"
+    },
+    "datePublished": article.publishDate,
+    "dateModified": article.lastUpdated
+  })} />
+
+  <!-- Executive Summary (Answer-First) -->
+  <section class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-4">{summary.title}</h2>
+    <div class="p-6 bg-brand-accent/10 rounded-xl border border-brand-accent/30 mb-6">
+      <p class="text-lg text-brand-darkGray mb-4">{summary.verdict}</p>
+      <h3 class="font-semibold text-brand-primary mb-3">Key Takeaways:</h3>
+      <ul class="space-y-2">
+        {summary.keyTakeaways.map(takeaway => (
+          <li class="flex items-start gap-2 text-brand-darkGray">
+            <span class="text-brand-primary mt-1">✓</span>
+            <span>{takeaway}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-6">{comparisonTable.title}</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="bg-brand-primary text-white">
+            <th class="p-4 text-left font-semibold">Category</th>
+            <th class="p-4 text-left font-semibold">Bosco</th>
+            <th class="p-4 text-left font-semibold">IKEA</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparisonTable.categories.map((row, index) => (
+            <tr class={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+              <td class="p-4 font-semibold text-brand-primary">{row.category}</td>
+              <td class="p-4">
+                <div class="mb-2 text-yellow-500">{row.bosco.rating}</div>
+                <div class="text-sm text-brand-darkGray">{row.bosco.details}</div>
+              </td>
+              <td class="p-4">
+                <div class="mb-2 text-yellow-500">{row.ikea.rating}</div>
+                <div class="text-sm text-brand-darkGray">{row.ikea.details}</div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Cost Analysis -->
+  <section class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-6">{costAnalysis.title}</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Bosco Costs -->
+      <div class="border border-brand-accent/30 rounded-xl p-6">
+        <h3 class="text-xl font-bold text-brand-primary mb-4">{costAnalysis.boscoBreakdown.title}</h3>
+        <table class="w-full mb-4">
+          {costAnalysis.boscoBreakdown.items.map(item => (
+            <tr class="border-b border-gray-200 last:border-0">
+              <td class="py-2 text-brand-darkGray" set:html={item.item}></td>
+              <td class="py-2 text-right font-semibold" set:html={item.cost}></td>
+            </tr>
+          ))}
+        </table>
+        <p class="text-sm text-brand-darkGray italic">{costAnalysis.boscoBreakdown.notes}</p>
+      </div>
+
+      <!-- IKEA Costs -->
+      <div class="border border-brand-accent/30 rounded-xl p-6">
+        <h3 class="text-xl font-bold text-brand-primary mb-4">{costAnalysis.ikeaBreakdown.title}</h3>
+        <table class="w-full mb-4">
+          {costAnalysis.ikeaBreakdown.items.map(item => (
+            <tr class="border-b border-gray-200 last:border-0">
+              <td class="py-2 text-brand-darkGray" set:html={item.item}></td>
+              <td class="py-2 text-right font-semibold" set:html={item.cost}></td>
+            </tr>
+          ))}
+        </table>
+        <p class="text-sm text-brand-darkGray italic">{costAnalysis.ikeaBreakdown.notes}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Decision Framework -->
+  <section class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-6">{decisionFramework.title}</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Choose Bosco -->
+      <div class="bg-brand-primary/5 rounded-xl p-6">
+        <h3 class="text-xl font-bold text-brand-primary mb-4">{decisionFramework.chooseBosco.title}</h3>
+        <ul class="space-y-3">
+          {decisionFramework.chooseBosco.reasons.map(reason => (
+            <li class="flex items-start gap-2 text-brand-darkGray">
+              <span class="text-brand-primary mt-1">✓</span>
+              <span>{reason}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Choose IKEA -->
+      <div class="bg-gray-50 rounded-xl p-6">
+        <h3 class="text-xl font-bold text-gray-700 mb-4">{decisionFramework.chooseIkea.title}</h3>
+        <ul class="space-y-3">
+          {decisionFramework.chooseIkea.reasons.map(reason => (
+            <li class="flex items-start gap-2 text-brand-darkGray">
+              <span class="text-gray-500 mt-1">•</span>
+              <span>{reason}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-6">Frequently Asked Questions</h2>
+    <div class="space-y-6">
+      {faqs.map(faq => (
+        <div class="border-b border-gray-200 pb-6 last:border-0">
+          <h3 class="text-lg font-semibold text-brand-primary mb-2">{faq.question}</h3>
+          <p class="text-brand-darkGray">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-brand-primary/10 rounded-2xl p-8 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-4">{cta.title}</h2>
+    <p class="text-lg text-brand-darkGray mb-6 max-w-2xl mx-auto">{cta.description}</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href={cta.primaryAction.href}
+        class="inline-flex items-center justify-center px-8 py-4 bg-brand-primary text-white font-bold rounded-lg hover:bg-brand-primary/90 transition-colors"
+      >
+        {cta.primaryAction.text}
+      </a>
+      <a
+        href={cta.secondaryAction.href}
+        class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-brand-primary text-brand-primary font-bold rounded-lg hover:bg-brand-primary/10 transition-colors"
+      >
+        {cta.secondaryAction.text}
+      </a>
+    </div>
+  </section>
+</ArticleLayout>

@@ -1,0 +1,187 @@
+---
+import ArticleLayout from '../../components/blog/ArticleLayout.astro';
+import { getArticleBySlug } from '../../content/blog/blogConfig';
+import { cabinetTypesContent } from '../../content/blog/cabinetTypesArticle';
+
+const article = getArticleBySlug('custom-vs-semi-custom-vs-rta-cabinets');
+if (!article) throw new Error('Article not found');
+
+const { summary, definitions, comparisonTable, costBreakdown, decisionMatrix, commonMistakes, faqs, cta } = cabinetTypesContent;
+---
+
+<ArticleLayout
+  title={article.title}
+  description={article.description}
+  keywords={article.keywords}
+  author={article.author}
+  publishDate={article.publishDate}
+  lastUpdated={article.lastUpdated}
+  ogImage={article.ogImage}
+  category={article.category}
+  slug={article.slug}
+>
+  <!-- FAQPage Schema for AEO -->
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  })} />
+
+  <!-- Executive Summary -->
+  <section class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-4">{summary.title}</h2>
+    <div class="p-6 bg-brand-accent/10 rounded-xl border border-brand-accent/30 mb-6">
+      <p class="text-lg text-brand-darkGray mb-4">{summary.verdict}</p>
+      <h3 class="font-semibold text-brand-primary mb-3">Key Takeaways:</h3>
+      <ul class="space-y-2">
+        {summary.keyTakeaways.map(takeaway => (
+          <li class="flex items-start gap-2 text-brand-darkGray">
+            <span class="text-brand-primary mt-1">✓</span>
+            <span>{takeaway}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Cabinet Type Definitions -->
+  <section class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-6">{definitions.title}</h2>
+    <div class="space-y-6">
+      {definitions.types.map(type => (
+        <div class="border border-brand-accent/30 rounded-xl p-6">
+          <h3 class="text-xl font-bold text-brand-primary mb-3">{type.type}</h3>
+          <p class="text-brand-darkGray mb-3">{type.description}</p>
+          <p class="text-sm text-brand-darkGray mb-2"><strong>Examples:</strong> {type.examples}</p>
+          <p class="text-sm text-brand-darkGray"><strong>Best For:</strong> {type.bestFor}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-6">{comparisonTable.title}</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="bg-brand-primary text-white">
+            <th class="p-4 text-left font-semibold">Category</th>
+            <th class="p-4 text-left font-semibold">Custom</th>
+            <th class="p-4 text-left font-semibold">Semi-Custom</th>
+            <th class="p-4 text-left font-semibold">RTA</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparisonTable.categories.map((row, index) => (
+            <tr class={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+              <td class="p-4 font-semibold text-brand-primary">{row.category}</td>
+              <td class="p-4 text-sm text-brand-darkGray">{row.custom}</td>
+              <td class="p-4 text-sm text-brand-darkGray">{row.semiCustom}</td>
+              <td class="p-4 text-sm text-brand-darkGray">{row.rta}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Cost Breakdown -->
+  <section class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-6">{costBreakdown.title}</h2>
+    <div class="space-y-8">
+      {costBreakdown.scenarios.map(scenario => (
+        <div class="border border-brand-accent/30 rounded-xl p-6">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-xl font-bold text-brand-primary">{scenario.type}</h3>
+            <span class="text-xl font-bold text-brand-charcoal">{scenario.totalCost}</span>
+          </div>
+          <table class="w-full mb-4">
+            {scenario.breakdown.map(item => (
+              <tr class="border-b border-gray-200 last:border-0">
+                <td class="py-2 text-brand-darkGray">{item.item}</td>
+                <td class="py-2 text-right font-semibold">{item.cost}</td>
+              </tr>
+            ))}
+          </table>
+          <p class="text-sm text-brand-darkGray italic bg-gray-50 p-3 rounded">{scenario.notes}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Decision Matrix -->
+  <section class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-6">{decisionMatrix.title}</h2>
+    <div class="space-y-6">
+      {decisionMatrix.scenarios.map(item => (
+        <div class="bg-brand-accent/5 border border-brand-accent/30 rounded-xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center font-bold">
+              ✓
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-bold text-brand-primary mb-2">{item.scenario}</h3>
+              <p class="text-brand-charcoal font-semibold mb-2">→ {item.recommendation}</p>
+              <p class="text-brand-darkGray">{item.reasoning}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Common Mistakes -->
+  <section class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-6">{commonMistakes.title}</h2>
+    <div class="space-y-6">
+      {commonMistakes.mistakes.map((item, index) => (
+        <div class="border-l-4 border-red-500 pl-6 py-4">
+          <h3 class="text-lg font-bold text-red-700 mb-2">❌ {item.mistake}</h3>
+          <p class="text-brand-darkGray mb-3"><strong>Why It's Wrong:</strong> {item.why}</p>
+          <p class="text-green-700"><strong>✓ Better Approach:</strong> {item.solution}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-6">Frequently Asked Questions</h2>
+    <div class="space-y-6">
+      {faqs.map(faq => (
+        <div class="border-b border-gray-200 pb-6 last:border-0">
+          <h3 class="text-lg font-semibold text-brand-primary mb-2">{faq.question}</h3>
+          <p class="text-brand-darkGray">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-brand-primary/10 rounded-2xl p-8 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-4">{cta.title}</h2>
+    <p class="text-lg text-brand-darkGray mb-6 max-w-2xl mx-auto">{cta.description}</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href={cta.primaryAction.href}
+        class="inline-flex items-center justify-center px-8 py-4 bg-brand-primary text-white font-bold rounded-lg hover:bg-brand-primary/90 transition-colors"
+      >
+        {cta.primaryAction.text}
+      </a>
+      <a
+        href={cta.secondaryAction.href}
+        class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-brand-primary text-brand-primary font-bold rounded-lg hover:bg-brand-primary/10 transition-colors"
+      >
+        {cta.secondaryAction.text}
+      </a>
+    </div>
+  </section>
+</ArticleLayout>

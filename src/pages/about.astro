@@ -14,6 +14,8 @@ import { Image } from 'astro:assets';
 import ShowroomImage from '../assets/showroom.jpg';
 
 import { companyInfo, companyDescriptions, holikePartnership, sustainability } from '../content/shared.ts';
+import { seoMetadata } from '../content/seo-metadata.ts';
+import { organizationSchema, generateFAQSchema } from '../content/structured-data.ts';
 
 // Import icons for "What Makes Us Different" section
 import Sparkles from '../components/icons/Sparkles.astro';
@@ -45,82 +47,31 @@ const differentiators = [
   }
 ];
 
-// SEO structured data
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Bosco Cabinetry",
-  "alternateName": "Bosco Custom Cabinetry Toronto",
-  "description": "Custom kitchen cabinets, closets, and cabinetry in Toronto. Exclusive Canadian distributor of Holike. Builder-founded, eco-certified.",
-  "foundingDate": "2003",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": companyInfo.location.address.street,
-    "addressLocality": companyInfo.location.address.city,
-    "addressRegion": companyInfo.location.address.province,
-    "postalCode": companyInfo.location.address.postalCode,
-    "addressCountry": "CA"
+// FAQ data for schema generation
+const aboutFAQs = [
+  {
+    question: "Does Bosco Cabinetry use sustainable materials?",
+    answer: "Yes, all our custom kitchen cabinets and closet systems use zero-added formaldehyde (NAF) materials certified by EPA, CARB, and Japanese F4 Star standards. We use sustainable bamboo boards with nano-clean air technology that purifies indoor air 24/7."
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": companyInfo.location.coordinates.lat.toString(),
-    "longitude": companyInfo.location.coordinates.lng.toString()
+  {
+    question: "Where is Bosco Cabinetry located?",
+    answer: `Our 5,500 sq ft showroom is located at ${companyInfo.location.address.full}. We serve Toronto, North York, Vaughan, Markham, Richmond Hill, Mississauga, Scarborough, Etobicoke, and the Greater Toronto Area.`
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "200",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "areaServed": companyInfo.serviceAreas.map(area => ({
-    "@type": "City",
-    "name": area.city
-  })),
-  "knowsAbout": [
-    "Custom Kitchen Cabinets",
-    "Closet Systems",
-    "Sustainable Cabinetry",
-    "NAF Cabinets",
-    "CARB Certified Cabinets"
-  ]
-};
+  {
+    question: "Who founded Bosco Cabinetry?",
+    answer: "Bosco Cabinetry was founded by Toronto custom-home builders with 20+ years of experience. We saw homeowners struggling to find affordable luxury kitchen cabinets and closet systems, so we created Bosco to bring builder-backed expertise and accessible prices to Toronto."
+  }
+];
 
-const faqStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Does Bosco Cabinetry use sustainable materials?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, all our custom kitchen cabinets and closet systems use zero-added formaldehyde (NAF) materials certified by EPA, CARB, and Japanese F4 Star standards. We use sustainable bamboo boards with nano-clean air technology that purifies indoor air 24/7."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where is Bosco Cabinetry located?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `Our 5,500 sq ft showroom is located at ${companyInfo.location.address.full}. We serve Toronto, North York, Vaughan, Markham, Richmond Hill, Mississauga, Scarborough, Etobicoke, and the Greater Toronto Area.`
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who founded Bosco Cabinetry?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Bosco Cabinetry was founded by Toronto custom-home builders with 20+ years of experience. We saw homeowners struggling to find affordable luxury kitchen cabinets and closet systems, so we created Bosco to bring builder-backed expertise and accessible prices to Toronto."
-      }
-    }
-  ]
-};
+// Generate FAQ schema
+const faqStructuredData = generateFAQSchema(aboutFAQs);
 ---
 
 <BaseLayout
-  title="About Bosco Cabinetry | Custom Kitchen Cabinets Toronto | Builder-Founded Since 2003"
-  description="Founded by Toronto custom-home builders, Bosco Cabinetry delivers luxury kitchen cabinets, closets & renovations at accessible prices. Exclusive Holike distributor. 20+ years experience, 5,500 sq ft North York showroom, eco-certified (CARB/NAF). Serving Toronto, North York, Vaughan, Markham, Mississauga."
+  title={seoMetadata.about.title}
+  description={seoMetadata.about.description}
+  keywords={seoMetadata.about.keywords}
+  ogImage={seoMetadata.about.ogImage}
 >
   <!-- Header stays transparent on dark background -->
   <script slot="head">
@@ -128,8 +79,8 @@ const faqStructuredData = {
     document.documentElement.classList.add('about-page');
   </script>
   <!-- Structured Data for SEO -->
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} slot="head" />
-  <script type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} slot="head" />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(organizationSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqStructuredData)} />
 
   <!-- Trust Header (No Hero) -->
   <AboutTrustHeader />
@@ -172,16 +123,16 @@ const faqStructuredData = {
           <!-- Full Content (Hidden - SEO Optimized) -->
           <div slot="full">
             <h3 class="text-2xl font-bold text-brand-charcoal mb-4">
-              From Custom Home Builders to Cabinetry Specialists
+              From Renovation Contractors & Home Builders to Cabinetry Specialists
             </h3>
             <p class="text-brand-darkGray mb-4">
-              After 15 years building custom homes across Toronto, North York, Vaughan, and the Greater Toronto Area (GTA), we saw a recurring problem: homeowners couldn't find affordable luxury cabinetry that met their design vision.
+              After 15 years as renovation contractors building custom homes across Toronto, North York, Vaughan, and the Greater Toronto Area (GTA), we saw a recurring problem: homeowners couldn't find affordable luxury cabinetry with quality cabinet hardware and interior design expertise that met their home improvement vision.
             </p>
             <p class="text-brand-darkGray mb-4">
-              Traditional luxury kitchen cabinet brands in Toronto charged premium prices with little transparency. Big-box retailers offered cheap cabinets that compromised quality. Mid-range cabinet suppliers provided limited customization options.
+              Traditional luxury kitchen cabinet brands in Toronto charged premium prices with little transparency. Big-box retailers offered cheap cabinets that compromised quality and lacked premium features like soft-close hinges and drawer organizers. Mid-range cabinet suppliers provided limited customization options.
             </p>
             <p class="text-brand-darkGray mb-4">
-              We knew there was a better way. With our background in custom home construction, we understood what Toronto homeowners truly needed: designer-quality kitchen cabinets, custom closet systems, and built-in cabinetry at fair, transparent prices.
+              We knew there was a better way. With our background as renovation contractors and custom home construction experts, we understood what Toronto homeowners truly needed: designer-quality kitchen cabinets with premium hardware, custom closet systems with soft-close drawer organizers, and built-in entertainment centers at fair, transparent prices.
             </p>
             <p class="text-brand-darkGray">
               Today, Bosco Cabinetry serves Toronto, North York, Scarborough, Etobicoke, Vaughan, Richmond Hill, Markham, and Mississauga from our 5,500 square foot showroom in North York. As the exclusive Canadian distributor of Holike—one of the world's largest cabinetry manufacturers—we bring Toronto homeowners globally-proven quality with local, personalized service.

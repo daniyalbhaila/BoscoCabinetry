@@ -26,6 +26,7 @@ import Palette from '../components/icons/Palette.astro';
 import ShieldCheck from '../components/icons/ShieldCheck.astro';
 import TradeAdvantages from '../components/TradeAdvantages.astro';
 import { tradePageContent } from '../content/pages/trade.ts';
+import { seoMetadata } from '../content/seo-metadata.ts';
 import showroomImage from '../assets/showroom.jpg';
 import kitchenImage from '../assets/kitchen.jpg';
 
@@ -63,8 +64,10 @@ const tradeAdvantages = tradePageContent.tradeAdvantages.advantages.map(advantag
 ---
 
 <BaseLayout
-	title="Trade Program - Wholesale Kitchen Cabinets | Bosco Cabinetry"
-	description="Trade program for contractors, builders & designers. Factory-direct wholesale pricing backed by global manufacturing scale. Serving Toronto, North York, Vaughan & the GTA."
+	title={seoMetadata.trade.title}
+	description={seoMetadata.trade.description}
+	keywords={seoMetadata.trade.keywords}
+	ogImage={seoMetadata.trade.ogImage}
 >
 	<!-- Hero Section -->
 	<TradeHero

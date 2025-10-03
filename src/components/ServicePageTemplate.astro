@@ -1,0 +1,363 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from './Hero.astro';
+import SectionWrapper from './SectionWrapper.astro';
+import SectionHeader from './SectionHeader.astro';
+import ContentGrid from './ContentGrid.astro';
+import ProcessSection from './ProcessSection.astro';
+import WhyBosco from './WhyBosco.astro';
+import ServiceAreaSection from './ServiceAreaSection.astro';
+import FAQSection from './FAQSection.astro';
+import Reviews from './Reviews.astro';
+import ContactUs from './ContactUs.astro';
+import ProjectGallery from './ProjectGallery.astro';
+import Footer from './Footer.astro';
+import { companyInfo } from '../content/shared.ts';
+import {
+  kitchenCabinetsServiceSchema,
+  customClosetsServiceSchema,
+  builtInsServiceSchema,
+  fullHomeCabinetryServiceSchema,
+  generateFAQSchema
+} from '../content/structured-data.ts';
+import { validateSEO } from '../content/seo-metadata.ts';
+
+// Import icon components
+import Palette from './icons/Palette.astro';
+import Building from './icons/Building.astro';
+import Hammer from './icons/Hammer.astro';
+import Sparkles from './icons/Sparkles.astro';
+import Clock from './icons/Clock.astro';
+import Trophy from './icons/Trophy.astro';
+import Users from './icons/Users.astro';
+import Ruler from './icons/Ruler.astro';
+import CheckCircle from './icons/CheckCircle.astro';
+
+interface CTAButton {
+  text: string;
+  href: string;
+  variant: 'primary' | 'ghost' | 'secondary';
+}
+
+interface Feature {
+  title: string;
+  description: string;
+  icon?: string;  // Icon name as string
+  iconComponent?: any;  // Or direct component reference
+}
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface SEOContentSection {
+  title: string;
+  content: string;
+}
+
+interface SEOSection {
+  tag?: string;
+  title: string;
+  content: string;
+  image?: string | any;
+  features?: string[];
+}
+
+interface ServicePageContent {
+  seo: {
+    title: string;
+    description: string;
+    keywords?: string;
+    ogImage?: string;
+  };
+  hero: {
+    highlight?: string;
+    title: string;
+    kicker?: string;
+    description: string;
+    image?: string;
+    videoSrc?: string;
+    ctas?: CTAButton[];
+  };
+  overview: {
+    tag: string;
+    title: string;
+    description: string;
+  };
+  features: Feature[];
+  process?: {
+    tag?: string;
+    title?: string;
+    description?: string;
+    steps?: any[];
+  };
+  serviceArea?: {
+    title?: string;
+    description?: string;
+  };
+  seoContent?: SEOContentSection[];
+  seoSections?: SEOSection[];
+  faqs: FAQ[];
+  projectType?: string;
+  schemaType?: string;
+  relatedServices?: Array<{
+    title: string;
+    description: string;
+    url: string;
+  }>;
+}
+
+export interface Props {
+  content: ServicePageContent;
+}
+
+const { content } = Astro.props;
+
+// Validate SEO metadata in development mode
+if (import.meta.env.DEV && content.seo) {
+  const validation = validateSEO(content.seo);
+  if (validation.warnings.length > 0) {
+    console.warn('⚠️ SEO Validation Warnings:', validation.warnings);
+  }
+}
+
+// Icon mapping - convert string names to components
+const iconMap: Record<string, any> = {
+  Palette,
+  Building,
+  Hammer,
+  Sparkles,
+  Clock,
+  Trophy,
+  Users,
+  Ruler,
+  CheckCircle
+};
+
+// Helper function to map icon strings to components
+function mapIconToComponent<T extends { icon?: string | any; iconComponent?: any }>(item: T, iconMap: Record<string, any>): T & { iconComponent?: any } {
+  if (!item.icon) return item;
+  if (typeof item.icon === 'string') {
+    return { ...item, iconComponent: iconMap[item.icon] };
+  }
+  // If icon is already a component, use it as iconComponent
+  return { ...item, iconComponent: item.icon };
+}
+
+// Map icon strings to components in features
+const mappedFeatures = content.features.map(feature => mapIconToComponent(feature, iconMap));
+
+// Map icon strings to components in process steps if they exist
+const mappedProcessSteps = content.process?.steps?.map(step => mapIconToComponent(step, iconMap));
+
+// Map service types to their respective schemas
+const serviceSchemaMap: Record<string, any> = {
+  'kitchen-cabinets': kitchenCabinetsServiceSchema,
+  'custom-closets': customClosetsServiceSchema,
+  'built-ins': builtInsServiceSchema,
+  'full-home-cabinetry': fullHomeCabinetryServiceSchema
+};
+
+// Get the appropriate service schema based on schemaType
+const serviceSchema = content.schemaType ? serviceSchemaMap[content.schemaType] : null;
+
+// Generate FAQ schema if FAQs exist
+const faqSchema = content.faqs && content.faqs.length > 0
+  ? generateFAQSchema(content.faqs.map(faq => ({ question: faq.question, answer: faq.answer })))
+  : null;
+---
+
+<BaseLayout
+  title={content.seo.title}
+  description={content.seo.description}
+  ogImage={content.seo.ogImage}
+>
+  <!-- Service Schema -->
+  {serviceSchema && (
+    <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceSchema)} />
+  )}
+
+  <!-- FAQ Schema -->
+  {faqSchema && (
+    <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
+  )}
+
+  <!-- Hero Section (Dark) -->
+  <Hero
+    titleHighlight={content.hero.highlight}
+    titleRest={content.hero.title}
+    kicker={content.hero.kicker}
+    description={content.hero.description}
+    backgroundImage={content.hero.image}
+    videoSrc={content.hero.videoSrc}
+    theme="dark"
+    size="medium"
+    ctaButtons={content.hero.ctas}
+  />
+
+  <!-- Service Overview (Light) -->
+  <SectionWrapper theme="light" id="overview">
+    <SectionHeader
+      tag={content.overview.tag}
+      title={content.overview.title}
+      description={content.overview.description}
+      layout="split"
+      theme="light"
+    />
+    <ContentGrid items={mappedFeatures} variant="features" />
+  </SectionWrapper>
+
+  <!-- Portfolio Examples (Dark) - ProjectGallery has its own header -->
+  {content.projectType && (
+    <ProjectGallery theme="dark" />
+  )}
+
+  <!-- Process Section (Light) -->
+  <ProcessSection
+    theme="light"
+    tag={content.process?.tag}
+    title={content.process?.title}
+    description={content.process?.description}
+    steps={mappedProcessSteps}
+  />
+
+  <!-- Why Choose Us (Dark) -->
+  <WhyBosco />
+
+  <!-- Service Area CTA (Light) -->
+  <SectionWrapper theme="light" id="service-area">
+    <ServiceAreaSection
+      theme="light"
+      title={content.serviceArea?.title || `${content.hero.title} Across the Greater Toronto Area`}
+      description={content.serviceArea?.description || "From downtown Toronto to the surrounding regions, we bring luxury custom cabinetry directly to your home with professional installation and ongoing support."}
+      cities={companyInfo.serviceAreas}
+      showCTA={true}
+    />
+  </SectionWrapper>
+
+  <!-- SEO Content Sections (Alternating Light/Dark) - Side-by-side layouts -->
+  {content.seoSections && content.seoSections.length > 0 && content.seoSections.map((section, index) => {
+    const isEven = index % 2 === 0;
+    const theme = isEven ? 'light' : 'dark';
+    const imagePosition = isEven ? 'left' : 'right';
+
+    return (
+      <SectionWrapper theme={theme} id={`seo-${index}`}>
+        <div class={`grid gap-12 lg:grid-cols-2 lg:gap-16 items-center ${imagePosition === 'right' ? 'lg:grid-flow-dense' : ''}`}>
+          {/* Image */}
+          <div class={`relative ${imagePosition === 'right' ? 'lg:col-start-2' : ''}`}>
+            {section.image ? (
+              <div class="relative overflow-hidden rounded-2xl">
+                {typeof section.image === 'string' ? (
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    class="h-full w-full object-cover aspect-[4/3]"
+                    loading="lazy"
+                  />
+                ) : (
+                  <Image
+                    src={section.image}
+                    alt={section.title}
+                    class="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                )}
+              </div>
+            ) : (
+              <div class={`aspect-[4/3] rounded-2xl ${theme === 'dark' ? 'bg-white/5' : 'bg-brand-primary/5'} flex items-center justify-center`}>
+                <div class={`text-center p-8 ${theme === 'dark' ? 'text-white/40' : 'text-brand-primary/40'}`}>
+                  <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p class="text-sm font-medium">{section.title}</p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Content */}
+          <div class={imagePosition === 'right' ? 'lg:col-start-1 lg:row-start-1' : ''}>
+            {section.tag && (
+              <p class={`mb-4 text-sm font-medium tracking-wide uppercase ${theme === 'dark' ? 'text-brand-accent' : 'text-brand-primary'}`}>
+                {section.tag}
+              </p>
+            )}
+            <h2 class={`mb-6 text-3xl font-semibold md:text-4xl ${theme === 'dark' ? 'text-white' : 'text-brand-charcoal'}`}>
+              {section.title}
+            </h2>
+            <div
+              class={`prose max-w-none ${theme === 'dark' ? 'prose-invert text-white/85' : 'text-brand-darkGray'}`}
+              set:html={section.content}
+            />
+            {section.features && section.features.length > 0 && (
+              <ul class={`mt-6 space-y-3 ${theme === 'dark' ? 'text-white/90' : 'text-brand-charcoal'}`}>
+                {section.features.map(feature => (
+                  <li class="flex items-start gap-3">
+                    <svg class={`h-5 w-5 mt-0.5 flex-shrink-0 ${theme === 'dark' ? 'text-brand-accent' : 'text-brand-primary'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      </SectionWrapper>
+    );
+  })}
+
+  <!-- FAQ Section (Dark) -->
+  <FAQSection
+    theme="dark"
+    faqs={content.faqs}
+  />
+
+  <!-- Reviews (Light) -->
+  <Reviews />
+
+  <!-- Related Services (Dark) - Internal Linking for SEO -->
+  {content.relatedServices && content.relatedServices.length > 0 && (
+    <SectionWrapper theme="dark" id="related-services">
+      <SectionHeader
+        tag="Explore More"
+        title="Related Services You May Need"
+        description="Complete your home transformation with our other custom cabinetry services"
+        layout="center"
+        theme="dark"
+      />
+      <div class="grid md:grid-cols-3 gap-8 mt-8">
+        {content.relatedServices.map(service => (
+          <a
+            href={service.url}
+            class="group card-hover-elevate"
+          >
+            <div class="h-full p-6 rounded-2xl border border-white/20 gradient-card-dark transition-all duration-300">
+              <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-brand-accent transition-colors">
+                {service.title}
+              </h3>
+              <p class="text-gray-300 mb-4">
+                {service.description}
+              </p>
+              <span class="inline-flex items-center gap-2 text-brand-accent font-medium group-hover:gap-3 transition-all">
+                Learn More
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </SectionWrapper>
+  )}
+
+  <!-- Contact CTA (Dark) -->
+  <ContactUs />
+
+  <!-- Footer (Dark) -->
+  <Footer />
+</BaseLayout>

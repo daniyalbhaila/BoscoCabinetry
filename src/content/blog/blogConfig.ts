@@ -18,15 +18,51 @@ export interface BlogArticle {
 export const blogArticles: BlogArticle[] = [
   {
     slug: 'importing-custom-cabinetry-from-china',
-    title: 'Importing Custom Cabinetry from China to Canada: The Hassle vs. The Holike Solution',
-    description: '7 essential steps to import cabinetry from China. Learn costs, risks, and why Bosco/Holike\'s local solution is smarter for Toronto contractors.',
-    keywords: 'import cabinets from china, custom cabinetry import canada, holike toronto, china cabinet import costs, importing furniture from china, CBSA cabinet import',
+    title: 'Importing Cabinetry from China | 2025 Guide | Bosco',
+    description: 'Complete guide to importing custom cabinetry from China. Learn about Holike partnership, quality standards, certifications & Toronto delivery. Expert insights ✓',
+    keywords: 'importing cabinets from china, chinese cabinetry manufacturers, holike cabinets canada, overseas cabinetry import, custom cabinet sourcing',
     author: 'Bosco Cabinetry Team',
     publishDate: '2025-10-04',
     lastUpdated: '2025-10-04',
     featured: true,
     category: 'trade',
-    ogImage: '/images/blog/china-import-guide.jpg'
+    ogImage: '/media/og-image-importing-guide.jpg'
+  },
+  {
+    slug: 'bosco-vs-ikea-kitchen-cabinets',
+    title: 'Bosco vs IKEA Cabinets | Toronto Comparison 2025 | Bosco',
+    description: 'Bosco vs IKEA kitchen cabinets: Compare quality, price, installation & longevity. Real Toronto costs, expert analysis & buyer decision guide ✓',
+    keywords: 'bosco vs ikea, ikea cabinets vs custom, kitchen cabinet comparison toronto, ikea alternative toronto, custom cabinets vs ikea',
+    author: 'Bosco Cabinetry Team',
+    publishDate: '2025-10-02',
+    lastUpdated: '2025-10-02',
+    featured: true,
+    category: 'guides',
+    ogImage: '/media/og-image-bosco-vs-ikea.jpg'
+  },
+  {
+    slug: 'bosco-vs-home-depot-cabinets',
+    title: 'Bosco vs Home Depot Cabinets | Toronto Guide 2025 | Bosco',
+    description: 'Compare Bosco vs Home Depot kitchen cabinets. Quality, pricing, installation & customization options for Toronto homeowners. Make informed choice ✓',
+    keywords: 'bosco vs home depot, home depot cabinets vs custom, cabinet comparison toronto, home depot alternative, custom vs big box cabinets',
+    author: 'Bosco Cabinetry Team',
+    publishDate: '2025-10-02',
+    lastUpdated: '2025-10-02',
+    featured: true,
+    category: 'guides',
+    ogImage: '/media/og-image-bosco-vs-homedepot.jpg'
+  },
+  {
+    slug: 'custom-vs-semi-custom-vs-rta-cabinets',
+    title: 'Custom vs Semi-Custom vs RTA Cabinets | Toronto Guide | Bosco',
+    description: 'Compare custom, semi-custom & RTA cabinets: Quality, cost, installation & best fit for Toronto homes. Expert decision framework & pricing guide ✓',
+    keywords: 'custom vs semi custom cabinets, rta cabinets vs custom, cabinet types comparison, kitchen cabinet options toronto, cabinet buying guide',
+    author: 'Bosco Cabinetry Team',
+    publishDate: '2025-10-02',
+    lastUpdated: '2025-10-02',
+    featured: true,
+    category: 'guides',
+    ogImage: '/media/og-image-cabinet-types.jpg'
   }
 ];
 
