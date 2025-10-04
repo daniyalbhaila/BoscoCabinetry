@@ -5,11 +5,11 @@ export const cabinetTypesContent = {
   // Executive Summary (Answer-First for AEO)
   summary: {
     title: "Quick Answer: Which Cabinet Type Is Best?",
-    verdict: "**Custom cabinets (like Bosco) are best for long-term value, perfect fit, and design flexibility.** Semi-custom works for standard kitchens needing some personalization. RTA suits DIY enthusiasts with tight budgets and simple layouts.",
+    verdict: "**Custom cabinets (like Bosco) are typically best for long-term value, perfect fit, and design flexibility.** Semi-custom works for standard kitchens needing some personalization. RTA suits DIY enthusiasts with tight budgets and simple layouts.",
     keyTakeaways: [
-      "Custom: Built to exact dimensions, 100+ finishes, 20+ year lifespan",
-      "Semi-Custom: Standard sizes with some options, 10-20 year lifespan",
-      "RTA (Ready-to-Assemble): Flat-pack DIY, budget-friendly, 7-10 year lifespan",
+      "Custom: Typically built to exact dimensions, 100+ finishes, 20–30+ year lifespan when built with quality materials",
+      "Semi-Custom: Standard sizes with some options, typically 12–20 year lifespan depending on brand",
+      "RTA (Ready-to-Assemble): Flat-pack DIY, budget-friendly, typically 5–10 year lifespan",
       "Budget range: RTA ($4,000-$8,000), Semi-Custom ($10,000-$22,000), Custom ($18,000-$35,000)"
     ]
   },
@@ -42,6 +42,7 @@ export const cabinetTypesContent = {
   // Comprehensive Comparison Table
   comparisonTable: {
     title: "Custom vs Semi-Custom vs RTA: Complete Comparison",
+    footnote: "* Actual lifespan depends on materials, construction quality, and installation. Ranges shown are typical averages. It's possible to find low-end custom or high-end RTA, but it's not common.",
     categories: [
       {
         category: "Price Range (10x10 Kitchen)",
@@ -69,27 +70,27 @@ export const cabinetTypesContent = {
       },
       {
         category: "Lead Time",
-        custom: "★★★★☆ 4-6 weeks (custom manufacturing)",
-        semiCustom: "★★★☆☆ 6-12 weeks (semi-custom manufacturing)",
-        rta: "★★★★★ 1-7 days (ships from warehouse)"
+        custom: "★★★☆☆ 8-12+ weeks (design + production)",
+        semiCustom: "★★★☆☆ 6-10 weeks",
+        rta: "★★★★★ 1-2 weeks (in stock, quick ship)"
       },
       {
         category: "Installation",
-        custom: "★★★★★ Professional installation included, guaranteed fit",
+        custom: "★★★★★ Bosco provides design, delivery & installation in one package",
         semiCustom: "★★★☆☆ Professional install available (separate cost)",
         rta: "★★☆☆☆ DIY assembly required (20-40 hours)"
       },
       {
         category: "Lifespan",
-        custom: "★★★★★ 20-25+ years with proper care",
-        semiCustom: "★★★★☆ 15-20 years depending on brand",
-        rta: "★★☆☆☆ 7-10 years typical"
+        custom: "★★★★★ 20–30+ years when built with plywood/solid wood and premium hardware",
+        semiCustom: "★★★★☆ 12–20 years depending on brand and materials",
+        rta: "★★☆☆☆ 5–10 years typical; longer if all-plywood and well cared for"
       },
       {
         category: "Resale Value Impact",
-        custom: "★★★★★ Highest ROI - premium feature for buyers",
-        semiCustom: "★★★★☆ Good ROI - quality recognized by buyers",
-        rta: "★★☆☆☆ Minimal ROI - often replaced by new owners"
+        custom: "★★★★★ Often a premium selling point in Toronto homes",
+        semiCustom: "★★★★☆ Recognized for good quality by buyers",
+        rta: "★★☆☆☆ Generally has less impact on resale"
       }
     ]
   },
@@ -131,7 +132,7 @@ export const cabinetTypesContent = {
           { item: "RTA cabinet boxes & fronts", cost: "$4,000 - $7,000" },
           { item: "Basic hardware", cost: "$500 - $1,000" },
           { item: "Delivery", cost: "$200 - $500" },
-          { item: "DIY assembly time (30-40 hrs @ $50/hr value)", cost: "$1,500 - $2,000" },
+          { item: "DIY assembly time (20-40 hrs @ $50/hr value)", cost: "$1,000 - $2,000" },
           { item: "OR Professional assembly/install", cost: "$2,000 - $4,000" }
         ],
         notes: "True cost includes your time or installer fees. Tool purchase may be needed ($200-$400)."
@@ -146,7 +147,7 @@ export const cabinetTypesContent = {
       {
         scenario: "Long-Term Home (15+ years)",
         recommendation: "Custom Cabinets (Bosco)",
-        reasoning: "Best cost-per-year value. $25,000 custom cabinets lasting 25 years = $1,000/year. RTA cabinets at $6,000 lasting 7 years = $857/year, but you'll need 3 sets over 25 years ($18,000 total)."
+        reasoning: "Typically the best cost-per-year value. $25,000 custom cabinets lasting 25 years = $1,000/year. RTA cabinets at $6,000 lasting 7 years = $857/year, but you'll need 3 sets over 25 years ($18,000 total)."
       },
       {
         scenario: "Unique Kitchen Layout (Angles, Odd Dimensions)",
@@ -166,12 +167,12 @@ export const cabinetTypesContent = {
       {
         scenario: "DIY Enthusiast with Time",
         recommendation: "RTA Cabinets",
-        reasoning: "Save $2,000-$4,000 on installation if you enjoy DIY projects and have 30-40 hours available."
+        reasoning: "Save $2,000-$4,000 on installation if you enjoy DIY projects and have 20-40 hours available (depending on layout and experience)."
       },
       {
         scenario: "Resale Value Priority",
         recommendation: "Custom Cabinets (Bosco)",
-        reasoning: "Custom cabinets are a major selling point. Buyers recognize quality and pay premium for homes with custom features."
+        reasoning: "Custom cabinets are often a premium selling point in Toronto homes. Buyers typically recognize quality and value homes with custom features."
       }
     ]
   },
@@ -182,7 +183,7 @@ export const cabinetTypesContent = {
     mistakes: [
       {
         mistake: "Choosing RTA for Permanent Homes",
-        why: "RTA cabinets last 7-10 years. You'll spend more replacing them twice than buying quality once.",
+        why: "RTA cabinets typically last 5-10 years. You'll often spend more replacing them multiple times than buying quality once.",
         solution: "Invest in custom or semi-custom for homes you'll keep 10+ years."
       },
       {
@@ -197,7 +198,7 @@ export const cabinetTypesContent = {
       },
       {
         mistake: "Underestimating RTA Assembly Time",
-        why: "IKEA estimates 'a few hours' but reality is 30-40 hours for full kitchen. Complex rail system, heavy lifting required.",
+        why: "IKEA estimates 'a few hours' but reality is 20-40 hours for a full kitchen, depending on layout and experience. Complex rail system, heavy lifting required.",
         solution: "Value your time correctly or budget for professional assembly."
       },
       {
@@ -216,11 +217,11 @@ export const cabinetTypesContent = {
     },
     {
       question: "Are RTA cabinets good quality?",
-      answer: "RTA cabinets offer basic quality suitable for rentals or temporary solutions. They typically use particleboard or MDF construction with melamine finish, lasting 7-10 years. Fine for budget-conscious DIYers, but not comparable to solid wood custom cabinets in durability or longevity."
+      answer: "RTA cabinets offer basic quality suitable for rentals or temporary solutions. They typically use particleboard or MDF construction with melamine finish, lasting 5-10 years (longer if all-plywood and well cared for). Fine for budget-conscious DIYers, but typically not comparable to solid wood custom cabinets in durability or longevity."
     },
     {
       question: "How long do custom cabinets last compared to RTA?",
-      answer: "Custom solid wood cabinets last 20-25+ years with proper care. Semi-custom plywood cabinets last 15-20 years. RTA particleboard cabinets last 7-10 years. Over 25 years, you'd replace RTA cabinets 3 times vs once for custom, making custom more cost-effective long-term."
+      answer: "Custom solid wood cabinets typically last 20-30+ years when built with quality materials and proper care. Semi-custom plywood cabinets last 12-20 years depending on brand. RTA particleboard cabinets last 5-10 years typically. Over 25 years, you'd often replace RTA cabinets multiple times vs once for custom, making custom more cost-effective long-term."
     },
     {
       question: "Can semi-custom cabinets fit any kitchen?",
@@ -228,18 +229,18 @@ export const cabinetTypesContent = {
     },
     {
       question: "Is it worth paying more for custom cabinets?",
-      answer: "Yes, for long-term homes (10+ years). Custom cabinets offer better ROI through: (1) longer lifespan (20+ years vs 7-10), (2) perfect fit (no wasted space), (3) higher resale value, (4) unlimited design options. Cost-per-year is often comparable to replacing cheaper cabinets."
+      answer: "Typically yes, for long-term homes (10+ years). Custom cabinets often offer better ROI through: (1) longer lifespan (20-30+ years vs 5-10), (2) perfect fit (no wasted space), (3) often higher resale value, (4) unlimited design options. Cost-per-year is often comparable to replacing cheaper cabinets."
     },
     {
       question: "How much does it cost to install RTA vs custom cabinets in Toronto?",
-      answer: "RTA installation costs $2,000-$4,000 if you hire pros, or 30-40 hours of your time for DIY. Custom cabinets (Bosco) include professional installation in the quoted price. When comparing total costs, the gap narrows significantly."
+      answer: "RTA installation costs $2,000-$4,000 if you hire pros, or 20-40 hours of your time for DIY (depending on layout and experience). Bosco provides design, delivery, and professional installation in one package. Other brands may quote cabinets only, with installation as a separate cost. When comparing total costs, the gap narrows significantly."
     }
   ],
 
   // Final CTA
   cta: {
     title: "Ready to Choose the Right Cabinets for Your Toronto Home?",
-    description: "Visit our showroom to see the quality difference between cabinet types. Our designers will help you choose the best option for your budget, timeline, and goals.",
+    description: "Bosco offers custom, semi-custom, and RTA cabinetry — so you can choose based on your budget, timeline, and long-term goals. Visit our showroom to see the quality difference between cabinet types, and let our designers guide you to the best option.",
     primaryAction: {
       text: "Book Free Consultation",
       href: "/contact"

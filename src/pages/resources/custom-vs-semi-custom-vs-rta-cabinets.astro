@@ -91,6 +91,9 @@ const { summary, definitions, comparisonTable, costBreakdown, decisionMatrix, co
         </tbody>
       </table>
     </div>
+    {comparisonTable.footnote && (
+      <p class="mt-4 text-sm text-brand-darkGray italic">{comparisonTable.footnote}</p>
+    )}
   </section>
 
   <!-- Cost Breakdown -->
