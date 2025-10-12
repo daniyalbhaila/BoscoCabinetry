@@ -15,7 +15,7 @@ export const kitchenPageContent = {
     highlight: "Custom",
     title: "Kitchen Cabinets Designed & Installed in Toronto",
     kicker: "From Design to Installation - Full-Service Kitchen Remodel Solutions",
-    description: "Transform your kitchen with expertly designed custom cabinets featuring soft-close hinges, dovetail construction, and premium hardware. 100+ finishes, professional installation, 4-6 week turnaround.",
+    description: "Transform your kitchen with expertly designed custom cabinets featuring soft-close hinges, precision craftsmanship, and premium hardware. 100+ finishes, professional installation. Get your quote in 48 hours.",
     // Using default hero poster - backgroundImage can be added later
     ctas: [
       { text: 'Book Free Consultation', href: '#contact', variant: 'primary' },
@@ -37,7 +37,7 @@ export const kitchenPageContent = {
     },
     {
       title: "Premium Quality Materials & Hardware",
-      description: "Premium cabinets crafted with solid wood, dovetail joints, and sustainable materials. Features soft-close hinges, undermount slides, and premium cabinet hardware for lasting quality.",
+      description: "Premium cabinets crafted with high-grade plywood, MDF, and sustainable bamboo materials. Features soft-close hinges, undermount slides, and premium cabinet hardware for lasting quality.",
       icon: "Building"
     },
     {
@@ -59,11 +59,11 @@ export const kitchenPageContent = {
     steps: [
       {
         step: '01',
-        title: 'Free Consultation & Design',
-        description: 'We visit your home to discuss your vision, measure your space, and understand your budget. Our designers create detailed 3D renderings of your new kitchen.',
+        title: 'Initial Consultation & Design',
+        description: 'Visit our showroom or schedule an in-home consultation to discuss your vision, measure your space, and understand your budget. Our designers create detailed 3D renderings of your new kitchen.',
         icon: "Users",
         features: [
-          'In-home consultation within 48 hours',
+          'Showroom or in-home consultation within 48 hours',
           'Professional space assessment and measurements',
           'Style and finish recommendations',
           'Detailed 3D design renderings',
@@ -78,7 +78,7 @@ export const kitchenPageContent = {
         features: [
           'Guided showroom tour with interior design consultation',
           '100+ finish options including crown molding profiles',
-          'Premium materials: solid wood, plywood, MDF',
+          'Premium materials: plywood, MDF, bamboo board',
           'Cabinet hardware selection: soft-close hinges, undermount slides',
           'Drawer organizers and storage accessories',
           'Final design approval and quote'
@@ -121,7 +121,7 @@ export const kitchenPageContent = {
   faqs: [
     {
       question: "How much do custom kitchen cabinets cost in Toronto?",
-      answer: "Custom kitchen cabinet projects typically range from $15,000 to $50,000+ depending on kitchen size, materials selected, and finish options. We offer luxury quality at competitive prices - significantly less than big-box retailers charging premium for lower quality. Book a free consultation for an accurate quote based on your specific kitchen."
+      answer: "Custom kitchen cabinet projects typically range from $8,000 to $50,000+ depending on kitchen size, materials selected, and finish options. We offer luxury quality at competitive prices - significantly less than big-box retailers charging premium for lower quality. Book an initial consultation for an accurate quote based on your specific kitchen."
     },
     {
       question: "How long does it take to get custom kitchen cabinets?",
@@ -171,12 +171,12 @@ export const kitchenPageContent = {
 <p>From initial measurements to detailed 3D renderings, we ensure every aspect of your kitchen cabinetry is planned to perfection. Our designers consider workflow, storage needs, and aesthetic preferences to create a kitchen that works beautifully.</p>
 
 <h3>Design Process</h3>
-<p>We start with an in-home consultation to understand your vision and measure your space accurately. Our team then develops detailed plans and photorealistic 3D renderings, allowing you to visualize the finished kitchen before any work begins. Revisions are included to ensure complete satisfaction with the final design.</p>`,
+<p>We start with an initial consultation (at our showroom or in your home) to understand your vision and measure your space accurately. Our team then develops detailed plans and photorealistic 3D renderings, allowing you to visualize the finished kitchen before any work begins. Design revisions ensure complete satisfaction with the final design.</p>`,
       features: [
-        "Complimentary in-home design consultation",
+        "Complimentary initial consultation (showroom or home)",
         "Professional space planning and measurements",
         "Detailed 3D renderings and visualizations",
-        "Unlimited design revisions",
+        "Design revisions included",
         "Expert guidance on materials and finishes"
       ]
     },
@@ -185,15 +185,15 @@ export const kitchenPageContent = {
       title: "Explore Cabinet Styles & Materials in Our Showroom",
       content: `<p>Visit our 5,500 square foot North York showroom to see and touch cabinet materials in person. Our extensive displays feature popular kitchen cabinet styles including shaker cabinets, frameless European designs, traditional framed cabinetry, and contemporary flat-panel options.</p>
 
-<p>Our design team guides you through material selection, from solid wood species like maple, oak, and walnut to sustainable options including bamboo cabinetry. Compare finishes, hardware styles, and organizational accessories to make informed decisions for your kitchen.</p>
+<p>Our design team guides you through material selection, focusing on premium plywood, MDF, and sustainable bamboo cabinetry. Compare finishes, hardware styles, and organizational accessories to make informed decisions for your kitchen. Solid wood options are also available through our supplier network.</p>
 
-<h3>Sustainable Cabinet Options</h3>
-<p>For environmentally conscious homeowners, we offer eco-friendly materials including bamboo—a rapidly renewable resource that provides exceptional durability and unique grain patterns. Shaker style cabinets remain the most requested option for their timeless versatility, while frameless cabinets offer a sleek, modern look with maximum storage access. Our showroom displays each style in multiple finishes so you can visualize options in your space.</p>`,
+<h3>Sustainable & Modern Materials</h3>
+<p>We specialize in high-grade plywood for superior structural integrity, quality MDF for smooth painted finishes, and bamboo—a rapidly renewable resource that provides exceptional durability and unique grain patterns. Shaker style cabinets remain the most requested option for their timeless versatility, while frameless cabinets offer a sleek, modern look with maximum storage access. Our showroom displays each style in multiple finishes so you can visualize options in your space.</p>`,
       features: [
         "Shaker, frameless, and framed cabinet displays",
+        "Premium plywood and MDF construction",
         "Sustainable bamboo and eco-friendly materials",
         "100+ finish samples: matte, gloss, wood grain",
-        "Solid wood options: maple, oak, walnut",
         "Expert guidance on style and material selection"
       ]
     },
@@ -252,15 +252,15 @@ export const kitchenPageContent = {
     {
       tag: "Pricing & Investment",
       title: "Kitchen Cabinet Pricing Toronto",
-      content: `<p>Custom kitchen cabinet projects typically range from $15,000 to $50,000+ depending on kitchen size, materials selected, and design complexity. Our transparent pricing includes design, manufacturing, delivery, and professional installation—no hidden fees or surprises.</p>
+      content: `<p>Custom kitchen cabinet projects typically range from $8,000 to $50,000+ depending on kitchen size, materials selected, and design complexity. Our transparent pricing includes design, manufacturing, delivery, and professional installation—no hidden fees or surprises.</p>
 
-<p>Factors affecting kitchen cabinet cost include linear footage of cabinetry, choice of materials (solid wood versus engineered options), finish selections, hardware quality, and organizational accessories. During your free consultation, we provide detailed quotes based on your specific requirements and budget.</p>
+<p>Factors affecting kitchen cabinet cost include linear footage of cabinetry, choice of materials (plywood, MDF, bamboo options), finish selections, hardware quality, and organizational accessories. During your initial consultation, we provide detailed quotes based on your specific requirements and budget.</p>
 
 <h3>Investment in Quality</h3>
 <p>Quality kitchen cabinets represent a significant investment in your home's value and your daily life. Unlike big-box retailers, we offer personalized service and custom solutions that fit your exact space and style preferences. With 100+ completed projects serving Toronto homeowners, we demonstrate our commitment to lasting quality and customer satisfaction.</p>`,
       features: [
         "Transparent pricing with no hidden costs",
-        "Free detailed quotes and estimates",
+        "Detailed quotes and estimates",
         "Flexible options to match your budget",
         "Installation and delivery included",
         "Competitive pricing for premium quality"

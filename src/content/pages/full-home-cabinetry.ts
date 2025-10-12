@@ -134,7 +134,7 @@ export const fullHomeCabinetryPageContent = {
     },
     {
       question: "How much does whole-home cabinetry cost?",
-      answer: "Full home cabinetry projects typically range from $40,000 to $150,000+ depending on home size, number of spaces being fitted, finish selections, and complexity. A 3-bedroom home might include kitchen ($20-40k), 2 bathrooms ($8-15k), master walk-in closet ($8-12k), other closets ($10-15k), and built-ins ($5-15k). Whole-home projects often provide 10-20% cost savings versus individual room projects due to volume pricing and coordinated manufacturing."
+      answer: "Full home cabinetry projects typically range from $40,000 to $150,000+ depending on home size, number of spaces being fitted, finish selections, and complexity. A 3-bedroom home might include kitchen ($20-40k), 2 bathrooms ($8-15k), master walk-in closet ($8-12k), other closets ($10-15k), and built-ins ($5-15k). Whole-home projects often provide 30-50% cost savings versus individual room projects due to volume pricing and coordinated manufacturing."
     },
     {
       question: "How long does a full home cabinetry project take?",
@@ -154,7 +154,7 @@ export const fullHomeCabinetryPageContent = {
     },
     {
       question: "What are the advantages of doing all cabinetry at once?",
-      answer: "Whole-home projects provide numerous advantages: 10-20% cost savings through volume pricing, perfect finish matching across all rooms, unified design aesthetic, simplified project management with one point of contact, coordinated installation schedule, reduced total disruption versus multiple separate projects, and cohesive home value increase. It's significantly more efficient than tackling rooms individually over time."
+      answer: "Whole-home projects provide numerous advantages: 30-50% cost savings through volume pricing, perfect finish matching across all rooms, unified design aesthetic, simplified project management with one point of contact, coordinated installation schedule, reduced total disruption versus multiple separate projects, and cohesive home value increase. It's significantly more efficient than tackling rooms individually over time."
     },
     {
       question: "Do you work with builders and contractors on new homes?",
@@ -179,9 +179,9 @@ export const fullHomeCabinetryPageContent = {
 <p>The comprehensive approach begins with understanding your home's architecture, your family's lifestyle, and your design preferences. Our team develops a coordinated plan that ensures kitchen cabinets, bathroom vanities, closet systems, and built-in cabinetry work together harmoniously while meeting each space's specific functional requirements.</p>
 
 <h3>Cost and Time Efficiencies</h3>
-<p>Full home cabinetry provides significant cost advantages—volume pricing typically saves 10-20% compared to individual room projects. Coordinated manufacturing means all cabinetry is produced together, ensuring finish consistency while reducing per-unit costs. Installation is more efficient when scheduled as one comprehensive project rather than multiple separate installations over months or years. The result is higher quality at lower overall cost with less total disruption to your household.</p>`,
+<p>Full home cabinetry provides significant cost advantages—volume pricing typically saves 30-50% compared to individual room projects. Coordinated manufacturing means all cabinetry is produced together, ensuring finish consistency while reducing per-unit costs. Installation is more efficient when scheduled as one comprehensive project rather than multiple separate installations over months or years. The result is higher quality at lower overall cost with less total disruption to your household.</p>`,
       features: [
-        "10-20% cost savings through volume pricing",
+        "30-50% cost savings through volume pricing",
         "Perfect finish matching across all rooms",
         "Unified design aesthetic throughout",
         "Single project management contact",
@@ -266,13 +266,13 @@ export const fullHomeCabinetryPageContent = {
       title: "Whole-Home Cabinetry Investment & Home Value",
       content: `<p>Full home cabinetry represents a significant investment in your property—typically $40,000 to $150,000+ depending on home size and specifications. However, coordinated whole-home projects provide superior return on investment compared to piecemeal room-by-room approaches over time.</p>
 
-<p>Investment factors include total square footage of cabinetry, number of rooms being fitted, finish and material selections, integrated features (lighting, organizational systems, specialized storage), hardware quality, and installation complexity. Volume pricing for whole-home projects reduces per-unit costs significantly—often saving 10-20% versus individual room pricing.</p>
+<p>Investment factors include total square footage of cabinetry, number of rooms being fitted, finish and material selections, integrated features (lighting, organizational systems, specialized storage), hardware quality, and installation complexity. Volume pricing for whole-home projects reduces per-unit costs significantly—often saving 30-50% versus individual room pricing.</p>
 
 <h3>Home Value Impact</h3>
 <p>Real estate professionals recognize that coordinated, quality cabinetry throughout a home significantly increases property value and marketability. Buyers appreciate move-in-ready homes with cohesive, modern cabinetry in every space—from kitchen to bathrooms, closets to built-ins. Quality whole-home cabinetry typically provides excellent ROI during home sales while enhancing daily living for years before selling. With 100+ completed projects serving Toronto homeowners, we demonstrate our commitment to quality that lasts.</p>`,
       features: [
         "Comprehensive project pricing",
-        "10-20% savings through volume pricing",
+        "30-50% savings through volume pricing",
         "Superior ROI versus piecemeal approach",
         "Significant property value increase",
         "Enhanced home marketability",
