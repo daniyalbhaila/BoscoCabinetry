@@ -3,7 +3,7 @@
 
 export const builtInsPageContent = {
   seo: {
-    title: "Custom Built-Ins Toronto | Entertainment Centers & Shelves | Bosco",
+    title: "Custom Built-Ins Toronto | Entertainment Centers & Shelves | Bosco Cabinetry",
     description: "Custom built-in cabinetry for living rooms, offices & bedrooms. Entertainment centers, bookshelves, home office solutions. Expert design & install Toronto GTA ✓",
     keywords: "custom built-ins toronto, entertainment center toronto, entertainment units, built-in bookshelves, home office cabinets, window seats, living room storage",
     ogImage: "/media/og-image-builtins.jpg"
@@ -257,7 +257,7 @@ export const builtInsPageContent = {
 <p>Investment factors include linear footage of cabinetry, custom sizing and fitting, finish quality (melamine vs. wood), integrated features (lighting, cable management, ventilation), hardware selections, and installation complexity. Our transparent pricing includes design, custom manufacturing, delivery, and professional installation—no hidden costs.</p>
 
 <h3>Value of Built-In Cabinetry</h3>
-<p>Built-ins significantly increase home value—studies show custom built-ins provide excellent ROI during home sales. Beyond financial value, built-ins improve daily living by organizing spaces, reducing clutter, and creating architectural interest. Quality built-in cabinetry is a permanent home improvement that serves families for decades. Our 20+ years serving Toronto homeowners demonstrates our commitment to lasting quality.</p>`,
+<p>Built-ins significantly increase home value—studies show custom built-ins provide excellent ROI during home sales. Beyond financial value, built-ins improve daily living by organizing spaces, reducing clutter, and creating architectural interest. Quality built-in cabinetry is a permanent home improvement that serves families for decades. With 100+ completed projects serving Toronto homeowners, we demonstrate our commitment to lasting quality.</p>`,
       features: [
         "Transparent pricing with detailed quotes",
         "Free in-home consultations and design",

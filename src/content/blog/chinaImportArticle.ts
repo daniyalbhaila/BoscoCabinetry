@@ -13,7 +13,7 @@ export const chinaImportContent = {
 
       'However, there is an easier path.',
 
-      'Bosco Cabinetry, the exclusive Canadian distributor for the global custom furnishing leader Holike, offers a simplified, secure, and local alternative. We\'ve compiled the complex steps below, illustrating the risks involved, and demonstrating why a local solution like the Bosco/Holike North York showroom is the smarter choice.'
+      'Bosco Cabinetry, the exclusive Canadian distributor for the global custom furnishing leader Holike, offers a simplified, secure, and local alternative. We\'ve compiled the complex steps below, illustrating the risks involved, and demonstrating why a local solution like the Bosco Cabinetry / Holike North York showroom is the smarter choice.'
     ]
   },
 
@@ -120,7 +120,7 @@ export const chinaImportContent = {
 
   // Local Solution section with pricing context
   localSolution: {
-    heading: 'The Local Solution: Bosco / Holike\'s Advantage',
+    heading: 'The Local Solution: Bosco Cabinetry / Holike\'s Advantage',
     pricingContext: 'The average cost of custom cabinetry in the GTA typically ranges from $15,000 to $35,000 for a standard kitchen. While importing seeks to undercut this, the final price is often inflated by hidden fees and unexpected risks.',
     tagline: 'Bosco Cabinetry eliminates the variables and provides a guaranteed, predictable local experience.',
     intro: 'Here\'s why choosing Bosco Cabinetry is the smarter choice for your project:'
@@ -128,8 +128,8 @@ export const chinaImportContent = {
 
   // Comparison table data (updated structure)
   comparisonTable: {
-    title: 'Import Hassle vs. Bosco/Holike Advantage',
-    headers: ['Feature', 'The Import Hassle', 'The Bosco / Holike Advantage'],
+    title: 'Import Hassle vs. Bosco Cabinetry / Holike Advantage',
+    headers: ['Feature', 'The Import Hassle', 'The Bosco Cabinetry / Holike Advantage'],
     rows: [
       [
         'Price Predictability',
@@ -154,7 +154,7 @@ export const chinaImportContent = {
       [
         'Compliance',
         'You are responsible for complex tasks like determining the HS Code and securing fumigation certificates.',
-        'Bosco handles 100% of the logistics and compliance, ensuring all materials meet Canadian safety standards.'
+        'Bosco Cabinetry handles 100% of the logistics and compliance, ensuring all materials meet Canadian safety standards.'
       ]
     ]
   },

@@ -3,7 +3,7 @@
 
 export const fullHomeCabinetryPageContent = {
   seo: {
-    title: "Full Home Cabinetry Toronto | Complete Solutions | Bosco",
+    title: "Full Home Cabinetry Toronto | Complete Solutions | Bosco Cabinetry",
     description: "Coordinated cabinetry throughout your Toronto home. Kitchens, bathrooms, closets, built-ins with unified design. One team, seamless results. Get quote ✓",
     keywords: "full home cabinetry toronto, whole home cabinets, complete cabinetry solutions, coordinated millwork, home renovation cabinets",
     ogImage: "/media/og-image-fullhome.jpg"
@@ -269,7 +269,7 @@ export const fullHomeCabinetryPageContent = {
 <p>Investment factors include total square footage of cabinetry, number of rooms being fitted, finish and material selections, integrated features (lighting, organizational systems, specialized storage), hardware quality, and installation complexity. Volume pricing for whole-home projects reduces per-unit costs significantly—often saving 10-20% versus individual room pricing.</p>
 
 <h3>Home Value Impact</h3>
-<p>Real estate professionals recognize that coordinated, quality cabinetry throughout a home significantly increases property value and marketability. Buyers appreciate move-in-ready homes with cohesive, modern cabinetry in every space—from kitchen to bathrooms, closets to built-ins. Quality whole-home cabinetry typically provides excellent ROI during home sales while enhancing daily living for years before selling. Our 20+ years serving Toronto homeowners demonstrates our commitment to quality that lasts.</p>`,
+<p>Real estate professionals recognize that coordinated, quality cabinetry throughout a home significantly increases property value and marketability. Buyers appreciate move-in-ready homes with cohesive, modern cabinetry in every space—from kitchen to bathrooms, closets to built-ins. Quality whole-home cabinetry typically provides excellent ROI during home sales while enhancing daily living for years before selling. With 100+ completed projects serving Toronto homeowners, we demonstrate our commitment to quality that lasts.</p>`,
       features: [
         "Comprehensive project pricing",
         "10-20% savings through volume pricing",

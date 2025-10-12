@@ -23,7 +23,7 @@ export const localBusinessSchema = {
   "@type": "LocalBusiness",
   "@id": "https://boscocabinetry.com/#business",
   "name": companyInfo.name,
-  "description": "Custom kitchen cabinets, closets, and built-ins serving Toronto and the Greater Toronto Area. Builder-founded with 20+ years experience.",
+  "description": "Custom kitchen cabinets, closets, and built-ins serving Toronto and the Greater Toronto Area. Builder-founded with 100+ completed projects.",
   "url": "https://boscocabinetry.com",
   "logo": "https://boscocabinetry.com/logo.png",
   "image": "https://boscocabinetry.com/media/og-image-homepage.jpg",

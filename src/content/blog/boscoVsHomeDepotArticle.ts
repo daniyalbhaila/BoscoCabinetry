@@ -5,18 +5,18 @@ export const boscoVsHomeDepotContent = {
   // Executive Summary (Answer-First for AEO)
   summary: {
     title: "Quick Answer: Which Is Better?",
-    verdict: "**Bosco wins for quality, customization, and long-term value.** Home Depot wins for convenience and budget flexibility. For Toronto homeowners seeking cabinets that last 20+ years with true custom fit, Bosco delivers better results despite higher upfront cost.",
+    verdict: "**Bosco Cabinetry wins for quality, customization, and long-term value.** Home Depot wins for convenience and budget flexibility. For Toronto homeowners seeking professionally-crafted cabinets with true custom fit, Bosco delivers better results despite higher upfront cost.",
     keyTakeaways: [
-      "Bosco: 100+ custom finishes, solid wood, professional design included",
+      "Bosco Cabinetry: 100+ custom finishes, solid wood, professional design included",
       "Home Depot: 30-50 semi-custom options, mix of materials, design fees apply",
-      "Bosco total cost: $18,000-$35,000 (10x10 kitchen, fully installed)",
+      "Bosco Cabinetry total cost: $18,000-$35,000 (10x10 kitchen, fully installed)",
       "Home Depot total cost: $12,000-$25,000 (10x10 kitchen, installed)"
     ]
   },
 
   // Detailed Comparison Table
   comparisonTable: {
-    title: "Bosco vs Home Depot: Complete Comparison",
+    title: "Bosco Cabinetry vs Home Depot: Complete Comparison",
     categories: [
       {
         category: "Material Quality",
@@ -139,7 +139,7 @@ export const boscoVsHomeDepotContent = {
         priceRange: "$18,000 - $25,000 (10x10 kitchen)",
         construction: "Plywood/solid wood, premium finishes",
         pros: ["Best Home Depot option", "Quality comparable to custom"],
-        cons: ["Price similar to true custom (Bosco)", "Still semi-custom only"]
+        cons: ["Price similar to true custom (Bosco Cabinetry)", "Still semi-custom only"]
       }
     ]
   },
@@ -148,7 +148,7 @@ export const boscoVsHomeDepotContent = {
   costAnalysis: {
     title: "Real Toronto Costs: 10x10 Kitchen Comparison",
     boscoBreakdown: {
-      title: "Bosco Total Cost (All-Inclusive)",
+      title: "Bosco Cabinetry Total Cost (All-Inclusive)",
       items: [
         { item: "Custom cabinets (100% custom size)", cost: "$15,000 - $28,000" },
         { item: "Professional installation", cost: "Included" },
@@ -176,7 +176,7 @@ export const boscoVsHomeDepotContent = {
   decisionFramework: {
     title: "Which Option Is Right for You?",
     chooseBosco: {
-      title: "Choose Bosco If You:",
+      title: "Choose Bosco Cabinetry If You:",
       reasons: [
         "Want cabinets built to exact kitchen dimensions (no filler strips)",
         "Value solid wood construction and NAF certification",
@@ -218,11 +218,11 @@ export const boscoVsHomeDepotContent = {
       answer: "Home Depot cabinets are semi-custom, not fully custom. You're limited to standard sizes in 3\" increments (15\", 18\", 24\", etc.). Bosco builds to exact dimensions, maximizing space and eliminating filler strips."
     },
     {
-      question: "Is Bosco more expensive than Home Depot KraftMaid or Thomasville?",
+      question: "Is Bosco Cabinetry more expensive than Home Depot KraftMaid or Thomasville?",
       answer: "Not significantly. Home Depot's KraftMaid ($15,000-$22,000) and Thomasville ($18,000-$25,000) approach Bosco's pricing ($18,000-$35,000) but offer semi-custom only. Bosco provides true custom sizing, better materials, and guaranteed installation for comparable cost."
     },
     {
-      question: "What's the warranty on Home Depot vs Bosco cabinets?",
+      question: "What's the warranty on Home Depot vs Bosco Cabinetry cabinets?",
       answer: "Home Depot warranty varies by brand: Hampton Bay (1 year), Glacier Bay (1 year), KraftMaid (lifetime on boxes), Thomasville (25 years). Bosco offers 5-year comprehensive warranty with direct local support, not through big-box store."
     }
   ],
@@ -230,7 +230,7 @@ export const boscoVsHomeDepotContent = {
   // Final CTA
   cta: {
     title: "Ready for True Custom Cabinets?",
-    description: "Compare Bosco's quality and customization in person. Visit our 5,500 sq ft Toronto showroom or book a free in-home consultation.",
+    description: "Compare Bosco Cabinetry's quality and customization in person. Visit our 5,500 sq ft Toronto showroom or book a free in-home consultation.",
     primaryAction: {
       text: "Book Free Consultation",
       href: "/contact"

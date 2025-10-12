@@ -270,12 +270,12 @@ free quotes with detailed breakdowns for all projects.
 ```html
 <!-- Basic Meta Tags -->
 <title>Custom Kitchen Cabinets Toronto | Builder-Founded Since 2003 | Bosco Cabinetry</title>
-<meta name="description" content="Custom kitchen cabinets starting at $15K. Builder-founded expertise, NAF-certified materials, 20+ years experience. Free consultation & 3D design. Serving GTA.">
+<meta name="description" content="Custom kitchen cabinets starting at $15K. Builder-founded expertise, NAF-certified materials, 100+ completed projects. Free consultation & 3D design. Serving GTA.">
 <meta name="keywords" content="custom kitchen cabinets Toronto, kitchen renovation, cabinet installation North York, frameless cabinets GTA">
 
 <!-- Open Graph (Facebook, LinkedIn) -->
 <meta property="og:title" content="Custom Kitchen Cabinets Toronto | Bosco Cabinetry">
-<meta property="og:description" content="Custom kitchen cabinets starting at $15K. Builder-founded expertise, NAF-certified materials, 20+ years experience.">
+<meta property="og:description" content="Custom kitchen cabinets starting at $15K. Builder-founded expertise, NAF-certified materials, 100+ completed projects.">
 <meta property="og:image" content="https://boscocabinetry.ca/images/og-kitchen-showcase.jpg">
 <meta property="og:url" content="https://boscocabinetry.ca/services/kitchen-cabinets">
 <meta property="og:type" content="website">
@@ -283,7 +283,7 @@ free quotes with detailed breakdowns for all projects.
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Custom Kitchen Cabinets Toronto | Bosco Cabinetry">
-<meta name="twitter:description" content="Custom kitchen cabinets starting at $15K. Builder-founded expertise, NAF-certified materials, 20+ years experience.">
+<meta name="twitter:description" content="Custom kitchen cabinets starting at $15K. Builder-founded expertise, NAF-certified materials, 100+ completed projects.">
 <meta name="twitter:image" content="https://boscocabinetry.ca/images/og-kitchen-showcase.jpg">
 ```
 
@@ -293,7 +293,7 @@ free quotes with detailed breakdowns for all projects.
 - Add unique value prop or data point
 - 150-160 characters max
 - ❌ Bad: "Learn about our amazing kitchen cabinets..."
-- ✅ Good: "Custom kitchen cabinets $15K–$45K. NAF-certified, 20+ years experience. Free 3D design. Serving Toronto & GTA."
+- ✅ Good: "Custom kitchen cabinets $15K–$45K. NAF-certified, 100+ completed projects. Free 3D design. Serving Toronto & GTA."
 
 ### 6. Keep Clean Sitemap and Robots.txt
 

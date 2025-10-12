@@ -16,20 +16,20 @@ export interface SEOMetadata {
 export const homepageSEO: SEOMetadata = {
   // Primary (60 chars) - Keyword-first, emotional trigger, brand
   title: "Custom Cabinets Toronto | Luxury Quality | Bosco Cabinetry",
-  description: "Transform your Toronto home with custom kitchen cabinets, closets & built-ins. 100+ finishes, 20+ years experience, free 3D design. Book consultation ✓",
+  description: "Transform your Toronto home with custom kitchen cabinets, closets & built-ins. 100+ finishes, 100+ completed projects, free 3D design. Book consultation ✓",
   keywords: "custom cabinets toronto, kitchen cabinets, custom closets, built-ins, cabinetry north york, luxury cabinets affordable",
   ogImage: "/media/og-image-homepage.jpg",
 
   // A/B Test Variations
   titleVariations: [
     "Kitchen Cabinets Toronto | 100+ Finishes | Bosco Cabinetry", // 59 chars
-    "Toronto Custom Cabinets | Kitchen & Closets | Bosco", // 52 chars
+    "Toronto Custom Cabinets | Kitchen & Closets | Bosco Cabinetry", // 52 chars
     "Luxury Cabinets Toronto | Affordable | Bosco Cabinetry", // 55 chars
-    "Custom Cabinetry Toronto | Free Design | Bosco", // 47 chars
+    "Custom Cabinetry Toronto | Free Design | Bosco Cabinetry", // 47 chars
   ],
   descriptionVariations: [
     "Discover custom kitchen cabinets, closets & built-ins in Toronto. 5,500 sq ft showroom, 100+ premium finishes, expert installation. Book your free consultation today ✓", // 159 chars
-    "Toronto's trusted custom cabinetry experts. Kitchen cabinets, closets, built-ins with 20+ years experience. Luxury quality, affordable prices. Free quote ✓", // 158 chars
+    "Toronto's trusted custom cabinetry experts. Kitchen cabinets, closets, built-ins with 100+ completed projects. Luxury quality, affordable prices. Free quote ✓", // 158 chars
     "Custom cabinets designed, built & installed in Toronto. 100+ finishes in our North York showroom. Kitchen, closets, built-ins. Book free consultation ★", // 155 chars
   ]
 };
@@ -49,7 +49,7 @@ export const aboutSEO: SEOMetadata = {
     "Bosco Cabinetry Toronto | Builder-Backed Excellence", // 52 chars
   ],
   descriptionVariations: [
-    "Toronto custom-home builders turned cabinetry specialists. Exclusive Holike distributor. Eco-certified (CARB/NAF), 20+ years experience, 5,500 sq ft showroom ★", // 160 chars
+    "Toronto custom-home builders turned cabinetry specialists. Exclusive Holike distributor. Eco-certified (CARB/NAF), 100+ completed projects, 5,500 sq ft showroom ★", // 160 chars
     "Meet the team behind Toronto's luxury custom cabinets. Builder-founded, eco-certified, 100+ finishes. Serving GTA since 2003. Learn our story →", // 145 chars
     "Builder expertise meets luxury cabinetry. 20+ years serving Toronto with custom kitchens, closets & built-ins. CARB certified, showroom tours available ✓", // 157 chars
   ]
@@ -88,7 +88,7 @@ export const kitchenCabinetsSEO: SEOMetadata = {
     "Kitchen Cabinets Toronto | Free 3D Design | Bosco", // 50 chars
   ],
   descriptionVariations: [
-    "Expert kitchen cabinet design & installation in Toronto. 100+ luxury finishes, 3D rendering, 4-6 week delivery. 20+ years experience. Book free consultation →", // 160 chars
+    "Expert kitchen cabinet design & installation in Toronto. 100+ luxury finishes, 3D rendering, 4-6 week delivery. 100+ completed projects. Book free consultation →", // 160 chars
     "Custom kitchen cabinets crafted in Toronto. Luxury quality at affordable prices. Professional design, premium materials, expert installation. Get quote ★", // 156 chars
     "Transform your Toronto kitchen with custom cabinets. Shaker, modern, traditional styles. 100+ finishes in North York showroom. Free design consultation ✓", // 158 chars
   ]

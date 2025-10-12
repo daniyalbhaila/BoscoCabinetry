@@ -5,18 +5,18 @@ export const boscoVsIkeaContent = {
   // Executive Summary (Answer-First for AEO)
   summary: {
     title: "Quick Answer: Which Is Better?",
-    verdict: "**Bosco wins for quality, longevity, and true customization.** IKEA wins for immediate availability and DIY installation. For Toronto homeowners seeking cabinets that last 20+ years with professional results, Bosco offers better value despite higher upfront cost.",
+    verdict: "**Bosco Cabinetry wins for quality, longevity, and true customization.** IKEA wins for immediate availability and DIY installation. For Toronto homeowners seeking professionally-crafted cabinets that last, Bosco offers better value despite higher upfront cost.",
     keyTakeaways: [
-      "Bosco: 100+ finishes, solid wood construction, 20-year lifespan",
+      "Bosco Cabinetry: 100+ finishes, solid wood construction, 20-year lifespan",
       "IKEA: 20-30 finishes, particleboard construction, 7-10 year lifespan",
-      "Bosco total cost: $18,000-$35,000 (10x10 kitchen, installed)",
+      "Bosco Cabinetry total cost: $18,000-$35,000 (10x10 kitchen, installed)",
       "IKEA total cost: $8,000-$15,000 (10x10 kitchen, DIY install)"
     ]
   },
 
   // Detailed Comparison Table
   comparisonTable: {
-    title: "Bosco vs IKEA: Complete Comparison",
+    title: "Bosco Cabinetry vs IKEA: Complete Comparison",
     categories: [
       {
         category: "Material Quality",
@@ -113,7 +113,7 @@ export const boscoVsIkeaContent = {
   costAnalysis: {
     title: "Real Toronto Costs: 10x10 Kitchen Comparison",
     boscoBreakdown: {
-      title: "Bosco Total Cost",
+      title: "Bosco Cabinetry Total Cost",
       items: [
         { item: "Custom cabinets (boxes, doors, hardware)", cost: "$15,000 - $28,000" },
         { item: "Professional installation", cost: "Included" },
@@ -141,7 +141,7 @@ export const boscoVsIkeaContent = {
   decisionFramework: {
     title: "Which Option Is Right for You?",
     chooseBosco: {
-      title: "Choose Bosco If You:",
+      title: "Choose Bosco Cabinetry If You:",
       reasons: [
         "Plan to stay in your Toronto home 10+ years",
         "Want cabinets that match your exact kitchen dimensions",
@@ -168,7 +168,7 @@ export const boscoVsIkeaContent = {
   faqs: [
     {
       question: "Is IKEA kitchen quality good?",
-      answer: "IKEA cabinets offer decent quality for the price. They use particleboard boxes with melamine finish, which works well in dry conditions. However, they're not as durable as solid wood and can swell if exposed to moisture. Expect 7-10 year lifespan vs 20+ years for solid wood cabinets like Bosco."
+      answer: "IKEA cabinets offer decent quality for the price. They use particleboard boxes with melamine finish, which works well in dry conditions. However, they're not as durable as solid wood and can swell if exposed to moisture. Expect 7-10 year lifespan vs 20-25 years for solid wood cabinets like Bosco."
     },
     {
       question: "Can IKEA cabinets be customized?",
@@ -179,8 +179,8 @@ export const boscoVsIkeaContent = {
       answer: "Professional IKEA installation in Toronto costs $3,000-$5,000 for a 10x10 kitchen. DIY installation is possible but requires 20-40 hours of work, special tools, and experience with the SEKTION rail system."
     },
     {
-      question: "Are Bosco cabinets worth the extra cost over IKEA?",
-      answer: "Yes, if you value longevity and true customization. Bosco cabinets last 2-3x longer (20+ years vs 7-10 years), offer 100+ finishes vs 20-30, and include professional installation. The cost-per-year is actually comparable when you factor in IKEA replacement costs."
+      question: "Are Bosco Cabinetry cabinets worth the extra cost over IKEA?",
+      answer: "Yes, if you value longevity and true customization. Bosco Cabinetry cabinets last 2-3x longer (20-25 years vs 7-10 years), offer 100+ finishes vs 20-30, and include professional installation. The cost-per-year is actually comparable when you factor in IKEA replacement costs."
     },
     {
       question: "What's the quality difference between IKEA and custom cabinets?",
@@ -191,7 +191,7 @@ export const boscoVsIkeaContent = {
   // Final CTA
   cta: {
     title: "Ready for Custom Cabinets That Last?",
-    description: "See why Toronto homeowners choose Bosco over IKEA and big-box stores. Book your free consultation and 3D design today.",
+    description: "See why Toronto homeowners choose Bosco Cabinetry over IKEA and big-box stores. Book your free consultation and 3D design today.",
     primaryAction: {
       text: "Book Free Consultation",
       href: "/contact"

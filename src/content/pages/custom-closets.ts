@@ -3,7 +3,7 @@
 
 export const customClosetsPageContent = {
   seo: {
-    title: "Custom Closets Toronto | Walk-In & Reach-In | Bosco",
+    title: "Custom Closets Toronto | Walk-In & Reach-In | Bosco Cabinetry",
     description: "Transform storage with custom walk-in closets, reach-in systems & mudroom organization. 100+ finishes, expert design, professional install. Free quote ✓",
     keywords: "custom closets toronto, walk-in closet systems, reach-in closets, closet organization, wardrobe systems, mudroom storage toronto",
     ogImage: "/media/og-image-closets.jpg"
@@ -257,7 +257,7 @@ export const customClosetsPageContent = {
 <p>Investment factors include linear footage of hanging space and shelving, drawer and pull-out quantities, specialty organizers (shoe racks, jewelry trays, valet rods), finish selections (melamine vs. wood grain), hardware quality, and lighting systems. Our transparent pricing includes design, manufacturing, delivery, and professional installation—no surprises or hidden costs.</p>
 
 <h3>Value of Custom Closets</h3>
-<p>Quality custom closets increase home value, improve daily routines, and protect clothing investments through proper storage. Unlike wire shelving or basic systems, custom closets are built specifically for your space and needs—providing superior organization, durability, and aesthetic appeal. Our 20+ years serving Toronto homeowners demonstrates our commitment to lasting quality and customer satisfaction.</p>`,
+<p>Quality custom closets increase home value, improve daily routines, and protect clothing investments through proper storage. Unlike wire shelving or basic systems, custom closets are built specifically for your space and needs—providing superior organization, durability, and aesthetic appeal. With 100+ completed projects serving Toronto homeowners, we demonstrate our commitment to lasting quality and customer satisfaction.</p>`,
       features: [
         "Transparent pricing with detailed quotes",
         "Free in-home consultations",

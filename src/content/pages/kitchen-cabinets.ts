@@ -5,7 +5,7 @@
 
 export const kitchenPageContent = {
   seo: {
-    title: "Kitchen Cabinets Toronto | Design to Install | Bosco",
+    title: "Kitchen Cabinets Toronto | Design to Install | Bosco Cabinetry",
     description: "Transform your Toronto kitchen with custom cabinets designed, built & installed by experts. 100+ finishes, 4-6 week turnaround. Free consultation ✓",
     keywords: "custom kitchen cabinets toronto, luxury kitchen cabinets, kitchen renovation toronto, kitchen installer, kitchen cabinetry north york",
     ogImage: "/media/og-image-kitchen.jpg"
@@ -26,7 +26,7 @@ export const kitchenPageContent = {
   overview: {
     tag: "What We Offer",
     title: "Complete Kitchen Remodel & Cabinetry Solutions",
-    description: "From modern minimalist to classic traditional, we design, build, and install custom kitchen cabinets tailored to your style, space, and budget. Every kitchen remodel is unique, and our 20+ years of home improvement experience ensures your vision becomes reality with superior craftsmanship and interior design expertise."
+    description: "From modern minimalist to classic traditional, we design, build, and install custom kitchen cabinets tailored to your style, space, and budget. Every kitchen remodel is unique, and our proven track record of 100+ completed projects ensures your vision becomes reality with superior craftsmanship and interior design expertise."
   },
 
   features: [
@@ -257,7 +257,7 @@ export const kitchenPageContent = {
 <p>Factors affecting kitchen cabinet cost include linear footage of cabinetry, choice of materials (solid wood versus engineered options), finish selections, hardware quality, and organizational accessories. During your free consultation, we provide detailed quotes based on your specific requirements and budget.</p>
 
 <h3>Investment in Quality</h3>
-<p>Quality kitchen cabinets represent a significant investment in your home's value and your daily life. Unlike big-box retailers, we offer personalized service and custom solutions that fit your exact space and style preferences. Our 20+ years serving Toronto homeowners demonstrates our commitment to lasting quality and customer satisfaction.</p>`,
+<p>Quality kitchen cabinets represent a significant investment in your home's value and your daily life. Unlike big-box retailers, we offer personalized service and custom solutions that fit your exact space and style preferences. With 100+ completed projects serving Toronto homeowners, we demonstrate our commitment to lasting quality and customer satisfaction.</p>`,
       features: [
         "Transparent pricing with no hidden costs",
         "Free detailed quotes and estimates",

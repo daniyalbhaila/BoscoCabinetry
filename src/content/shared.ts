@@ -62,7 +62,7 @@ export const companyInfo = {
 
   // Company Stats & Features
   stats: {
-    experience: '20+ years',
+    experience: '100+ projects',
     showroomSize: '5,500 sq ft',
     finishOptions: '100+ finishes',
     googleRating: '4.9/5',
@@ -185,8 +185,8 @@ export const sustainability = {
 
 // Company description variations for different contexts
 export const companyDescriptions = {
-  hero: 'Explore 100+ finishes in our 5,500 sq ft North York showroom. Work with Bosco\'s in-house designer to create kitchens, closets, and full-home renovations that fit your lifestyle. Luxury without the luxury price tag.',
-  about: 'With 20+ years of experience, Bosco Cabinetry specializes in custom kitchen cabinets, closet systems, and built-in units. Visit our massive North York showroom to explore over 100 finish options.',
+  hero: 'Explore 100+ finishes in our 5,500 sq ft North York showroom. Bring your own design or work with Bosco Cabinetrys\'s in-house designer to create kitchens, closets, and full-home renovations that fit your lifestyle. Luxury without the luxury price tag.',
+  about: 'With 100+ completed projects, Bosco Cabinetry specializes in custom kitchen cabinets, closet systems, and built-in units. Visit our massive North York showroom to explore over 100 finish options.',
   aboutOrigin: 'Founded by Toronto custom-home builders who saw homeowners struggling with impossible choices: overpriced luxury brands, cheap big-box cabinets, or mid-range options with zero flexibility. We created Bosco Cabinetry to bring builder-backed expertise, luxury finishes, and accessible prices to Toronto.',
   contact: 'Get your free consultation and quote within 48 hours. Let\'s bring your vision to life.',
   serviceAreaExpanded: `
@@ -218,7 +218,7 @@ export const companyDescriptions = {
 
       <div>
         <h3 class="text-xl font-bold mb-3">Scarborough & Etobicoke Cabinetry Services</h3>
-        <p>Scarborough and Etobicoke homeowners benefit from our local Toronto expertise and builder-backed reliability. Whether it's a condo kitchen renovation in Scarborough or a custom closet system in Etobicoke, we bring 20+ years of experience to every project.</p>
+        <p>Scarborough and Etobicoke homeowners benefit from our local Toronto expertise and builder-backed reliability. Whether it's a condo kitchen renovation in Scarborough or a custom closet system in Etobicoke, we bring proven experience from 100+ completed projects to every job.</p>
       </div>
     </div>
   `

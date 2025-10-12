@@ -5,7 +5,7 @@ export const cabinetTypesContent = {
   // Executive Summary (Answer-First for AEO)
   summary: {
     title: "Quick Answer: Which Cabinet Type Is Best?",
-    verdict: "**Custom cabinets (like Bosco) are typically best for long-term value, perfect fit, and design flexibility.** Semi-custom works for standard kitchens needing some personalization. RTA suits DIY enthusiasts with tight budgets and simple layouts.",
+    verdict: "**Custom cabinets (like Bosco Cabinetry) are typically best for long-term value, perfect fit, and design flexibility.** Semi-custom works for standard kitchens needing some personalization. RTA suits DIY enthusiasts with tight budgets and simple layouts.",
     keyTakeaways: [
       "Custom: Typically built to exact dimensions, 100+ finishes, 20–30+ year lifespan when built with quality materials",
       "Semi-Custom: Standard sizes with some options, typically 12–20 year lifespan depending on brand",
@@ -76,7 +76,7 @@ export const cabinetTypesContent = {
       },
       {
         category: "Installation",
-        custom: "★★★★★ Bosco provides design, delivery & installation in one package",
+        custom: "★★★★★ Bosco Cabinetry provides design, delivery & installation in one package",
         semiCustom: "★★★☆☆ Professional install available (separate cost)",
         rta: "★★☆☆☆ DIY assembly required (20-40 hours)"
       },
@@ -100,7 +100,7 @@ export const cabinetTypesContent = {
     title: "Real Toronto Costs: 10x10 Kitchen Full Breakdown",
     scenarios: [
       {
-        type: "Custom (Bosco)",
+        type: "Custom (Bosco Cabinetry)",
         totalCost: "$18,000 - $35,000",
         breakdown: [
           { item: "Custom cabinet boxes (exact dimensions)", cost: "$10,000 - $20,000" },
@@ -146,12 +146,12 @@ export const cabinetTypesContent = {
     scenarios: [
       {
         scenario: "Long-Term Home (15+ years)",
-        recommendation: "Custom Cabinets (Bosco)",
+        recommendation: "Custom Cabinets (Bosco Cabinetry)",
         reasoning: "Typically the best cost-per-year value. $25,000 custom cabinets lasting 25 years = $1,000/year. RTA cabinets at $6,000 lasting 7 years = $857/year, but you'll need 3 sets over 25 years ($18,000 total)."
       },
       {
         scenario: "Unique Kitchen Layout (Angles, Odd Dimensions)",
-        recommendation: "Custom Cabinets (Bosco)",
+        recommendation: "Custom Cabinets (Bosco Cabinetry)",
         reasoning: "Only custom can fit non-standard spaces perfectly. Semi-custom and RTA require filler strips, wasting space and money."
       },
       {
@@ -171,7 +171,7 @@ export const cabinetTypesContent = {
       },
       {
         scenario: "Resale Value Priority",
-        recommendation: "Custom Cabinets (Bosco)",
+        recommendation: "Custom Cabinets (Bosco Cabinetry)",
         reasoning: "Custom cabinets are often a premium selling point in Toronto homes. Buyers typically recognize quality and value homes with custom features."
       }
     ]
@@ -194,7 +194,7 @@ export const cabinetTypesContent = {
       {
         mistake: "Assuming Semi-Custom = Custom",
         why: "Semi-custom is still limited to standard sizes. You'll have gaps requiring expensive filler strips.",
-        solution: "True custom (Bosco) builds to exact dimensions, maximizing every inch."
+        solution: "True custom (Bosco Cabinetry) builds to exact dimensions, maximizing every inch."
       },
       {
         mistake: "Underestimating RTA Assembly Time",
@@ -233,14 +233,14 @@ export const cabinetTypesContent = {
     },
     {
       question: "How much does it cost to install RTA vs custom cabinets in Toronto?",
-      answer: "RTA installation costs $2,000-$4,000 if you hire pros, or 20-40 hours of your time for DIY (depending on layout and experience). Bosco provides design, delivery, and professional installation in one package. Other brands may quote cabinets only, with installation as a separate cost. When comparing total costs, the gap narrows significantly."
+      answer: "RTA installation costs $2,000-$4,000 if you hire pros, or 20-40 hours of your time for DIY (depending on layout and experience). Bosco Cabinetry provides design, delivery, and professional installation in one package. Other brands may quote cabinets only, with installation as a separate cost. When comparing total costs, the gap narrows significantly."
     }
   ],
 
   // Final CTA
   cta: {
     title: "Ready to Choose the Right Cabinets for Your Toronto Home?",
-    description: "Bosco offers custom, semi-custom, and RTA cabinetry — so you can choose based on your budget, timeline, and long-term goals. Visit our showroom to see the quality difference between cabinet types, and let our designers guide you to the best option.",
+    description: "Bosco Cabinetry offers custom, semi-custom, and RTA cabinetry — so you can choose based on your budget, timeline, and long-term goals. Visit our showroom to see the quality difference between cabinet types, and let our designers guide you to the best option.",
     primaryAction: {
       text: "Book Free Consultation",
       href: "/contact"
