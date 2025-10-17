@@ -12,10 +12,8 @@ import DesignInspiration from '../components/DesignInspiration.astro';
 import ContactUs from '../components/ContactUs.astro';
 import ExpandableContent from '../components/ExpandableContent.astro';
 import ServiceAreaSection from '../components/ServiceAreaSection.astro';
-import Reviews from '../components/Reviews.astro';
 import Button from '../components/ui/Button.astro';
 import Check from '../components/icons/Check.astro';
-import Star from '../components/icons/Star.astro';
 import Factory from '../components/icons/Factory.astro';
 import Award from '../components/icons/Award.astro';
 import Globe from '../components/icons/Globe.astro';
@@ -29,15 +27,6 @@ import { tradePageContent } from '../content/pages/trade.ts';
 import { seoMetadata } from '../content/seo-metadata.ts';
 import showroomImage from '../assets/showroom.jpg';
 import kitchenImage from '../assets/kitchen.jpg';
-
-// Transform trade testimonials to Reviews component format
-const tradeReviews = tradePageContent.testimonials.reviews.map(review => ({
-	name: review.name,
-	rating: review.rating,
-	description: review.quote,
-	project: `${review.role} • ${review.company} • ${review.location}`,
-	verified: true
-}));
 
 // Icon mapping for manufacturing features
 const iconMap: Record<string, any> = {
@@ -150,15 +139,6 @@ const tradeAdvantages = tradePageContent.tradeAdvantages.advantages.map(advantag
 			expandablePreviewText="Learn more about our comprehensive trade coverage across the GTA..."
 		/>
 	</SectionWrapper>
-
-	<!-- Testimonials Section -->
-	<Reviews
-		theme="dark"
-		tag={tradePageContent.testimonials.tag}
-		title={tradePageContent.testimonials.title}
-		description={tradePageContent.testimonials.description}
-		reviews={tradeReviews}
-	/>
 
 	<!-- Process Section -->
 	<ProcessSection
