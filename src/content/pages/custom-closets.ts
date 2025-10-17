@@ -57,22 +57,24 @@ export const customClosetsPageContent = {
       {
         step: '01',
         title: 'Free Closet Consultation',
-        description: 'We assess your space, discuss your storage needs, wardrobe size, and organizational preferences. Our designers create a 3D rendering of your custom closet system.',
+        description: 'We assess your space, discuss your storage needs, wardrobe size, and organizational preferences at our showroom or in your home.',
         icon: "Users",
         features: [
-          'In-home closet assessment',
+          'Showroom or in-home closet assessment',
           'Wardrobe and storage needs analysis',
           'Space optimization recommendations',
-          'Detailed 3D design renderings',
+          'Style and finish recommendations through mood boards',
+          'Initial budget discussion',
           'Transparent pricing with no hidden fees'
         ]
       },
       {
         step: '02',
-        title: 'Custom Design & Material Selection',
-        description: 'Visit our showroom to select finishes, cabinet hardware, and organizational accessories. Our interior design team helps you choose systems with soft-close hinges, drawer organizers, and features that maximize storage and match your aesthetic.',
+        title: 'Design Commitment & 3D Rendering',
+        description: 'Once you commit to your project, we create detailed 3D renderings and finalize material selections at our showroom. Our interior design team helps you choose systems with soft-close hinges, drawer organizers, and features that maximize storage.',
         icon: "Ruler",
         features: [
+          'Detailed 3D renderings of your new closet system',
           'Guided showroom tour with interior design consultation',
           '100+ finish options',
           'Drawer organizers and organizational accessories',
@@ -87,11 +89,11 @@ export const customClosetsPageContent = {
         description: 'Your closet components are custom-built to exact specifications using premium materials. Every piece is quality-checked before delivery.',
         icon: "Hammer",
         features: [
-          '3-4 weeks manufacturing',
           'Custom sizing for perfect fit',
           'Quality materials and construction',
           'Progress updates throughout',
-          'Pre-installation quality inspection'
+          'Pre-installation quality inspection',
+          'Rigorous quality control'
         ]
       },
       {
@@ -100,11 +102,11 @@ export const customClosetsPageContent = {
         description: 'Expert installers assemble and mount your closet system with precision. We ensure everything is level, secure, and functioning perfectly.',
         icon: "CheckCircle",
         features: [
-          'Professional installation team',
-          'Typically 1-2 days installation',
+          'Experienced installation team',
           'Minimal disruption to your home',
+          'Precise fitting and finishing',
           'Final walk-through and adjustments',
-          'Post-installation support'
+          'Post-installation support and warranty'
         ]
       }
     ]
@@ -126,7 +128,7 @@ export const customClosetsPageContent = {
     },
     {
       question: "How long does custom closet installation take?",
-      answer: "The complete process takes 4-6 weeks total: 3-4 weeks for custom manufacturing and 1-2 days for installation. Walk-in closets may require 2 days for installation, while reach-in systems are typically completed in 1 day. We work efficiently to minimize disruption to your daily routine."
+      answer: "Custom closet projects typically take 2-4 weeks to 10-12 weeks from design approval to installation, depending on project complexity and customization requirements. We respect your timeline and keep you updated throughout the entire process."
     },
     {
       question: "Can you design closets for small spaces?",
@@ -138,7 +140,7 @@ export const customClosetsPageContent = {
     },
     {
       question: "Do you provide 3D closet designs?",
-      answer: "Yes, every custom closet project includes detailed 3D renderings. You'll see exactly how your closet will look, where items will be stored, and how the organizational systems function—all before we begin manufacturing. This ensures complete satisfaction with the design."
+      answer: "Yes! Once you commit to your project, we create detailed 3D renderings so you can visualize your new closet system before we build. You'll see exactly how your closet will look, where items will be stored, and how the organizational systems function. This ensures complete satisfaction with the design."
     },
     {
       question: "Can you install closets in condos?",

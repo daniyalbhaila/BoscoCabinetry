@@ -70,7 +70,7 @@ export const cabinetTypesContent = {
       },
       {
         category: "Lead Time",
-        custom: "★★★☆☆ 8-12+ weeks (design + production)",
+        custom: "★★★☆☆ 2-4 to 10-12 weeks depending on complexity",
         semiCustom: "★★★☆☆ 6-10 weeks",
         rta: "★★★★★ 1-2 weeks (in stock, quick ship)"
       },
@@ -106,7 +106,7 @@ export const cabinetTypesContent = {
           { item: "Custom cabinet boxes (exact dimensions)", cost: "$10,000 - $20,000" },
           { item: "Custom doors & drawer fronts", cost: "$4,000 - $8,000" },
           { item: "Premium hardware (soft-close, organizers)", cost: "$1,500 - $3,000" },
-          { item: "Professional design & 3D rendering", cost: "Included (Free)" },
+          { item: "Professional design & 3D rendering", cost: "Included with project" },
           { item: "Professional installation", cost: "Included" },
           { item: "Delivery", cost: "Included" }
         ],

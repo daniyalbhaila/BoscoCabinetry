@@ -44,7 +44,7 @@ export const boscoVsHomeDepotContent = {
         category: "Design Service",
         bosco: {
           rating: "★★★★★",
-          details: "Free in-home consultation, 3D rendering, dedicated designer, unlimited revisions."
+          details: "Free in-home consultation with mood boards. After commitment: detailed 3D renderings, dedicated designer, unlimited revisions."
         },
         homeDepot: {
           rating: "★★★☆☆",
@@ -66,7 +66,7 @@ export const boscoVsHomeDepotContent = {
         category: "Lead Time",
         bosco: {
           rating: "★★★★☆",
-          details: "4-6 weeks from approval to installation. Custom manufacturing required."
+          details: "2-4 to 10-12 weeks depending on complexity. Custom manufacturing and professional installation."
         },
         homeDepot: {
           rating: "★★★☆☆",
@@ -152,7 +152,7 @@ export const boscoVsHomeDepotContent = {
       items: [
         { item: "Custom cabinets (100% custom size)", cost: "$15,000 - $28,000" },
         { item: "Professional installation", cost: "Included" },
-        { item: "Design & 3D rendering", cost: "Free" },
+        { item: "Design consultation & 3D rendering", cost: "Included with project" },
         { item: "Delivery to Toronto area", cost: "Included" },
         { item: "**Total**", cost: "**$15,000 - $28,000**" }
       ],

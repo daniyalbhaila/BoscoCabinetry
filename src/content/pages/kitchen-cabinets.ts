@@ -6,7 +6,7 @@
 export const kitchenPageContent = {
   seo: {
     title: "Kitchen Cabinets Toronto | Design to Install | Bosco Cabinetry",
-    description: "Transform your Toronto kitchen with custom cabinets designed, built & installed by experts. 100+ finishes, 4-6 week turnaround. Free consultation ✓",
+    description: "Transform your Toronto kitchen with custom cabinets designed, built & installed by experts. 100+ finishes, flexible timelines. Free consultation ✓",
     keywords: "custom kitchen cabinets toronto, luxury kitchen cabinets, kitchen renovation toronto, kitchen installer, kitchen cabinetry north york",
     ogImage: "/media/og-image-kitchen.jpg"
   },
@@ -31,8 +31,8 @@ export const kitchenPageContent = {
 
   features: [
     {
-      title: "Custom Design & 3D Rendering",
-      description: "Work with our experienced designers to create your dream kitchen. We provide detailed 3D renderings so you can visualize your space before we build.",
+      title: "Professional Design Service",
+      description: "Work with our experienced designers to create your dream kitchen. After project commitment, we provide detailed 3D renderings so you can visualize your space before we build.",
       icon: "Palette"
     },
     {
@@ -59,29 +59,29 @@ export const kitchenPageContent = {
     steps: [
       {
         step: '01',
-        title: 'Initial Consultation & Design',
-        description: 'Visit our showroom or schedule an in-home consultation to discuss your vision, measure your space, and understand your budget. Our designers create detailed 3D renderings of your new kitchen.',
+        title: 'Free Consultation',
+        description: 'Visit our showroom or schedule an in-home consultation to discuss your vision, measure your space, and understand your budget.',
         icon: "Users",
         features: [
           'Showroom or in-home consultation within 48 hours',
           'Professional space assessment and measurements',
-          'Style and finish recommendations',
-          'Detailed 3D design renderings',
+          'Style and finish recommendations through mood boards',
+          'Initial budget discussion',
           'Transparent pricing - no hidden fees'
         ]
       },
       {
         step: '02',
-        title: 'Material & Hardware Selection',
-        description: 'Visit our 5,500 sq ft showroom to see and touch over 100 finish options. Our team helps you select materials, cabinet hardware, drawer organizers, and accessories that match your style and budget.',
+        title: 'Design Commitment & 3D Rendering',
+        description: 'Once you commit to your project, we create detailed 3D renderings and finalize material selections at our showroom.',
         icon: "Ruler",
         features: [
+          'Detailed 3D renderings of your new kitchen',
           'Guided showroom tour with interior design consultation',
           '100+ finish options including crown molding profiles',
           'Premium materials: plywood, MDF, bamboo board',
           'Cabinet hardware selection: soft-close hinges, undermount slides',
-          'Drawer organizers and storage accessories',
-          'Final design approval and quote'
+          'Drawer organizers and storage accessories'
         ]
       },
       {
@@ -90,11 +90,11 @@ export const kitchenPageContent = {
         description: 'Your cabinets are precision-crafted using premium materials and quality construction methods. Rigorous inspection ensures every piece meets our standards.',
         icon: "Hammer",
         features: [
-          '3-4 weeks manufacturing timeline',
           'Premium materials and construction',
           'Quality control at every stage',
           'Regular progress updates',
-          'Eco-friendly finishing processes'
+          'Eco-friendly finishing processes',
+          'Precision craftsmanship'
         ]
       },
       {
@@ -104,8 +104,8 @@ export const kitchenPageContent = {
         icon: "CheckCircle",
         features: [
           'Experienced installation team',
-          '1-2 weeks installation timeline',
           'Minimal disruption to your home',
+          'Precise fitting and finishing',
           'Final walk-through and inspection',
           'Post-installation support and warranty'
         ]
@@ -125,7 +125,7 @@ export const kitchenPageContent = {
     },
     {
       question: "How long does it take to get custom kitchen cabinets?",
-      answer: "Our typical timeline is 4-6 weeks total from design approval to installation. This includes 3-4 weeks for custom manufacturing in our North York facility and 1-2 weeks for professional installation. We respect your timeline and keep you updated throughout the entire process."
+      answer: "Our typical timeline is 2-4 weeks to 10-12 weeks from design approval to installation, depending on project complexity and customization requirements. We respect your timeline and keep you updated throughout the entire process."
     },
     {
       question: "What types of kitchen cabinet styles do you offer?",
@@ -133,11 +133,7 @@ export const kitchenPageContent = {
     },
     {
       question: "Do you provide 3D kitchen design renderings?",
-      answer: "Yes! All our kitchen projects include detailed 3D design renderings so you can visualize your new space before we build. This ensures you're 100% satisfied with the design, layout, and finishes before we start manufacturing."
-    },
-    {
-      question: "Are your kitchen cabinets made locally in Toronto?",
-      answer: "Absolutely. All our kitchen cabinets are custom-built in our 5,500 sq ft North York facility. We don't import pre-made cabinets - everything is precision-crafted locally using premium materials. This allows us to offer custom sizing, unique designs, and faster turnaround times."
+      answer: "Yes! Once you commit to your project, we create detailed 3D design renderings so you can visualize your new space before we build. This ensures you're 100% satisfied with the design, layout, and finishes before manufacturing begins."
     },
     {
       question: "What materials do you use for kitchen cabinets?",
@@ -168,14 +164,14 @@ export const kitchenPageContent = {
       title: "Custom Kitchen Cabinet Design Services",
       content: `<p>Every kitchen renovation begins with thoughtful design. Our experienced team works closely with homeowners throughout Toronto to create custom cabinet solutions that maximize space and reflect personal style.</p>
 
-<p>From initial measurements to detailed 3D renderings, we ensure every aspect of your kitchen cabinetry is planned to perfection. Our designers consider workflow, storage needs, and aesthetic preferences to create a kitchen that works beautifully.</p>
+<p>From initial measurements to professional design planning, we ensure every aspect of your kitchen cabinetry is planned to perfection. Our designers consider workflow, storage needs, and aesthetic preferences to create a kitchen that works beautifully.</p>
 
 <h3>Design Process</h3>
-<p>We start with an initial consultation (at our showroom or in your home) to understand your vision and measure your space accurately. Our team then develops detailed plans and photorealistic 3D renderings, allowing you to visualize the finished kitchen before any work begins. Design revisions ensure complete satisfaction with the final design.</p>`,
+<p>We start with a free consultation (at our showroom or in your home) to understand your vision and measure your space accurately. Once you commit to your project, our team develops detailed plans and photorealistic 3D renderings, allowing you to visualize the finished kitchen before manufacturing begins. Design revisions ensure complete satisfaction with the final design.</p>`,
       features: [
         "Complimentary initial consultation (showroom or home)",
         "Professional space planning and measurements",
-        "Detailed 3D renderings and visualizations",
+        "3D renderings after project commitment",
         "Design revisions included",
         "Expert guidance on materials and finishes"
       ]
@@ -202,7 +198,7 @@ export const kitchenPageContent = {
       title: "Professional Kitchen Cabinet Installation",
       content: `<p>Expert installation is included with every kitchen cabinet project. Our experienced installation team ensures precise fitting, proper alignment, and flawless finishing touches.</p>
 
-<p>Installation typically takes 1-2 weeks depending on project scope. The team works efficiently to minimize disruption to your home while maintaining the highest standards of workmanship.</p>
+<p>Our installation team works efficiently to minimize disruption to your home while maintaining the highest standards of workmanship. Timeline varies based on project scope and complexity.</p>
 
 <h3>Installation Service</h3>
 <p>From cabinet mounting to hardware installation and final adjustments, every detail receives attention. We handle plumbing and electrical coordination when needed, ensuring seamless integration with your kitchen renovation.</p>`,

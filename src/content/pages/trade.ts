@@ -71,12 +71,12 @@ export const tradePageContent = {
 			},
 			{
 				title: "Fast Project Turnaround",
-				description: "4-6 week standard lead times with rush order capabilities. Real-time production updates and dedicated trade coordinator.",
+				description: "Flexible lead times depending on project complexity with rush order capabilities. Real-time production updates and dedicated trade coordinator.",
 				icon: "clock"
 			},
 			{
 				title: "Design Support Included",
-				description: "Free 3D rendering for your clients, material & finish consultations, installation guidance, and showroom access for client meetings.",
+				description: "3D rendering services for committed projects, material & finish consultations, installation guidance, and showroom access for client meetings.",
 				icon: "palette"
 			},
 			{
@@ -298,11 +298,11 @@ export const tradePageContent = {
 			},
 			{
 				question: "What are typical lead times for projects?",
-				answer: "Standard lead time is 4-6 weeks from order approval to delivery. Rush orders can be accommodated based on production schedule. We provide real-time updates throughout production and maintain consistent timelines."
+				answer: "Lead times typically range from 2-4 weeks to 10-12 weeks depending on project complexity and customization requirements. Rush orders can be accommodated based on production schedule. We provide real-time updates throughout production and respect your project timelines."
 			},
 			{
 				question: "Do you offer design support for my clients?",
-				answer: "Yes, all trade accounts include complimentary design consultations and 3D rendering services for your client presentations. You can also bring clients to our showroom for material selection meetings."
+				answer: "Yes, all trade accounts include complimentary design consultations. Once your clients commit to their projects, we provide detailed 3D rendering services for professional presentations. You can also bring clients to our showroom for material selection meetings."
 			},
 			{
 				question: "What certifications do your cabinets have?",

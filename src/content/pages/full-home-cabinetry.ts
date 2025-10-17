@@ -69,12 +69,12 @@ export const fullHomeCabinetryPageContent = {
       },
       {
         step: '02',
-        title: 'Unified Design Development',
-        description: 'Our designers create coordinated plans for kitchen, bathrooms, closets, and built-ins. 3D renderings show how finishes and styles work together throughout your home.',
+        title: 'Design Commitment & Unified Development',
+        description: 'Once you commit to your project, our designers create coordinated plans for kitchen, bathrooms, closets, and built-ins. Detailed 3D renderings show how finishes and styles work together throughout your home.',
         icon: "Palette",
         features: [
-          'Coordinated design for all spaces',
-          '3D renderings of each room',
+          'Coordinated design planning for all spaces',
+          'Detailed 3D renderings of each room',
           'Unified finish and material palette',
           'Hardware coordination across spaces',
           'Final whole-home design approval'
@@ -99,10 +99,10 @@ export const fullHomeCabinetryPageContent = {
         description: 'All cabinetry is manufactured together, ensuring perfect finish matching and quality consistency across every room. Batch production provides cost efficiencies.',
         icon: "Hammer",
         features: [
-          '4-6 weeks total manufacturing',
           'Coordinated production schedule',
           'Finish consistency across all units',
           'Quality control for all components',
+          'Progress updates throughout',
           'Delivery coordination'
         ]
       },
@@ -138,7 +138,7 @@ export const fullHomeCabinetryPageContent = {
     },
     {
       question: "How long does a full home cabinetry project take?",
-      answer: "Complete whole-home cabinetry projects typically take 6-10 weeks total: 1-2 weeks for comprehensive design and approvals, 4-6 weeks for coordinated manufacturing, and 2-3 weeks for installation across all spaces. Timeline varies based on home size and project scope. We provide detailed schedules during consultation."
+      answer: "Complete whole-home cabinetry projects typically take 4-8 weeks to 14-16 weeks from design approval to installation, depending on home size, project complexity, and customization requirements. We respect your timeline and provide detailed schedules during consultation to keep you updated throughout the entire process."
     },
     {
       question: "Is whole-home cabinetry only for new construction?",
@@ -166,7 +166,7 @@ export const fullHomeCabinetryPageContent = {
     },
     {
       question: "Do you provide whole-home 3D renderings?",
-      answer: "Yes, full home cabinetry projects include comprehensive 3D renderings for every space—kitchen, bathrooms, closets, and built-ins. You'll visualize how finishes work together throughout your home before manufacturing begins. This ensures complete satisfaction with the coordinated design and allows for adjustments before production."
+      answer: "Yes! Once you commit to your project, we create comprehensive 3D renderings for every space—kitchen, bathrooms, closets, and built-ins. You'll visualize how finishes work together throughout your home before manufacturing begins. This ensures complete satisfaction with the coordinated design and allows for adjustments before production."
     }
   ],
 

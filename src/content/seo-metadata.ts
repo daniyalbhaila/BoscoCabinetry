@@ -16,7 +16,7 @@ export interface SEOMetadata {
 export const homepageSEO: SEOMetadata = {
   // Primary (60 chars) - Keyword-first, emotional trigger, brand
   title: "Custom Cabinets Toronto | Luxury Quality | Bosco Cabinetry",
-  description: "Transform your Toronto home with custom kitchen cabinets, closets & built-ins. 100+ finishes, 100+ completed projects, free 3D design. Book consultation ✓",
+  description: "Transform your Toronto home with custom kitchen cabinets, closets & built-ins. 100+ finishes, 100+ completed projects, professional design. Book consultation ✓",
   keywords: "custom cabinets toronto, kitchen cabinets, custom closets, built-ins, cabinetry north york, luxury cabinets affordable",
   ogImage: "/media/og-image-homepage.jpg",
 
@@ -25,7 +25,7 @@ export const homepageSEO: SEOMetadata = {
     "Kitchen Cabinets Toronto | 100+ Finishes | Bosco Cabinetry", // 59 chars
     "Toronto Custom Cabinets | Kitchen & Closets | Bosco Cabinetry", // 52 chars
     "Luxury Cabinets Toronto | Affordable | Bosco Cabinetry", // 55 chars
-    "Custom Cabinetry Toronto | Free Design | Bosco Cabinetry", // 47 chars
+    "Custom Cabinetry Toronto | Professional Design | Bosco Cabinetry", // 55 chars
   ],
   descriptionVariations: [
     "Discover custom kitchen cabinets, closets & built-ins in Toronto. 5,500 sq ft showroom, 100+ premium finishes, expert installation. Book your free consultation today ✓", // 159 chars
@@ -77,7 +77,7 @@ export const servicesHubSEO: SEOMetadata = {
 export const kitchenCabinetsSEO: SEOMetadata = {
   // Already optimized in content file, but providing variations
   title: "Kitchen Cabinets Toronto | Design to Install | Bosco",
-  description: "Transform your Toronto kitchen with custom cabinets designed, built & installed by experts. 100+ finishes, 4-6 week turnaround. Free consultation ✓",
+  description: "Transform your Toronto kitchen with custom cabinets designed, built & installed by experts. 100+ finishes, flexible timelines. Free consultation ✓",
   keywords: "custom kitchen cabinets toronto, luxury kitchen cabinets, kitchen renovation toronto, kitchen installer, kitchen cabinetry north york",
   ogImage: "/media/og-image-kitchen.jpg",
 
@@ -85,12 +85,12 @@ export const kitchenCabinetsSEO: SEOMetadata = {
     "Toronto Kitchen Cabinets | Custom Design | Bosco", // 48 chars
     "Luxury Kitchen Cabinets Toronto | Bosco Cabinetry", // 50 chars
     "Custom Kitchen Renovation Toronto | Bosco", // 42 chars
-    "Kitchen Cabinets Toronto | Free 3D Design | Bosco", // 50 chars
+    "Kitchen Cabinets Toronto | Professional Design | Bosco", // 55 chars
   ],
   descriptionVariations: [
-    "Expert kitchen cabinet design & installation in Toronto. 100+ luxury finishes, 3D rendering, 4-6 week delivery. 100+ completed projects. Book free consultation →", // 160 chars
+    "Expert kitchen cabinet design & installation in Toronto. 100+ luxury finishes, professional design, flexible timelines. 100+ completed projects. Book free consultation →", // 173 chars
     "Custom kitchen cabinets crafted in Toronto. Luxury quality at affordable prices. Professional design, premium materials, expert installation. Get quote ★", // 156 chars
-    "Transform your Toronto kitchen with custom cabinets. Shaker, modern, traditional styles. 100+ finishes in North York showroom. Free design consultation ✓", // 158 chars
+    "Transform your Toronto kitchen with custom cabinets. Shaker, modern, traditional styles. 100+ finishes in our showroom. Professional design consultation ✓", // 157 chars
   ]
 };
 
@@ -109,7 +109,7 @@ export const customClosetsSEO: SEOMetadata = {
   ],
   descriptionVariations: [
     "Custom closet solutions for Toronto homes. Walk-in wardrobes, reach-in systems, mudroom storage. Expert design, 100+ finishes, professional installation →", // 157 chars
-    "Maximize storage with custom closets. Walk-in, reach-in & mudroom systems designed for Toronto homes. Free consultation, 3D design, expert installation ★", // 158 chars
+    "Maximize storage with custom closets. Walk-in, reach-in & mudroom systems designed for Toronto homes. Free consultation, professional design, expert installation ★", // 168 chars
     "Luxury closet organization systems. Custom walk-in wardrobes & reach-in closets. Serving Toronto GTA with expert design & installation. Book consultation ✓", // 159 chars
   ]
 };

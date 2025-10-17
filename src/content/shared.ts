@@ -39,7 +39,7 @@ export const companyInfo = {
       location: 'North York Location'
     },
     facility: {
-      description: 'North York facility',
+      description: 'our facility',
       location: 'North York'
     }
   },
@@ -92,9 +92,9 @@ export const companyInfo = {
   // Timelines
   timelines: {
     consultation: 'within 48 hours',
-    manufacturing: '3-4 weeks',
-    installation: '1-2 weeks',
-    total: '4-6 weeks from approval',
+    manufacturing: 'varies by project',
+    installation: 'varies by project',
+    total: '2-4 weeks to 10-12 weeks depending on complexity',
     emailResponse: 'within 24 hours'
   },
 
@@ -198,7 +198,7 @@ export const companyDescriptions = {
 
       <div>
         <h3 class="text-xl font-bold mb-3">North York Cabinetry Showroom</h3>
-        <p>Located at 85 Brisbane Rd, our North York facility serves as both our showroom and design center. North York homeowners can visit to explore custom kitchen cabinets, walk-in closet systems, bathroom vanities, and built-in cabinetry with our in-house designers.</p>
+        <p>Located at 85 Brisbane Rd, our North York showroom and design center welcomes homeowners to explore custom kitchen cabinets, walk-in closet systems, bathroom vanities, and built-in cabinetry with our in-house designers.</p>
       </div>
 
       <div>

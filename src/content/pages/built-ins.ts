@@ -56,24 +56,27 @@ export const builtInsPageContent = {
     steps: [
       {
         step: '01',
-        title: 'Space Assessment & Design',
-        description: 'We measure your space, discuss functional requirements, and design built-ins that maximize utility while complementing your home\'s architecture.',
+        title: 'Free Consultation & Space Assessment',
+        description: 'We measure your space, discuss functional requirements, and provide design recommendations at our showroom or in your home.',
         icon: "Users",
         features: [
+          'Showroom or in-home consultation',
           'Detailed space measurements and assessment',
           'Architectural feature evaluation',
           'Functional needs consultation',
-          '3D renderings and visualizations',
+          'Style recommendations through mood boards',
+          'Initial budget discussion',
           'Transparent project pricing'
         ]
       },
       {
         step: '02',
-        title: 'Material & Hardware Selection',
-        description: 'Visit our showroom to select finishes, shelving options, and premium cabinet hardware. Our interior design team guides you through soft-close hinges, drawer organizers, and accessories that match your home improvement vision.',
+        title: 'Design Commitment & 3D Rendering',
+        description: 'Once you commit to your project, we create detailed 3D renderings and finalize material selections at our showroom. Our interior design team guides you through finish options, premium cabinet hardware, and accessories.',
         icon: "Ruler",
         features: [
-          'Showroom tour with interior design consultation',
+          'Detailed 3D renderings and visualizations',
+          'Guided showroom tour with interior design consultation',
           '100+ finish options for built-ins',
           'Premium cabinet hardware: soft-close hinges and slides',
           'Drawer organizers and storage accessories',
@@ -87,11 +90,11 @@ export const builtInsPageContent = {
         description: 'Your built-in components are precision-crafted to fit your space exactly. Every piece is quality-checked to ensure perfect integration with your walls and architecture.',
         icon: "Hammer",
         features: [
-          '3-4 weeks manufacturing timeline',
           'Exact measurements for perfect fit',
           'Quality materials and construction',
           'Pre-installation quality checks',
-          'Progress updates throughout'
+          'Progress updates throughout',
+          'Rigorous quality control'
         ]
       },
       {
@@ -100,10 +103,10 @@ export const builtInsPageContent = {
         description: 'Expert installers mount and secure your built-ins with precision. We ensure seamless integration with walls, perfect leveling, and clean finishing touches.',
         icon: "CheckCircle",
         features: [
-          'Professional installation team',
-          'Typically 2-3 days installation',
+          'Experienced installation team',
           'Wall anchoring and leveling',
           'Electrical integration if needed',
+          'Minimal disruption to your home',
           'Complete cleanup and final inspection'
         ]
       }
@@ -126,7 +129,7 @@ export const builtInsPageContent = {
     },
     {
       question: "How long does built-in installation take?",
-      answer: "The complete process takes 4-6 weeks: 3-4 weeks for custom manufacturing and 2-3 days for installation. Complex projects like full entertainment walls may require 3-4 days for installation. We work efficiently to minimize disruption to your home while ensuring precise, quality installation."
+      answer: "Built-in cabinetry projects typically take 2-4 weeks to 10-12 weeks from design approval to installation, depending on project complexity and customization requirements. We respect your timeline and keep you updated throughout the entire process."
     },
     {
       question: "Can built-ins be installed in condos?",
@@ -150,7 +153,7 @@ export const builtInsPageContent = {
     },
     {
       question: "Do you provide 3D renderings for built-in projects?",
-      answer: "Yes, every built-in project includes detailed 3D renderings showing exactly how the cabinetry will integrate with your space. You'll see finish options, shelving configurations, and how built-ins work with your room's architecture—all before manufacturing begins."
+      answer: "Yes! Once you commit to your project, we create detailed 3D renderings showing exactly how the cabinetry will integrate with your space. You'll see finish options, shelving configurations, and how built-ins work with your room's architecture—all before manufacturing begins."
     },
     {
       question: "Can I see built-in examples before deciding?",

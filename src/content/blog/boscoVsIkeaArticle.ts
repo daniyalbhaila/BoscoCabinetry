@@ -66,7 +66,7 @@ export const boscoVsIkeaContent = {
         category: "Lead Time",
         bosco: {
           rating: "★★★★☆",
-          details: "4-6 weeks from order to installation. Custom manufacturing required."
+          details: "2-4 to 10-12 weeks depending on complexity. Custom manufacturing and professional installation."
         },
         ikea: {
           rating: "★★★★★",
@@ -88,7 +88,7 @@ export const boscoVsIkeaContent = {
         category: "Design Support",
         bosco: {
           rating: "★★★★★",
-          details: "Free in-home consultation, 3D rendering, dedicated designer, revisions included."
+          details: "Free in-home consultation with mood boards. After commitment: detailed 3D renderings, dedicated designer, unlimited revisions."
         },
         ikea: {
           rating: "★★★☆☆",
@@ -117,7 +117,7 @@ export const boscoVsIkeaContent = {
       items: [
         { item: "Custom cabinets (boxes, doors, hardware)", cost: "$15,000 - $28,000" },
         { item: "Professional installation", cost: "Included" },
-        { item: "Design & 3D rendering", cost: "Free" },
+        { item: "Design consultation & 3D rendering", cost: "Included with project" },
         { item: "Delivery", cost: "Included" },
         { item: "**Total**", cost: "**$15,000 - $28,000**" }
       ],
@@ -191,7 +191,7 @@ export const boscoVsIkeaContent = {
   // Final CTA
   cta: {
     title: "Ready for Custom Cabinets That Last?",
-    description: "See why Toronto homeowners choose Bosco Cabinetry over IKEA and big-box stores. Book your free consultation and 3D design today.",
+    description: "See why Toronto homeowners choose Bosco Cabinetry over IKEA and big-box stores. Book your free consultation today.",
     primaryAction: {
       text: "Book Free Consultation",
       href: "/contact"

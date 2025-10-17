@@ -172,7 +172,7 @@ export function generateServiceSchema(service: {
 // Kitchen Cabinets Service Schema
 export const kitchenCabinetsServiceSchema = generateServiceSchema({
   name: "Custom Kitchen Cabinets",
-  description: "Professional custom kitchen cabinet design, manufacturing, and installation in Toronto and GTA. 100+ premium finishes, 3D design, 4-6 week turnaround.",
+  description: "Professional custom kitchen cabinet design, manufacturing, and installation in Toronto and GTA. 100+ premium finishes, flexible timelines, expert installation.",
   url: "/services/kitchen-cabinets",
   image: "https://boscocabinetry.com/media/og-image-kitchen.jpg"
 });
