@@ -146,50 +146,6 @@ export const tradePageContent = {
 		`
 	},
 
-	// Trade Testimonials
-	testimonials: {
-		tag: "Trusted by Trade Professionals",
-		title: "What GTA Contractors & Designers Say",
-		description: "Join the growing number of Toronto-area trade professionals who rely on Bosco Cabinetry for their cabinet projects.",
-		reviews: [
-			{
-				name: "Michael Chen",
-				company: "Chen Custom Homes",
-				location: "Markham",
-				role: "Custom Home Builder",
-				rating: 5,
-				quote: "We've been working with Bosco Cabinetry on our luxury home projects for the past year. The quality is consistently excellent, and their understanding of custom home requirements makes the entire process smooth. The showroom in North York is perfect for bringing our clients to finalize selections.",
-				project: "12 custom homes, $50K+ cabinet packages"
-			},
-			{
-				name: "Sarah Rodriguez",
-				company: "Urban Spaces Design",
-				location: "Toronto",
-				role: "Interior Designer",
-				rating: 5,
-				quote: "As a designer working primarily in downtown Toronto condos, I need a supplier who understands tight timelines and challenging logistics. Bosco Cabinetry delivers every time. Their trade program pricing allows me to offer premium cabinetry to my clients while maintaining healthy project margins.",
-				project: "Condo renovations, design/build projects"
-			},
-			{
-				name: "David Thompson",
-				company: "Thompson Development Group",
-				location: "Vaughan",
-				role: "Multi-Unit Developer",
-				rating: 5,
-				quote: "We just completed a 24-unit townhome project in Vaughan using Bosco Cabinetry's cabinet systems throughout. The consistency between units was impressive, delivery was on schedule, and their trade pricing made the numbers work. We're already planning to use them on our next development.",
-				project: "24-unit townhome development"
-			},
-			{
-				name: "Jennifer Park",
-				company: "Park Renovations",
-				location: "North York",
-				role: "Renovation Contractor",
-				rating: 5,
-				quote: "Working in North York gives us easy access to the Bosco Cabinetry showroom, which our clients love. The trade account process was simple, NET 30 terms help with cash flow, and the quality is better than what we were getting from big box stores at similar wholesale pricing.",
-				project: "Kitchen & bathroom renovations"
-			}
-		]
-	},
 
 	// Product Collections
 	productShowcase: {
