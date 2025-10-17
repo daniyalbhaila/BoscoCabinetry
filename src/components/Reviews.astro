@@ -214,10 +214,7 @@ const classes = getThemeClasses(theme);
 		<div class={`inline-flex items-center gap-4 rounded-2xl border ${classes.card} p-6 shadow-lg`}>
 			<div class="flex items-center gap-2">
 				<Star class="h-6 w-6 text-brand-accent" fill="currentColor" />
-				<div>
-					<p class={`text-lg font-semibold ${classes.heading}`}>{companyInfo.stats.googleRating} on Google</p>
-					<p class={`text-sm ${classes.muted}`}>{companyInfo.stats.googleReviews}</p>
-				</div>
+				<p class={`text-lg font-semibold ${classes.heading}`}>Read Our Google Reviews</p>
 			</div>
 			<Button
 				href={companyInfo.urls.googleReviews}
@@ -226,7 +223,7 @@ const classes = getThemeClasses(theme);
 				variant="ghost"
 				size="sm"
 			>
-				See More on Google
+				View on Google
 			</Button>
 		</div>
 	</div>

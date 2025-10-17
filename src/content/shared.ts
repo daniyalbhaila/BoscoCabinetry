@@ -46,16 +46,16 @@ export const companyInfo = {
 
   // Business Hours
   hours: {
-    monday: { open: '8:00 AM', close: '6:00 PM' },
-    tuesday: { open: '8:00 AM', close: '6:00 PM' },
-    wednesday: { open: '8:00 AM', close: '6:00 PM' },
-    thursday: { open: '8:00 AM', close: '6:00 PM' },
-    friday: { open: '8:00 AM', close: '6:00 PM' },
-    saturday: { open: '9:00 AM', close: '4:00 PM' },
+    monday: { open: '10:00 AM', close: '7:00 PM' },
+    tuesday: { open: '10:00 AM', close: '7:00 PM' },
+    wednesday: { open: '10:00 AM', close: '7:00 PM' },
+    thursday: { open: '10:00 AM', close: '7:00 PM' },
+    friday: { open: '10:00 AM', close: '7:00 PM' },
+    saturday: { open: '10:00 AM', close: '5:00 PM' },
     sunday: 'By Appointment Only',
     display: {
-      weekdays: 'Monday - Friday: 8:00 AM - 6:00 PM',
-      saturday: 'Saturday: 9:00 AM - 4:00 PM',
+      weekdays: 'Monday - Friday: 10:00 AM - 7:00 PM',
+      saturday: 'Saturday: 10:00 AM - 5:00 PM',
       sunday: 'Sunday: By Appointment Only'
     }
   },
@@ -64,9 +64,7 @@ export const companyInfo = {
   stats: {
     experience: '100+ projects',
     showroomSize: '5,500 sq ft',
-    finishOptions: '100+ finishes',
-    googleRating: '4.9/5',
-    googleReviews: '200+ verified reviews'
+    finishOptions: '100+ finishes'
   },
 
   // Service Areas
@@ -86,7 +84,9 @@ export const companyInfo = {
     { value: 'kitchen-cabinets', label: 'Kitchen Cabinets' },
     { value: 'custom-closets', label: 'Custom Closets' },
     { value: 'built-ins', label: 'Built-ins & Media Walls' },
-    { value: 'full-home-cabinetry', label: 'Full Home Cabinetry' }
+    { value: 'full-home-cabinetry', label: 'Full Home Cabinetry' },
+    { value: 'multiple-projects', label: 'Multiple Projects' },
+    { value: 'other', label: 'Other' }
   ],
 
   // Timelines
