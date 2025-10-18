@@ -1,0 +1,35 @@
+# Netlify Redirects Configuration
+# Preserves SEO during migration from WordPress to Astro
+
+# Core page redirects
+/get-in-touch/                    /contact                301
+/our-company/                     /about                  301
+/our-design-process/              /about                  301
+/projects/                        /portfolio              301
+
+# Product page to Services redirects
+/products/                        /services               301
+/products/materials/              /services               301
+/products/accessories/            /services               301
+/products/countertops/            /services               301
+/products/curated-designs/        /portfolio              301
+
+# Specific product pages to specific services
+/products/kitchen-renovations/    /services/kitchen-cabinets    301
+/products/closets-built-ins/      /services/custom-closets      301
+/products/wall-units-paneling/    /services/built-ins           301
+/products/custom-spaces/          /services/full-home-cabinetry 301
+
+# Project redirects (wildcard catches all individual projects)
+/project/*                        /portfolio              301
+/project-cat/*                    /portfolio              301
+
+# WordPress/Elementor system pages (return 410 Gone)
+/elementor-hf/*                   /                       410
+
+# Trailing slash normalization (ensures consistency)
+/about/                           /about                  301
+/contact/                         /contact                301
+/services/                        /services               301
+/portfolio/                       /portfolio              301
+/sustainability/                  /sustainability         301
