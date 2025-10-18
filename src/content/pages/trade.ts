@@ -14,7 +14,7 @@ export const tradePageContent = {
 		],
 		ctaButtons: [
 			{ text: "Open a Trade Account", href: "#trade-account", variant: "primary" as const },
-			{ text: "Download Trade Catalog", href: "#catalog", variant: "ghost" as const }
+			{ text: "Contact Trade Team", href: "#contact", variant: "ghost" as const }
 		]
 	},
 
@@ -58,6 +58,41 @@ export const tradePageContent = {
 		]
 	},
 
+	// Environmental Features Section
+	environmental: {
+		tag: "Sustainable Manufacturing",
+		title: "Environmental Responsibility Meets Beautiful Design",
+		description: "At Bosco Cabinetry, we believe beautiful design and environmental responsibility work hand in hand. Through our exclusive manufacturing partnership, we bring sustainable solutions to every project.",
+		features: [
+			{
+				title: "Air-Purifying Technology",
+				description: "24/7 air-purifying technology that works continuously",
+				icon: "wind"
+			},
+			{
+				title: "Zero-Added Formaldehyde",
+				description: "EPA & CARB certified materials with no added formaldehyde",
+				icon: "shield-check"
+			},
+			{
+				title: "Sustainable Materials",
+				description: "Eco-friendly bamboo materials with natural properties",
+				icon: "leaf"
+			},
+			{
+				title: "Certified Manufacturing",
+				description: "ISO 14001 certified manufacturing processes",
+				icon: "award"
+			}
+		],
+		promise: [
+			"Making sustainable choices accessible at competitive prices",
+			"Offering eco-friendly alternatives without compromising quality",
+			"Providing healthier living environments for families",
+			"Supporting sustainable manufacturing practices"
+		]
+	},
+
 	// Why Trade with Bosco Section
 	tradeAdvantages: {
 		tag: "Trade Advantages",
@@ -65,18 +100,8 @@ export const tradePageContent = {
 		description: "Founded by a builder who understands trade timelines, budgets, and expectations. We've designed our trade program around your real needs.",
 		advantages: [
 			{
-				title: "Transparent Wholesale Pricing",
-				description: "Factory-direct cost structure with volume discount tiers. No hidden fees or surprises. NET 30 terms for approved accounts.",
-				icon: "dollar-sign"
-			},
-			{
-				title: "Fast Project Turnaround",
-				description: "Flexible lead times depending on project complexity with rush order capabilities. Real-time production updates and dedicated trade coordinator.",
-				icon: "clock"
-			},
-			{
-				title: "Design Support Included",
-				description: "3D rendering services for committed projects, material & finish consultations, installation guidance, and showroom access for client meetings.",
+				title: "Design Support Available",
+				description: "Professional design consultations, material & finish selection guidance, installation support, and showroom access for client meetings.",
 				icon: "palette"
 			},
 			{
@@ -92,24 +117,22 @@ export const tradePageContent = {
 		tag: "Trade Account Benefits",
 		title: "What's Included in Your Trade Account",
 		benefits: [
-			"Wholesale pricing access",
 			"Priority production scheduling",
 			"Dedicated account manager",
-			"Free design consultations",
+			"Design consultations",
 			"Showroom access for clients",
 			"Technical support & drawings",
 			"Sample cabinet program",
-			"Marketing materials for your clients",
-			"NET 30 payment terms",
-			"Volume discount tiers"
+			"Professional project coordination",
+			"Quality assurance & inspections"
 		],
 		ctaCard: {
 			title: "Ready to Get Started?",
 			points: [
-				"Open your trade account in 5 minutes",
-				"Upload business license & insurance",
-				"Start ordering with approved credit",
-				"No minimum order requirements"
+				"Open your trade account",
+				"Provide business details - name, address, etc.",
+				"Someone will be in touch",
+				"Start ordering quality cabinetry"
 			],
 			primaryCta: { text: "Apply for Trade Account", href: "/trade/apply" },
 			secondaryCta: { text: "Talk to our trade team", href: "#contact" }
@@ -201,32 +224,57 @@ export const tradePageContent = {
 				description: "Built-in cabinetry adds significant perceived value to new homes and renovations across North York, Scarborough, and beyond. Media walls, home office systems, and custom storage solutions help GTA builders stand out in competitive markets. Our manufacturing flexibility handles even complex custom designs.",
 				link: "/services/built-ins"
 			}
-		],
-		catalogCta: "Download Complete Trade Catalog"
+		]
+	},
+
+	// Materials & Finishes Section
+	materials: {
+		tag: "Material Options",
+		title: "Comprehensive Material & Finish Selection",
+		description: "Choose from a wide range of base materials and finishing options to match any project specification.",
+		baseMaterials: {
+			title: "Base Materials",
+			options: [
+				"Plywood",
+				"Particle Board",
+				"Bamboo Board",
+				"MDF",
+				"Solid Wood options"
+			]
+		},
+		finishingMaterials: {
+			title: "Finishing Materials",
+			options: [
+				"Paint finish",
+				"Variety of laminate and film finishes/coatings including melamine, PVC, PET, UV, EB",
+				"Solid wood",
+				"Wood veneer"
+			]
+		}
 	},
 
 	// Process Steps
 	process: {
 		tag: "How It Works",
 		title: "Your Trade Account in 4 Simple Steps",
-		description: "We've streamlined the process so you can start ordering premium cabinets for your projects quickly.",
+		description: "We've streamlined the process so you can start ordering premium cabinets for your projects.",
 		steps: [
 			{
 				number: 1,
 				title: "Apply Online",
-				description: "Submit business details, upload license & insurance. 24-48 hour approval.",
+				description: "Submit business details - name, address, etc. Someone will be in touch to discuss your needs.",
 				icon: "file-text"
 			},
 			{
 				number: 2,
-				title: "Browse Catalog",
-				description: "Access full product line, view wholesale pricing, download specifications.",
+				title: "Explore Options",
+				description: "Access full product line, review specifications, and material options.",
 				icon: "book-open"
 			},
 			{
 				number: 3,
 				title: "Submit Projects",
-				description: "Upload floor plans, select finishes & hardware. Receive quote within 24 hours.",
+				description: "Upload floor plans, select finishes & hardware. Our team will provide a detailed quote.",
 				icon: "send"
 			},
 			{
@@ -246,19 +294,15 @@ export const tradePageContent = {
 		questions: [
 			{
 				question: "What are the requirements to open a trade account?",
-				answer: "We require a valid business license, proof of insurance, and business references. Our team reviews applications within 24-48 hours. There are no minimum order requirements to maintain your account."
-			},
-			{
-				question: "What are your payment terms?",
-				answer: "Approved trade accounts receive NET 30 payment terms. We also accept credit card, wire transfer, and certified check. Volume discounts are available based on annual purchasing volume."
+				answer: "Simply provide your business details including business name, address, and contact information. Our team will review your application and someone will be in touch to discuss next steps and get you set up."
 			},
 			{
 				question: "What are typical lead times for projects?",
-				answer: "Lead times typically range from 2-4 weeks to 10-12 weeks depending on project complexity and customization requirements. Rush orders can be accommodated based on production schedule. We provide real-time updates throughout production and respect your project timelines."
+				answer: "Lead times range from 2-4 weeks to 10-12 weeks depending on project complexity and customization requirements. We provide real-time updates throughout production and work to respect your project timelines."
 			},
 			{
 				question: "Do you offer design support for my clients?",
-				answer: "Yes, all trade accounts include complimentary design consultations. Once your clients commit to their projects, we provide detailed 3D rendering services for professional presentations. You can also bring clients to our showroom for material selection meetings."
+				answer: "Yes, all trade accounts include professional design consultations. We can provide rendering services to help with project presentations. You can also bring clients to our showroom for material selection meetings."
 			},
 			{
 				question: "What certifications do your cabinets have?",
@@ -269,8 +313,8 @@ export const tradePageContent = {
 				answer: "Yes, trade accounts have access to our sample program. You can order door samples, finish samples, and hardware samples to show clients. Sample costs are credited toward your first project order."
 			},
 			{
-				question: "What styles and finishes are available?",
-				answer: "We offer modern frameless, shaker, transitional, and traditional styles. Our finish selection includes painted, stained, thermofoil, and high-gloss options. Download our trade catalog for the complete collection."
+				question: "What materials and finishes are available?",
+				answer: "We offer a comprehensive range of base materials including plywood, particle board, bamboo board, MDF, and solid wood options. Finishing materials include paint finishes, a variety of laminate and film finishes/coatings (melamine, PVC, PET, UV, EB), solid wood, and wood veneer. We offer modern frameless, shaker, transitional, and traditional styles. Contact our trade team to discuss the best materials for your specific project requirements."
 			},
 			{
 				question: "Do you provide installation support?",
@@ -287,32 +331,16 @@ export const tradePageContent = {
 		]
 	},
 
-	// Catalog Download (Lead Magnet)
-	catalogDownload: {
-		tag: "Free Trade Resource",
-		title: "Download the Complete Trade Catalog",
-		description: "Get instant access to our full product line, specifications, finish options, and wholesale pricing tiers.",
-		benefits: [
-			"Complete cabinet collection with specs",
-			"All finish & hardware options",
-			"Wholesale pricing tier structure",
-			"Lead time & ordering process",
-			"Installation guidelines",
-			"Technical drawings & dimensions"
-		],
-		formName: "trade-catalog"
-	},
-
 	// Final CTA
 	finalCta: {
 		title: "Ready to Elevate Your Cabinet Projects?",
-		description: "Open your trade account today and start accessing wholesale pricing, priority scheduling, and dedicated support for your GTA projects.",
+		description: "Open your trade account today and start accessing priority scheduling, dedicated support, and quality cabinetry for your GTA projects.",
 		primaryAction: {
 			title: "Open a Trade Account",
 			points: [
-				"5-minute online application",
-				"24-48 hour approval",
-				"Start ordering immediately"
+				"Simple online application",
+				"Our team will be in touch",
+				"Start ordering quality cabinetry"
 			],
 			button: { text: "Apply Now", href: "/trade/apply" }
 		},

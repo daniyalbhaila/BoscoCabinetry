@@ -22,6 +22,8 @@ import DollarSign from '../components/icons/DollarSign.astro';
 import Clock from '../components/icons/Clock.astro';
 import Palette from '../components/icons/Palette.astro';
 import ShieldCheck from '../components/icons/ShieldCheck.astro';
+import Wind from '../components/icons/Wind.astro';
+import Leaf from '../components/icons/Leaf.astro';
 import TradeAdvantages from '../components/TradeAdvantages.astro';
 import { tradePageContent } from '../content/pages/trade.ts';
 import { seoMetadata } from '../content/seo-metadata.ts';
@@ -33,7 +35,11 @@ const iconMap: Record<string, any> = {
 	factory: Factory,
 	certificate: Award,
 	globe: Globe,
-	trending: TrendingUp
+	trending: TrendingUp,
+	wind: Wind,
+	leaf: Leaf,
+	'shield-check': ShieldCheck,
+	award: Award
 };
 
 // Icon mapping for trade advantages
@@ -86,6 +92,40 @@ const tradeAdvantages = tradePageContent.tradeAdvantages.advantages.map(advantag
 		/>
 	</SectionWrapper>
 
+	<!-- Environmental Features Section -->
+	<SectionWrapper theme="dark" id="environmental">
+		<SectionHeader
+			tag={tradePageContent.environmental.tag}
+			title={tradePageContent.environmental.title}
+			description={tradePageContent.environmental.description}
+			layout="center"
+			theme="dark"
+		/>
+		<ContentGrid
+			items={tradePageContent.environmental.features.map(feature => ({
+				title: feature.title,
+				description: feature.description,
+				iconComponent: iconMap[feature.icon]
+			}))}
+			variant="features"
+		/>
+
+		<!-- Environmental Promise -->
+		<div class="mt-16 mx-auto max-w-4xl">
+			<h3 class="mb-8 text-center text-2xl font-semibold text-white">Our Promise</h3>
+			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+				{tradePageContent.environmental.promise.map((item) => (
+					<div class="flex items-start gap-3">
+						<div class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-accent/20">
+							<Check class="h-3.5 w-3.5 text-brand-accent" />
+						</div>
+						<p class="text-white/90">{item}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</SectionWrapper>
+
 	<!-- Trade Advantages Section -->
 	<TradeAdvantages
 		tag={tradePageContent.tradeAdvantages.tag}
@@ -115,12 +155,54 @@ const tradeAdvantages = tradePageContent.tradeAdvantages.advantages.map(advantag
 			theme="dark"
 		/>
 		<ProductShowcase collections={tradePageContent.productShowcase.collections} theme="dark" />
+	</SectionWrapper>
 
-		<!-- Catalog Download CTA -->
-		<div class="mt-12 text-center">
-			<Button variant="primary" size="lg" href="#catalog">
-				{tradePageContent.productShowcase.catalogCta}
-			</Button>
+	<!-- Materials & Finishes Section -->
+	<SectionWrapper theme="light" id="materials">
+		<SectionHeader
+			tag={tradePageContent.materials.tag}
+			title={tradePageContent.materials.title}
+			description={tradePageContent.materials.description}
+			layout="center"
+			theme="light"
+		/>
+
+		<div class="mx-auto max-w-5xl">
+			<div class="grid grid-cols-1 gap-12 md:grid-cols-2">
+				<!-- Base Materials -->
+				<div class="gradient-card-light rounded-2xl border border-brand-accent/40 p-8">
+					<h3 class="mb-6 text-xl font-semibold text-brand-charcoal">
+						{tradePageContent.materials.baseMaterials.title}
+					</h3>
+					<ul class="space-y-3">
+						{tradePageContent.materials.baseMaterials.options.map((material) => (
+							<li class="flex items-start gap-3">
+								<div class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-primary/20">
+									<Check class="h-3.5 w-3.5 text-brand-primary" />
+								</div>
+								<span class="text-brand-darkGray">{material}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+
+				<!-- Finishing Materials -->
+				<div class="gradient-card-light rounded-2xl border border-brand-accent/40 p-8">
+					<h3 class="mb-6 text-xl font-semibold text-brand-charcoal">
+						{tradePageContent.materials.finishingMaterials.title}
+					</h3>
+					<ul class="space-y-3">
+						{tradePageContent.materials.finishingMaterials.options.map((finish) => (
+							<li class="flex items-start gap-3">
+								<div class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-primary/20">
+									<Check class="h-3.5 w-3.5 text-brand-primary" />
+								</div>
+								<span class="text-brand-darkGray">{finish}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
 		</div>
 	</SectionWrapper>
 
@@ -157,197 +239,6 @@ const tradeAdvantages = tradePageContent.tradeAdvantages.advantages.map(advantag
 		description={tradePageContent.faqs.description}
 		items={tradePageContent.faqs.questions}
 	/>
-
-	<!-- Trade Catalog Download (Lead Magnet) -->
-	<SectionWrapper theme="light" id="catalog">
-		<div class="mx-auto max-w-7xl">
-			<div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-				<!-- Left Content -->
-				<div>
-					<p class="mb-4 text-[11px] uppercase tracking-[0.2em] text-brand-primary">[{tradePageContent.catalogDownload.tag}]</p>
-					<h2 class="mb-6 text-3xl font-semibold tracking-tight text-brand-charcoal sm:text-4xl md:text-5xl">
-						{tradePageContent.catalogDownload.title}
-					</h2>
-					<p class="mb-8 text-lg text-brand-darkGray">
-						{tradePageContent.catalogDownload.description}
-					</p>
-
-					<!-- Benefits List -->
-					<div class="space-y-4">
-						{tradePageContent.catalogDownload.benefits.map((benefit) => (
-							<div class="flex items-start gap-3">
-								<div class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-primary/10">
-									<svg class="h-3 w-3 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-									</svg>
-								</div>
-								<p class="text-brand-darkGray">{benefit}</p>
-							</div>
-						))}
-					</div>
-				</div>
-
-				<!-- Right Form -->
-				<div class="lg:pl-8">
-					<div class="gradient-card-light rounded-2xl border border-brand-accent/40 p-8 shadow-lg">
-						<div class="mb-6 text-center">
-							<div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-brand-primary/10">
-								<svg class="h-8 w-8 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-								</svg>
-							</div>
-							<h3 class="mb-2 text-xl font-semibold text-brand-charcoal">
-								Download Trade Catalog
-							</h3>
-							<p class="text-sm text-brand-darkGray">
-								Get instant access to our complete product catalog.
-							</p>
-						</div>
-
-						<!-- Form -->
-						<form
-							name={tradePageContent.catalogDownload.formName}
-							method="POST"
-							action="/thank-you"
-							data-netlify="true"
-							netlify-honeypot="bot-field"
-							class="space-y-4"
-						>
-							<!-- Required hidden fields for Netlify Forms -->
-							<input type="hidden" name="form-name" value={tradePageContent.catalogDownload.formName} />
-
-							<!-- Honeypot field for spam protection -->
-							<p class="hidden">
-								<label>
-									Don't fill this out if you're human:
-									<input name="bot-field" tabindex="-1" autocomplete="off" />
-								</label>
-							</p>
-
-							<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-								<div>
-									<label for="firstName" class="form-label-light">
-										First Name *
-									</label>
-									<input
-										type="text"
-										id="firstName"
-										name="firstName"
-										required
-										class="form-input-light"
-										placeholder="John"
-									/>
-								</div>
-								<div>
-									<label for="lastName" class="form-label-light">
-										Last Name *
-									</label>
-									<input
-										type="text"
-										id="lastName"
-										name="lastName"
-										required
-										class="form-input-light"
-										placeholder="Smith"
-									/>
-								</div>
-							</div>
-
-							<div>
-								<label for="company" class="form-label-light">
-									Company Name *
-								</label>
-								<input
-									type="text"
-									id="company"
-									name="company"
-									required
-									class="form-input-light"
-									placeholder="Your Company"
-								/>
-							</div>
-
-							<div>
-								<label for="email" class="form-label-light">
-									Email Address *
-								</label>
-								<input
-									type="email"
-									id="email"
-									name="email"
-									required
-									class="form-input-light"
-									placeholder="john@company.com"
-								/>
-							</div>
-
-							<div>
-								<label for="phone" class="form-label-light">
-									Phone
-								</label>
-								<input
-									type="tel"
-									id="phone"
-									name="phone"
-									class="form-input-light"
-									placeholder="(416) 555-1234"
-								/>
-							</div>
-
-							<div>
-								<label for="businessType" class="form-label-light">
-									Business Type *
-								</label>
-								<select
-									id="businessType"
-									name="businessType"
-									required
-									class="form-select-light"
-								>
-									<option value="">Select business type</option>
-									<option value="contractor">General Contractor</option>
-									<option value="builder">Builder/Developer</option>
-									<option value="designer">Interior Designer</option>
-									<option value="architect">Architect</option>
-									<option value="other">Other</option>
-								</select>
-							</div>
-
-							<div>
-								<label for="projectVolume" class="form-label-light">
-									Annual Project Volume
-								</label>
-								<select
-									id="projectVolume"
-									name="projectVolume"
-									class="form-select-light"
-								>
-									<option value="">Select volume</option>
-									<option value="1-5">1-5 projects/year</option>
-									<option value="6-10">6-10 projects/year</option>
-									<option value="11-20">11-20 projects/year</option>
-									<option value="20+">20+ projects/year</option>
-								</select>
-							</div>
-
-							<Button
-								type="submit"
-								variant="primary"
-								size="lg"
-								class="w-full"
-							>
-								Download Catalog
-							</Button>
-						</form>
-
-						<p class="mt-4 text-center text-xs text-brand-darkGray">
-							We respect your privacy. Unsubscribe at any time.
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</SectionWrapper>
 
 	<!-- Final CTA Section -->
 	<SectionWrapper theme="dark" id="final-cta">
