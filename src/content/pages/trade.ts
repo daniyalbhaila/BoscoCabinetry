@@ -60,37 +60,41 @@ export const tradePageContent = {
 
 	// Environmental Features Section
 	environmental: {
-		tag: "Sustainable Manufacturing",
-		title: "Environmental Responsibility Meets Beautiful Design",
-		description: "At Bosco Cabinetry, we believe beautiful design and environmental responsibility work hand in hand. Through our exclusive manufacturing partnership, we bring sustainable solutions to every project.",
+		tag: "Green Building Credentials",
+		title: "Win More Projects with Certified Sustainable Materials",
+		description: "Support your LEED certification goals and meet CaGBC requirements with our EPA & CARB certified sustainable cabinetry options. Stand out on green building projects across the GTA.",
 		features: [
 			{
-				title: "Air-Purifying Technology",
-				description: "24/7 air-purifying technology that works continuously",
-				icon: "wind"
+				title: "LEED Point Contribution",
+				description: "Low-VOC, formaldehyde-free materials contribute to LEED certification points for sustainable building projects",
+				icon: "award"
 			},
 			{
-				title: "Zero-Added Formaldehyde",
-				description: "EPA & CARB certified materials with no added formaldehyde",
+				title: "EPA & CARB Certified",
+				description: "Zero-added formaldehyde (NAF) materials meeting strict EPA and CARB Phase 2 standards",
 				icon: "shield-check"
 			},
 			{
-				title: "Sustainable Materials",
-				description: "Eco-friendly bamboo materials with natural properties",
+				title: "CaGBC Compliance",
+				description: "Materials meet Canada Green Building Council standards for environmentally responsible construction",
 				icon: "leaf"
 			},
 			{
-				title: "Certified Manufacturing",
-				description: "ISO 14001 certified manufacturing processes",
-				icon: "award"
+				title: "ISO 14001 Manufacturing",
+				description: "ISO 14001 certified production processes ensuring environmental responsibility",
+				icon: "wind"
 			}
 		],
-		promise: [
-			"Making sustainable choices accessible at competitive prices",
-			"Offering eco-friendly alternatives without compromising quality",
-			"Providing healthier living environments for families",
-			"Supporting sustainable manufacturing practices"
-		]
+		benefits: [
+			"Win bids on green building and LEED projects",
+			"Meet architect specifications for low-emission materials",
+			"Support Canada's net-zero building goals (2030 targets)",
+			"Appeal to eco-conscious clients and homeowners",
+			"Competitive pricing on sustainable alternatives",
+			"No quality compromises on eco-friendly options"
+		],
+		ctaText: "Learn more about our sustainable options",
+		ctaHref: "/sustainability"
 	},
 
 	// Why Trade with Bosco Section

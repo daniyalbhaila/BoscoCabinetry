@@ -5,8 +5,82 @@ import SectionHeader from '../components/SectionHeader.astro';
 import Button from '../components/ui/Button.astro';
 import Check from '../components/icons/Check.astro';
 import Phone from '../components/icons/Phone.astro';
+import MapPin from '../components/icons/MapPin.astro';
+import Clock from '../components/icons/Clock.astro';
+import Mail from '../components/icons/Mail.astro';
+import Instagram from '../components/icons/Instagram.astro';
+import Star from '../components/icons/Star.astro';
+import Award from '../components/icons/Award.astro';
+import ShieldCheck from '../components/icons/ShieldCheck.astro';
+import Users from '../components/icons/Users.astro';
+import TrendingUp from '../components/icons/TrendingUp.astro';
+import { Image } from 'astro:assets';
 import { companyInfo } from '../content/shared.ts';
 import { seoMetadata } from '../content/seo-metadata.ts';
+import KitchenImage from '../assets/kitchen.jpg';
+import ShowroomImage from '../assets/showroom.jpg';
+
+// Select 3 best reviews for thank you page
+const featuredReviews = [
+	{
+		name: "Asif L.",
+		rating: 5,
+		description: "I recently hired BOSCO Cabinetry to design and install custom cabinets for my kitchen, and I couldn't be happier. The craftsmanship is top-notch, the materials feel premium, and every detail was handled with care.",
+		project: "Kitchen Cabinets"
+	},
+	{
+		name: "Nida A.",
+		rating: 5,
+		description: "What sets the team apart is that they are truly willing to work with you to bring your vision to life. The team was a pleasure to work with, very thorough in the assessment & always made it a point to keep me updated.",
+		project: "Kitchen Renovation"
+	},
+	{
+		name: "Zoha S.",
+		rating: 5,
+		description: "The craftsmanship and quality of their work were outstanding—everything turned out exactly as I envisioned, if not better. The associates were incredibly helpful and professional every step of the way.",
+		project: "Kitchen Cabinets"
+	}
+];
+
+// Featured project images for inspiration
+const featuredProjects = [
+	{
+		title: "Modern Kitchen",
+		category: "Kitchen Cabinets",
+		image: KitchenImage,
+		alt: "Custom modern kitchen cabinetry"
+	},
+	{
+		title: "Showroom Display",
+		category: "Closet Systems",
+		image: ShowroomImage,
+		alt: "Custom closet organization system"
+	},
+	{
+		title: "Contemporary Kitchen",
+		category: "Kitchen Cabinets",
+		image: KitchenImage,
+		alt: "Contemporary kitchen cabinets with premium finishes"
+	},
+	{
+		title: "Walk-In Closet",
+		category: "Built-in Units",
+		image: ShowroomImage,
+		alt: "Custom walk-in closet with organization features"
+	},
+	{
+		title: "Luxury Kitchen",
+		category: "Kitchen Cabinets",
+		image: KitchenImage,
+		alt: "Luxury custom kitchen cabinetry"
+	},
+	{
+		title: "Custom Vanity",
+		category: "Bathroom Vanities",
+		image: ShowroomImage,
+		alt: "Custom bathroom vanity cabinetry"
+	}
+];
 ---
 
 <BaseLayout
@@ -15,10 +89,11 @@ import { seoMetadata } from '../content/seo-metadata.ts';
   keywords={seoMetadata.thankYou.keywords}
   ogImage={seoMetadata.thankYou.ogImage}
 >
-  <SectionWrapper theme="dark" id="thank-you">
+  <!-- 1. Confirmation Hero Section -->
+  <SectionWrapper theme="dark" id="confirmation">
     <div class="max-w-3xl mx-auto text-center py-16">
       <!-- Success Icon -->
-      <div class="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-8">
+      <div class="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce">
         <Check class="w-10 h-10 text-green-400" />
       </div>
 
@@ -91,21 +166,470 @@ import { seoMetadata } from '../content/seo-metadata.ts';
           </Button>
         </div>
       </div>
+    </div>
+  </SectionWrapper>
 
-      <!-- Additional Information -->
-      <div class="mt-12 p-6 gradient-card-dark border border-brand-primary/20 rounded-xl">
-        <h4 class="font-semibold text-brand-primary mb-3">While You Wait</h4>
-        <div class="grid md:grid-cols-2 gap-4 text-sm text-white/70">
-          <div>
-            <p class="mb-2">📱 <strong class="text-white">Follow our progress:</strong> Check out recent projects on our social media</p>
-            <p>📍 <strong class="text-white">Visit our showroom:</strong> {companyInfo.location.address.display}</p>
+  <!-- 2. Interactive Showroom Tour Section -->
+  <SectionWrapper theme="light" id="showroom-tour">
+    <SectionHeader
+      tag="While You Wait"
+      title="Explore Our Showroom"
+      description="Can't visit in person yet? Take a virtual tour and see the quality difference for yourself."
+      layout="center"
+      theme="light"
+    />
+
+    <div class="max-w-5xl mx-auto -mt-4">
+      <!-- Features List -->
+      <div class="mb-6 grid grid-cols-3 gap-6 text-center">
+        <div>
+          <p class="text-brand-primary font-semibold mb-1">100+ Finishes</p>
+          <p class="text-sm text-brand-darkGray/70">Explore all options</p>
+        </div>
+        <div>
+          <p class="text-brand-primary font-semibold mb-1">5,500 sq ft</p>
+          <p class="text-sm text-brand-darkGray/70">Full displays</p>
+        </div>
+        <div>
+          <p class="text-brand-primary font-semibold mb-1">360° View</p>
+          <p class="text-sm text-brand-darkGray/70">Navigate freely</p>
+        </div>
+      </div>
+
+      <!-- Kuula 360° Virtual Tour Embed -->
+      <div class="relative overflow-hidden rounded-2xl border border-brand-accent/40 shadow-xl">
+        <div class="w-full bg-brand-darkGray/10 relative overflow-hidden" style="aspect-ratio: 16/8;">
+          <!-- Desktop - Kuula 360° Tour with Lazy Loading -->
+          <div id="thankyou-kuula-embed" class="hidden md:block h-full w-full rounded-2xl" role="application" aria-label="360° Virtual Showroom Tour">
+            <!-- Lazy loading placeholder with background image -->
+            <div id="thankyou-kuula-placeholder" class="h-full w-full rounded-2xl flex items-center justify-center cursor-pointer group relative overflow-hidden">
+              <!-- Background Image -->
+              <div class="absolute inset-0">
+                <Image
+                  src={ShowroomImage}
+                  alt="Bosco Cabinetry Showroom Interior"
+                  class="w-full h-full object-cover"
+                  widths={[400, 800, 1200]}
+                  sizes="(max-width: 768px) 400px, (max-width: 1200px) 800px, 1200px"
+                  loading="lazy"
+                />
+                <!-- Dark overlay for text readability -->
+                <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+              </div>
+
+              <!-- Content overlay -->
+              <div class="relative z-10 text-center">
+                <div class="mb-4 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+                  <svg class="w-16 h-16 mx-auto text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-3 drop-shadow-lg">Load Virtual Showroom</h3>
+                <p class="text-sm text-white/90 mb-6 leading-relaxed drop-shadow-md max-w-xs mx-auto">Click to explore our 5,500 sq ft showroom in 360°</p>
+                <div class="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium bg-brand-primary text-brand-charcoal shadow-lg hover:bg-brand-primary/90 hover:shadow-xl transition-all duration-200 transform hover:scale-105">
+                  <span class="whitespace-nowrap">Start Virtual Tour</span>
+                </div>
+              </div>
+            </div>
+            <!-- Actual iframe (loaded on click) -->
+            <iframe
+              id="thankyou-kuula-iframe"
+              data-src="https://kuula.co/share/collection/71zCg?logo=-1&info=0&fs=1&vr=1&zoom=1&autop=10&thumbs=2"
+              title="Bosco Cabinetry 5,500 sq ft North York Showroom Virtual Tour"
+              width="100%"
+              height="640"
+              frameborder="0"
+              allowfullscreen
+              class="h-full w-full rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary hidden"
+              tabindex="0"
+              aria-label="Navigate the virtual showroom using arrow keys or mouse"
+            >
+              <p>Your browser does not support iframes. Please visit our showroom in person.</p>
+            </iframe>
           </div>
+
+          <!-- Mobile - Direct Link -->
+          <div class="md:hidden h-full w-full rounded-2xl">
+            <a
+              href="https://kuula.co/share/collection/71zCg?logo=-1&info=0&fs=1&vr=1&zoom=1&autop=10&thumbs=2"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block h-full w-full rounded-2xl cursor-pointer group relative overflow-hidden"
+            >
+              <!-- Background Image -->
+              <div class="absolute inset-0">
+                <Image
+                  src={ShowroomImage}
+                  alt="Bosco Cabinetry Showroom Interior"
+                  class="w-full h-full object-cover"
+                  widths={[400, 800, 1200]}
+                  sizes="(max-width: 768px) 400px, (max-width: 1200px) 800px, 1200px"
+                  loading="lazy"
+                />
+                <!-- Dark overlay for text readability -->
+                <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+              </div>
+
+              <!-- Content overlay -->
+              <div class="relative z-10 text-center flex items-center justify-center h-full">
+                <div>
+                  <div class="mb-3 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg class="w-12 h-12 mx-auto text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-base font-semibold text-white mb-2 drop-shadow-lg">Explore Virtual Showroom</h3>
+                  <p class="text-xs text-white/90 mb-4 leading-relaxed drop-shadow-md max-w-xs mx-auto px-4">Click to explore our 5,500 sq ft showroom in 360°</p>
+                  <div class="inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-medium bg-brand-primary text-brand-charcoal shadow-lg hover:bg-brand-primary/90 hover:shadow-xl transition-all duration-200 transform hover:scale-105">
+                    <span class="whitespace-nowrap">Open Virtual Tour</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- 3. Reviews/Testimonials Section -->
+  <SectionWrapper theme="dark" id="reviews">
+    <SectionHeader
+      tag="Client Reviews"
+      title="Why Homeowners Choose Bosco"
+      description="See what our satisfied clients have to say about their experience working with us."
+      layout="center"
+      theme="dark"
+    />
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      {featuredReviews.map((review) => (
+        <div class="gradient-card-dark border border-brand-primary/20 rounded-2xl p-6">
+          <!-- Rating Stars -->
+          <div class="flex items-center gap-1 mb-4">
+            {Array.from({ length: review.rating }, (_, i) => (
+              <Star class="h-5 w-5 text-brand-accent" fill="currentColor" />
+            ))}
+          </div>
+
+          <!-- Review Text -->
+          <blockquote class="text-white/80 mb-6 italic text-sm">
+            "{review.description}"
+          </blockquote>
+
+          <!-- Reviewer Info -->
           <div>
-            <p class="mb-2">⏰ <strong class="text-white">Business hours:</strong> {companyInfo.hours.display.weekdays}</p>
-            <p>📧 <strong class="text-white">Email:</strong> {companyInfo.contact.email.address}</p>
+            <cite class="text-brand-primary font-semibold not-italic">{review.name}</cite>
+            {review.project && (
+              <p class="text-sm text-white/50">{review.project}</p>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Link to All Reviews -->
+    <div class="text-center mt-12">
+      <Button
+        href={companyInfo.urls.googleReviews}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="ghost"
+        size="lg"
+      >
+        Read All Google Reviews
+      </Button>
+    </div>
+  </SectionWrapper>
+
+  <!-- 4. Featured Projects Gallery -->
+  <SectionWrapper theme="light" id="projects">
+    <SectionHeader
+      tag="Get Inspired"
+      title="Recent Projects"
+      description="Browse our latest custom cabinetry installations and get ideas for your own space."
+      layout="center"
+      theme="light"
+    />
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto mb-12">
+      {featuredProjects.map((project) => (
+        <div class="group relative overflow-hidden rounded-xl aspect-square cursor-pointer">
+          <Image
+            src={project.image}
+            alt={project.alt}
+            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+            <p class="text-white font-semibold">{project.title}</p>
+            <p class="text-white/70 text-sm">{project.category}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <Button
+        href="/portfolio"
+        variant="primary"
+        size="lg"
+      >
+        Explore Full Portfolio
+      </Button>
+    </div>
+  </SectionWrapper>
+
+  <!-- 5. Showroom Booking CTA -->
+  <SectionWrapper theme="dark" id="booking">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="gradient-card-dark-strong border border-brand-primary/20 rounded-2xl p-12">
+        <h2 class="text-3xl font-bold text-brand-primary mb-4">Can't Wait? Visit Our Showroom</h2>
+        <p class="text-white/70 mb-8">
+          Skip the wait and schedule your showroom consultation today. See our materials, finishes, and quality craftsmanship in person.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            href="/contact#showroom"
+            variant="primary"
+            size="lg"
+          >
+            Book Showroom Visit
+          </Button>
+          <Button
+            href={companyInfo.contact.phone.href}
+            variant="ghost"
+            size="lg"
+            class="flex items-center gap-2"
+          >
+            <Phone class="w-5 h-5" />
+            Call to Schedule
+          </Button>
+        </div>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- 6. Instagram & Social Media Integration -->
+  <SectionWrapper theme="light" id="social">
+    <SectionHeader
+      tag="Stay Inspired"
+      title="Follow Our Journey"
+      description="Get daily inspiration, design tips, and behind-the-scenes looks at our craftsmanship process."
+      layout="center"
+      theme="light"
+    />
+
+    <div class="max-w-6xl mx-auto">
+      <!-- Instagram Posts Carousel -->
+      <div class="relative mb-8 -mx-6 px-6">
+        <div class="overflow-x-auto scrollbar-hide scroll-smooth">
+          <div class="flex gap-4 pb-4" style="scroll-snap-type: x mandatory;">
+            <!-- Post 1 -->
+            <div class="flex-none w-80 scroll-snap-align-start">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DP2HJWvgLd_/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin: 0; max-width:100%; padding:0; width:100%;"></blockquote>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="flex-none w-80 scroll-snap-align-start">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPoo0RQAOZ2/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin: 0; max-width:100%; padding:0; width:100%;"></blockquote>
+            </div>
+
+            <!-- Post 3 -->
+            <div class="flex-none w-80 scroll-snap-align-start">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DN31mBDkiVT/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin: 0; max-width:100%; padding:0; width:100%;"></blockquote>
+            </div>
+
+            <!-- Post 4 -->
+            <div class="flex-none w-80 scroll-snap-align-start">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPhYgMMETDD/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin: 0; max-width:100%; padding:0; width:100%;"></blockquote>
+            </div>
+
+            <!-- Post 5 -->
+            <div class="flex-none w-80 scroll-snap-align-start">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DO59Bh7gFqd/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin: 0; max-width:100%; padding:0; width:100%;"></blockquote>
+            </div>
+
+            <!-- Post 6 -->
+            <div class="flex-none w-80 scroll-snap-align-start">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DOyNI-GABOY/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin: 0; max-width:100%; padding:0; width:100%;"></blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="text-center mt-4 text-sm text-brand-darkGray/60">
+          Scroll to see more →
+        </div>
+      </div>
+
+      <div class="text-center">
+        <p class="text-brand-darkGray mb-6">
+          Follow us for before/after transformations, design tips, and project updates
+        </p>
+        <div class="flex gap-4 justify-center">
+          <Button
+            href="https://instagram.com/bosco.cabinetry"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+            size="lg"
+            class="flex items-center gap-2"
+          >
+            <Instagram class="w-5 h-5" />
+            Follow @bosco.cabinetry
+          </Button>
+        </div>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- Instagram Embed Script -->
+  <script async src="//www.instagram.com/embed.js"></script>
+
+  <!-- 7. What Makes Bosco Different -->
+  <SectionWrapper theme="dark" id="differentiators">
+    <SectionHeader
+      tag="Why Choose Bosco"
+      title="What Makes Us Different"
+      description="Quality craftsmanship, transparent process, and customer-first service. Here's what sets us apart."
+      layout="center"
+      theme="dark"
+    />
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <!-- Differentiator 1: Experience -->
+      <div class="text-center">
+        <div class="w-16 h-16 bg-brand-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Award class="w-8 h-8 text-brand-primary" />
+        </div>
+        <h3 class="text-brand-primary font-semibold mb-2">{companyInfo.stats.experience}</h3>
+        <p class="text-white/70 text-sm">Family-owned, Toronto-based craftsmanship since 2000</p>
+      </div>
+
+      <!-- Differentiator 2: Quality -->
+      <div class="text-center">
+        <div class="w-16 h-16 bg-brand-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <ShieldCheck class="w-8 h-8 text-brand-primary" />
+        </div>
+        <h3 class="text-brand-primary font-semibold mb-2">Premium Materials Only</h3>
+        <p class="text-white/70 text-sm">Solid wood construction, soft-close hardware, lifetime quality</p>
+      </div>
+
+      <!-- Differentiator 3: Full Service -->
+      <div class="text-center">
+        <div class="w-16 h-16 bg-brand-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Users class="w-8 h-8 text-brand-primary" />
+        </div>
+        <h3 class="text-brand-primary font-semibold mb-2">Full-Service Process</h3>
+        <p class="text-white/70 text-sm">Design, build, and install—all in-house for seamless quality</p>
+      </div>
+
+      <!-- Differentiator 4: Transparency -->
+      <div class="text-center">
+        <div class="w-16 h-16 bg-brand-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <TrendingUp class="w-8 h-8 text-brand-primary" />
+        </div>
+        <h3 class="text-brand-primary font-semibold mb-2">Transparent Pricing</h3>
+        <p class="text-white/70 text-sm">No hidden fees, clear timelines, honest communication</p>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- 8. Contact Information (Improved - No Emojis) -->
+  <SectionWrapper theme="light" id="contact-info">
+    <div class="max-w-4xl mx-auto">
+      <div class="gradient-card-light border border-brand-accent/40 rounded-2xl p-8">
+        <h3 class="text-2xl font-bold text-brand-darkGray mb-6 text-center">Additional Ways to Reach Us</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <MapPin class="w-5 h-5 text-brand-primary" />
+            </div>
+            <div>
+              <p class="font-semibold text-brand-darkGray mb-1">Visit Our Showroom</p>
+              <p class="text-sm text-brand-darkGray/70">{companyInfo.location.address.display}</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <Clock class="w-5 h-5 text-brand-primary" />
+            </div>
+            <div>
+              <p class="font-semibold text-brand-darkGray mb-1">Business Hours</p>
+              <p class="text-sm text-brand-darkGray/70">{companyInfo.hours.display.weekdays}</p>
+              <p class="text-sm text-brand-darkGray/70">{companyInfo.hours.display.saturday}</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <Mail class="w-5 h-5 text-brand-primary" />
+            </div>
+            <div>
+              <p class="font-semibold text-brand-darkGray mb-1">Email Us</p>
+              <a href={`mailto:${companyInfo.contact.email.address}`} class="text-sm text-brand-primary hover:text-brand-primary/80 transition-colors">
+                {companyInfo.contact.email.address}
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <Phone class="w-5 h-5 text-brand-primary" />
+            </div>
+            <div>
+              <p class="font-semibold text-brand-darkGray mb-1">Call Us</p>
+              <a href={companyInfo.contact.phone.href} class="text-sm text-brand-primary hover:text-brand-primary/80 transition-colors">
+                {companyInfo.contact.phone.display}
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </SectionWrapper>
 </BaseLayout>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	const kuulaPlaceholder = document.getElementById('thankyou-kuula-placeholder');
+	const kuulaIframe = document.getElementById('thankyou-kuula-iframe');
+	let kuulaLoaded = false;
+
+	function loadKuula() {
+		if (!kuulaIframe || !kuulaPlaceholder || kuulaLoaded) return;
+
+		kuulaLoaded = true;
+		const dataSrc = kuulaIframe.getAttribute('data-src');
+
+		if (dataSrc) {
+			kuulaIframe.src = dataSrc;
+		}
+
+		// Hide placeholder and show iframe
+		kuulaPlaceholder.style.display = 'none';
+		kuulaIframe.classList.remove('hidden');
+		kuulaIframe.focus();
+	}
+
+	// Desktop click-to-load behavior
+	if (kuulaPlaceholder) {
+		kuulaPlaceholder.addEventListener('click', loadKuula);
+
+		// Keyboard accessibility
+		kuulaPlaceholder.addEventListener('keydown', function(e) {
+			if (e.key === 'Enter' || e.key === ' ') {
+				e.preventDefault();
+				loadKuula();
+			}
+		});
+
+		// Make placeholder focusable
+		kuulaPlaceholder.setAttribute('tabindex', '0');
+		kuulaPlaceholder.setAttribute('role', 'button');
+		kuulaPlaceholder.setAttribute('aria-label', 'Load virtual showroom tour');
+	}
+});
+</script>

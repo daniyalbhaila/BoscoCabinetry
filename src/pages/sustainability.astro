@@ -1,0 +1,410 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ContentGrid from '../components/ContentGrid.astro';
+import ContactUs from '../components/ContactUs.astro';
+import { Image } from 'astro:assets';
+import SustainabilityDiagram from '../assets/sustainability.webp';
+import FormaldehyDiagram from '../assets/sustainability2.webp';
+import KitchenImage from '../assets/kitchen.jpg';
+import Button from '../components/ui/Button.astro';
+
+// Import icons
+import Wind from '../components/icons/Wind.astro';
+import ShieldCheck from '../components/icons/ShieldCheck.astro';
+import Leaf from '../components/icons/Leaf.astro';
+import Award from '../components/icons/Award.astro';
+
+// Solution Features (4 cards - consistent grid)
+const solutionFeatures = [
+  {
+    title: 'Zero-Added Formaldehyde',
+    description: 'EPA & CARB certified NAF materials that eliminate harmful VOC emissions for healthier indoor air quality.',
+    iconComponent: ShieldCheck
+  },
+  {
+    title: '24/7 Air Purification',
+    description: 'Bamboo boards with nano-clean technology actively break down indoor pollutants around the clock.',
+    iconComponent: Wind
+  },
+  {
+    title: 'Sustainable Sourcing',
+    description: 'Eco-friendly bamboo grows 3x faster than hardwood, creating a truly renewable resource.',
+    iconComponent: Leaf
+  },
+  {
+    title: 'ISO 14001 Certified',
+    description: 'Manufacturing processes meet strict international environmental management standards.',
+    iconComponent: Award
+  }
+];
+---
+
+<BaseLayout
+  title="Sustainable Cabinetry | Eco-Friendly Kitchen Cabinets Toronto - Bosco Cabinetry"
+  description="Healthier homes through sustainable design. Formaldehyde-free, low-VOC kitchen cabinets with air-purifying technology. EPA & CARB certified. Eco-friendly options for Toronto homeowners."
+  keywords="sustainable cabinets Toronto, formaldehyde-free cabinets, low VOC kitchen cabinets, eco-friendly cabinetry, green building materials, LEED certified cabinets, healthy home materials, air purifying cabinets"
+>
+  <!-- Hero Section - Lifestyle Photo -->
+  <Hero
+    titleHighlight="Sustainable Kitchen Cabinets"
+    titleRest="Toronto | Formaldehyde-Free & Eco-Friendly"
+    kicker="Healthier Homes"
+    description="Zero-added formaldehyde cabinetry with air-purifying technology. EPA & CARB certified sustainable materials at competitive prices. Protect your family's health while caring for the planet."
+    backgroundImage={KitchenImage.src}
+    theme="dark"
+    size="medium"
+    ctaButtons={[
+      { text: 'Get a Free Quote', href: '/contact', variant: 'primary' },
+      { text: 'Explore Services', href: '/services', variant: 'ghost' }
+    ]}
+  />
+
+  <!-- The Problem: Why It Matters (Light theme) -->
+  <SectionWrapper theme="light" id="the-problem">
+    <div class="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto items-center">
+      <!-- Image Column - Technical Diagram as Content -->
+      <div class="flex flex-col justify-center">
+        <div class="rounded-2xl overflow-hidden shadow-xl">
+          <Image
+            src={FormaldehyDiagram}
+            alt="How formaldehyde converts to carbon dioxide and water through air purification"
+            class="w-full h-auto object-cover"
+            loading="lazy"
+            format="webp"
+            quality={85}
+          />
+        </div>
+        <p class="text-sm text-brand-darkGray/75 mt-4 text-center italic">
+          Scientific visualization: Formaldehyde (HCHO) breaks down into harmless CO₂ and H₂O
+        </p>
+      </div>
+
+      <!-- Content Column -->
+      <div>
+        <p class="text-[11px] uppercase tracking-[0.2em] text-brand-charcoal mb-4">
+          [The Health Issue]
+        </p>
+        <h2 class="text-3xl font-semibold tracking-tight text-brand-charcoal sm:text-4xl mb-6">
+          Traditional Cabinets Harm Indoor Air Quality
+        </h2>
+        <p class="text-base text-brand-darkGray leading-relaxed mb-8">
+          Most kitchen cabinets use adhesives containing <strong>formaldehyde</strong>—a harmful chemical that releases VOCs (volatile organic compounds) into your home's air for years after installation.
+        </p>
+
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-bronze/10 flex items-center justify-center flex-shrink-0">
+              <span class="text-brand-bronze font-bold text-lg">!</span>
+            </div>
+            <div>
+              <h4 class="font-semibold text-brand-charcoal mb-1">Health Risks</h4>
+              <p class="text-brand-darkGray/75 leading-relaxed">Headaches, respiratory issues, and long-term concerns—especially for children, pregnant women, and sensitive individuals.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-bronze/10 flex items-center justify-center flex-shrink-0">
+              <span class="text-brand-bronze font-bold text-lg">5+</span>
+            </div>
+            <div>
+              <h4 class="font-semibold text-brand-charcoal mb-1">Years of Off-Gassing</h4>
+              <p class="text-brand-darkGray/75 leading-relaxed">Traditional cabinets continue emitting formaldehyde for 5-10 years, affecting your family's daily health.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- The Solution: Our Sustainable Features (Dark theme) -->
+  <SectionWrapper theme="dark" id="our-solution">
+    <SectionHeader
+      tag="Our Solution"
+      title="Cabinetry That Cares for Your Health"
+      description="We offer sustainable options across all our product lines—protecting your family without compromising on quality, durability, or design."
+      layout="center"
+      theme="dark"
+    />
+    <ContentGrid
+      items={solutionFeatures}
+      variant="features"
+      theme="dark"
+    />
+  </SectionWrapper>
+
+  <!-- The Science: How It Works (Light theme) -->
+  <SectionWrapper theme="light" id="the-science">
+    <div class="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto items-center">
+      <!-- Content Column -->
+      <div>
+        <p class="text-[11px] uppercase tracking-[0.2em] text-brand-charcoal mb-4">
+          [The Technology]
+        </p>
+        <h2 class="text-3xl font-semibold tracking-tight text-brand-charcoal sm:text-4xl mb-6">
+          Air-Purifying Bamboo Technology
+        </h2>
+        <p class="text-base text-brand-darkGray leading-relaxed mb-8">
+          Our sustainable bamboo boards don't just avoid formaldehyde—they actively purify your indoor air 24/7 through nano-clean technology that breaks down harmful pollutants.
+        </p>
+
+        <h3 class="text-xl font-semibold text-brand-charcoal mb-4">Why Bamboo?</h3>
+        <ul class="space-y-3 text-brand-darkGray/75 leading-relaxed mb-8">
+          <li class="flex items-start gap-3">
+            <span class="text-brand-bronze mt-1 font-bold">✓</span>
+            <span><strong class="text-brand-charcoal">Renewable resource:</strong> Bamboo grows 30 times faster than hardwood</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-brand-bronze mt-1 font-bold">✓</span>
+            <span><strong class="text-brand-charcoal">FSC certified sourcing:</strong> Materials from responsibly managed forests</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-brand-bronze mt-1 font-bold">✓</span>
+            <span><strong class="text-brand-charcoal">Natural air purification:</strong> Actively reduces indoor pollutants</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-brand-bronze mt-1 font-bold">✓</span>
+            <span><strong class="text-brand-charcoal">Superior durability:</strong> Stronger than traditional materials</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-brand-bronze mt-1 font-bold">✓</span>
+            <span><strong class="text-brand-charcoal">Moisture resistant:</strong> Ideal for kitchens and bathrooms</span>
+          </li>
+        </ul>
+
+        <div class="flex flex-wrap gap-2">
+          <div class="px-2.5 py-1 bg-brand-bronze/10 text-brand-bronze rounded-full text-[11px] font-medium border border-brand-bronze/30 whitespace-nowrap">
+            EPA Certified
+          </div>
+          <div class="px-2.5 py-1 bg-brand-bronze/10 text-brand-bronze rounded-full text-[11px] font-medium border border-brand-bronze/30 whitespace-nowrap">
+            CARB Phase 2
+          </div>
+          <div class="px-2.5 py-1 bg-brand-bronze/10 text-brand-bronze rounded-full text-[11px] font-medium border border-brand-bronze/30 whitespace-nowrap">
+            E0 Certified
+          </div>
+          <div class="px-2.5 py-1 bg-brand-bronze/10 text-brand-bronze rounded-full text-[11px] font-medium border border-brand-bronze/30 whitespace-nowrap">
+            F4 Star
+          </div>
+          <div class="px-2.5 py-1 bg-brand-bronze/10 text-brand-bronze rounded-full text-[11px] font-medium border border-brand-bronze/30 whitespace-nowrap">
+            FSC Certified
+          </div>
+          <div class="px-2.5 py-1 bg-brand-bronze/10 text-brand-bronze rounded-full text-[11px] font-medium border border-brand-bronze/30 whitespace-nowrap">
+            ISO 14001
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Column - Educational Diagram as Content -->
+      <div class="flex flex-col justify-center">
+        <div class="rounded-2xl overflow-hidden">
+          <Image
+            src={SustainabilityDiagram}
+            alt="Eco-friendly formaldehyde purificatory bamboo board technology diagram"
+            class="w-full h-auto object-cover"
+            loading="lazy"
+            format="webp"
+            quality={85}
+          />
+        </div>
+        <p class="text-sm text-brand-darkGray/75 mt-4 text-center italic">
+          Technical diagram: Multi-layer bamboo board with nano-clean air purification technology
+        </p>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- Benefits at a Glance: Key Stats (Dark theme) -->
+  <SectionWrapper theme="dark" id="benefits-stats">
+    <SectionHeader
+      tag="Why It Matters"
+      title="Real Benefits for Your Family"
+      description="Sustainable choices that make a measurable difference in your home's health and environmental impact."
+      layout="center"
+      theme="dark"
+    />
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <!-- Stat 1 -->
+      <div class="text-center p-8 rounded-2xl border border-white/20 gradient-card-dark">
+        <div class="text-5xl font-bold text-white mb-2">24/7</div>
+        <div class="text-brand-accent text-lg font-medium mb-3">Air Purification</div>
+        <p class="text-gray-300 text-sm">Continuous pollutant breakdown for healthier indoor environments</p>
+      </div>
+
+      <!-- Stat 2 -->
+      <div class="text-center p-8 rounded-2xl border border-white/20 gradient-card-dark">
+        <div class="text-5xl font-bold text-white mb-2">0%</div>
+        <div class="text-brand-accent text-lg font-medium mb-3">Added Formaldehyde</div>
+        <p class="text-gray-300 text-sm">NAF materials eliminate harmful VOC emissions entirely</p>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="text-center p-8 rounded-2xl border border-white/20 gradient-card-dark">
+        <div class="text-5xl font-bold text-white mb-2">30x</div>
+        <div class="text-brand-accent text-lg font-medium mb-3">Faster Growth</div>
+        <p class="text-gray-300 text-sm">Bamboo renewability vs. traditional hardwood materials</p>
+      </div>
+
+      <!-- Stat 4 -->
+      <div class="text-center p-8 rounded-2xl border border-white/20 gradient-card-dark">
+        <div class="text-5xl font-bold text-white mb-2">7+</div>
+        <div class="text-brand-accent text-lg font-medium mb-3">Global Certifications</div>
+        <p class="text-gray-300 text-sm">Meeting the highest environmental standards worldwide</p>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- Built to Last: Durability = Sustainability (Light theme) -->
+  <SectionWrapper theme="light" id="built-to-last">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-[11px] uppercase tracking-[0.2em] text-brand-charcoal mb-4">
+        [Built to Last]
+      </p>
+      <h2 class="text-3xl font-semibold tracking-tight text-brand-charcoal sm:text-4xl mb-6">
+        Durability is Sustainability
+      </h2>
+      <p class="text-base text-brand-darkGray leading-relaxed mb-12">
+        The most sustainable choice is one that doesn't need replacing. Our premium materials are engineered for 20+ year lifespans—reducing replacement cycles, minimizing landfill waste, and delivering better long-term value for your investment.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8 text-left">
+        <!-- Point 1 -->
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-brand-bronze/10 flex items-center justify-center mb-4">
+            <span class="text-brand-bronze font-bold text-xl">20+</span>
+          </div>
+          <h3 class="text-lg font-semibold text-brand-charcoal mb-2">Years of Performance</h3>
+          <p class="text-brand-darkGray/75 leading-relaxed text-sm">
+            Premium construction designed to outlast standard cabinetry by decades, not years.
+          </p>
+        </div>
+
+        <!-- Point 2 -->
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-brand-bronze/10 flex items-center justify-center mb-4">
+            <span class="text-brand-bronze font-bold text-xl">50%</span>
+          </div>
+          <h3 class="text-lg font-semibold text-brand-charcoal mb-2">Less Replacement Waste</h3>
+          <p class="text-brand-darkGray/75 leading-relaxed text-sm">
+            Longer lifespan means fewer replacements, dramatically reducing landfill contribution over time.
+          </p>
+        </div>
+
+        <!-- Point 3 -->
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-brand-bronze/10 flex items-center justify-center mb-4">
+            <span class="text-brand-bronze font-bold text-xl">7+</span>
+          </div>
+          <h3 class="text-lg font-semibold text-brand-charcoal mb-2">Global Standards</h3>
+          <p class="text-brand-darkGray/75 leading-relaxed text-sm">
+            ISO 14001, FSC, EPA, CARB, E0, F4 Star—meeting the world's strictest environmental benchmarks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- Homeowners vs Trade: Split Audience (Dark theme) -->
+  <SectionWrapper theme="dark" id="for-you">
+    <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+      <!-- Homeowners Column -->
+      <div class="p-8 rounded-2xl border border-white/20 gradient-card-dark hover:border-white/30 transition-all duration-300 flex flex-col">
+        <div class="flex-grow">
+          <p class="text-[11px] uppercase tracking-[0.2em] text-brand-primary/60 mb-4">
+            [For Homeowners]
+          </p>
+          <h2 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl mb-4">
+            Healthier Homes, Attainable Prices
+          </h2>
+          <p class="text-base text-white/90 leading-relaxed mb-6">
+            Sustainable cabinetry shouldn't cost a premium. We make eco-friendly choices accessible across all our product lines.
+          </p>
+
+          <ul class="space-y-3 mb-8 text-white/70 leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="text-brand-accent mt-1 font-bold">✓</span>
+              <span><strong class="text-white">Competitive pricing</strong> on sustainable options</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-accent mt-1 font-bold">✓</span>
+              <span><strong class="text-white">No quality compromises</strong> on durability or design</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-accent mt-1 font-bold">✓</span>
+              <span><strong class="text-white">Healthier indoor air</strong> for your family</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-accent mt-1 font-bold">✓</span>
+              <span><strong class="text-white">Available across all services:</strong> kitchens, closets, built-ins</span>
+            </li>
+          </ul>
+        </div>
+
+        <Button variant="primary" size="lg" href="/contact" class="w-full mt-auto">
+          Request Free Consultation
+        </Button>
+      </div>
+
+      <!-- Trade Professionals Column -->
+      <div class="p-8 rounded-2xl border border-white/20 gradient-card-dark hover:border-white/30 transition-all duration-300 flex flex-col">
+        <div class="flex-grow">
+          <p class="text-[11px] uppercase tracking-[0.2em] text-brand-primary/60 mb-4">
+            [For Builders & Contractors]
+          </p>
+          <h2 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl mb-4">
+            Green Credentials That Win Projects
+          </h2>
+          <p class="text-base text-white/90 leading-relaxed mb-6">
+            Support LEED certification goals and differentiate your business with certified sustainable materials.
+          </p>
+
+          <ul class="space-y-3 mb-8 text-white/70 leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="text-brand-accent mt-1 font-bold">✓</span>
+              <span><strong class="text-white">LEED points:</strong> Contribute to green building certification</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-accent mt-1 font-bold">✓</span>
+              <span><strong class="text-white">CaGBC compliant:</strong> Meet Canada Green Building Council standards</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-accent mt-1 font-bold">✓</span>
+              <span><strong class="text-white">Win more bids:</strong> Stand out on green building projects</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-accent mt-1 font-bold">✓</span>
+              <span><strong class="text-white">Net-zero ready:</strong> Support Canada's 2030 building goals</span>
+            </li>
+          </ul>
+        </div>
+
+        <Button variant="ghost" size="lg" href="/trade" class="w-full mt-auto">
+          Learn About Trade Program
+        </Button>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- Final CTA (Light theme - Simple & Clean) -->
+  <SectionWrapper theme="light" id="final-cta">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-brand-charcoal mb-6">
+        Ready for a Healthier Home?
+      </h2>
+      <p class="text-lg text-brand-darkGray leading-relaxed mb-8">
+        Discover how our sustainable cabinetry solutions protect your family's health while caring for the planet.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <Button variant="primary" size="lg" href="/contact">
+          Get a Free Quote
+        </Button>
+        <Button variant="outline" size="lg" href="/services">
+          Explore Services
+        </Button>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- Contact Section -->
+  <ContactUs />
+</BaseLayout>

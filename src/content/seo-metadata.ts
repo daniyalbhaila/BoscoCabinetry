@@ -38,8 +38,8 @@ export const homepageSEO: SEOMetadata = {
 export const aboutSEO: SEOMetadata = {
   // Primary (60 chars) - Trust signals, local focus
   title: "About Bosco Cabinetry | Builder-Founded Toronto Since 2003",
-  description: "Founded by Toronto renovation contractors & custom-home builders. 20+ years crafting luxury kitchen cabinets with premium hardware, closets & cabinetry. Eco-certified, 5,500 sq ft showroom →",
-  keywords: "about bosco cabinetry, toronto renovation contractor, custom home builders, interior design cabinetry, eco-certified cabinets, holike distributor canada",
+  description: "Founded by Toronto renovation contractors & custom-home builders. 20+ years crafting luxury kitchen cabinets with premium hardware, closets & cabinetry. Eco-certified (NAF), 5,500 sq ft showroom →",
+  keywords: "about bosco cabinetry, toronto renovation contractor, custom home builders, interior design cabinetry, eco-certified cabinets, formaldehyde-free, sustainable cabinetry, holike distributor canada",
   ogImage: "/media/og-image-about.jpg",
 
   titleVariations: [
@@ -197,8 +197,8 @@ export const contactSEO: SEOMetadata = {
 // Trade/Wholesale Page SEO
 export const tradeSEO: SEOMetadata = {
   title: "Trade Program Toronto | Wholesale Cabinets | Bosco",
-  description: "Builder & designer trade program. Wholesale custom cabinets, volume discounts, dedicated support. Exclusive Holike distributor. Join Toronto's top pros ✓",
-  keywords: "trade cabinetry toronto, wholesale cabinets, builder program, designer partnership, holike distributor canada, contractor cabinets",
+  description: "Builder & designer trade program. Wholesale custom cabinets, LEED-compatible materials, dedicated support. Exclusive Holike distributor. Join Toronto pros ✓",
+  keywords: "trade cabinetry toronto, wholesale cabinets, builder program, designer partnership, LEED certified cabinets, green building materials, holike distributor canada, contractor cabinets",
   ogImage: "/media/og-image-trade.jpg",
 
   titleVariations: [
@@ -211,6 +211,26 @@ export const tradeSEO: SEOMetadata = {
     "Join Toronto's premier trade cabinetry program. Wholesale pricing, volume discounts, dedicated support for builders & designers. Exclusive Holike distributor →", // 160 chars
     "Builder & designer partnership program. Wholesale custom cabinets, competitive pricing, expert support. Serving Toronto GTA trade professionals. Apply now ★", // 159 chars
     "Wholesale cabinet solutions for Toronto builders & designers. Trade pricing, reliable delivery, quality guaranteed. Exclusive Holike distributor. Join today ✓", // 160 chars
+  ]
+};
+
+// Sustainability Page SEO
+export const sustainabilitySEO: SEOMetadata = {
+  title: "Sustainable Cabinets Toronto | Formaldehyde-Free | Bosco",
+  description: "Healthier homes through eco-friendly cabinetry. Zero-added formaldehyde (NAF), air-purifying technology, EPA & CARB certified. Sustainable options for Toronto ✓",
+  keywords: "sustainable cabinets toronto, formaldehyde-free cabinets, low VOC kitchen cabinets, eco-friendly cabinetry, green building materials, LEED certified cabinets, healthy home materials, air purifying cabinets, NAF materials, CARB certified",
+  ogImage: "/media/og-image-sustainability.jpg",
+
+  titleVariations: [
+    "Eco-Friendly Cabinets Toronto | Low VOC | Bosco", // 48 chars
+    "Formaldehyde-Free Cabinets Toronto | Bosco Cabinetry", // 53 chars
+    "Green Building Materials Toronto | Sustainable Cabinets | Bosco", // 63 chars - trim to "Sustainable Cabinets Toronto | LEED Compatible | Bosco" // 56 chars
+    "Healthy Home Cabinets Toronto | NAF Certified | Bosco", // 54 chars
+  ],
+  descriptionVariations: [
+    "Eco-friendly kitchen cabinets with zero-added formaldehyde (NAF). Air-purifying bamboo technology, EPA & CARB certified. Healthier Toronto homes at competitive prices →", // 170 chars - needs trim
+    "Sustainable cabinetry for Toronto homeowners. Low-VOC, formaldehyde-free materials. LEED-compatible, air-purifying technology. Competitive pricing on eco options ★", // 164 chars - needs trim
+    "Protect your family with formaldehyde-free cabinets. EPA & CARB certified, air-purifying technology. Sustainable options across all product lines. Toronto GTA ✓", // 161 chars - needs trim to 160
   ]
 };
 
@@ -280,6 +300,7 @@ export const seoMetadata = {
   portfolio: portfolioSEO,
   contact: contactSEO,
   trade: tradeSEO,
+  sustainability: sustainabilitySEO,
   thankYou: thankYouSEO,
   resourcesHub: resourcesHubSEO,
   importingCabinetryBlog: importingCabinetryBlogSEO,

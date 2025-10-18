@@ -4,6 +4,7 @@ import { companyInfo } from './shared';
 export const primaryNavigation = [
   { label: 'Home', href: '/', slug: 'home' },
   { label: 'Services', href: '/services', slug: 'services', hasDropdown: true },
+  { label: 'Sustainability', href: '/sustainability', slug: 'sustainability' },
   { label: 'Trade Program', href: '/trade', slug: 'trade' },
   { label: 'About', href: '/about', slug: 'about' },
   { label: 'Contact', href: '/contact', slug: 'contact' }
@@ -50,6 +51,7 @@ export const footerNavigation = {
     title: 'Company',
     links: [
       { label: 'About Us', href: '/about', slug: 'about' },
+      { label: 'Sustainability', href: '/sustainability', slug: 'sustainability' },
       { label: 'Trade Program', href: '/trade', slug: 'trade' },
       { label: 'Our Process', href: '/process', slug: 'process' },
       { label: 'Showroom', href: '/showroom', slug: 'showroom' },

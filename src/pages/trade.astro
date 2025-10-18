@@ -111,6 +111,34 @@ const tradeAdvantages = tradePageContent.tradeAdvantages.advantages.map(advantag
 			variant="features"
 			theme="dark"
 		/>
+
+		<!-- Benefits List & CTA -->
+		<div class="max-w-4xl mx-auto mt-12">
+			<div class="gradient-card-dark rounded-2xl border border-white/20 p-8">
+				<h3 class="text-2xl font-bold text-white mb-6 text-center">
+					Why Canadian Trade Professionals Choose Sustainable Options
+				</h3>
+				<div class="grid md:grid-cols-2 gap-4 mb-8">
+					{tradePageContent.environmental.benefits.map((benefit) => (
+						<div class="flex items-start gap-3">
+							<div class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-accent/20">
+								<Check class="h-3.5 w-3.5 text-brand-accent" />
+							</div>
+							<span class="text-white/90">{benefit}</span>
+						</div>
+					))}
+				</div>
+				<div class="text-center">
+					<Button
+						variant="primary"
+						size="lg"
+						href={tradePageContent.environmental.ctaHref}
+					>
+						{tradePageContent.environmental.ctaText}
+					</Button>
+				</div>
+			</div>
+		</div>
 	</SectionWrapper>
 
 	<!-- Trade Advantages Section -->
