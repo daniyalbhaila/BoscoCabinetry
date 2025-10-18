@@ -10,11 +10,14 @@ export const primaryNavigation = [
 ];
 
 // Services dropdown navigation (auto-generated from projectTypes)
-export const servicesNavigation = companyInfo.projectTypes.map(service => ({
-  label: service.label,
-  href: `/services/${service.value.replace('_', '-')}`,
-  slug: service.value
-}));
+// Filter out "other" and "multiple-projects" for navbar (keep in form dropdown)
+export const servicesNavigation = companyInfo.projectTypes
+  .filter(service => service.value !== 'other' && service.value !== 'multiple-projects')
+  .map(service => ({
+    label: service.label,
+    href: `/services/${service.value.replace('_', '-')}`,
+    slug: service.value
+  }));
 
 // Add "View All Services" option
 servicesNavigation.push({
