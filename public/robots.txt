@@ -34,6 +34,5 @@ Allow: /*.js
 Allow: /images/
 Allow: /media/
 
-# Sitemap location
-Sitemap: https://boscocabinetry.com/sitemap-index.xml
-Sitemap: https://boscocabinetry.com/sitemap-0.xml
+# Sitemap location (Astro generates sitemap-index.xml automatically)
+Sitemap: https://boscocabinetry.ca/sitemap-index.xml

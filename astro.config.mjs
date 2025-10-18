@@ -4,7 +4,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: 'https://boscocabinetry.com',
+  site: 'https://boscocabinetry.ca',
   integrations: [
     react(),
     tailwind({
@@ -15,6 +15,34 @@ export default defineConfig({
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
+      // Custom priorities for different page types
+      serialize(item) {
+        // Homepage gets highest priority
+        if (item.url === 'https://boscocabinetry.ca/') {
+          return { ...item, priority: 1.0, changefreq: 'daily' };
+        }
+        // Main service pages
+        if (item.url.includes('/services/')) {
+          return { ...item, priority: 0.9, changefreq: 'weekly' };
+        }
+        // Services overview and portfolio
+        if (item.url === 'https://boscocabinetry.ca/services' ||
+            item.url === 'https://boscocabinetry.ca/portfolio') {
+          return { ...item, priority: 0.9, changefreq: 'weekly' };
+        }
+        // Resources/blog content
+        if (item.url.includes('/resources/')) {
+          return { ...item, priority: 0.7, changefreq: 'monthly' };
+        }
+        // About, contact, sustainability
+        if (item.url.includes('/about') ||
+            item.url.includes('/contact') ||
+            item.url.includes('/sustainability')) {
+          return { ...item, priority: 0.8, changefreq: 'monthly' };
+        }
+        // Everything else
+        return { ...item, priority: 0.6, changefreq: 'monthly' };
+      }
     }),
   ],
   build: {
