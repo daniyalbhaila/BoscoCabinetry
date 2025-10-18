@@ -1,44 +1,98 @@
 ---
-// Footer section
+import { companyInfo } from '../content/shared.ts';
+import Facebook from './icons/Facebook.astro';
+import Instagram from './icons/Instagram.astro';
+import Linkedin from './icons/Linkedin.astro';
+import Tiktok from './icons/Tiktok.astro';
+import LogoSvg from '../assets/Logo-Light.svg?raw';
 ---
-<footer class="relative isolate bg-brand-charcoal border-t border-white/10">
+<footer class="relative isolate bg-brand-slate border-t border-white/10">
 	<div class="mx-auto max-w-7xl px-6 py-16">
-		<!-- Quick Links -->
-		<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-12">
-			<div>
-				<h4 class="text-white font-medium mb-3">Services</h4>
-				<div class="space-y-2 text-sm text-white/70">
-					<p>Kitchen Cabinets</p>
-					<p>Closet Systems</p>
-					<p>Built-ins</p>
-					<p>Paneling</p>
+		<!-- Main Footer Content -->
+		<div class="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-12">
+			<!-- Logo and Social Media Column -->
+			<div class="lg:col-span-1">
+				<a href="/" class="inline-block mb-6" aria-label="Bosco Cabinetry Home">
+					<div class="logo-svg w-[160px] h-[53px]" set:html={LogoSvg} />
+				</a>
+				<p class="text-white/70 text-sm mb-6">Premium custom cabinetry for Toronto homes.</p>
+				<div class="flex gap-3">
+					<a
+						href={companyInfo.social.facebook}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-primary flex items-center justify-center transition-colors duration-200"
+						aria-label="Follow us on Facebook"
+					>
+						<Facebook class="w-5 h-5 text-white" />
+					</a>
+					<a
+						href={companyInfo.social.instagram}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-primary flex items-center justify-center transition-colors duration-200"
+						aria-label="Follow us on Instagram"
+					>
+						<Instagram class="w-5 h-5 text-white" />
+					</a>
+					<a
+						href={companyInfo.social.linkedin}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-primary flex items-center justify-center transition-colors duration-200"
+						aria-label="Follow us on LinkedIn"
+					>
+						<Linkedin class="w-5 h-5 text-white" />
+					</a>
+					<a
+						href={companyInfo.social.tiktok}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-primary flex items-center justify-center transition-colors duration-200"
+						aria-label="Follow us on TikTok"
+					>
+						<Tiktok class="w-5 h-5 text-white" />
+					</a>
 				</div>
 			</div>
-			<div>
-				<h4 class="text-white font-medium mb-3">Company</h4>
-				<div class="space-y-2 text-sm">
-					<a href="/about" class="block text-white/70 hover:text-white transition-colors">About Us</a>
-					<a href="/trade" class="block text-white/70 hover:text-white transition-colors">Trade Program</a>
-					<a href="/resources" class="block text-white/70 hover:text-white transition-colors">Resources</a>
-					<a href="/contact" class="block text-white/70 hover:text-white transition-colors">Contact</a>
+
+			<!-- Navigation Columns (4 columns on right) -->
+			<div class="lg:col-span-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+				<div>
+					<h4 class="text-white font-semibold mb-4">Services</h4>
+					<div class="space-y-2 text-sm">
+						<a href="/services/kitchen-cabinets" class="block text-white/70 hover:text-brand-primary transition-colors">Kitchen Cabinets</a>
+						<a href="/services/custom-closets" class="block text-white/70 hover:text-brand-primary transition-colors">Closet Systems</a>
+						<a href="/services/built-ins" class="block text-white/70 hover:text-brand-primary transition-colors">Built-ins</a>
+						<a href="/services/full-home-cabinetry" class="block text-white/70 hover:text-brand-primary transition-colors">Full Home</a>
+					</div>
 				</div>
-			</div>
-			<div>
-				<h4 class="text-white font-medium mb-3">Why Choose Us</h4>
-				<div class="space-y-2 text-sm text-white/70">
-					<p>100+ Completed Projects</p>
-					<p>Affordable Luxury</p>
-					<p>Full Service</p>
-					<p>Large Showroom</p>
+				<div>
+					<h4 class="text-white font-semibold mb-4">Company</h4>
+					<div class="space-y-2 text-sm">
+						<a href="/about" class="block text-white/70 hover:text-brand-primary transition-colors">About Us</a>
+						<a href="/trade" class="block text-white/70 hover:text-brand-primary transition-colors">Trade Program</a>
+						<a href="/portfolio" class="block text-white/70 hover:text-brand-primary transition-colors">Portfolio</a>
+						<a href="/contact" class="block text-white/70 hover:text-brand-primary transition-colors">Contact</a>
+					</div>
 				</div>
-			</div>
-			<div>
-				<h4 class="text-white font-medium mb-3">Get Started</h4>
-				<div class="space-y-2 text-sm">
-					<a href="#book-showroom" class="block text-brand-accent hover:text-white transition-colors">Book Visit</a>
-					<a href="#get-quote" class="block text-brand-accent hover:text-white transition-colors">Get Quote</a>
-					<a href="#virtual-tour" class="block text-brand-accent hover:text-white transition-colors">Virtual Tour</a>
-					<a href="#catalog" class="block text-brand-accent hover:text-white transition-colors">Free Catalog</a>
+				<div>
+					<h4 class="text-white font-semibold mb-4">Resources</h4>
+					<div class="space-y-2 text-sm">
+						<a href="#faq" class="block text-white/70 hover:text-brand-primary transition-colors">FAQ</a>
+						<a href="#virtual-tour" class="block text-white/70 hover:text-brand-primary transition-colors">Virtual Tour</a>
+						<a href="#catalog" class="block text-white/70 hover:text-brand-primary transition-colors">Design Catalog</a>
+						<a href={companyInfo.urls.googleReviews} target="_blank" rel="noopener noreferrer" class="block text-white/70 hover:text-brand-primary transition-colors">Reviews</a>
+					</div>
+				</div>
+				<div>
+					<h4 class="text-white font-semibold mb-4">Get Started</h4>
+					<div class="space-y-2 text-sm">
+						<a href="#contact" class="block text-white/70 hover:text-brand-primary transition-colors">Free Quote</a>
+						<a href="#book-showroom" class="block text-white/70 hover:text-brand-primary transition-colors">Book Showroom Visit</a>
+						<a href="tel:{companyInfo.contact.phone.number}" class="block text-white/70 hover:text-brand-primary transition-colors">{companyInfo.contact.phone.display}</a>
+						<a href="mailto:{companyInfo.contact.email.address}" class="block text-white/70 hover:text-brand-primary transition-colors">Email Us</a>
+					</div>
 				</div>
 			</div>
 		</div>
