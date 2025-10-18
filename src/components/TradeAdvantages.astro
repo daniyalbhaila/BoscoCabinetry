@@ -18,13 +18,13 @@ export interface Props {
 const { tag, title, description, advantages } = Astro.props;
 ---
 
-<SectionWrapper theme="dark" id="advantages">
+<SectionWrapper theme="light" id="advantages">
 	<SectionHeader
 		tag={tag}
 		title={title}
 		description={description}
 		layout="split"
-		theme="dark"
+		theme="light"
 	/>
 
 	<div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
@@ -32,16 +32,16 @@ const { tag, title, description, advantages } = Astro.props;
 			<div class="group">
 				<div class="flex items-start gap-6">
 					<!-- Icon -->
-					<div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl gradient-card-dark border border-brand-primary/20 transition-all duration-300 group-hover:border-brand-primary/40 group-hover:scale-110">
+					<div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl gradient-card-light border border-brand-primary/20 transition-all duration-300 group-hover:border-brand-primary/40 group-hover:scale-110">
 						<advantage.icon class="h-8 w-8 text-brand-primary" />
 					</div>
 
 					<!-- Content -->
 					<div class="flex-1">
-						<h3 class="mb-3 text-xl font-semibold text-white">
+						<h3 class="mb-3 text-xl font-semibold text-brand-charcoal">
 							{advantage.title}
 						</h3>
-						<p class="text-base leading-relaxed text-white/70">
+						<p class="text-base leading-relaxed text-brand-darkGray">
 							{advantage.description}
 						</p>
 					</div>

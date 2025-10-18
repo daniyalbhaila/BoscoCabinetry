@@ -15,11 +15,11 @@ import { seoMetadata } from '../content/seo-metadata.ts';
   keywords={seoMetadata.thankYou.keywords}
   ogImage={seoMetadata.thankYou.ogImage}
 >
-  <SectionWrapper theme="light" id="thank-you">
+  <SectionWrapper theme="dark" id="thank-you">
     <div class="max-w-3xl mx-auto text-center py-16">
       <!-- Success Icon -->
-      <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
-        <Check class="w-10 h-10 text-green-600" />
+      <div class="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-8">
+        <Check class="w-10 h-10 text-green-400" />
       </div>
 
       <!-- Main Message -->
@@ -28,11 +28,11 @@ import { seoMetadata } from '../content/seo-metadata.ts';
         title="Thank You for Your Message!"
         description="We've received your inquiry and will get back to you within 24 hours. Our team is excited to help bring your cabinetry vision to life."
         layout="center"
-        theme="light"
+        theme="dark"
       />
 
       <!-- What Happens Next -->
-      <div class="bg-brand-accent/10 rounded-2xl p-8 mb-8">
+      <div class="gradient-card-dark-strong backdrop-blur-sm border border-brand-primary/20 rounded-2xl p-8 mb-8">
         <h3 class="text-xl font-semibold text-brand-primary mb-6">What Happens Next?</h3>
         <div class="grid md:grid-cols-3 gap-6 text-left">
           <div class="flex items-start gap-3">
@@ -41,7 +41,7 @@ import { seoMetadata } from '../content/seo-metadata.ts';
             </div>
             <div>
               <h4 class="font-semibold text-brand-primary mb-1">Review</h4>
-              <p class="text-sm text-gray-600">Our team reviews your project details and requirements</p>
+              <p class="text-sm text-white/70">Our team reviews your project details and requirements</p>
             </div>
           </div>
           <div class="flex items-start gap-3">
@@ -50,7 +50,7 @@ import { seoMetadata } from '../content/seo-metadata.ts';
             </div>
             <div>
               <h4 class="font-semibold text-brand-primary mb-1">Contact</h4>
-              <p class="text-sm text-gray-600">We'll call or email you within {companyInfo.timelines.emailResponse}</p>
+              <p class="text-sm text-white/70">We'll call or email you within {companyInfo.timelines.emailResponse}</p>
             </div>
           </div>
           <div class="flex items-start gap-3">
@@ -59,7 +59,7 @@ import { seoMetadata } from '../content/seo-metadata.ts';
             </div>
             <div>
               <h4 class="font-semibold text-brand-primary mb-1">Consultation</h4>
-              <p class="text-sm text-gray-600">Schedule your free in-home consultation</p>
+              <p class="text-sm text-white/70">Schedule your free in-home consultation</p>
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@ import { seoMetadata } from '../content/seo-metadata.ts';
 
       <!-- Call to Action -->
       <div class="space-y-4">
-        <p class="text-gray-600 mb-6">
+        <p class="text-white/70 mb-6">
           Need immediate assistance? Don't hesitate to call us directly.
         </p>
 
@@ -84,7 +84,7 @@ import { seoMetadata } from '../content/seo-metadata.ts';
 
           <Button
             href="/"
-            variant="outline"
+            variant="ghost"
             size="lg"
           >
             Return to Home
@@ -93,16 +93,16 @@ import { seoMetadata } from '../content/seo-metadata.ts';
       </div>
 
       <!-- Additional Information -->
-      <div class="mt-12 p-6 bg-white border border-brand-accent/30 rounded-xl">
+      <div class="mt-12 p-6 gradient-card-dark border border-brand-primary/20 rounded-xl">
         <h4 class="font-semibold text-brand-primary mb-3">While You Wait</h4>
-        <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+        <div class="grid md:grid-cols-2 gap-4 text-sm text-white/70">
           <div>
-            <p class="mb-2">📱 <strong>Follow our progress:</strong> Check out recent projects on our social media</p>
-            <p>📍 <strong>Visit our showroom:</strong> {companyInfo.location.address.display}</p>
+            <p class="mb-2">📱 <strong class="text-white">Follow our progress:</strong> Check out recent projects on our social media</p>
+            <p>📍 <strong class="text-white">Visit our showroom:</strong> {companyInfo.location.address.display}</p>
           </div>
           <div>
-            <p class="mb-2">⏰ <strong>Business hours:</strong> {companyInfo.hours.display.weekdays}</p>
-            <p>📧 <strong>Email:</strong> {companyInfo.contact.email.address}</p>
+            <p class="mb-2">⏰ <strong class="text-white">Business hours:</strong> {companyInfo.hours.display.weekdays}</p>
+            <p>📧 <strong class="text-white">Email:</strong> {companyInfo.contact.email.address}</p>
           </div>
         </div>
       </div>

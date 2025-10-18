@@ -89,6 +89,7 @@ const tradeAdvantages = tradePageContent.tradeAdvantages.advantages.map(advantag
 				iconComponent: iconMap[feature.icon]
 			}))}
 			variant="features"
+			theme="light"
 		/>
 	</SectionWrapper>
 
@@ -108,22 +109,8 @@ const tradeAdvantages = tradePageContent.tradeAdvantages.advantages.map(advantag
 				iconComponent: iconMap[feature.icon]
 			}))}
 			variant="features"
+			theme="dark"
 		/>
-
-		<!-- Environmental Promise -->
-		<div class="mt-16 mx-auto max-w-4xl">
-			<h3 class="mb-8 text-center text-2xl font-semibold text-white">Our Promise</h3>
-			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-				{tradePageContent.environmental.promise.map((item) => (
-					<div class="flex items-start gap-3">
-						<div class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-accent/20">
-							<Check class="h-3.5 w-3.5 text-brand-accent" />
-						</div>
-						<p class="text-white/90">{item}</p>
-					</div>
-				))}
-			</div>
-		</div>
 	</SectionWrapper>
 
 	<!-- Trade Advantages Section -->
@@ -135,69 +122,69 @@ const tradeAdvantages = tradePageContent.tradeAdvantages.advantages.map(advantag
 	/>
 
 	<!-- Trade Account Benefits Section -->
-	<SectionWrapper theme="light" id="trade-account">
+	<SectionWrapper theme="dark" id="trade-account">
 		<TradeAccountBenefits
 			tag={tradePageContent.accountBenefits.tag}
 			title={tradePageContent.accountBenefits.title}
 			benefits={tradePageContent.accountBenefits.benefits}
 			ctaCard={tradePageContent.accountBenefits.ctaCard}
-			theme="light"
+			theme="dark"
 		/>
 	</SectionWrapper>
 
 	<!-- Product Collections Showcase -->
-	<SectionWrapper theme="dark" id="collections">
+	<SectionWrapper theme="light" id="collections">
 		<SectionHeader
 			tag={tradePageContent.productShowcase.tag}
 			title={tradePageContent.productShowcase.title}
 			description={tradePageContent.productShowcase.description}
 			layout="center"
-			theme="dark"
+			theme="light"
 		/>
-		<ProductShowcase collections={tradePageContent.productShowcase.collections} theme="dark" />
+		<ProductShowcase collections={tradePageContent.productShowcase.collections} theme="light" />
 	</SectionWrapper>
 
 	<!-- Materials & Finishes Section -->
-	<SectionWrapper theme="light" id="materials">
+	<SectionWrapper theme="dark" id="materials">
 		<SectionHeader
 			tag={tradePageContent.materials.tag}
 			title={tradePageContent.materials.title}
 			description={tradePageContent.materials.description}
 			layout="center"
-			theme="light"
+			theme="dark"
 		/>
 
 		<div class="mx-auto max-w-5xl">
 			<div class="grid grid-cols-1 gap-12 md:grid-cols-2">
 				<!-- Base Materials -->
-				<div class="gradient-card-light rounded-2xl border border-brand-accent/40 p-8">
-					<h3 class="mb-6 text-xl font-semibold text-brand-charcoal">
+				<div class="gradient-card-dark rounded-2xl border border-brand-primary/30 p-8 backdrop-blur-sm">
+					<h3 class="mb-6 text-xl font-semibold text-white">
 						{tradePageContent.materials.baseMaterials.title}
 					</h3>
 					<ul class="space-y-3">
 						{tradePageContent.materials.baseMaterials.options.map((material) => (
 							<li class="flex items-start gap-3">
-								<div class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-primary/20">
-									<Check class="h-3.5 w-3.5 text-brand-primary" />
+								<div class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-accent/20">
+									<Check class="h-3.5 w-3.5 text-brand-accent" />
 								</div>
-								<span class="text-brand-darkGray">{material}</span>
+								<span class="text-white/90">{material}</span>
 							</li>
 						))}
 					</ul>
 				</div>
 
 				<!-- Finishing Materials -->
-				<div class="gradient-card-light rounded-2xl border border-brand-accent/40 p-8">
-					<h3 class="mb-6 text-xl font-semibold text-brand-charcoal">
+				<div class="gradient-card-dark rounded-2xl border border-brand-primary/30 p-8 backdrop-blur-sm">
+					<h3 class="mb-6 text-xl font-semibold text-white">
 						{tradePageContent.materials.finishingMaterials.title}
 					</h3>
 					<ul class="space-y-3">
 						{tradePageContent.materials.finishingMaterials.options.map((finish) => (
 							<li class="flex items-start gap-3">
-								<div class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-primary/20">
-									<Check class="h-3.5 w-3.5 text-brand-primary" />
+								<div class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-accent/20">
+									<Check class="h-3.5 w-3.5 text-brand-accent" />
 								</div>
-								<span class="text-brand-darkGray">{finish}</span>
+								<span class="text-white/90">{finish}</span>
 							</li>
 						))}
 					</ul>
@@ -224,7 +211,7 @@ const tradeAdvantages = tradePageContent.tradeAdvantages.advantages.map(advantag
 
 	<!-- Process Section -->
 	<ProcessSection
-		theme="light"
+		theme="dark"
 		tag={tradePageContent.process.tag}
 		title={tradePageContent.process.title}
 		description={tradePageContent.process.description}
@@ -233,7 +220,7 @@ const tradeAdvantages = tradePageContent.tradeAdvantages.advantages.map(advantag
 
 	<!-- FAQ Section -->
 	<FAQSection
-		theme="dark"
+		theme="light"
 		tag={tradePageContent.faqs.tag}
 		title={tradePageContent.faqs.title}
 		description={tradePageContent.faqs.description}
