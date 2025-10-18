@@ -245,7 +245,7 @@ export const tradePageContent = {
 		finishingMaterials: {
 			title: "Finishing Materials",
 			options: [
-				"Paint finish",
+				"Paint finishes (powder coated and lacquer)",
 				"Variety of laminate and film finishes/coatings including melamine, PVC, PET, UV, EB",
 				"Solid wood",
 				"Wood veneer"
@@ -314,7 +314,7 @@ export const tradePageContent = {
 			},
 			{
 				question: "What materials and finishes are available?",
-				answer: "We offer a comprehensive range of base materials including plywood, particle board, bamboo board, MDF, and solid wood options. Finishing materials include paint finishes, a variety of laminate and film finishes/coatings (melamine, PVC, PET, UV, EB), solid wood, and wood veneer. We offer modern frameless, shaker, transitional, and traditional styles. Contact our trade team to discuss the best materials for your specific project requirements."
+				answer: "We offer a comprehensive range of base materials including plywood, particle board, bamboo board, MDF, and solid wood options. Finishing materials include paint finishes (powder coated and lacquer), a variety of laminate and film finishes/coatings (melamine, PVC, PET, UV, EB), solid wood, and wood veneer. We offer modern frameless, shaker, transitional, and traditional styles. Contact our trade team to discuss the best materials for your specific project requirements."
 			},
 			{
 				question: "Do you provide installation support?",
