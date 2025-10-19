@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionWrapper from '../../components/SectionWrapper.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ContactUs from '../../components/ContactUs.astro';
+import { seoMetadata } from '../../content/seo-metadata';
+
+// Get all portfolio projects
+const allProjects = await getCollection('portfolio');
+
+// Sort projects: featured first, then by title alphabetically
+const sortedProjects = allProjects.sort((a, b) => {
+  if (a.data.featured && !b.data.featured) return -1;
+  if (!a.data.featured && b.data.featured) return 1;
+  return a.data.title.localeCompare(b.data.title);
+});
+
+// Dynamically import all project featured images
+const images = import.meta.glob('../../assets/Portfolio/**/*.{jpg,jpeg,JPG,JPEG,png,PNG,heic,HEIC}');
+
+const projectsWithImages = await Promise.all(
+  sortedProjects.map(async (project) => {
+    const imagePath = project.data.featuredImage;
+
+    let featuredImage;
+    for (const path in images) {
+      if (path.includes(imagePath.replace('../../assets/', ''))) {
+        featuredImage = await images[path]();
+        break;
+      }
+    }
+
+    return {
+      ...project,
+      image: featuredImage?.default
+    };
+  })
+).then(projects => projects.filter(p => p.image)); // Filter out projects without images
+
+---
+
+<BaseLayout
+  title={seoMetadata.portfolio.title}
+  description={seoMetadata.portfolio.description}
+  keywords={seoMetadata.portfolio.keywords}
+  ogImage={seoMetadata.portfolio.ogImage}
+>
+
+  <SectionWrapper theme="dark" id="portfolio-projects">
+    <SectionHeader
+      tag="Our Work"
+      title="Portfolio"
+      description="Explore our collection of custom cabinetry projects across the Greater Toronto Area."
+      layout="center"
+      theme="dark"
+    />
+
+    <!-- Portfolio Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projectsWithImages.map((project) => (
+        <ProjectCard
+          title={project.data.title}
+          slug={project.slug}
+          category={project.data.category}
+          featuredImage={project.image}
+          location={project.data.location}
+        />
+      ))}
+    </div>
+
+    {/* Show message if no projects found */}
+    {projectsWithImages.length === 0 && (
+      <div class="text-center py-12">
+        <p class="text-gray-600 text-lg">
+          More projects coming soon! Check back later to see our latest work.
+        </p>
+      </div>
+    )}
+  </SectionWrapper>
+
+  <ContactUs />
+
+</BaseLayout>

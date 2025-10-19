@@ -1,0 +1,243 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionWrapper from '../../components/SectionWrapper.astro';
+import ProjectGalleryEnhanced from '../../components/ProjectGalleryEnhanced.astro';
+import ContactUs from '../../components/ContactUs.astro';
+import Button from '../../components/ui/Button.astro';
+import { Image } from 'astro:assets';
+import MapPin from '../../components/icons/MapPin.astro';
+import Ruler from '../../components/icons/Ruler.astro';
+import Tag from '../../components/icons/Tag.astro';
+import Clock from '../../components/icons/Clock.astro';
+
+// Generate static paths for all portfolio projects
+export const getStaticPaths = (async () => {
+  const portfolioEntries = await getCollection('portfolio');
+
+  return portfolioEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Dynamically import featured image
+const imagePath = entry.data.featuredImage;
+const images = import.meta.glob('../../assets/Portfolio/**/*.{jpg,jpeg,JPG,JPEG,png,PNG,heic,HEIC}');
+
+let featuredImage;
+for (const path in images) {
+  if (path.includes(imagePath.replace('../../assets/', ''))) {
+    featuredImage = await images[path]();
+    break;
+  }
+}
+
+// Import all gallery images
+const galleryImages = await Promise.all(
+  entry.data.images.map(async (img) => {
+    for (const path in images) {
+      if (path.includes(img.src.replace('../../assets/', ''))) {
+        const imported = await images[path]();
+        return {
+          src: imported.default,
+          alt: img.alt,
+          caption: img.caption
+        };
+      }
+    }
+    return null;
+  })
+).then(imgs => imgs.filter(Boolean));
+
+// Category display name
+const categoryNames: Record<string, string> = {
+  'kitchen': 'Kitchen Cabinets',
+  'bathroom': 'Bathroom Vanity',
+  'closet': 'Closet System',
+  'built-in': 'Built-In Cabinetry',
+  'media-wall': 'Media Wall',
+  'full-home': 'Full Home Cabinetry',
+};
+
+const categoryName = categoryNames[entry.data.category] || entry.data.category;
+
+// SEO metadata
+const seoTitle = `${entry.data.title} | ${categoryName} ${entry.data.location.city} | Bosco Cabinetry`;
+const seoDescription = entry.data.excerpt || entry.data.description;
+const seoKeywords = entry.data.keywords?.join(', ') || `custom ${entry.data.category} ${entry.data.location.city}, custom cabinetry Toronto`;
+
+// Format completion date for display (if available)
+const completionMonth = entry.data.completionDate
+  ? entry.data.completionDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+  : null;
+---
+
+<BaseLayout
+  title={seoTitle}
+  description={seoDescription}
+  keywords={seoKeywords}
+  ogImage={entry.data.ogImage}
+>
+  <!-- Main Project Section - Dark Theme -->
+  <SectionWrapper theme="dark" id="project-main">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Top Section: Quick Facts + Featured Image Side by Side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+
+        <!-- Left: Quick Facts -->
+        <div class="flex flex-col justify-center">
+          <h1 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+            {entry.data.title}
+          </h1>
+
+          <!-- Quick Facts Grid -->
+          <div class="space-y-3">
+            <!-- Location -->
+            <div class="flex items-start gap-3">
+              <MapPin class="w-6 h-6 text-brand-accent flex-shrink-0 mt-0.5" />
+              <div>
+                <p class="text-sm text-gray-400 font-medium">Location</p>
+                <p class="text-lg text-white font-semibold">
+                  {entry.data.location.city}, {entry.data.location.province}
+                </p>
+              </div>
+            </div>
+
+            <!-- Project Type -->
+            <div class="flex items-start gap-3">
+              <Tag class="w-6 h-6 text-brand-accent flex-shrink-0 mt-0.5" />
+              <div>
+                <p class="text-sm text-gray-400 font-medium">Project Type</p>
+                <p class="text-lg text-white font-semibold">{categoryName}</p>
+              </div>
+            </div>
+
+            <!-- Completed (if available) -->
+            {completionMonth && (
+              <div class="flex items-start gap-3">
+                <Clock class="w-6 h-6 text-brand-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <p class="text-sm text-gray-400 font-medium">Completed</p>
+                  <p class="text-lg text-white font-semibold">{completionMonth}</p>
+                </div>
+              </div>
+            )}
+
+            <!-- Size (if available) -->
+            {entry.data.sqft && (
+              <div class="flex items-start gap-3">
+                <Ruler class="w-6 h-6 text-brand-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <p class="text-sm text-gray-400 font-medium">Size</p>
+                  <p class="text-lg text-white font-semibold">{entry.data.sqft} sq ft</p>
+                </div>
+              </div>
+            )}
+
+            <!-- Timeline (if available) -->
+            {entry.data.timeline && (
+              <div class="flex items-start gap-3">
+                <Clock class="w-6 h-6 text-brand-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <p class="text-sm text-gray-400 font-medium">Timeline</p>
+                  <p class="text-lg text-white font-semibold">{entry.data.timeline}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <!-- Right: Featured Image -->
+        {featuredImage && (
+          <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-xl max-h-[80vh]">
+            <Image
+              src={featuredImage.default}
+              alt={entry.data.title}
+              class="w-full h-full object-cover max-h-[80vh]"
+              width={800}
+              height={600}
+              format="webp"
+              quality={90}
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        )}
+      </div>
+
+    </div>
+  </SectionWrapper>
+
+  <!-- Description Section - Light Theme -->
+  <SectionWrapper theme="light" id="project-description">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-lg text-gray-700 leading-relaxed">
+        {entry.data.description}
+      </p>
+    </div>
+  </SectionWrapper>
+
+  <!-- Project Gallery - Dark Theme -->
+  {galleryImages.length > 0 && (
+    <ProjectGalleryEnhanced
+      images={galleryImages}
+      title={entry.data.title}
+      theme="dark"
+    />
+  )}
+
+  <!-- Additional SEO Content (MDX Content) - Light Theme -->
+  <SectionWrapper theme="light" id="project-details">
+    <div class="max-w-4xl mx-auto">
+      <div class="prose prose-lg prose-slate max-w-none prose-headings:text-brand-primary prose-a:text-brand-primary prose-strong:text-brand-primary prose-p:text-gray-700 prose-li:text-gray-700 text-gray-700">
+        <Content />
+      </div>
+
+      <!-- Key Features -->
+      {entry.data.features && entry.data.features.length > 0 && (
+        <div class="mt-12 pt-12 border-t border-gray-200">
+          <h3 class="text-2xl font-semibold text-brand-primary mb-6">Key Features</h3>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {entry.data.features.map((feature) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  </SectionWrapper>
+
+  <!-- Call to Action -->
+  <SectionWrapper theme="dark" id="project-cta">
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 class="text-3xl font-semibold text-white mb-4">
+        Ready to Start Your Project?
+      </h2>
+      <p class="text-xl text-gray-300 mb-8">
+        Let's bring your vision to life with custom cabinetry designed and built for your space.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button href="/contact" variant="primary" size="lg">
+          Get Free Consultation
+        </Button>
+        <Button href="/portfolio" variant="secondary" size="lg">
+          View More Projects
+        </Button>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- Contact Section -->
+  <ContactUs />
+</BaseLayout>

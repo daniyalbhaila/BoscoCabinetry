@@ -6,8 +6,10 @@ import ChevronRight from './icons/ChevronRight.astro';
 import ChevronLeft from './icons/ChevronLeft.astro';
 import { Image } from 'astro:assets';
 import Button from './ui/Button.astro';
-import KitchenImage from '../assets/kitchen.jpg';
-import ShowroomImage from '../assets/showroom.jpg';
+import DanLeckieImage1 from '../assets/Portfolio/Kitchen_DanLekcie/IMG_9931.JPG';
+import DanLeckieImage2 from '../assets/Portfolio/Kitchen_DanLekcie/IMG_9932.JPG';
+import DanLeckieImage3 from '../assets/Portfolio/Kitchen_DanLekcie/IMG_9934.JPG';
+import DanLeckieImage4 from '../assets/Portfolio/Kitchen_DanLekcie/IMG_9936.JPG';
 import { CARD_IMAGE_DIMENSIONS } from '../lib/imageConfig';
 import { getThemeClasses, type Theme } from '../lib/themeUtils';
 
@@ -37,7 +39,7 @@ interface ProjectShowcaseData {
 
 // Sample project data - replace with actual data
 const projectData: ProjectShowcaseData = {
-	title: "Kitchen Transformation: Oakville",
+	title: "Kitchen Transformation: Dan Leckie Way",
 	review: {
 		name: "Nabeel Ranmall",
 		rating: 5,
@@ -47,28 +49,20 @@ const projectData: ProjectShowcaseData = {
 	},
 	imageUrls: [
 		{
-			src: KitchenImage,
-			alt: "Modern kitchen with white cabinets and quartz countertops"
+			src: DanLeckieImage1,
+			alt: "Modern kitchen renovation with custom cabinetry at Dan Leckie Way"
 		},
 		{
-			src: ShowroomImage,
-			alt: "Bosco Cabinetry showroom and design center"
+			src: DanLeckieImage2,
+			alt: "Custom kitchen cabinets and countertops in downtown Toronto home"
 		},
 		{
-			src: KitchenImage,
-			alt: "Kitchen cabinet details and hardware"
+			src: DanLeckieImage3,
+			alt: "Contemporary kitchen design with premium finishes"
 		},
 		{
-			src: ShowroomImage,
-			alt: "Custom cabinetry display and samples"
-		},
-		{
-			src: KitchenImage,
-			alt: "Kitchen lighting and cabinet features"
-		},
-		{
-			src: ShowroomImage,
-			alt: "Professional cabinetry craftsmanship"
+			src: DanLeckieImage4,
+			alt: "Complete kitchen transformation by Bosco Cabinetry"
 		}
 	]
 };

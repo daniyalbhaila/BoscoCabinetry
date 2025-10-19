@@ -4,6 +4,7 @@ import { companyInfo } from './shared';
 export const primaryNavigation = [
   { label: 'Home', href: '/', slug: 'home' },
   { label: 'Services', href: '/services', slug: 'services', hasDropdown: true },
+  { label: 'Portfolio', href: '/portfolio', slug: 'portfolio' },
   { label: 'Sustainability', href: '/sustainability', slug: 'sustainability' },
   { label: 'Trade Program', href: '/trade', slug: 'trade' },
   { label: 'About', href: '/about', slug: 'about' },

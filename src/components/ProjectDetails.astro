@@ -1,0 +1,217 @@
+---
+import { getThemeClasses, type Theme } from '../lib/themeUtils';
+
+export interface Props {
+  location: {
+    city: string;
+    province: string;
+    neighborhood?: string;
+  };
+  completionDate: Date;
+  timeline?: string;
+  sqft?: number;
+  materials?: string[];
+  finishes?: string[];
+  hardware?: string;
+  category: string;
+  theme?: Theme;
+}
+
+const {
+  location,
+  completionDate,
+  timeline,
+  sqft,
+  materials,
+  finishes,
+  hardware,
+  category,
+  theme = 'light'
+} = Astro.props;
+
+const classes = getThemeClasses(theme);
+
+// Format date for display
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  month: 'long',
+  year: 'numeric'
+}).format(completionDate);
+
+// Category display name
+const categoryNames: Record<string, string> = {
+  'kitchen': 'Kitchen Cabinets',
+  'bathroom': 'Bathroom Vanity',
+  'closet': 'Closet System',
+  'built-in': 'Built-In Cabinetry',
+  'media-wall': 'Media Wall',
+  'full-home': 'Full Home Cabinetry',
+};
+
+const categoryName = categoryNames[category] || category;
+---
+
+<div class={`${classes.bgAlt} rounded-2xl p-8 border border-brand-accent/30`}>
+  <h3 class={`text-2xl font-semibold ${classes.heading} mb-6`}>Project Details</h3>
+
+  <dl class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Location -->
+    <div class="flex gap-3" itemscope itemtype="https://schema.org/Place">
+      <div class="flex-shrink-0">
+        <svg class="w-5 h-5 text-brand-primary mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+      </div>
+      <div>
+        <dt class={`text-sm font-medium ${classes.muted} mb-1`}>Location</dt>
+        <dd class={`text-base font-semibold ${classes.body}`} itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+          {location.neighborhood && <span>{location.neighborhood}, </span>}
+          <span itemprop="addressLocality">{location.city}</span>, <span itemprop="addressRegion">{location.province}</span>
+        </dd>
+      </div>
+    </div>
+
+    <!-- Project Type -->
+    <div class="flex gap-3">
+      <div class="flex-shrink-0">
+        <svg class="w-5 h-5 text-brand-primary mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+        </svg>
+      </div>
+      <div>
+        <dt class={`text-sm font-medium ${classes.muted} mb-1`}>Project Type</dt>
+        <dd class={`text-base font-semibold ${classes.body}`}>
+          {categoryName}
+        </dd>
+      </div>
+    </div>
+
+    <!-- Completion Date -->
+    <div class="flex gap-3">
+      <div class="flex-shrink-0">
+        <svg class="w-5 h-5 text-brand-primary mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+      </div>
+      <div>
+        <dt class={`text-sm font-medium ${classes.muted} mb-1`}>Completed</dt>
+        <dd class={`text-base font-semibold ${classes.body}`}>
+          <time datetime={completionDate.toISOString()}>{formattedDate}</time>
+        </dd>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    {timeline && (
+      <div class="flex gap-3">
+        <div class="flex-shrink-0">
+          <svg class="w-5 h-5 text-brand-primary mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div>
+          <dt class={`text-sm font-medium ${classes.muted} mb-1`}>Timeline</dt>
+          <dd class={`text-base font-semibold ${classes.body}`}>{timeline}</dd>
+        </div>
+      </div>
+    )}
+
+    <!-- Square Footage -->
+    {sqft && (
+      <div class="flex gap-3">
+        <div class="flex-shrink-0">
+          <svg class="w-5 h-5 text-brand-primary mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+          </svg>
+        </div>
+        <div>
+          <dt class={`text-sm font-medium ${classes.muted} mb-1`}>Size</dt>
+          <dd class={`text-base font-semibold ${classes.body}`}>{sqft.toLocaleString()} sq ft</dd>
+        </div>
+      </div>
+    )}
+
+    <!-- Materials -->
+    {materials && materials.length > 0 && (
+      <div class="flex gap-3 md:col-span-2">
+        <div class="flex-shrink-0">
+          <svg class="w-5 h-5 text-brand-primary mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <dt class={`text-sm font-medium ${classes.muted} mb-2`}>Materials</dt>
+          <dd class={`text-sm ${classes.body}`}>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {materials.map((material) => (
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-brand-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>{material}</span>
+                </li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+      </div>
+    )}
+
+    <!-- Finishes -->
+    {finishes && finishes.length > 0 && (
+      <div class="flex gap-3 md:col-span-2">
+        <div class="flex-shrink-0">
+          <svg class="w-5 h-5 text-brand-primary mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <dt class={`text-sm font-medium ${classes.muted} mb-2`}>Finishes</dt>
+          <dd class={`text-sm ${classes.body} flex flex-wrap gap-2`}>
+            {finishes.map((finish) => (
+              <span class="bg-brand-accent/20 text-brand-primary px-3 py-1 rounded-full text-xs font-medium">
+                {finish}
+              </span>
+            ))}
+          </dd>
+        </div>
+      </div>
+    )}
+
+    <!-- Hardware -->
+    {hardware && (
+      <div class="flex gap-3 md:col-span-2">
+        <div class="flex-shrink-0">
+          <svg class="w-5 h-5 text-brand-primary mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+          </svg>
+        </div>
+        <div>
+          <dt class={`text-sm font-medium ${classes.muted} mb-1`}>Hardware</dt>
+          <dd class={`text-base font-semibold ${classes.body}`}>{hardware}</dd>
+        </div>
+      </div>
+    )}
+  </dl>
+</div>
+
+<!-- Schema.org JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "workExample": {
+    "@type": "Product",
+    "category": categoryName,
+    "dateCreated": completionDate.toISOString(),
+    "material": materials?.join(', '),
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": location.city,
+        "addressRegion": location.province,
+        "addressCountry": "CA"
+      }
+    }
+  }
+})} />

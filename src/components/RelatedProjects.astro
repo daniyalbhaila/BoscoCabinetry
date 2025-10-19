@@ -1,0 +1,147 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+import { getThemeClasses, type Theme } from '../lib/themeUtils';
+
+export interface Props {
+  currentSlug: string;
+  relatedSlugs?: string[];
+  category?: string;
+  limit?: number;
+  theme?: Theme;
+}
+
+const {
+  currentSlug,
+  relatedSlugs = [],
+  category,
+  limit = 3,
+  theme = 'light'
+} = Astro.props;
+
+const classes = getThemeClasses(theme);
+
+// Get all portfolio projects
+const allProjects = await getCollection('portfolio');
+
+// Filter out current project
+const otherProjects = allProjects.filter(project => project.slug !== currentSlug);
+
+// Get related projects
+let relatedProjects = [];
+
+// First, try to get explicitly specified related projects
+if (relatedSlugs.length > 0) {
+  relatedProjects = otherProjects.filter(project =>
+    relatedSlugs.includes(project.slug)
+  ).slice(0, limit);
+}
+
+// If we don't have enough, add projects from same category
+if (relatedProjects.length < limit && category) {
+  const categoryProjects = otherProjects.filter(project =>
+    project.data.category === category &&
+    !relatedProjects.some(rp => rp.slug === project.slug)
+  );
+
+  relatedProjects = [
+    ...relatedProjects,
+    ...categoryProjects.slice(0, limit - relatedProjects.length)
+  ];
+}
+
+// If still not enough, add featured projects
+if (relatedProjects.length < limit) {
+  const featuredProjects = otherProjects.filter(project =>
+    project.data.featured &&
+    !relatedProjects.some(rp => rp.slug === project.slug)
+  );
+
+  relatedProjects = [
+    ...relatedProjects,
+    ...featuredProjects.slice(0, limit - relatedProjects.length)
+  ];
+}
+
+// If still not enough, add any remaining projects
+if (relatedProjects.length < limit) {
+  const remainingProjects = otherProjects.filter(project =>
+    !relatedProjects.some(rp => rp.slug === project.slug)
+  );
+
+  relatedProjects = [
+    ...relatedProjects,
+    ...remainingProjects.slice(0, limit - relatedProjects.length)
+  ];
+}
+
+// Limit to the specified number
+relatedProjects = relatedProjects.slice(0, limit);
+
+// Don't render if no related projects
+if (relatedProjects.length === 0) return null;
+---
+
+<section class={`${classes.bg} py-20`} id="related-projects">
+  <div class="mx-auto max-w-7xl px-6">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <p class={`text-[11px] uppercase tracking-[0.2em] ${classes.tag} mb-4`}>
+        [More Projects]
+      </p>
+      <h2 class={`text-3xl font-semibold ${classes.heading} sm:text-4xl md:text-5xl`}>
+        You Might Also Like
+      </h2>
+      <p class={`mt-4 text-base ${classes.muted} max-w-2xl mx-auto`}>
+        Explore more of our custom cabinetry projects showcasing quality craftsmanship and thoughtful design.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {relatedProjects.map(async (project) => {
+        // Dynamically import the featured image
+        const imagePath = project.data.featuredImage;
+        const images = import.meta.glob('../assets/Portfolio/**/*.{jpg,jpeg,JPG,JPEG,png,PNG,heic,HEIC}');
+
+        // Find the matching image
+        let featuredImage;
+        for (const path in images) {
+          if (path.includes(imagePath.replace('../assets/', ''))) {
+            featuredImage = await images[path]();
+            break;
+          }
+        }
+
+        // Fallback to a default image if not found
+        if (!featuredImage) {
+          return null;
+        }
+
+        return (
+          <ProjectCard
+            title={project.data.title}
+            slug={project.slug}
+            category={project.data.category}
+            description={project.data.description}
+            featuredImage={featuredImage.default}
+            location={project.data.location}
+          />
+        );
+      })}
+    </div>
+
+    <!-- View All Projects CTA -->
+    <div class="text-center mt-12">
+      <a
+        href="/portfolio"
+        class="inline-flex items-center gap-2 bg-brand-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-primary/90 transition-colors duration-200"
+      >
+        <span>View All Projects</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

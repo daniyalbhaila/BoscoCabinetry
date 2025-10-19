@@ -1,0 +1,93 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+export interface Props {
+  title: string;
+  slug: string;
+  category: string;
+  description?: string;
+  featuredImage: ImageMetadata;
+  location: {
+    city: string;
+    province?: string;
+  };
+}
+
+const { title, slug, category, description, featuredImage, location } = Astro.props;
+
+// Category display labels and colors
+const categoryConfig: Record<string, { label: string; color: string }> = {
+  'kitchen': { label: 'Kitchen', color: 'bg-brand-primary text-white' },
+  'bathroom': { label: 'Bathroom', color: 'bg-brand-slate text-white' },
+  'closet': { label: 'Closet', color: 'bg-brand-steel text-white' },
+  'built-in': { label: 'Built-In', color: 'bg-brand-oliveGray text-white' },
+  'media-wall': { label: 'Media Wall', color: 'bg-brand-darkGray text-white' },
+  'full-home': { label: 'Full Home', color: 'bg-brand-bronze text-white' },
+};
+
+const categoryInfo = categoryConfig[category] || { label: category, color: 'bg-gray-600 text-white' };
+---
+
+<article class="group h-full">
+  <a href={`/portfolio/${slug}`} class="block h-full">
+    <div class="h-full flex flex-col rounded-2xl overflow-hidden border border-brand-primary/20 hover:border-brand-primary/50 transition-all duration-300 bg-brand-charcoal/50 backdrop-blur-sm hover:shadow-xl">
+      <!-- Image Container -->
+      <div class="relative overflow-hidden aspect-[4/3]">
+        <Image
+          src={featuredImage}
+          alt={`${title} - Custom ${categoryInfo.label} project in ${location.city}, Ontario by Bosco Cabinetry`}
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          width={600}
+          height={450}
+          format="webp"
+          quality={85}
+          loading="lazy"
+          decoding="async"
+        />
+
+        <!-- Overlay on hover -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+        <!-- Category Tag -->
+        <div class="absolute top-4 left-4">
+          <span class={`${categoryInfo.color} px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider`}>
+            {categoryInfo.label}
+          </span>
+        </div>
+
+        <!-- Location Badge -->
+        <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <p class="text-xs font-medium text-gray-900 flex items-center gap-1">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            {location.city}, ON
+          </p>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="flex-1 p-6 flex flex-col">
+        <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-brand-accent transition-colors duration-200">
+          {title}
+        </h3>
+
+        {description && (
+          <p class="text-gray-300 text-sm leading-relaxed mb-4 flex-1">
+            {description}
+          </p>
+        )}
+
+        <!-- View Project Link -->
+        <div class="flex items-center text-brand-accent group-hover:text-white transition-colors duration-200 mt-auto">
+          <span class="text-sm font-semibold">View Project</span>
+          <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </a>
+</article>
