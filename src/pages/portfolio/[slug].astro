@@ -75,6 +75,31 @@ const seoKeywords = entry.data.keywords?.join(', ') || `custom ${entry.data.cate
 const completionMonth = entry.data.completionDate
   ? entry.data.completionDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
   : null;
+
+// Structured data for SEO (Schema.org)
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": entry.data.title,
+  "description": seoDescription,
+  "image": entry.data.ogImage || `https://boscocabinetry.ca/og-image.jpg`,
+  "creator": {
+    "@type": "Organization",
+    "name": "Bosco Cabinetry",
+    "url": "https://boscocabinetry.ca"
+  },
+  "datePublished": entry.data.completionDate?.toISOString(),
+  "keywords": seoKeywords,
+  "locationCreated": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": entry.data.location.city,
+      "addressRegion": entry.data.location.province,
+      "addressCountry": "CA"
+    }
+  }
+};
 ---
 
 <BaseLayout
@@ -83,6 +108,8 @@ const completionMonth = entry.data.completionDate
   keywords={seoKeywords}
   ogImage={entry.data.ogImage}
 >
+  <!-- Structured Data for Rich Results -->
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(structuredData)} />
   <!-- Main Project Section - Dark Theme -->
   <SectionWrapper theme="dark" id="project-main">
     <div class="max-w-7xl mx-auto">

@@ -1,12 +1,14 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
+import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: 'https://boscocabinetry.ca',
   integrations: [
     react(),
+    mdx(),
     tailwind({
       applyBaseStyles: false,
     }),
@@ -30,6 +32,10 @@ export default defineConfig({
             item.url === 'https://boscocabinetry.ca/portfolio') {
           return { ...item, priority: 0.9, changefreq: 'weekly' };
         }
+        // Individual portfolio projects
+        if (item.url.includes('/portfolio/') && item.url !== 'https://boscocabinetry.ca/portfolio') {
+          return { ...item, priority: 0.85, changefreq: 'monthly' };
+        }
         // Resources/blog content
         if (item.url.includes('/resources/')) {
           return { ...item, priority: 0.7, changefreq: 'monthly' };
@@ -50,6 +56,8 @@ export default defineConfig({
     inlineStylesheets: "always", // Inline all CSS files for better performance
   },
   vite: {
+    // Add HEIC and other image formats to assets
+    assetsInclude: ['**/*.HEIC', '**/*.heic'],
     build: {
       // CSS optimization
       cssCodeSplit: true,
