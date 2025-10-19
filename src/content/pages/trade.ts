@@ -60,9 +60,9 @@ export const tradePageContent = {
 
 	// Environmental Features Section
 	environmental: {
-		tag: "Green Building Credentials",
-		title: "Win More Projects with Certified Sustainable Materials",
-		description: "Support your LEED certification goals and meet CaGBC requirements with our EPA & CARB certified sustainable cabinetry options. Stand out on green building projects across the GTA.",
+		tag: "Sustainable Materials",
+		title: "Green Building Certifications & Compliance",
+		description: "LEED-eligible materials with EPA, CARB, and CaGBC certifications. Same lead times and competitive pricing as standard materials.",
 		features: [
 			{
 				title: "LEED Point Contribution",
@@ -85,15 +85,7 @@ export const tradePageContent = {
 				icon: "wind"
 			}
 		],
-		benefits: [
-			"Win bids on green building and LEED projects",
-			"Meet architect specifications for low-emission materials",
-			"Support Canada's net-zero building goals (2030 targets)",
-			"Appeal to eco-conscious clients and homeowners",
-			"Competitive pricing on sustainable alternatives",
-			"No quality compromises on eco-friendly options"
-		],
-		ctaText: "Learn more about our sustainable options",
+		ctaText: "View Sustainability Details",
 		ctaHref: "/sustainability"
 	},
 
