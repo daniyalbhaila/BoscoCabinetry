@@ -1,8 +1,13 @@
 ---
 import Button from './ui/Button.astro';
 import { Image } from 'astro:assets';
-import KitchenImage from '../assets/kitchen.jpg';
-import ShowroomImage from '../assets/showroom.jpg';
+// Portfolio Images - Diverse showcase of completed projects
+import DanLeckieKitchen from '../assets/Portfolio/Kitchen_DanLekcie/IMG_9932.JPG';
+import RobinaFullHome from '../assets/Portfolio/FullHome_Robina/1(a).jpg';
+import GrandHighlandBathroom from '../assets/Portfolio/Bathroom_GrandHighland/IMG_0093.JPG';
+import ThoroldMediaWall from '../assets/Portfolio/MediaWall_Thorold/IMG_0154.jpg';
+import RobinaKitchen from '../assets/Portfolio/FullHome_Robina/20.jpg';
+import BurningOakKitchen from '../assets/Portfolio/Kitchen_BurningOak/IMG_6738.jpg';
 import { CARD_IMAGE_DIMENSIONS } from '../lib/imageConfig';
 import { getThemeClasses, type Theme } from '../lib/themeUtils';
 
@@ -34,39 +39,39 @@ const classes = getThemeClasses(theme);
     <div class="grid w-full auto-rows-[220px] gap-4 md:auto-rows-[300px] md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)]">
       {[
         {
-          title: 'Toronto Kitchen Renovation',
-          description: 'Modern luxury kitchen with custom cabinetry and quartz countertops in Forest Hill',
-          image: KitchenImage,
+          title: 'Dan Leckie Kitchen Renovation',
+          description: 'Modern downtown Toronto kitchen with custom cabinetry and premium finishes',
+          image: DanLeckieKitchen,
           layout: 'md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-3'
         },
         {
-          title: 'Mississauga Custom Closet',
-          description: 'Luxury walk-in closet with custom organization system',
-          image: ShowroomImage,
+          title: 'Robina Full Home Renovation',
+          description: 'Complete home cabinetry transformation with coordinated design',
+          image: RobinaFullHome,
           layout: 'md:col-start-2 md:col-end-4 md:row-start-1 md:row-end-2'
         },
         {
-          title: 'Oakville Bathroom Vanity',
-          description: 'Custom floating vanity with integrated storage solutions',
-          image: KitchenImage,
+          title: 'Grand Highland Bathroom',
+          description: 'Custom bathroom vanity with integrated storage solutions',
+          image: GrandHighlandBathroom,
           layout: 'md:col-start-2 md:col-end-3 md:row-start-2 md:row-end-3'
         },
         {
-          title: 'North York Built-in',
-          description: 'Custom entertainment unit with hidden wire management',
-          image: ShowroomImage,
+          title: 'Robina Kitchen Detail',
+          description: 'Luxury kitchen with custom island and premium cabinetry',
+          image: RobinaKitchen,
           layout: 'md:col-start-1 md:col-end-2 md:row-start-3 md:row-end-4'
         },
         {
-          title: 'Richmond Hill Kitchen',
-          description: 'Traditional style kitchen renovation with classic details',
-          image: KitchenImage,
+          title: 'Burning Oak Kitchen',
+          description: 'Contemporary kitchen design with sleek cabinetry and modern finishes',
+          image: BurningOakKitchen,
           layout: 'md:col-start-2 md:col-end-3 md:row-start-3 md:row-end-4'
         },
         {
-          title: 'Markham Wall Paneling',
-          description: 'Custom decorative wall paneling for accent features',
-          image: ShowroomImage,
+          title: 'Thorold Media Wall',
+          description: 'Custom entertainment unit with integrated media storage',
+          image: ThoroldMediaWall,
           layout: 'md:col-start-3 md:col-end-4 md:row-start-2 md:row-end-4'
         }
       ].map((card) => (
