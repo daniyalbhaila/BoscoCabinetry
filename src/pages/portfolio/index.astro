@@ -6,13 +6,7 @@ import SectionHeader from '../../components/SectionHeader.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import ContactUs from '../../components/ContactUs.astro';
 import { seoMetadata } from '../../content/seo-metadata';
-
-// Import portfolio featured images directly for production reliability
-import bathroomGrandHighland from '../../assets/Portfolio/Bathroom_GrandHighland/IMG_0089.JPG';
-import fullhomeRobina from '../../assets/Portfolio/FullHome_Robina/1(a).jpg';
-import kitchenBurningOak from '../../assets/Portfolio/Kitchen_BurningOak/IMG_6736.jpg';
-import kitchenDanLeckie from '../../assets/Portfolio/Kitchen_DanLekcie/IMG_9931.JPG';
-import mediawallThorold from '../../assets/Portfolio/MediaWall_Thorold/IMG_0149.jpg';
+import { featuredImages } from '../../lib/portfolioImages';
 
 // Get all portfolio projects
 const allProjects = await getCollection('portfolio');
@@ -24,19 +18,10 @@ const sortedProjects = allProjects.sort((a, b) => {
   return a.data.title.localeCompare(b.data.title);
 });
 
-// Map project slugs to imported images
-const imageMap: Record<string, any> = {
-  'bathroom-grand-highland': bathroomGrandHighland,
-  'fullhome-robina': fullhomeRobina,
-  'kitchen-burning-oak': kitchenBurningOak,
-  'kitchen-dan-leckie': kitchenDanLeckie,
-  'mediawall-thorold': mediawallThorold,
-};
-
-// Add images to projects
+// Add images to projects using centralized mapping
 const projectsWithImages = sortedProjects.map((project) => ({
   ...project,
-  image: imageMap[project.slug],
+  image: featuredImages[project.slug],
 })).filter(p => p.image); // Only include projects with valid images
 
 ---

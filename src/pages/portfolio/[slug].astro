@@ -11,6 +11,7 @@ import MapPin from '../../components/icons/MapPin.astro';
 import Ruler from '../../components/icons/Ruler.astro';
 import Tag from '../../components/icons/Tag.astro';
 import Clock from '../../components/icons/Clock.astro';
+import { portfolioImageMap } from '../../lib/portfolioImages';
 
 // Generate static paths for all portfolio projects
 export const getStaticPaths = (async () => {
@@ -25,34 +26,23 @@ export const getStaticPaths = (async () => {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-// Dynamically import featured image
-const imagePath = entry.data.featuredImage;
-const images = import.meta.glob('../../assets/Portfolio/**/*.{jpg,jpeg,JPG,JPEG,png,PNG,heic,HEIC}');
+// Get featured image from centralized mapping
+const featuredImage = portfolioImageMap[entry.data.featuredImage];
 
-let featuredImage;
-for (const path in images) {
-  if (path.includes(imagePath.replace('../../assets/', ''))) {
-    featuredImage = await images[path]();
-    break;
-  }
-}
-
-// Import all gallery images
-const galleryImages = await Promise.all(
-  entry.data.images.map(async (img) => {
-    for (const path in images) {
-      if (path.includes(img.src.replace('../../assets/', ''))) {
-        const imported = await images[path]();
-        return {
-          src: imported.default,
-          alt: img.alt,
-          caption: img.caption
-        };
-      }
+// Get all gallery images from centralized mapping
+const galleryImages = entry.data.images
+  .map((img) => {
+    const image = portfolioImageMap[img.src];
+    if (image) {
+      return {
+        src: image,
+        alt: img.alt,
+        caption: img.caption
+      };
     }
     return null;
   })
-).then(imgs => imgs.filter(Boolean));
+  .filter(Boolean);
 
 // Category display name
 const categoryNames: Record<string, string> = {
@@ -184,7 +174,7 @@ const structuredData = {
         {featuredImage && (
           <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-xl max-h-[80vh]">
             <Image
-              src={featuredImage.default}
+              src={featuredImage}
               alt={entry.data.title}
               class="w-full h-full object-cover max-h-[80vh]"
               width={800}
