@@ -251,21 +251,21 @@ export const thankYouSEO: SEOMetadata = {
   ]
 };
 
-// Resources Hub SEO
-export const resourcesHubSEO: SEOMetadata = {
-  title: "Cabinetry Resources Toronto | Guides & Tips | Bosco",
-  description: "Expert cabinetry guides, renovation tips & industry insights for Toronto homeowners. Learn about custom cabinets, finishes, installation & more ✓",
-  keywords: "cabinetry resources, custom cabinet guides, renovation tips toronto, cabinetry blog, kitchen renovation advice",
+// Blog Hub SEO
+export const blogHubSEO: SEOMetadata = {
+  title: "Cabinetry Blog Toronto | Guides & Insights | Bosco",
+  description: "Expert cabinetry blog featuring renovation guides, trade insights, and sourcing advice for Toronto homeowners and professionals. Stay informed with Bosco Cabinetry ✓",
+  keywords: "cabinetry blog, custom cabinet guides, renovation tips toronto, cabinetry insights, kitchen renovation advice",
   ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "Toronto Cabinetry Blog | Expert Guides & Tips | Bosco", // 54 chars
-    "Cabinet Resources | Toronto Renovation Guides | Bosco", // 54 chars
+    "Cabinetry Insights Toronto | Renovation Guides | Bosco", // 58 chars
     "Custom Cabinetry Guides | Toronto Expert Advice | Bosco", // 56 chars
   ],
   descriptionVariations: [
-    "Expert cabinetry resources for Toronto homeowners. Renovation guides, finish selection tips, installation advice & industry insights. Learn from the pros →", // 158 chars
-    "Discover Toronto cabinetry guides, renovation tips & expert advice. Kitchen cabinets, closets, finishes & more. Free resources from industry professionals ★", // 159 chars
+    "Explore our cabinetry blog for Toronto-focused renovation guides, finish selection tips, and sourcing insights from the Bosco Cabinetry team. Stay ahead with pro advice →", // 160 chars
+    "Discover Toronto cabinetry insights, renovation tips, and expert advice. From kitchen design to trade sourcing, Bosco Cabinetry shares actionable guidance ★", // 159 chars
   ]
 };
 
@@ -302,7 +302,7 @@ export const seoMetadata = {
   trade: tradeSEO,
   sustainability: sustainabilitySEO,
   thankYou: thankYouSEO,
-  resourcesHub: resourcesHubSEO,
+  blogHub: blogHubSEO,
   importingCabinetryBlog: importingCabinetryBlogSEO,
 };
 

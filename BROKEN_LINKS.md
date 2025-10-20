@@ -109,7 +109,7 @@ These external links may need updating:
 ### Pages to Create:
 - `/process` - Process/workflow page
 - `/showroom` - Dedicated showroom page
-- `/blog` - Blog index page (currently just `/resources`)
+- `/blog` - Blog index page
 - `/careers` - Careers/jobs page
 - `/financing` - Financing options page
 - Portfolio category pages (4 pages)

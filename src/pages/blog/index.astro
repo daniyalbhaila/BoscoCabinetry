@@ -8,29 +8,29 @@ import { generateBreadcrumbs } from '../../content/structured-data';
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
-  { label: 'Resources' }
+  { label: 'Blog' }
 ];
 
 // Generate breadcrumb schema
 const breadcrumbSchema = generateBreadcrumbs([
   { name: 'Home', url: '/' },
-  { name: 'Resources' }
+  { name: 'Blog' }
 ]);
 ---
 
 <BaseLayout
-  title={seoMetadata.resourcesHub.title}
-  description={seoMetadata.resourcesHub.description}
-  keywords={seoMetadata.resourcesHub.keywords}
-  ogImage={seoMetadata.resourcesHub.ogImage}
-  canonicalURL="https://boscocabinetry.com/resources"
+  title={seoMetadata.blogHub.title}
+  description={seoMetadata.blogHub.description}
+  keywords={seoMetadata.blogHub.keywords}
+  ogImage={seoMetadata.blogHub.ogImage}
+  canonicalURL="https://boscocabinetry.ca/blog"
 >
-  <!-- Discrete Resources Page - SEO-focused, minimal consumer visibility -->
+  <!-- Blog & Resources Page - SEO-focused, minimal consumer visibility -->
 
   <!-- Trust Header (DRY - reused from About page pattern) -->
   <TrustHeader
-    title="Resources & Trade Guides"
-    subtitle="Expert insights for trade professionals and contractors"
+    title="Cabinetry Blog & Trade Guides"
+    subtitle="Expert insights for Toronto homeowners, designers, and contractors"
     breadcrumbs={breadcrumbs}
   />
 
@@ -40,11 +40,10 @@ const breadcrumbSchema = generateBreadcrumbs([
       <!-- Section Header -->
       <div class="max-w-3xl mb-12">
         <h2 class="text-3xl font-bold text-gray-900 mb-4">
-          Trade & Professional Resources
+          Latest Articles & Guides
         </h2>
         <p class="text-lg text-gray-600">
-          Educational content designed for contractors, designers, and trade professionals
-          looking to understand the custom cabinetry industry and sourcing options.
+          Educational content covering custom cabinetry design, sourcing, and installation—crafted for Toronto homeowners, designers, and trade professionals.
         </p>
       </div>
 
@@ -101,14 +100,14 @@ const breadcrumbSchema = generateBreadcrumbs([
   <!-- BreadcrumbList Schema -->
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <!-- CollectionPage Schema for Resources Index -->
+  <!-- CollectionPage Schema for Blog Index -->
   <script type="application/ld+json" slot="head">
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      "name": "Resources & Trade Guides",
-      "description": "Expert guides and resources for trade professionals on custom cabinetry sourcing and industry best practices.",
-      "url": "https://boscocabinetry.com/resources",
+      "name": "Cabinetry Blog & Trade Guides",
+      "description": "Expert cabinetry blog with renovation guides, trade insights, and sourcing advice from Bosco Cabinetry.",
+      "url": "https://boscocabinetry.ca/blog",
       "publisher": {
         "@type": "Organization",
         "name": "Bosco Cabinetry"
@@ -117,7 +116,7 @@ const breadcrumbSchema = generateBreadcrumbs([
         "@type": "Article",
         "headline": article.title,
         "description": article.description,
-        "url": `https://boscocabinetry.com/resources/${article.slug}`,
+        "url": `https://boscocabinetry.ca/blog/${article.slug}`,
         "datePublished": article.publishDate,
         "author": {
           "@type": "Organization",

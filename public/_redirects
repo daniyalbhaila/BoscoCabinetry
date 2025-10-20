@@ -24,6 +24,11 @@
 /project/*                        /portfolio              301
 /project-cat/*                    /portfolio              301
 
+# Resources to Blog migration
+/resources                        /blog                   301
+/resources/                       /blog                   301
+/resources/*                      /blog/:splat            301
+
 # WordPress/Elementor system pages (return 410 Gone)
 /elementor-hf/*                   /                       410
 

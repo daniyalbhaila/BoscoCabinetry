@@ -17,8 +17,8 @@ Successfully created a discrete, SEO-optimized blog section targeting "importing
 - `src/components/blog/BlogCard.astro` - Article preview cards for listing page
 
 ### Pages
-- `src/pages/resources/index.astro` - Blog listing/index page
-- `src/pages/resources/importing-custom-cabinetry-from-china.astro` - Main China import article
+- `src/pages/blog/index.astro` - Blog listing/index page
+- `src/pages/blog/importing-custom-cabinetry-from-china.astro` - Main China import article
 
 ### SEO Infrastructure
 - `public/robots.txt` - AI crawler permissions (GPTBot, Perplexity, Claude, etc.)
@@ -64,8 +64,8 @@ Successfully created a discrete, SEO-optimized blog section targeting "importing
 - Any consumer-focused page sections
 
 ### ✅ Only Accessible Via:
-- Footer "Company" section - small "Resources" link
-- Direct URL: `/resources/` and `/resources/importing-custom-cabinetry-from-china/`
+- Footer "Company" section - small "Blog" link
+- Direct URL: `/blog/` and `/blog/importing-custom-cabinetry-from-china/`
 - Search engines (Google, Bing, etc.)
 - AI search tools (ChatGPT, Perplexity, Claude)
 - Sitemap for crawlers
@@ -82,20 +82,19 @@ Successfully created a discrete, SEO-optimized blog section targeting "importing
 
 ### Sitemap
 - **Location**: `/sitemap-index.xml` and `/sitemap-0.xml`
-- **Includes**: All pages including `/resources/` blog section
+- **Includes**: All pages including `/blog/` section
 - **Update Frequency**: Weekly
 - **Priority**: 0.7 for all pages
 
-### Robots.txt
 - **AI Crawlers Allowed**: GPTBot, ChatGPT-User, CCBot, Google-Extended, PerplexityBot, ClaudeBot
-- **Resources Explicitly Allowed**: `/resources/`, CSS, JS, images, media
+- **Blog Explicitly Allowed**: `/blog/`, CSS, JS, images, media
 - **Blocked**: `/admin/`, `/private/` (if they exist)
 
 ### Meta Tags
 - **Title**: "Importing Custom Cabinetry from China to Canada: The Hassle vs. The Holike Solution"
 - **Description**: "7 essential steps to import cabinetry from China. Learn costs, risks, and why Bosco/Holike's local solution is smarter..."
 - **Keywords**: import cabinets from china, custom cabinetry import canada, holike toronto, CBSA cabinet import
-- **Canonical URL**: `https://boscocabinetry.com/resources/importing-custom-cabinetry-from-china`
+- **Canonical URL**: `https://boscocabinetry.ca/blog/importing-custom-cabinetry-from-china`
 
 ---
 
@@ -111,15 +110,15 @@ Successfully created a discrete, SEO-optimized blog section targeting "importing
 
 ### Sitemap Verification
 ```bash
-✅ /resources/ - INCLUDED in sitemap
-✅ /resources/importing-custom-cabinetry-from-china/ - INCLUDED in sitemap
+✅ /blog/ - INCLUDED in sitemap
+✅ /blog/importing-custom-cabinetry-from-china/ - INCLUDED in sitemap
 ✅ Sitemap index created and accessible
 ```
 
 ### Robots.txt Verification
 ```bash
 ✅ All AI crawlers explicitly allowed
-✅ /resources/ path explicitly allowed
+✅ /blog/ path explicitly allowed
 ✅ Sitemap URLs properly configured
 ```
 
@@ -148,7 +147,7 @@ Successfully created a discrete, SEO-optimized blog section targeting "importing
 
 ### Immediate Actions (After Deployment)
 1. **Submit Sitemap** to Google Search Console
-   - URL: `https://boscocabinetry.com/sitemap-index.xml`
+   - URL: `https://boscocabinetry.ca/sitemap-index.xml`
 
 2. **Test AI Visibility** (Monthly)
    - ChatGPT: "how to import cabinets from china to canada"
@@ -184,8 +183,8 @@ Successfully created a discrete, SEO-optimized blog section targeting "importing
 ```
 
 ### File Locations
-- **Article HTML**: `dist/resources/importing-custom-cabinetry-from-china/index.html`
-- **Resources Index**: `dist/resources/index.html`
+- **Article HTML**: `dist/blog/importing-custom-cabinetry-from-china/index.html`
+- **Blog Index**: `dist/blog/index.html`
 - **Sitemap**: `dist/sitemap-index.xml` and `dist/sitemap-0.xml`
 - **Robots**: `dist/robots.txt`
 

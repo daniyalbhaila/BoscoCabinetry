@@ -36,8 +36,8 @@ export default defineConfig({
         if (item.url.includes('/portfolio/') && item.url !== 'https://boscocabinetry.ca/portfolio') {
           return { ...item, priority: 0.85, changefreq: 'monthly' };
         }
-        // Resources/blog content
-        if (item.url.includes('/resources/')) {
+        // Blog content
+        if (item.url.includes('/blog/')) {
           return { ...item, priority: 0.7, changefreq: 'monthly' };
         }
         // About, contact, sustainability

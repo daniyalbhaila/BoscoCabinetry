@@ -27,8 +27,8 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
-# Important: Allow resources for SEO/AEO
-Allow: /resources/
+# Important: Allow blog for SEO/AEO
+Allow: /blog/
 Allow: /*.css
 Allow: /*.js
 Allow: /images/

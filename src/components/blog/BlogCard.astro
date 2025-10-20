@@ -1,6 +1,6 @@
 ---
 // Blog Article Card Component
-// Used on the resources listing page
+// Used on the blog listing page
 
 interface Props {
   title: string;
@@ -22,7 +22,7 @@ const publishDateFormatted = new Date(publishDate).toLocaleDateString('en-US', {
 
 <article class="group relative card-hover-elevate">
   <a
-    href={`/resources/${slug}`}
+    href={`/blog/${slug}`}
     class="block rounded-2xl border border-brand-accent/40 gradient-card-light p-6 transition-all duration-300 hover:shadow-xl hover:border-brand-accent backdrop-blur-sm"
   >
     <!-- Featured Badge -->
