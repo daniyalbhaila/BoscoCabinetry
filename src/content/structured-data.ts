@@ -3,7 +3,7 @@
 
 import { companyInfo, holikePartnership } from './shared';
 
-const OG_IMAGE_ABSOLUTE = 'https://boscocabinetry.com/media/og-image.jpg';
+const OG_IMAGE_ABSOLUTE = 'https://boscocabinetry.ca/media/og-image.jpg';
 
 // Helper to generate BreadcrumbList schema
 export function generateBreadcrumbs(items: Array<{ name: string; url?: string }>) {
@@ -14,7 +14,7 @@ export function generateBreadcrumbs(items: Array<{ name: string; url?: string }>
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      ...(item.url && { "item": `https://boscocabinetry.com${item.url}` })
+      ...(item.url && { "item": `https://boscocabinetry.ca${item.url}` })
     }))
   };
 }
@@ -23,11 +23,11 @@ export function generateBreadcrumbs(items: Array<{ name: string; url?: string }>
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://boscocabinetry.com/#business",
+  "@id": "https://boscocabinetry.ca/#business",
   "name": companyInfo.name,
   "description": "Custom kitchen cabinets, closets, and built-ins serving Toronto and the Greater Toronto Area. Builder-founded with 100+ completed projects.",
-  "url": "https://boscocabinetry.com",
-  "logo": "https://boscocabinetry.com/logo.png",
+  "url": "https://boscocabinetry.ca",
+  "logo": "https://boscocabinetry.ca/logo.png",
   "image": OG_IMAGE_ABSOLUTE,
   "telephone": companyInfo.contact.phone.number,
   "email": companyInfo.contact.email.address,
@@ -135,16 +135,16 @@ export function generateServiceSchema(service: {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `https://boscocabinetry.com${service.url}#service`,
+    "@id": `https://boscocabinetry.ca${service.url}#service`,
     "serviceType": service.name,
     "name": service.name,
     "description": service.description,
     "provider": {
       "@type": "LocalBusiness",
-      "@id": "https://boscocabinetry.com/#business",
+      "@id": "https://boscocabinetry.ca/#business",
       "name": companyInfo.name,
       "telephone": companyInfo.contact.phone.number,
-      "url": "https://boscocabinetry.com"
+      "url": "https://boscocabinetry.ca"
     },
     "areaServed": (service.areaServed || companyInfo.serviceAreas.map(a => a.city)).map(city => ({
       "@type": "City",
@@ -207,7 +207,7 @@ export const fullHomeCabinetryServiceSchema = generateServiceSchema({
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://boscocabinetry.com/#organization",
+  "@id": "https://boscocabinetry.ca/#organization",
   "name": companyInfo.name,
   "alternateName": "Bosco Custom Cabinetry Toronto",
   "description": "Custom kitchen cabinets, closets, and cabinetry in Toronto. Exclusive Canadian distributor of Holike. Builder-founded, eco-certified.",
@@ -283,18 +283,18 @@ export function generateWebPageSchema(page: {
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `https://boscocabinetry.com${page.url}#webpage`,
+    "@id": `https://boscocabinetry.ca${page.url}#webpage`,
     "name": page.name,
     "description": page.description,
-    "url": `https://boscocabinetry.com${page.url}`,
+    "url": `https://boscocabinetry.ca${page.url}`,
     "isPartOf": {
       "@type": "WebSite",
-      "@id": "https://boscocabinetry.com/#website",
+      "@id": "https://boscocabinetry.ca/#website",
       "name": "Bosco Cabinetry",
-      "url": "https://boscocabinetry.com"
+      "url": "https://boscocabinetry.ca"
     },
     "about": {
-      "@id": "https://boscocabinetry.com/#organization"
+      "@id": "https://boscocabinetry.ca/#organization"
     },
     "primaryImageOfPage": {
       "@type": "ImageObject",
@@ -340,7 +340,7 @@ export function generateProductSchema(product: {
       },
       "seller": {
         "@type": "Organization",
-        "@id": "https://boscocabinetry.com/#organization"
+        "@id": "https://boscocabinetry.ca/#organization"
       }
     },
     "aggregateRating": {

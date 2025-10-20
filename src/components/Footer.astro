@@ -64,38 +64,40 @@ import LogoSvg from '../assets/Logo-Light.svg?raw';
 						<a href="/services/kitchen-cabinets" class="block text-white/70 hover:text-brand-primary transition-colors">Kitchen Cabinets</a>
 						<a href="/services/custom-closets" class="block text-white/70 hover:text-brand-primary transition-colors">Closet Systems</a>
 						<a href="/services/built-ins" class="block text-white/70 hover:text-brand-primary transition-colors">Built-Ins</a>
-						<a href="/services/full-home-cabinetry" class="block text-white/70 hover:text-brand-primary transition-colors">Full Home</a>
+						<a href="/services/full-home-cabinetry" class="block text-white/70 hover:text-brand-primary transition-colors">Full Home Cabinetry</a>
+						<a href="/portfolio" class="block text-white/70 hover:text-brand-primary transition-colors">Project Gallery</a>
 					</div>
 				</div>
 				<div>
 					<h4 class="text-white font-semibold mb-4">Company</h4>
 					<div class="space-y-2 text-sm">
 						<a href="/about" class="block text-white/70 hover:text-brand-primary transition-colors">About Us</a>
+						<a href="/sustainability" class="block text-white/70 hover:text-brand-primary transition-colors">Sustainability</a>
 						<a href="/trade" class="block text-white/70 hover:text-brand-primary transition-colors">Trade Program</a>
-						<a href="/portfolio" class="block text-white/70 hover:text-brand-primary transition-colors">Portfolio</a>
-						<a href="/contact" class="block text-white/70 hover:text-brand-primary transition-colors">Contact</a>
+						<a href="/blog" class="block text-white/70 hover:text-brand-primary transition-colors">Bosco Blog</a>
+						<a href="/#contact" class="block text-white/70 hover:text-brand-primary transition-colors">Contact</a>
 					</div>
 				</div>
 				<div>
-					<h4 class="text-white font-semibold mb-4">Blog & Resources</h4>
+					<h4 class="text-white font-semibold mb-4">Discover</h4>
 					<div class="space-y-2 text-sm">
-						<a href="/blog" class="block text-white/70 hover:text-brand-primary transition-colors">Bosco Blog</a>
-						<a href="#faq" class="block text-white/70 hover:text-brand-primary transition-colors">FAQ</a>
-						<a href="#virtual-tour" class="block text-white/70 hover:text-brand-primary transition-colors">Virtual Tour</a>
-						<a href="#catalog" class="block text-white/70 hover:text-brand-primary transition-colors">Design Catalog</a>
-						<a href={companyInfo.urls.googleReviews} target="_blank" rel="noopener noreferrer" class="block text-white/70 hover:text-brand-primary transition-colors">Reviews</a>
+						<a href="/#services" class="block text-white/70 hover:text-brand-primary transition-colors">Services Overview</a>
+						<a href="/#process" class="block text-white/70 hover:text-brand-primary transition-colors">Our Process</a>
+						<a href="/#service-area" class="block text-white/70 hover:text-brand-primary transition-colors">Service Areas</a>
+						<a href="/#faq" class="block text-white/70 hover:text-brand-primary transition-colors">FAQ</a>
+						<a href={companyInfo.urls.googleReviews} target="_blank" rel="noopener noreferrer" class="block text-white/70 hover:text-brand-primary transition-colors">Customer Reviews</a>
 					</div>
 				</div>
 				<div>
 					<h4 class="text-white font-semibold mb-4">Get Started</h4>
-					<div class="space-y-2 text-sm">
-						<a href="#contact" class="block text-white/70 hover:text-brand-primary transition-colors">Free Quote</a>
-						<a href="https://tidycal.com/boscocabinetry/30-minute-meeting" class="block text-white/70 hover:text-brand-primary transition-colors">Book Showroom Visit</a>
-						<a href="tel:{companyInfo.contact.phone.number}" class="block text-white/70 hover:text-brand-primary transition-colors">{companyInfo.contact.phone.display}</a>
-						<a href="mailto:{companyInfo.contact.email.address}" class="block text-white/70 hover:text-brand-primary transition-colors">Email Us</a>
-					</div>
+				<div class="space-y-2 text-sm">
+					<a href="/#contact" class="block text-white/70 hover:text-brand-primary transition-colors">Start a Project</a>
+					<a href="https://tidycal.com/boscocabinetry/30-minute-meeting" class="block text-white/70 hover:text-brand-primary transition-colors" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+					<a href={companyInfo.contact.phone.href} class="block text-white/70 hover:text-brand-primary transition-colors">Call {companyInfo.contact.phone.display}</a>
+					<a href={companyInfo.contact.email.href} class="block text-white/70 hover:text-brand-primary transition-colors">{companyInfo.contact.email.address}</a>
 				</div>
 			</div>
+		</div>
 		</div>
 
 		<!-- Bottom Brand Line -->

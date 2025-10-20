@@ -67,6 +67,15 @@ const absoluteOgImage = ogImageBase ? new URL(ogImage, ogImageBase).href : ogIma
     <!-- Performance optimization -->
     <meta name="theme-color" content="#60533C" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQTH54CJ0C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-GQTH54CJ0C');
+    </script>
+
     <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
       {
@@ -74,9 +83,9 @@ const absoluteOgImage = ogImageBase ? new URL(ogImage, ogImageBase).href : ogIma
         "@type": "LocalBusiness",
         "name": "Bosco Cabinetry",
         "description": "Custom kitchen cabinets, closets, and built-ins serving Toronto and the Greater Toronto Area",
-        "url": "https://boscocabinetry.com",
+        "url": "https://boscocabinetry.ca",
         "telephone": "(416) 123-4567",
-        "email": "info@boscocabinetry.com",
+        "email": "info@boscocabinetry.ca",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "123 Industrial Road",

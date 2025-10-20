@@ -129,7 +129,7 @@ export const builtInsPageContent = {
     },
     {
       question: "How long does built-in installation take?",
-      answer: "Built-in cabinetry projects typically take 2-4 weeks to 10-12 weeks from design approval to installation, depending on project complexity and customization requirements. We respect your timeline and keep you updated throughout the entire process."
+      answer: "Stock Built-Ins take 2 weeks. Custom cabinetry, it takes 8-12 weeks depending on project complexity and customization requirements."
     },
     {
       question: "Can built-ins be installed in condos?",

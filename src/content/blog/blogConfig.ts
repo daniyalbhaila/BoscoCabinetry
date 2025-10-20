@@ -26,39 +26,6 @@ export const blogArticles: BlogArticle[] = [
     lastUpdated: '2025-10-04',
     featured: true,
     category: 'trade'
-  },
-  {
-    slug: 'bosco-vs-ikea-kitchen-cabinets',
-    title: 'Bosco Cabinetry vs IKEA Cabinets | Toronto Comparison 2025 | Bosco Cabinetry',
-    description: 'Bosco Cabinetry vs IKEA kitchen cabinets: Compare quality, price, installation & longevity. Real Toronto costs, expert analysis & buyer decision guide ✓',
-    keywords: 'bosco cabinetry vs ikea, ikea cabinets vs custom, kitchen cabinet comparison toronto, ikea alternative toronto, custom cabinets vs ikea',
-    author: 'Bosco Cabinetry Team',
-    publishDate: '2025-10-02',
-    lastUpdated: '2025-10-02',
-    featured: true,
-    category: 'guides'
-  },
-  {
-    slug: 'bosco-vs-home-depot-cabinets',
-    title: 'Bosco Cabinetry vs Home Depot Cabinets | Toronto Guide 2025 | Bosco Cabinetry',
-    description: 'Compare Bosco Cabinetry vs Home Depot kitchen cabinets. Quality, pricing, installation & customization options for Toronto homeowners. Make informed choice ✓',
-    keywords: 'bosco cabinetry vs home depot, home depot cabinets vs custom, cabinet comparison toronto, home depot alternative, custom vs big box cabinets',
-    author: 'Bosco Cabinetry Team',
-    publishDate: '2025-10-02',
-    lastUpdated: '2025-10-02',
-    featured: true,
-    category: 'guides'
-  },
-  {
-    slug: 'custom-vs-semi-custom-vs-rta-cabinets',
-    title: 'Custom vs Semi-Custom vs RTA Cabinets | Toronto Guide | Bosco Cabinetry',
-    description: 'Compare custom, semi-custom & RTA cabinets: Quality, cost, installation & best fit for Toronto homes. Expert decision framework & pricing guide ✓',
-    keywords: 'custom vs semi custom cabinets, rta cabinets vs custom, cabinet types comparison, kitchen cabinet options toronto, cabinet buying guide',
-    author: 'Bosco Cabinetry Team',
-    publishDate: '2025-10-02',
-    lastUpdated: '2025-10-02',
-    featured: true,
-    category: 'guides'
   }
 ];
 

@@ -3,7 +3,9 @@ import SectionWrapper from './SectionWrapper.astro';
 import SectionHeader from './SectionHeader.astro';
 import ContentGrid from './ContentGrid.astro';
 import KitchenImage from '../assets/kitchen.jpg';
-import ShowroomImage from '../assets/showroom.jpg';
+import ClosetImage from '../assets/Closet.jpg';
+import MediaWallImage from '../assets/MediaWall.jpg';
+import FullHomeImage from '../assets/FullHome.jpg';
 
 interface ServiceItem {
 	key: string;
@@ -35,7 +37,7 @@ const services: ServiceItem[] = [
 		href: '/services/custom-closets',
 		cta: 'Design My Closet',
 		variant: 'image',
-		image: ShowroomImage
+		image: ClosetImage
 	},
 	{
 		key: 'wall-units',
@@ -45,7 +47,7 @@ const services: ServiceItem[] = [
 		href: '/services/built-ins',
 		cta: 'Plan My Built‑In',
 		variant: 'image',
-		image: KitchenImage
+		image: MediaWallImage
 	},
 	{
 		key: 'paneling',
@@ -55,7 +57,7 @@ const services: ServiceItem[] = [
 		href: '/services/full-home-cabinetry',
 		cta: 'Explore Packages',
 		variant: 'image',
-		image: ShowroomImage
+		image: FullHomeImage
 	}
 ];
 ---

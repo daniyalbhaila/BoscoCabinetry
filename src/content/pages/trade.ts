@@ -22,7 +22,7 @@ export const tradePageContent = {
 	manufacturing: {
 		tag: "Global Manufacturing Partner",
 		title: "Backed by Industrial-Scale Production",
-		description: "Access the resources of one of North America's largest cabinet manufacturers. Our partnership with Holike brings world-class production capabilities to contractors and builders across Toronto, North York, Vaughan, Markham, and the entire GTA.",
+		description: "Access the resources of one of the largest cabinet manufacturers. Our partnership with Holike brings world-class production capabilities to contractors and builders across Toronto, North York, Vaughan, Markham, and the entire GTA.",
 		features: [
 			{
 				title: "Manufacturing Scale",
@@ -294,7 +294,7 @@ export const tradePageContent = {
 			},
 			{
 				question: "What are typical lead times for projects?",
-				answer: "Lead times range from 2-4 weeks to 10-12 weeks depending on project complexity and customization requirements. We provide real-time updates throughout production and work to respect your project timelines."
+				answer: "Stock cabinetry can be delivered and installed in as low as 2 weeks. Custom cabinetry, it takes 8-12 weeks depending on project complexity and customization requirements."
 			},
 			{
 				question: "Do you offer design support for my clients?",

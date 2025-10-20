@@ -6,7 +6,7 @@ import Ruler from './icons/Ruler.astro';
 import Hammer from './icons/Hammer.astro';
 import CheckCircle from './icons/CheckCircle.astro';
 import Button from './ui/Button.astro';
-import ShowroomImage from '../assets/showroom.jpg';
+import ProcessImage from '../assets/Process.jpg';
 import { Image } from 'astro:assets';
 import { CARD_IMAGE_DIMENSIONS } from '../lib/imageConfig';
 import type { Theme } from '../lib/themeUtils';
@@ -105,7 +105,7 @@ const isDark = theme === 'dark';
 				<div class="relative">
 					<div class={`process-image relative w-full max-w-lg mx-auto aspect-[3/2] rounded-2xl overflow-hidden border ${isDark ? 'border-white/20' : 'border-brand-accent/30'}`}>
 						<Image
-							src={ShowroomImage}
+							src={ProcessImage}
 							alt="Bosco Cabinetry showroom and manufacturing process"
 							class="h-full w-full object-cover"
 							width={CARD_IMAGE_DIMENSIONS.width}
