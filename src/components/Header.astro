@@ -1,12 +1,11 @@
 ---
 import Button from './ui/Button.astro';
 import ChevronDown from './icons/ChevronDown.astro';
-import { primaryNavigation, servicesNavigation, getCurrentPage, isActiveNavItem } from '../content/navigation';
+import { primaryNavigation, isActiveNavItem } from '../content/navigation';
 import LogoSvg from '../assets/Logo-Light.svg?raw';
 
 // Get current page for active states
 const currentPath = Astro.url.pathname;
-const currentPage = getCurrentPage(currentPath);
 ---
 <header id="cs-navigation">
   <div class="cs-container">
@@ -23,29 +22,33 @@ const currentPage = getCurrentPage(currentPath);
       </button>
       <div class="cs-ul-wrapper">
         <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
-          {primaryNavigation.map((item) => (
-            <li class="cs-li" data-dropdown={item.hasDropdown ? 'true' : 'false'}>
-              <a
-                href={item.href}
-                class={`cs-li-link ${isActiveNavItem(item.slug, currentPath) ? 'cs-active' : ''}`}
-                aria-haspopup={item.hasDropdown ? 'true' : 'false'}
-              >
-                {item.label}
-                {item.hasDropdown && <ChevronDown class="cs-dropdown-arrow" />}
-              </a>
-              {item.hasDropdown && (
-                <ul class="cs-dropdown" aria-label="Services submenu">
-                  {servicesNavigation.map((service) => (
-                    <li class="cs-dropdown-li">
-                      <a href={service.href} class="cs-dropdown-link">
-                        {service.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))}
+          {primaryNavigation.map((item) => {
+            const dropdownItems = item.dropdownItems ?? [];
+            const hasDropdown = item.hasDropdown && dropdownItems.length > 0;
+            return (
+              <li class="cs-li" data-dropdown={hasDropdown ? 'true' : 'false'}>
+                <a
+                  href={item.href}
+                  class={`cs-li-link ${isActiveNavItem(item, currentPath) ? 'cs-active' : ''}`}
+                  aria-haspopup={hasDropdown ? 'true' : 'false'}
+                >
+                  {item.label}
+                  {hasDropdown && <ChevronDown class="cs-dropdown-arrow" />}
+                </a>
+                {hasDropdown && (
+                  <ul class="cs-dropdown" aria-label={`${item.label} submenu`}>
+                    {dropdownItems.map((link) => (
+                      <li class="cs-dropdown-li">
+                        <a href={link.href} class="cs-dropdown-link">
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </nav>

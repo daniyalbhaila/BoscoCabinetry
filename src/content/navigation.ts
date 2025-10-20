@@ -1,16 +1,5 @@
 import { companyInfo } from './shared';
 
-// Primary navigation structure (main header)
-export const primaryNavigation = [
-  { label: 'Home', href: '/', slug: 'home' },
-  { label: 'Services', href: '/services', slug: 'services', hasDropdown: true },
-  { label: 'Portfolio', href: '/portfolio', slug: 'portfolio' },
-  { label: 'Sustainability', href: '/sustainability', slug: 'sustainability' },
-  { label: 'Trade Program', href: '/trade', slug: 'trade' },
-  { label: 'About', href: '/about', slug: 'about' },
-  { label: 'Contact', href: '/contact', slug: 'contact' }
-];
-
 // Services dropdown navigation (auto-generated from projectTypes)
 // Filter out "other" and "multiple-projects" for navbar (keep in form dropdown)
 export const servicesNavigation = companyInfo.projectTypes
@@ -27,6 +16,29 @@ servicesNavigation.push({
   href: '/services',
   slug: 'all-services'
 });
+
+// About dropdown navigation
+export const aboutNavigation = [
+  { label: 'Our Company', href: '/about', slug: 'about' },
+  { label: 'Sustainability', href: '/sustainability', slug: 'sustainability' }
+];
+
+// Primary navigation structure (main header)
+export const primaryNavigation = [
+  { label: 'Home', href: '/', slug: 'home' },
+  { label: 'Services', href: '/services', slug: 'services', hasDropdown: true, dropdownItems: servicesNavigation },
+  { label: 'Portfolio', href: '/portfolio', slug: 'portfolio' },
+  { label: 'Trade Program', href: '/trade', slug: 'trade' },
+  {
+    label: 'About',
+    href: '/about',
+    slug: 'about',
+    hasDropdown: true,
+    dropdownItems: aboutNavigation,
+    matchSlugs: ['about', 'sustainability']
+  },
+  { label: 'Contact', href: '/contact', slug: 'contact' }
+];
 
 // Location pages navigation (auto-generated from serviceAreas)
 export const locationNavigation = companyInfo.serviceAreas.map(area => ({
@@ -81,9 +93,15 @@ export function getCurrentPage(pathname: string): string {
 }
 
 // Utility function to check if navigation item is active
-export function isActiveNavItem(itemSlug: string, currentPath: string): boolean {
+interface NavItem {
+  slug: string;
+  matchSlugs?: string[];
+}
+
+export function isActiveNavItem(item: NavItem, currentPath: string): boolean {
   const currentPage = getCurrentPage(currentPath);
-  return itemSlug === currentPage;
+  if (item.matchSlugs?.includes(currentPage)) return true;
+  return item.slug === currentPage;
 }
 
 // Breadcrumb generation utility
