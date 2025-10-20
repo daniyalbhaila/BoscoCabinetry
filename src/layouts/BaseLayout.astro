@@ -9,6 +9,9 @@ const {
   canonicalURL = Astro.url.href,
   keywords = 'custom cabinetry Toronto, kitchen cabinets Toronto, closet systems North York, built-in units GTA, decorative paneling, luxury kitchen design, affordable custom cabinetry'
 } = Astro.props;
+
+// Convert relative OG image path to absolute URL for social media
+const absoluteOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site).href;
 ---
 <html lang="en" class="h-full">
   <head>
@@ -27,7 +30,11 @@ const {
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:image:width" content="3840" />
+    <meta property="og:image:height" content="2560" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Bosco Cabinetry Showroom - Custom Kitchen Cabinets Toronto" />
     <meta property="og:site_name" content="Bosco Cabinetry" />
 
     <!-- Twitter -->
@@ -35,7 +42,8 @@ const {
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImage} />
+    <meta property="twitter:image" content={absoluteOgImage} />
+    <meta property="twitter:image:alt" content="Bosco Cabinetry Showroom - Custom Kitchen Cabinets Toronto" />
 
     <!-- Critical resource preloads -->
     <link rel="preload" href="/src/assets/Logo-Light.svg" as="image" type="image/svg+xml" />
