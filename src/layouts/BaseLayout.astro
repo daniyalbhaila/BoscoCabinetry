@@ -10,9 +10,8 @@ const {
   keywords = 'custom cabinetry Toronto, kitchen cabinets Toronto, closet systems North York, built-in units GTA, decorative paneling, luxury kitchen design, affordable custom cabinetry'
 } = Astro.props;
 
-// Convert relative OG image paths to an absolute URL using the current page's canonical origin
-const isAbsoluteOgImage = /^https?:\/\//i.test(ogImage);
-const ogImageBase = isAbsoluteOgImage ? null : (canonicalURL || Astro.site || Astro.url);
+// Resolve OG image against the current request origin (falls back to Astro.site)
+const ogImageBase = Astro.url ?? Astro.site ?? null;
 const absoluteOgImage = ogImageBase ? new URL(ogImage, ogImageBase).href : ogImage;
 ---
 <html lang="en" class="h-full">
@@ -38,7 +37,11 @@ const absoluteOgImage = ogImageBase ? new URL(ogImage, ogImageBase).href : ogIma
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:image:width" content="3840" />
+    <meta property="og:image:height" content="2560" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Bosco Cabinetry Showroom - Custom Kitchen Cabinets Toronto" />
     <meta property="og:site_name" content="Bosco Cabinetry" />
 
     <!-- Twitter -->
