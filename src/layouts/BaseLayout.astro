@@ -10,8 +10,10 @@ const {
   keywords = 'custom cabinetry Toronto, kitchen cabinets Toronto, closet systems North York, built-in units GTA, decorative paneling, luxury kitchen design, affordable custom cabinetry'
 } = Astro.props;
 
-// Convert relative OG image path to absolute URL for social media
-const absoluteOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site).href;
+// Convert relative OG image paths to an absolute URL using the current page's canonical origin
+const isAbsoluteOgImage = /^https?:\/\//i.test(ogImage);
+const ogImageBase = isAbsoluteOgImage ? null : (canonicalURL || Astro.site || Astro.url);
+const absoluteOgImage = ogImageBase ? new URL(ogImage, ogImageBase).href : ogImage;
 ---
 <html lang="en" class="h-full">
   <head>

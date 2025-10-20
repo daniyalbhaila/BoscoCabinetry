@@ -25,8 +25,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: '2025-10-04',
     lastUpdated: '2025-10-04',
     featured: true,
-    category: 'trade',
-    ogImage: '/media/og-image-importing-guide.jpg'
+    category: 'trade'
   },
   {
     slug: 'bosco-vs-ikea-kitchen-cabinets',
@@ -37,8 +36,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: '2025-10-02',
     lastUpdated: '2025-10-02',
     featured: true,
-    category: 'guides',
-    ogImage: '/media/og-image-bosco-vs-ikea.jpg'
+    category: 'guides'
   },
   {
     slug: 'bosco-vs-home-depot-cabinets',
@@ -49,8 +47,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: '2025-10-02',
     lastUpdated: '2025-10-02',
     featured: true,
-    category: 'guides',
-    ogImage: '/media/og-image-bosco-vs-homedepot.jpg'
+    category: 'guides'
   },
   {
     slug: 'custom-vs-semi-custom-vs-rta-cabinets',
@@ -61,8 +58,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: '2025-10-02',
     lastUpdated: '2025-10-02',
     featured: true,
-    category: 'guides',
-    ogImage: '/media/og-image-cabinet-types.jpg'
+    category: 'guides'
   }
 ];
 

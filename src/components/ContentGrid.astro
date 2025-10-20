@@ -74,41 +74,79 @@ const finalClasses = `${gridClasses[variant]} ${className}`.trim();
 ---
 
 <div class={finalClasses}>
-  {variant === 'services' && items.map((item, i) => (
-    <!-- Services Cards (from Services.astro) -->
-    <div class="group surface-card cursor-pointer">
-      {item.image && (
-        <div class="surface-card-media">
-          <Image
-            src={item.image}
-            alt={item.title}
-            class="h-full w-full object-cover"
-            width={CARD_IMAGE_DIMENSIONS.width}
-            height={CARD_IMAGE_DIMENSIONS.height}
-            sizes={CARD_IMAGE_DIMENSIONS.sizes}
-            format="webp"
-            quality={80}
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="surface-card-overlay opacity-80 group-hover:opacity-90"></div>
-        </div>
-      )}
+  {variant === 'services' &&
+    items.map((item, i) =>
+      item.href ? (
+        <a
+          href={item.href}
+          class="group surface-card block cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+        >
+          {item.image && (
+            <div class="surface-card-media">
+              <Image
+                src={item.image}
+                alt={item.title}
+                class="h-full w-full object-cover"
+                width={CARD_IMAGE_DIMENSIONS.width}
+                height={CARD_IMAGE_DIMENSIONS.height}
+                sizes={CARD_IMAGE_DIMENSIONS.sizes}
+                format="webp"
+                quality={80}
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="surface-card-overlay opacity-80 group-hover:opacity-90"></div>
+            </div>
+          )}
 
-      <div class="relative flex h-80 items-end p-6 md:h-96">
-        <div class="absolute bottom-0 left-0 right-0 translate-y-full border-t border-white/10 bg-black/60 backdrop-blur-sm p-6 transition-transform duration-300 ease-out group-hover:translate-y-0">
-          <h3 class="text-xl font-semibold text-white mb-3">{item.title}</h3>
-          <p class="text-sm text-white/95 leading-relaxed">
-            {item.description}
-          </p>
-        </div>
+          <div class="relative flex h-80 items-end p-6 md:h-96">
+            <div class="absolute bottom-0 left-0 right-0 translate-y-full border-t border-white/10 bg-black/60 backdrop-blur-sm p-6 transition-transform duration-300 ease-out group-hover:translate-y-0">
+              <h3 class="text-xl font-semibold text-white mb-3">{item.title}</h3>
+              <p class="text-sm text-white/95 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
 
-        <div class="absolute bottom-6 left-6 right-6 transition-opacity duration-300 group-hover:opacity-0">
-          <h3 class="text-xl font-semibold text-white">{item.title}</h3>
+            <div class="absolute bottom-6 left-6 right-6 transition-opacity duration-300 group-hover:opacity-0">
+              <h3 class="text-xl font-semibold text-white">{item.title}</h3>
+            </div>
+          </div>
+        </a>
+      ) : (
+        <div class="group surface-card">
+          {item.image && (
+            <div class="surface-card-media">
+              <Image
+                src={item.image}
+                alt={item.title}
+                class="h-full w-full object-cover"
+                width={CARD_IMAGE_DIMENSIONS.width}
+                height={CARD_IMAGE_DIMENSIONS.height}
+                sizes={CARD_IMAGE_DIMENSIONS.sizes}
+                format="webp"
+                quality={80}
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="surface-card-overlay opacity-80 group-hover:opacity-90"></div>
+            </div>
+          )}
+
+          <div class="relative flex h-80 items-end p-6 md:h-96">
+            <div class="absolute bottom-0 left-0 right-0 translate-y-full border-t border-white/10 bg-black/60 backdrop-blur-sm p-6 transition-transform duration-300 ease-out group-hover:translate-y-0">
+              <h3 class="text-xl font-semibold text-white mb-3">{item.title}</h3>
+              <p class="text-sm text-white/95 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+
+            <div class="absolute bottom-6 left-6 right-6 transition-opacity duration-300 group-hover:opacity-0">
+              <h3 class="text-xl font-semibold text-white">{item.title}</h3>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  ))}
+      )
+    )}
 
   {variant === 'features' && items.map((item, i) => (
     <!-- Feature Cards (from WhyBosco.astro) -->

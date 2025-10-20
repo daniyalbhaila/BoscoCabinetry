@@ -67,16 +67,22 @@ const completionMonth = entry.data.completionDate
   : null;
 
 // Structured data for SEO (Schema.org)
+const siteBase = Astro.site || Astro.url;
+const resolveOgImage = (image?: string) => {
+  if (!image) return new URL('/media/og-image.jpg', siteBase).href;
+  return /^https?:\/\//i.test(image) ? image : new URL(image, siteBase).href;
+};
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "CreativeWork",
   "name": entry.data.title,
   "description": seoDescription,
-  "image": entry.data.ogImage || `https://boscocabinetry.ca/og-image.jpg`,
+  "image": resolveOgImage(entry.data.ogImage),
   "creator": {
     "@type": "Organization",
     "name": "Bosco Cabinetry",
-    "url": "https://boscocabinetry.ca"
+    "url": siteBase instanceof URL ? siteBase.origin : new URL(siteBase).origin
   },
   "datePublished": entry.data.completionDate?.toISOString(),
   "keywords": seoKeywords,
