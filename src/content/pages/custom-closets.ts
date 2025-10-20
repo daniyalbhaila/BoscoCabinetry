@@ -6,7 +6,7 @@ export const customClosetsPageContent = {
     title: "Custom Closets Toronto | Walk-In & Reach-In | Bosco Cabinetry",
     description: "Transform storage with custom walk-in closets, reach-in systems & mudroom organization. 100+ finishes, expert design, professional install. Free quote ✓",
     keywords: "custom closets toronto, walk-in closet systems, reach-in closets, closet organization, wardrobe systems, mudroom storage toronto",
-    ogImage: "/media/og-image-closets.jpg"
+    ogImage: "/media/og-image.jpg"
   },
 
   hero: {

@@ -6,7 +6,7 @@ export const fullHomeCabinetryPageContent = {
     title: "Full Home Cabinetry Toronto | Complete Solutions | Bosco Cabinetry",
     description: "Coordinated cabinetry throughout your Toronto home. Kitchens, bathrooms, closets, built-ins with unified design. One team, seamless results. Get quote ✓",
     keywords: "full home cabinetry toronto, whole home cabinets, complete cabinetry solutions, coordinated millwork, home renovation cabinets",
-    ogImage: "/media/og-image-fullhome.jpg"
+    ogImage: "/media/og-image.jpg"
   },
 
   hero: {

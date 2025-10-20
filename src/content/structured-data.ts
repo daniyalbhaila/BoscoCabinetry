@@ -3,6 +3,8 @@
 
 import { companyInfo, holikePartnership } from './shared';
 
+const OG_IMAGE_ABSOLUTE = 'https://boscocabinetry.com/media/og-image.jpg';
+
 // Helper to generate BreadcrumbList schema
 export function generateBreadcrumbs(items: Array<{ name: string; url?: string }>) {
   return {
@@ -26,7 +28,7 @@ export const localBusinessSchema = {
   "description": "Custom kitchen cabinets, closets, and built-ins serving Toronto and the Greater Toronto Area. Builder-founded with 100+ completed projects.",
   "url": "https://boscocabinetry.com",
   "logo": "https://boscocabinetry.com/logo.png",
-  "image": "https://boscocabinetry.com/media/og-image-homepage.jpg",
+  "image": OG_IMAGE_ABSOLUTE,
   "telephone": companyInfo.contact.phone.number,
   "email": companyInfo.contact.email.address,
   "priceRange": "$$",
@@ -174,7 +176,7 @@ export const kitchenCabinetsServiceSchema = generateServiceSchema({
   name: "Custom Kitchen Cabinets",
   description: "Professional custom kitchen cabinet design, manufacturing, and installation in Toronto and GTA. 100+ premium finishes, flexible timelines, expert installation.",
   url: "/services/kitchen-cabinets",
-  image: "https://boscocabinetry.com/media/og-image-kitchen.jpg"
+  image: OG_IMAGE_ABSOLUTE
 });
 
 // Custom Closets Service Schema
@@ -182,7 +184,7 @@ export const customClosetsServiceSchema = generateServiceSchema({
   name: "Custom Closet Systems",
   description: "Walk-in closets, reach-in systems, and mudroom organization. Expert design and professional installation across Toronto GTA.",
   url: "/services/custom-closets",
-  image: "https://boscocabinetry.com/media/og-image-closets.jpg"
+  image: OG_IMAGE_ABSOLUTE
 });
 
 // Built-ins Service Schema
@@ -190,7 +192,7 @@ export const builtInsServiceSchema = generateServiceSchema({
   name: "Custom Built-in Units",
   description: "Entertainment centers, bookshelves, home offices, and window seats. Custom built-in cabinetry for every room.",
   url: "/services/built-ins",
-  image: "https://boscocabinetry.com/media/og-image-builtins.jpg"
+  image: OG_IMAGE_ABSOLUTE
 });
 
 // Full Home Cabinetry Service Schema
@@ -198,7 +200,7 @@ export const fullHomeCabinetryServiceSchema = generateServiceSchema({
   name: "Full Home Cabinetry",
   description: "Coordinated custom cabinetry throughout your entire Toronto home. Unified design from kitchen to closets and beyond.",
   url: "/services/full-home-cabinetry",
-  image: "https://boscocabinetry.com/media/og-image-fullhome.jpg"
+  image: OG_IMAGE_ABSOLUTE
 });
 
 // Organization Schema (About Page)
@@ -296,7 +298,7 @@ export function generateWebPageSchema(page: {
     },
     "primaryImageOfPage": {
       "@type": "ImageObject",
-      "url": "https://boscocabinetry.com/media/og-image-homepage.jpg"
+      "url": OG_IMAGE_ABSOLUTE
     },
     ...(page.breadcrumbs && {
       "breadcrumb": generateBreadcrumbs(page.breadcrumbs)

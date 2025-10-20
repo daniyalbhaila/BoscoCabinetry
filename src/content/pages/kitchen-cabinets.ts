@@ -8,7 +8,7 @@ export const kitchenPageContent = {
     title: "Kitchen Cabinets Toronto | Design to Install | Bosco Cabinetry",
     description: "Transform your Toronto kitchen with custom cabinets designed, built & installed by experts. 100+ finishes, flexible timelines. Free consultation ✓",
     keywords: "custom kitchen cabinets toronto, luxury kitchen cabinets, kitchen renovation toronto, kitchen installer, kitchen cabinetry north york",
-    ogImage: "/media/og-image-kitchen.jpg"
+    ogImage: "/media/og-image.jpg"
   },
 
   hero: {

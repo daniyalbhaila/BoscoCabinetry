@@ -6,7 +6,7 @@ export const builtInsPageContent = {
     title: "Custom Built-Ins Toronto | Entertainment Centers & Shelves | Bosco Cabinetry",
     description: "Custom built-in cabinetry for living rooms, offices & bedrooms. Entertainment centers, bookshelves, home office solutions. Expert design & install Toronto GTA ✓",
     keywords: "custom built-ins toronto, entertainment center toronto, entertainment units, built-in bookshelves, home office cabinets, window seats, living room storage",
-    ogImage: "/media/og-image-builtins.jpg"
+    ogImage: "/media/og-image.jpg"
   },
 
   hero: {
