@@ -18,7 +18,7 @@ export const homepageSEO: SEOMetadata = {
   title: "Custom Cabinets Toronto | Luxury Quality | Bosco Cabinetry",
   description: "Transform your Toronto home with custom kitchen cabinets, closets & built-ins. 100+ finishes, 100+ completed projects, professional design. Book consultation ✓",
   keywords: "custom cabinets toronto, kitchen cabinets, custom closets, built-ins, cabinetry north york, luxury cabinets affordable",
-  ogImage: "/media/og-image-homepage.jpg",
+  ogImage: "/media/og-image.jpg",
 
   // A/B Test Variations
   titleVariations: [
@@ -40,7 +40,7 @@ export const aboutSEO: SEOMetadata = {
   title: "About Bosco Cabinetry | Builder-Founded Toronto Since 2003",
   description: "Founded by Toronto renovation contractors & custom-home builders. 20+ years crafting luxury kitchen cabinets with premium hardware, closets & cabinetry. Eco-certified (NAF), 5,500 sq ft showroom →",
   keywords: "about bosco cabinetry, toronto renovation contractor, custom home builders, interior design cabinetry, eco-certified cabinets, formaldehyde-free, sustainable cabinetry, holike distributor canada",
-  ogImage: "/media/og-image-about.jpg",
+  ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "About Us | Toronto Cabinetry Experts | Bosco Cabinetry", // 55 chars
@@ -60,7 +60,7 @@ export const servicesHubSEO: SEOMetadata = {
   title: "Cabinetry Services Toronto | Design to Install | Bosco",
   description: "Kitchen cabinets, custom closets, built-ins & full-home cabinetry. Professional design, premium materials, expert installation across Toronto GTA ✓",
   keywords: "custom cabinetry services toronto, kitchen cabinet installation, closet systems, built-in units, full home cabinetry",
-  ogImage: "/media/og-image-services.jpg",
+  ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "Toronto Cabinetry Services | Kitchen & Closets | Bosco", // 55 chars
@@ -79,7 +79,7 @@ export const kitchenCabinetsSEO: SEOMetadata = {
   title: "Kitchen Cabinets Toronto | Design to Install | Bosco",
   description: "Transform your Toronto kitchen with custom cabinets designed, built & installed by experts. 100+ finishes, flexible timelines. Free consultation ✓",
   keywords: "custom kitchen cabinets toronto, luxury kitchen cabinets, kitchen renovation toronto, kitchen installer, kitchen cabinetry north york",
-  ogImage: "/media/og-image-kitchen.jpg",
+  ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "Toronto Kitchen Cabinets | Custom Design | Bosco", // 48 chars
@@ -99,7 +99,7 @@ export const customClosetsSEO: SEOMetadata = {
   title: "Custom Closets Toronto | Walk-In & Reach-In | Bosco",
   description: "Transform storage with custom walk-in closets, reach-in systems & mudroom organization. 100+ finishes, expert design, professional install. Free quote ✓",
   keywords: "custom closets toronto, walk-in closet systems, reach-in closets, closet organization, wardrobe systems, mudroom storage toronto",
-  ogImage: "/media/og-image-closets.jpg",
+  ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "Walk-In Closets Toronto | Custom Organization | Bosco", // 54 chars
@@ -119,7 +119,7 @@ export const builtInsSEO: SEOMetadata = {
   title: "Custom Built-Ins Toronto | Entertainment & Shelves | Bosco",
   description: "Custom built-in cabinetry for living rooms, offices & bedrooms. Entertainment units, bookshelves, window seats. Expert design & install Toronto GTA ✓",
   keywords: "custom built-ins toronto, entertainment units, built-in bookshelves, home office cabinets, window seats, living room storage",
-  ogImage: "/media/og-image-builtins.jpg",
+  ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "Toronto Built-Ins | Entertainment Centers | Bosco", // 49 chars
@@ -139,7 +139,7 @@ export const fullHomeCabinetrySEO: SEOMetadata = {
   title: "Full Home Cabinetry Toronto | Complete Solutions | Bosco",
   description: "Coordinated cabinetry throughout your Toronto home. Kitchens, bathrooms, closets, built-ins with unified design. One team, seamless results. Get quote ✓",
   keywords: "full home cabinetry toronto, whole home cabinets, complete cabinetry solutions, coordinated millwork, home renovation cabinets",
-  ogImage: "/media/og-image-fullhome.jpg",
+  ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "Whole Home Cabinets Toronto | Complete Design | Bosco", // 54 chars
@@ -159,7 +159,7 @@ export const portfolioSEO: SEOMetadata = {
   title: "Portfolio | Toronto Custom Cabinetry Projects | Bosco",
   description: "Browse our custom cabinetry portfolio. Kitchen cabinets, closets, built-ins & bathroom vanities across Toronto GTA. Get inspired for your project ✓",
   keywords: "cabinetry portfolio toronto, kitchen cabinet gallery, custom closet examples, built-in projects, before and after cabinets",
-  ogImage: "/media/og-image-portfolio.jpg",
+  ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "Custom Cabinet Portfolio | Toronto Projects | Bosco", // 52 chars
@@ -179,7 +179,7 @@ export const contactSEO: SEOMetadata = {
   title: "Contact Bosco Cabinetry | Free Consultation Toronto",
   description: "Get your free custom cabinetry consultation. Call (647) 766-7744, visit our North York showroom, or book online. Serving Toronto GTA. 48-hour response ✓",
   keywords: "contact bosco cabinetry, free cabinetry consultation toronto, north york showroom, custom cabinet quote, toronto cabinetry experts",
-  ogImage: "/media/og-image-contact.jpg",
+  ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "Book Free Consultation | Toronto Cabinetry | Bosco", // 51 chars
@@ -199,7 +199,7 @@ export const tradeSEO: SEOMetadata = {
   title: "Trade Program Toronto | Wholesale Cabinets | Bosco",
   description: "Builder & designer trade program. Wholesale custom cabinets, LEED-compatible materials, dedicated support. Exclusive Holike distributor. Join Toronto pros ✓",
   keywords: "trade cabinetry toronto, wholesale cabinets, builder program, designer partnership, LEED certified cabinets, green building materials, holike distributor canada, contractor cabinets",
-  ogImage: "/media/og-image-trade.jpg",
+  ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "Wholesale Cabinets Toronto | Builder Program | Bosco", // 53 chars
@@ -219,7 +219,7 @@ export const sustainabilitySEO: SEOMetadata = {
   title: "Sustainable Cabinets Toronto | Formaldehyde-Free | Bosco",
   description: "Healthier homes through eco-friendly cabinetry. Zero-added formaldehyde (NAF), air-purifying technology, EPA & CARB certified. Sustainable options for Toronto ✓",
   keywords: "sustainable cabinets toronto, formaldehyde-free cabinets, low VOC kitchen cabinets, eco-friendly cabinetry, green building materials, LEED certified cabinets, healthy home materials, air purifying cabinets, NAF materials, CARB certified",
-  ogImage: "/media/og-image-sustainability.jpg",
+  ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "Eco-Friendly Cabinets Toronto | Low VOC | Bosco", // 48 chars
@@ -239,7 +239,7 @@ export const thankYouSEO: SEOMetadata = {
   title: "Thank You | Bosco Cabinetry Toronto",
   description: "Thank you for contacting Bosco Cabinetry. We'll respond within 48 hours to discuss your custom cabinetry project. Toronto's trusted cabinetry experts.",
   keywords: "thank you, bosco cabinetry confirmation, consultation scheduled, toronto cabinetry",
-  ogImage: "/media/og-image-homepage.jpg",
+  ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "Thank You | We'll Be In Touch Soon | Bosco Cabinetry", // 53 chars
@@ -256,7 +256,7 @@ export const resourcesHubSEO: SEOMetadata = {
   title: "Cabinetry Resources Toronto | Guides & Tips | Bosco",
   description: "Expert cabinetry guides, renovation tips & industry insights for Toronto homeowners. Learn about custom cabinets, finishes, installation & more ✓",
   keywords: "cabinetry resources, custom cabinet guides, renovation tips toronto, cabinetry blog, kitchen renovation advice",
-  ogImage: "/media/og-image-resources.jpg",
+  ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "Toronto Cabinetry Blog | Expert Guides & Tips | Bosco", // 54 chars
@@ -274,7 +274,7 @@ export const importingCabinetryBlogSEO: SEOMetadata = {
   title: "Importing Cabinetry from China | 2025 Guide | Bosco",
   description: "Complete guide to importing custom cabinetry from China. Learn about Holike partnership, quality standards, certifications & Toronto delivery. Expert insights ✓",
   keywords: "importing cabinets from china, chinese cabinetry manufacturers, holike cabinets canada, overseas cabinetry import, custom cabinet sourcing",
-  ogImage: "/media/og-image-importing-guide.jpg",
+  ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "China Cabinetry Import Guide 2025 | Toronto Tips | Bosco", // 57 chars
