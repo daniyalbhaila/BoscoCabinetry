@@ -11,10 +11,21 @@ import { featuredImages } from '../../lib/portfolioImages';
 // Get all portfolio projects
 const allProjects = await getCollection('portfolio');
 
-// Sort projects: featured first, then by title alphabetically
+// Sort projects: by custom order if specified, then featured, then alphabetically
 const sortedProjects = allProjects.sort((a, b) => {
+  // First, sort by order if both have order values
+  if (a.data.order !== undefined && b.data.order !== undefined) {
+    return a.data.order - b.data.order;
+  }
+  // If only one has order, prioritize it
+  if (a.data.order !== undefined) return -1;
+  if (b.data.order !== undefined) return 1;
+
+  // Fall back to featured status
   if (a.data.featured && !b.data.featured) return -1;
   if (!a.data.featured && b.data.featured) return 1;
+
+  // Finally, sort alphabetically
   return a.data.title.localeCompare(b.data.title);
 });
 

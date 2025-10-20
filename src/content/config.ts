@@ -13,6 +13,7 @@ const portfolioCollection = defineCollection({
     description: z.string(), // Short description for cards and meta
     excerpt: z.string().optional(), // Optional longer excerpt
     featured: z.boolean().default(false), // Featured project flag
+    order: z.number().optional(), // Custom display order (lower numbers appear first)
 
     // Project Details
     location: z.object({
