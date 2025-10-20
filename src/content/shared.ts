@@ -105,10 +105,10 @@ export const companyInfo = {
 
   // Social Media
   social: {
-    facebook: 'https://facebook.com/boscocabinetry',
-    instagram: 'https://instagram.com/boscocabinetry',
-    linkedin: 'https://linkedin.com/company/bosco-cabinetry',
-    tiktok: 'https://tiktok.com/@boscocabinetry'
+    facebook: 'https://www.facebook.com/boscocabinetrycan/',
+    instagram: 'https://www.instagram.com/bosco.cabinetry',
+    linkedin: 'https://linkedin.com/company/bosco-cabinetry/',
+    tiktok: 'https://www.tiktok.com/@boscocabinetry'
   }
 };
 
