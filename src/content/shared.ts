@@ -13,8 +13,8 @@ export const companyInfo = {
       href: 'tel:+1-647-766-7744'
     },
     email: {
-      address: 'info@boscocabinetry.com',
-      href: 'mailto:info@boscocabinetry.com'
+      address: 'info@boscocabinetry.ca',
+      href: 'mailto:info@boscocabinetry.ca'
     }
   },
 
@@ -72,18 +72,26 @@ export const companyInfo = {
     { city: 'Toronto', region: 'Downtown Core' },
     { city: 'North York', region: 'North Toronto' },
     { city: 'Scarborough', region: 'East Toronto' },
+    { city: 'Whitby', region: 'Durham Region' },
     { city: 'Etobicoke', region: 'West Toronto' },
     { city: 'Vaughan', region: 'York Region' },
     { city: 'Richmond Hill', region: 'York Region' },
     { city: 'Markham', region: 'York Region' },
-    { city: 'Mississauga', region: 'Peel Region' }
+    { city: 'Barrie', region: 'Simcoe County' },
+    { city: 'Mississauga', region: 'Peel Region' },
+    { city: 'Oakville', region: 'Halton Region' },
+    { city: 'Burlington', region: 'Halton Region' },
+    { city: 'Hamilton', region: 'City of Hamilton' },
+    { city: 'Guelph', region: 'Wellington County' },
+    { city: 'Kitchener', region: 'Waterloo Region' },
+    { city: 'Niagara Falls', region: 'Niagara Region' }
   ],
 
   // Project Types
   projectTypes: [
     { value: 'kitchen-cabinets', label: 'Kitchen Cabinets' },
     { value: 'custom-closets', label: 'Custom Closets' },
-    { value: 'built-ins', label: 'Built-ins & Media Walls' },
+    { value: 'built-ins', label: 'Built-Ins & Media Walls' },
     { value: 'full-home-cabinetry', label: 'Full Home Cabinetry' },
     { value: 'multiple-projects', label: 'Multiple Projects' },
     { value: 'other', label: 'Other' }
@@ -194,7 +202,7 @@ export const sustainability = {
 // Company description variations for different contexts
 export const companyDescriptions = {
   hero: 'Explore 100+ finishes in our 5,500 sq ft North York showroom. Bring your own design or work with Bosco Cabinetrys\'s in-house designer to create kitchens, closets, and full-home renovations that fit your lifestyle. Luxury without the luxury price tag.',
-  about: 'With 100+ completed projects, Bosco Cabinetry specializes in custom kitchen cabinets, closet systems, and built-in units. Visit our massive North York showroom to explore over 100 finish options.',
+  about: 'With 100+ completed projects, Bosco Cabinetry specializes in custom kitchen cabinets, closet systems, and built-in units. Visit our North York showroom to explore over 100 finish options.',
   aboutOrigin: 'Founded by Toronto custom-home builders who saw homeowners struggling with impossible choices: overpriced luxury brands, cheap big-box cabinets, or mid-range options with zero flexibility. We created Bosco Cabinetry to bring builder-backed expertise, luxury finishes, and accessible prices to Toronto.',
   contact: 'Get your free consultation and quote within 48 hours. Let\'s bring your vision to life.',
   serviceAreaExpanded: `
