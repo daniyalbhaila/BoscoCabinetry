@@ -35,6 +35,11 @@ const heroPosterUrl = typeof heroPoster === 'string' ? heroPoster : heroPoster.s
 
     <link rel="canonical" href={canonicalURL} />
 
+    <!-- Google Fonts - Poppins (normal + italic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=optional" rel="stylesheet" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
@@ -58,13 +63,6 @@ const heroPosterUrl = typeof heroPoster === 'string' ? heroPoster : heroPoster.s
     <!-- Critical resource preloads -->
     <link rel="preload" href={logoPreload} as="image" type="image/svg+xml" />
     <link rel="preload" href={heroPosterUrl} as="image" />
-
-    <!-- Preload the exact fonts being used -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGj2Z1JlFc-K.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiAyp8kv8JHgFVrJJLmE1hVF9eO.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGj6Z1xlFQ.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Performance optimization -->
     <meta name="theme-color" content="#60533C" />
@@ -177,76 +175,8 @@ const heroPosterUrl = typeof heroPoster === 'string' ? heroPoster : heroPoster.s
       }
     </script>
 
-    <!-- ZERO CLS Font Strategy: System fonts with optional Poppins enhancement -->
-    <style>
-      /* System font stack as primary - no loading, no shifts */
-      * {
-        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
-      }
-
-      /* Optional Poppins enhancement - all weights used */
-      @font-face {
-        font-family: 'Poppins-Optional';
-        src: url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGj2Z1JlFc-K.woff2') format('woff2');
-        font-weight: 300;
-        font-style: normal;
-        font-display: optional;
-      }
-
-      @font-face {
-        font-family: 'Poppins-Optional';
-        src: url('https://fonts.gstatic.com/s/poppins/v20/pxiAyp8kv8JHgFVrJJLmE1hVF9eO.woff2') format('woff2');
-        font-weight: 300;
-        font-style: italic;
-        font-display: optional;
-      }
-
-      @font-face {
-        font-family: 'Poppins-Optional';
-        src: url('https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2') format('woff2');
-        font-weight: 400;
-        font-style: normal;
-        font-display: optional;
-      }
-
-      @font-face {
-        font-family: 'Poppins-Optional';
-        src: url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2') format('woff2');
-        font-weight: 500;
-        font-style: normal;
-        font-display: optional;
-      }
-
-      @font-face {
-        font-family: 'Poppins-Optional';
-        src: url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGj6Z1xlFQ.woff2') format('woff2');
-        font-weight: 600;
-        font-style: normal;
-        font-display: optional;
-      }
-
-      @font-face {
-        font-family: 'Poppins-Optional';
-        src: url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGj6Z1xlFQ.woff2') format('woff2');
-        font-weight: 700;
-        font-style: normal;
-        font-display: optional;
-      }
-
-      /* Apply Poppins only if available instantly (100ms) */
-      .fonts-ready * {
-        font-family: 'Poppins-Optional', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
-      }
-    </style>
   </head>
   <body class="min-h-full bg-brand-charcoal text-white antialiased font-sans overflow-x-hidden">
-    <script>
-      // Simple font loading - apply Poppins immediately if available
-      document.fonts.ready.then(function() {
-        document.body.classList.add('fonts-ready');
-      });
-    </script>
-
     <Header />
     <main>
       <slot />
