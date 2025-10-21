@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import logoPreload from '../assets/Logo-Light.svg?url';
@@ -177,8 +178,9 @@ const heroPosterUrl = typeof heroPoster === 'string' ? heroPoster : heroPoster.s
 
   </head>
   <body class="min-h-full bg-brand-charcoal text-white antialiased font-sans overflow-x-hidden">
+    <ViewTransitions />
     <Header />
-    <main>
+    <main transition:name="page">
       <slot />
     </main>
     <Footer />
