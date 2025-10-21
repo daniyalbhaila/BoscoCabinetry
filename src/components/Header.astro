@@ -507,81 +507,108 @@ const currentPath = Astro.url.pathname;
 /* Color variables removed - using Tailwind brand colors */
 </style>
 
-<script>
-// Mobile navigation functionality
-const CSbody = document.querySelector("body");
-const CSnavbarMenu = document.querySelector("#cs-navigation");
-const CShamburgerMenu = document.querySelector("#cs-navigation .cs-toggle");
+<script is:inline>
+  const headerControllerMap = new WeakMap();
 
-if (CShamburgerMenu) {
-    CShamburgerMenu.addEventListener('click', function() {
-        CShamburgerMenu.classList.toggle("cs-active");
-        CSnavbarMenu.classList.toggle("cs-active");
-        CSbody.classList.toggle("cs-open");
-        ariaExpanded();
-    });
-}
+  const cleanupHeaderNav = () => {
+    const nav = document.querySelector('#cs-navigation');
+    if (!nav) return;
 
-function ariaExpanded() {
-    const csUL = document.querySelector('#cs-expanded');
+    const controller = headerControllerMap.get(nav);
+    if (controller) {
+      controller.abort();
+      headerControllerMap.delete(nav);
+    }
+
+    const toggle = nav.querySelector('.cs-toggle');
+    toggle?.classList.remove('cs-active');
+    nav.classList.remove('cs-active');
+
+    const body = document.body;
+    body?.classList.remove('cs-open', 'scroll');
+
+    const csUL = nav.querySelector('#cs-expanded');
     if (csUL) {
-        const csExpanded = csUL.getAttribute('aria-expanded');
-        if (csExpanded === 'false') {
-            csUL.setAttribute('aria-expanded', 'true');
-        } else {
-            csUL.setAttribute('aria-expanded', 'false');
-        }
-    }
-}
-
-// Scroll functionality
-document.addEventListener('scroll', (e) => {
-    // Don't change header state if page has fixed header theme
-    if (document.body.getAttribute('data-fixed-header') === 'true') {
-        return;
+      csUL.setAttribute('aria-expanded', 'false');
     }
 
-    const body = document.querySelector('body');
-    if (!body) return; // Guard against null
-
-    const scroll = document.documentElement.scrollTop;
-    if(scroll >= 100){
-        body.classList.add('scroll')
-    } else {
-        body.classList.remove('scroll')
-    }
-});
-
-// Mobile dropdown toggle functionality with event delegation
-const navigation = document.querySelector('#cs-navigation');
-if (navigation) {
-    // Initialize ARIA states on dropdown links
-    const dropdownLinks = navigation.querySelectorAll('.cs-li[data-dropdown="true"] .cs-li-link');
-    dropdownLinks.forEach(link => link.setAttribute('aria-expanded', 'false'));
-
-    // Use event delegation for better performance
-    navigation.addEventListener('click', (e) => {
-        const dropdownLink = e.target.closest('.cs-li[data-dropdown="true"] .cs-li-link');
-        if (!dropdownLink || window.innerWidth > 1023) return;
-
-        e.preventDefault();
-        const item = dropdownLink.closest('.cs-li');
-        const isExpanded = item.classList.toggle('dropdown-active');
-        // Update ARIA state
-        dropdownLink.setAttribute('aria-expanded', isExpanded.toString());
+    nav.querySelectorAll('.dropdown-active').forEach((item) => {
+      item.classList.remove('dropdown-active');
     });
-}
 
-// Close navigation on link click (excluding dropdown toggles)
-const navLinks = Array.from(document.querySelectorAll('#cs-navigation a:not(.cs-li-link[aria-haspopup="true"])'));
-for (const link of navLinks) {
-    link.addEventListener('click', () => {
-        if (CShamburgerMenu && CSnavbarMenu && CSbody) {
-            CShamburgerMenu.classList.remove("cs-active");
-            CSnavbarMenu.classList.remove("cs-active");
-            CSbody.classList.remove("cs-open");
-            ariaExpanded();
-        }
+    nav
+      .querySelectorAll('.cs-li[data-dropdown="true"] .cs-li-link')
+      .forEach((link) => link.setAttribute('aria-expanded', 'false'));
+  };
+
+  const initHeaderNav = () => {
+    const nav = document.querySelector('#cs-navigation');
+    const body = document.body;
+    if (!nav || !body || headerControllerMap.has(nav)) return;
+
+    const controller = new AbortController();
+    const { signal } = controller;
+    headerControllerMap.set(nav, controller);
+
+    const toggle = nav.querySelector('.cs-toggle');
+    const csUL = nav.querySelector('#cs-expanded');
+
+    const toggleNav = () => {
+      toggle?.classList.toggle('cs-active');
+      nav.classList.toggle('cs-active');
+      body.classList.toggle('cs-open');
+      if (csUL) {
+        const expanded = csUL.getAttribute('aria-expanded') === 'true';
+        csUL.setAttribute('aria-expanded', (!expanded).toString());
+      }
+    };
+
+    toggle?.addEventListener('click', toggleNav, { signal });
+
+    const onScroll = () => {
+      if (body.getAttribute('data-fixed-header') === 'true') return;
+      const scrolled = document.documentElement.scrollTop >= 100;
+      body.classList.toggle('scroll', scrolled);
+    };
+
+    document.addEventListener('scroll', onScroll, { signal });
+
+    const dropdownLinks = nav.querySelectorAll('.cs-li[data-dropdown="true"] .cs-li-link');
+    dropdownLinks.forEach((link) => link.setAttribute('aria-expanded', 'false'));
+
+    const onNavClick = (event) => {
+      const dropdownLink = event.target.closest('.cs-li[data-dropdown="true"] .cs-li-link');
+      if (!dropdownLink || window.innerWidth > 1023) return;
+
+      event.preventDefault();
+      const item = dropdownLink.closest('.cs-li');
+      const isExpanded = item.classList.toggle('dropdown-active');
+      dropdownLink.setAttribute('aria-expanded', isExpanded.toString());
+    };
+
+    nav.addEventListener('click', onNavClick, { signal });
+
+    const closeNav = () => {
+      toggle?.classList.remove('cs-active');
+      nav.classList.remove('cs-active');
+      body.classList.remove('cs-open');
+      if (csUL) {
+        csUL.setAttribute('aria-expanded', 'false');
+      }
+    };
+
+    const linkSelector = '#cs-navigation a:not(.cs-li-link[aria-haspopup="true"])';
+    nav.querySelectorAll(linkSelector).forEach((link) => {
+      link.addEventListener('click', closeNav, { signal });
     });
-}
-</script> 
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeaderNav, { once: true });
+  } else {
+    initHeaderNav();
+  }
+
+  document.addEventListener('astro:page-load', initHeaderNav);
+  document.addEventListener('astro:before-swap', cleanupHeaderNav);
+</script>
