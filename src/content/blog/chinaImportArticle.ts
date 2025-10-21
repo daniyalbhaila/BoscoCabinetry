@@ -164,7 +164,7 @@ export const chinaImportContent = {
     tagline: 'The smart choice is to eliminate the variables and simplify your supply chain.',
     callToAction: 'Visit the Bosco Cabinetry / Holike Showroom today to experience custom cabinetry designed to the highest standards, without the cross-border complications.',
     showroomAddress: '85 Brisbane Rd, North York, Toronto, ON M3J 2K3',
-    contactLink: '/contact',
+    contactLink: '/#contact',
     contactText: 'Contact Us to book a consultation and learn how we can simplify your next project.'
   }
 };

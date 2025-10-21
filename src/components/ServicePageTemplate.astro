@@ -79,6 +79,7 @@ interface ServicePageContent {
     description: string;
     image?: string;
     videoSrc?: string;
+    size?: 'full' | 'medium' | 'compact';
     ctas?: CTAButton[];
   };
   overview: {
@@ -191,9 +192,9 @@ const faqSchema = content.faqs && content.faqs.length > 0
     kicker={content.hero.kicker}
     description={content.hero.description}
     backgroundImage={content.hero.image}
-    videoSrc={content.hero.videoSrc}
+    videoSrc={content.hero.videoSrc ?? null}
     theme="dark"
-    size="medium"
+    size={content.hero.size ?? 'full'}
     ctaButtons={content.hero.ctas}
   />
 

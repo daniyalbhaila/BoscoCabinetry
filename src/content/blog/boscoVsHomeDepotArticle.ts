@@ -233,7 +233,7 @@ export const boscoVsHomeDepotContent = {
     description: "Compare Bosco Cabinetry's quality and customization in person. Visit our 5,500 sq ft Toronto showroom or book a free in-home consultation.",
     primaryAction: {
       text: "Book Free Consultation",
-      href: "/contact"
+      href: "/#contact"
     },
     secondaryAction: {
       text: "Visit Our Showroom",

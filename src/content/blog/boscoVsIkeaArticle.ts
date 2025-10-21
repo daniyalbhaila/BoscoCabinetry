@@ -194,7 +194,7 @@ export const boscoVsIkeaContent = {
     description: "See why Toronto homeowners choose Bosco Cabinetry over IKEA and big-box stores. Book your free consultation today.",
     primaryAction: {
       text: "Book Free Consultation",
-      href: "/contact"
+      href: "/#contact"
     },
     secondaryAction: {
       text: "View Our Showroom",

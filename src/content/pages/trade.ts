@@ -14,7 +14,7 @@ export const tradePageContent = {
 		],
 		ctaButtons: [
 			{ text: "Open a Trade Account", href: "#trade-account", variant: "primary" as const },
-			{ text: "Contact Trade Team", href: "#contact", variant: "ghost" as const }
+			{ text: "Contact Trade Team", href: "/#contact", variant: "ghost" as const }
 		]
 	},
 
@@ -130,8 +130,8 @@ export const tradePageContent = {
 				"Someone will be in touch",
 				"Start ordering quality cabinetry"
 			],
-			primaryCta: { text: "Apply for Trade Account", href: "/trade/apply" },
-			secondaryCta: { text: "Talk to our trade team", href: "#contact" }
+			primaryCta: { text: "Apply for Trade Account", href: "/#contact" },
+			secondaryCta: { text: "Talk to our trade team", href: "/#contact" }
 		}
 	},
 
@@ -338,7 +338,7 @@ export const tradePageContent = {
 				"Our team will be in touch",
 				"Start ordering quality cabinetry"
 			],
-			button: { text: "Apply Now", href: "/trade/apply" }
+			button: { text: "Apply Now", href: "/#contact" }
 		},
 		secondaryAction: {
 			title: "Talk to Our Trade Team",
@@ -347,7 +347,7 @@ export const tradePageContent = {
 				"Need a quote for a specific project?",
 				"Want to schedule a showroom visit?"
 			],
-			button: { text: "Contact Trade Team", href: "#contact" }
+			button: { text: "Contact Trade Team", href: "/#contact" }
 		}
 	}
 };

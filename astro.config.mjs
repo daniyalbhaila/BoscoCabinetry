@@ -40,9 +40,8 @@ export default defineConfig({
         if (item.url.includes('/blog/')) {
           return { ...item, priority: 0.7, changefreq: 'monthly' };
         }
-        // About, contact, sustainability
+        // About and sustainability
         if (item.url.includes('/about') ||
-            item.url.includes('/contact') ||
             item.url.includes('/sustainability')) {
           return { ...item, priority: 0.8, changefreq: 'monthly' };
         }

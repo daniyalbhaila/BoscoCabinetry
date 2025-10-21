@@ -1,6 +1,8 @@
 // SEO-optimized content for Custom Closets service page
 // Target keywords: "Custom Closets Toronto", "Walk-in Closet Systems", "Reach-in Closets", "Closet Organization"
 
+import ClosetImage from '../../assets/Closet.jpg';
+
 export const customClosetsPageContent = {
   seo: {
     title: "Custom Closets Toronto | Walk-In & Reach-In | Bosco Cabinetry",
@@ -14,8 +16,9 @@ export const customClosetsPageContent = {
     title: "Closet Systems That Maximize Every Inch",
     kicker: "Walk-In Closets, Reach-In Systems & Mudroom Organization",
     description: "From luxury walk-in wardrobes with soft-close drawer organizers to space-saving reach-in systems, we design custom closets with premium hardware that bring order and elegance to your Toronto home.",
+    image: ClosetImage,
     ctas: [
-      { text: 'Book Free Design Consultation', href: '#contact', variant: 'primary' },
+      { text: 'Book Free Design Consultation', href: 'https://tidycal.com/boscocabinetry/30-minute-meeting', variant: 'primary' },
       { text: 'Explore Closet Gallery', href: '/portfolio', variant: 'ghost' }
     ]
   },

@@ -101,10 +101,10 @@ These external links may need updating:
 ## SUGGESTED QUICK FIXES
 
 ### Redirect Options (No New Pages Required):
-- `/quote` → `/contact`
-- `/showroom-visit` → `/contact`
+- `/quote` → `/#contact`
+- `/showroom-visit` → `/#contact`
 - `/reviews` → `/#reviews` (if Reviews component has ID)
-- `/trade/apply` → `/contact` (or `/trade#contact`)
+- `/trade/apply` → `/#contact` (or `/trade#contact`)
 
 ### Pages to Create:
 - `/process` - Process/workflow page

@@ -1,6 +1,8 @@
 // SEO-optimized content for Full Home Cabinetry service page
 // Target keywords: "Full Home Cabinetry Toronto", "Whole Home Cabinet Installation", "Custom Home Millwork"
 
+import FullHomeImage from '../../assets/FullHome.jpg';
+
 export const fullHomeCabinetryPageContent = {
   seo: {
     title: "Full Home Cabinetry Toronto | Complete Solutions | Bosco Cabinetry",
@@ -14,8 +16,9 @@ export const fullHomeCabinetryPageContent = {
     title: "Full Home Cabinetry Solutions",
     kicker: "Coordinated Custom Cabinets Throughout Your Entire Home",
     description: "From kitchen to bathrooms, closets to built-ins—create a cohesive aesthetic with coordinated cabinetry throughout your Toronto home. One team, one vision, seamless results.",
+    image: FullHomeImage,
     ctas: [
-      { text: 'Book Whole-Home Consultation', href: '#contact', variant: 'primary' },
+      { text: 'Book Whole-Home Consultation', href: 'https://tidycal.com/boscocabinetry/30-minute-meeting', variant: 'primary' },
       { text: 'View Complete Projects', href: '/portfolio', variant: 'ghost' }
     ]
   },

@@ -10,7 +10,7 @@ const currentPath = Astro.url.pathname;
 <header id="cs-navigation">
   <div class="cs-container">
     <a href="/" class="cs-logo" aria-label="back to home">
-      <div class="logo-svg w-[120px] h-[40px]" set:html={LogoSvg} />
+      <div class="logo-svg flex h-full w-full items-center justify-center px-1" set:html={LogoSvg} />
     </a>
     <nav class="cs-nav" role="navigation">
       <button class="cs-toggle" aria-label="mobile menu toggle">
@@ -52,7 +52,7 @@ const currentPath = Astro.url.pathname;
         </ul>
       </div>
     </nav>
-    <Button href="/contact" variant="primary" class="cs-nav-button">Get in Touch</Button>
+    <Button href="/#contact" variant="primary" class="cs-nav-button">Get in Touch</Button>
   </div>
 </header>
 
@@ -124,8 +124,8 @@ const currentPath = Astro.url.pathname;
     align-items: center;
   }
   #cs-navigation .cs-logo {
-    width: 120px;
-    height: 100%;
+    width: 140px;
+    height: 2.1875rem;
     margin: 0 auto 0 0;
     box-sizing: border-box;
     padding: 0;
@@ -384,8 +384,8 @@ const currentPath = Astro.url.pathname;
     display: none;
   }
   #cs-navigation .cs-logo {
-    width: 120px;
-    height: 4.0625rem;
+    width: 140px;
+    height: 2.1875rem;
     margin: 0 auto 0 0;
     padding: 0;
     display: flex;

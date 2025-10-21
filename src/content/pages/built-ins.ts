@@ -1,6 +1,8 @@
 // SEO-optimized content for Built-in Units service page
 // Target keywords: "Custom Built-ins Toronto", "Built-in Entertainment Units", "Built-in Bookshelves", "Home Office Built-ins"
 
+import MediaWallImage from '../../assets/MediaWall.jpg';
+
 export const builtInsPageContent = {
   seo: {
     title: "Custom Built-Ins Toronto | Entertainment Centers & Shelves | Bosco Cabinetry",
@@ -14,8 +16,9 @@ export const builtInsPageContent = {
     title: "Built-In Cabinetry That Transforms Spaces",
     kicker: "Entertainment Centers, Bookshelves, Home Offices & Storage Solutions",
     description: "From floor-to-ceiling bookshelves to seamless entertainment centers with soft-close drawer organizers, our custom built-ins maximize space while adding architectural beauty to your Toronto home.",
+    image: MediaWallImage,
     ctas: [
-      { text: 'Book Free Design Consultation', href: '#contact', variant: 'primary' },
+      { text: 'Book Free Design Consultation', href: 'https://tidycal.com/boscocabinetry/30-minute-meeting', variant: 'primary' },
       { text: 'View Built-In Gallery', href: '/portfolio', variant: 'ghost' }
     ]
   },

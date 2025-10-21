@@ -61,7 +61,7 @@ import Hero from '../components/Hero.astro';
   size="medium"
   backgroundImage="/images/kitchen-hero.jpg"
   ctaButtons={[
-    { text: 'Get Quote', href: '#quote', variant: 'primary' },
+    { text: 'Get Quote', href: '/#contact', variant: 'primary' },
     { text: 'View Gallery', href: '/portfolio', variant: 'ghost' }
   ]}
 />

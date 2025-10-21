@@ -2,7 +2,7 @@
 # Preserves SEO during migration from WordPress to Astro
 
 # Core page redirects
-/get-in-touch/                    /contact                301
+/get-in-touch/                    /#contact               301
 /our-company/                     /about                  301
 /our-design-process/              /about                  301
 /projects/                        /portfolio              301
@@ -34,7 +34,14 @@
 
 # Trailing slash normalization (ensures consistency)
 /about/                           /about                  301
-/contact/                         /contact                301
+/quote                            /#contact               301
+/quote/                           /#contact               301
+/showroom-visit                   /#contact               301
+/showroom-visit/                  /#contact               301
+/trade/apply                      /#contact               301
+/trade/apply/                     /#contact               301
+/contact                          /#contact               301
+/contact/                         /#contact               301
 /services/                        /services               301
 /portfolio/                       /portfolio              301
 /sustainability/                  /sustainability         301

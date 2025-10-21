@@ -37,7 +37,7 @@ export const primaryNavigation = [
     dropdownItems: aboutNavigation,
     matchSlugs: ['about', 'sustainability']
   },
-  { label: 'Contact', href: '/contact', slug: 'contact' }
+  { label: 'Contact', href: '/#contact', slug: 'contact' }
 ];
 
 // Location pages navigation (auto-generated from serviceAreas)
@@ -66,21 +66,20 @@ export const footerNavigation = {
       { label: 'About Us', href: '/about', slug: 'about' },
       { label: 'Sustainability', href: '/sustainability', slug: 'sustainability' },
       { label: 'Trade Program', href: '/trade', slug: 'trade' },
-      { label: 'Our Process', href: '/process', slug: 'process' },
-      { label: 'Showroom', href: '/showroom', slug: 'showroom' },
-      { label: 'Reviews', href: '/reviews', slug: 'reviews' },
+      { label: 'Our Process', href: '/#process', slug: 'process' },
+      { label: 'Showroom', href: '/#showroom', slug: 'showroom' },
+      { label: 'Reviews', href: '/#reviews', slug: 'reviews' },
       { label: 'Blog', href: '/blog', slug: 'blog' },
-      { label: 'Careers', href: '/careers', slug: 'careers' }
     ]
   },
 
   contact: {
     title: 'Get Started',
     links: [
-      { label: 'Free Consultation', href: '/contact', slug: 'contact' },
+      { label: 'Free Consultation', href: '/#contact', slug: 'contact' },
       { label: 'Get a Quote', href: '/quote', slug: 'quote' },
-      { label: 'Visit Showroom', href: '/showroom-visit', slug: 'showroom-visit' },
-      { label: 'Financing Options', href: '/financing', slug: 'financing' }
+      { label: 'Visit Showroom', href: 'https://tidycal.com/boscocabinetry/30-minute-meeting', slug: 'showroom-visit' },
+      { label: 'Financing Options', href: '', slug: 'financing' }
     ]
   }
 };

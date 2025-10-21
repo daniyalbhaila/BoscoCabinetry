@@ -110,7 +110,7 @@ export const companyInfo = {
 
   // URLs
   urls: {
-    googleReviews: 'https://www.google.com/search?q=bosco+cabinetry+reviews'
+    googleReviews: 'https://maps.app.goo.gl/YBFNcghn4mcuqdNw8'
   },
 
   // Social Media

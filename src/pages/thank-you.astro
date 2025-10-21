@@ -17,8 +17,8 @@ import TrendingUp from '../components/icons/TrendingUp.astro';
 import { Image } from 'astro:assets';
 import { companyInfo } from '../content/shared.ts';
 import { seoMetadata } from '../content/seo-metadata.ts';
-import KitchenImage from '../assets/kitchen.jpg';
 import ShowroomImage from '../assets/showroom.jpg';
+import ProjectGallery from '../components/ProjectGallery.astro';
 
 // Select 3 best reviews for thank you page
 const featuredReviews = [
@@ -42,45 +42,6 @@ const featuredReviews = [
 	}
 ];
 
-// Featured project images for inspiration
-const featuredProjects = [
-	{
-		title: "Modern Kitchen",
-		category: "Kitchen Cabinets",
-		image: KitchenImage,
-		alt: "Custom modern kitchen cabinetry"
-	},
-	{
-		title: "Showroom Display",
-		category: "Closet Systems",
-		image: ShowroomImage,
-		alt: "Custom closet organization system"
-	},
-	{
-		title: "Contemporary Kitchen",
-		category: "Kitchen Cabinets",
-		image: KitchenImage,
-		alt: "Contemporary kitchen cabinets with premium finishes"
-	},
-	{
-		title: "Walk-In Closet",
-		category: "Built-in Units",
-		image: ShowroomImage,
-		alt: "Custom walk-in closet with organization features"
-	},
-	{
-		title: "Luxury Kitchen",
-		category: "Kitchen Cabinets",
-		image: KitchenImage,
-		alt: "Luxury custom kitchen cabinetry"
-	},
-	{
-		title: "Custom Vanity",
-		category: "Bathroom Vanities",
-		image: ShowroomImage,
-		alt: "Custom bathroom vanity cabinetry"
-	}
-];
 ---
 
 <BaseLayout
@@ -343,41 +304,8 @@ const featuredProjects = [
   </SectionWrapper>
 
   <!-- 4. Featured Projects Gallery -->
-  <SectionWrapper theme="light" id="projects">
-    <SectionHeader
-      tag="Get Inspired"
-      title="Recent Projects"
-      description="Browse our latest custom cabinetry installations and get ideas for your own space."
-      layout="center"
-      theme="light"
-    />
+  <ProjectGallery theme="light" />
 
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto mb-12">
-      {featuredProjects.map((project) => (
-        <div class="group relative overflow-hidden rounded-xl aspect-square cursor-pointer">
-          <Image
-            src={project.image}
-            alt={project.alt}
-            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-            <p class="text-white font-semibold">{project.title}</p>
-            <p class="text-white/70 text-sm">{project.category}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    <div class="text-center">
-      <Button
-        href="/portfolio"
-        variant="primary"
-        size="lg"
-      >
-        Explore Full Portfolio
-      </Button>
-    </div>
-  </SectionWrapper>
 
   <!-- 5. Showroom Booking CTA -->
   <SectionWrapper theme="dark" id="booking">

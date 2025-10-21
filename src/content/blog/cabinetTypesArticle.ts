@@ -243,7 +243,7 @@ export const cabinetTypesContent = {
     description: "Bosco Cabinetry offers custom, semi-custom, and RTA cabinetry — so you can choose based on your budget, timeline, and long-term goals. Visit our showroom to see the quality difference between cabinet types, and let our designers guide you to the best option.",
     primaryAction: {
       text: "Book Free Consultation",
-      href: "/contact"
+      href: "/#contact"
     },
     secondaryAction: {
       text: "Visit Our Showroom",
