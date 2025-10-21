@@ -65,29 +65,44 @@ const classes = getThemeClasses(theme);
 <!-- Lightbox Modal -->
 <div
   id="lightbox"
-  class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-sm"
+  class="fixed inset-0 z-[14000] hidden bg-black/95 backdrop-blur-sm"
   role="dialog"
   aria-modal="true"
   aria-label="Image gallery lightbox"
+  aria-hidden="true"
 >
-  <!-- Close Button -->
-  <button
-    id="lightbox-close"
-    type="button"
-    class="absolute top-4 right-4 z-10 text-white hover:text-brand-accent transition-colors p-2 focus:outline-none focus:ring-2 focus:ring-white rounded-lg"
-    aria-label="Close gallery"
+  <!-- Top Controls -->
+  <div
+    class="absolute left-0 right-0 top-0 z-[14010] flex items-start justify-between gap-3 px-4 pb-4 pt-[calc(env(safe-area-inset-top,0px)+1rem)] sm:px-6 sm:pb-6 sm:pt-[calc(env(safe-area-inset-top,0px)+1.5rem)]"
+    data-lightbox-ui
   >
-    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-    </svg>
-  </button>
+    <div class="pointer-events-none select-none">
+      <span
+        id="lightbox-counter"
+        class="inline-flex min-w-[88px] items-center justify-center rounded-full bg-black/70 px-3 py-1 text-sm font-medium text-white shadow-lg backdrop-blur"
+      ></span>
+    </div>
+    <button
+      id="lightbox-close"
+      type="button"
+      class="flex h-12 w-12 items-center justify-center rounded-full bg-black/80 text-white shadow-lg transition-colors hover:bg-brand-accent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black/50 sm:h-14 sm:w-14"
+      aria-label="Close gallery"
+      data-lightbox-control
+    >
+      <svg class="h-6 w-6 sm:h-7 sm:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+      <span class="sr-only">Close gallery</span>
+    </button>
+  </div>
 
   <!-- Previous Button -->
   <button
     id="lightbox-prev"
     type="button"
-    class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-brand-accent transition-colors p-2 focus:outline-none focus:ring-2 focus:ring-white rounded-lg disabled:opacity-30 disabled:cursor-not-allowed"
+    class="absolute left-4 top-1/2 z-[14005] -translate-y-1/2 text-white hover:text-brand-accent transition-colors p-2 focus:outline-none focus:ring-2 focus:ring-white rounded-lg disabled:opacity-30 disabled:cursor-not-allowed"
     aria-label="Previous image"
+    data-lightbox-control
   >
     <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -98,8 +113,9 @@ const classes = getThemeClasses(theme);
   <button
     id="lightbox-next"
     type="button"
-    class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-brand-accent transition-colors p-2 focus:outline-none focus:ring-2 focus:ring-white rounded-lg disabled:opacity-30 disabled:cursor-not-allowed"
+    class="absolute right-4 top-1/2 z-[14005] -translate-y-1/2 text-white hover:text-brand-accent transition-colors p-2 focus:outline-none focus:ring-2 focus:ring-white rounded-lg disabled:opacity-30 disabled:cursor-not-allowed"
     aria-label="Next image"
+    data-lightbox-control
   >
     <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -107,145 +123,284 @@ const classes = getThemeClasses(theme);
   </button>
 
   <!-- Image Container -->
-  <div class="flex items-center justify-center h-full w-full p-4 md:p-8">
-    <div class="relative w-full h-full flex items-center justify-center">
+  <div class="flex h-full w-full items-center justify-center p-4 md:p-8">
+    <div class="image-container relative flex items-center justify-center" data-lightbox-content>
       <img
         id="lightbox-image"
         src=""
         alt=""
         class="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-lg mx-auto"
       />
-
-      <!-- Caption (hidden) -->
-      <div id="lightbox-caption" class="hidden absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-center opacity-0">
-        <p class="text-white text-lg"></p>
-      </div>
-
-      <!-- Image Counter -->
-      <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-medium">
-        <span id="lightbox-counter"></span>
-      </div>
     </div>
   </div>
 </div>
 
 <style>
-  #lightbox.active {
-    display: flex;
-  }
-
   /* Prevent body scroll when lightbox is open */
   body.lightbox-open {
     overflow: hidden;
   }
 </style>
 
-<script define:vars={{ images, title }}>
-  document.addEventListener('DOMContentLoaded', function() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
+<script is:inline define:vars={{ images, title }}>
+  const initProjectLightbox = () => {
+    const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
     const lightbox = document.getElementById('lightbox');
+
+    if (!galleryItems.length || !lightbox || lightbox.dataset.initialized === 'true') {
+      return;
+    }
+
     const lightboxImage = document.getElementById('lightbox-image');
-    const lightboxCaption = document.getElementById('lightbox-caption');
     const lightboxCounter = document.getElementById('lightbox-counter');
     const closeBtn = document.getElementById('lightbox-close');
     const prevBtn = document.getElementById('lightbox-prev');
     const nextBtn = document.getElementById('lightbox-next');
+    const imageContainer = lightbox.querySelector('[data-lightbox-content]');
 
-    let currentIndex = 0;
-    const totalImages = images.length;
+    const totalImages = Array.isArray(images) ? images.length : 0;
+    if (!lightboxImage || !lightboxCounter || totalImages === 0) {
+      return;
+    }
 
-    // Build image data array from Astro props
-    const imageData = images.map((img, idx) => {
-      const galleryItem = document.querySelector(`.gallery-item[data-index="${idx}"]`);
-      const imgElement = galleryItem?.querySelector('img');
+    lightbox.dataset.initialized = 'true';
+
+    const imageData = (Array.isArray(images) ? images : []).map((img) => {
+      const metadata = img && typeof img === 'object' ? img.src ?? {} : {};
+      const deriveSrc = typeof metadata === 'string' ? metadata : metadata?.src ?? '';
+      const srcSet = typeof metadata === 'string' ? '' : metadata?.srcset ?? '';
+
       return {
-        src: imgElement?.currentSrc || imgElement?.src || '',
-        alt: img.alt,
-        caption: img.caption || ''
+        alt: (img && img.alt) || title,
+        src: deriveSrc,
+        srcset: srcSet,
       };
     });
 
-    function openLightbox(index) {
-      currentIndex = index;
-      updateLightbox();
-      lightbox?.classList.add('active');
-      document.body.classList.add('lightbox-open');
-    }
+    let currentIndex = 0;
+    let lastActiveTrigger = null;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
 
-    function closeLightbox() {
-      lightbox?.classList.remove('active');
-      document.body.classList.remove('lightbox-open');
-    }
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function updateLightbox() {
+    const getFocusableElements = () => {
+      const focusableSelectors = [
+        'button',
+        '[href]',
+        'input',
+        'select',
+        'textarea',
+        '[tabindex]:not([tabindex="-1"])',
+      ];
+
+      return Array.from(lightbox.querySelectorAll(focusableSelectors.join(','))).filter((element) => {
+        if (!(element instanceof HTMLElement)) return false;
+        if (element.hasAttribute('disabled')) return false;
+        if (element.getAttribute('aria-hidden') === 'true') return false;
+        const rect = element.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0;
+      });
+    };
+
+    const setButtonState = () => {
+      const isSingleImage = totalImages <= 1;
+      if (prevBtn) {
+        prevBtn.disabled = isSingleImage || currentIndex === 0;
+        prevBtn.classList.toggle('hidden', isSingleImage);
+      }
+      if (nextBtn) {
+        nextBtn.disabled = isSingleImage || currentIndex === totalImages - 1;
+        nextBtn.classList.toggle('hidden', isSingleImage);
+      }
+    };
+
+    const updateImage = () => {
       const current = imageData[currentIndex];
-      if (!current || !lightboxImage || !lightboxCaption || !lightboxCounter) return;
+      if (!current) return;
 
-      lightboxImage.src = current.src;
-      lightboxImage.alt = current.alt;
-
-      // Update caption
-      const captionText = lightboxCaption.querySelector('p');
-      if (captionText) {
-        if (current.caption) {
-          captionText.textContent = current.caption;
-          lightboxCaption.classList.remove('opacity-0');
-        } else {
-          lightboxCaption.classList.add('opacity-0');
-        }
+      if (current.srcset) {
+        lightboxImage.srcset = current.srcset;
+      } else {
+        lightboxImage.removeAttribute('srcset');
       }
 
-      // Update counter
+      if (lightboxImage.getAttribute('src') !== current.src) {
+        lightboxImage.src = current.src;
+      }
+
+      lightboxImage.alt = current.alt || title;
+      lightboxImage.dataset.index = String(currentIndex);
+
       lightboxCounter.textContent = `${currentIndex + 1} / ${totalImages}`;
+      setButtonState();
+    };
 
-      // Update button states
-      if (prevBtn) prevBtn.disabled = currentIndex === 0;
-      if (nextBtn) nextBtn.disabled = currentIndex === totalImages - 1;
-    }
+    const openLightbox = (index, trigger) => {
+      currentIndex = index;
+      lastActiveTrigger = trigger;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-open');
 
-    function showNext() {
+      updateImage();
+      if (closeBtn) {
+        closeBtn.focus({ preventScroll: true });
+      }
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lightbox-open');
+
+      if (lastActiveTrigger) {
+        lastActiveTrigger.focus({ preventScroll: true });
+        lastActiveTrigger = null;
+      }
+    };
+
+    const showNext = () => {
       if (currentIndex < totalImages - 1) {
-        currentIndex++;
-        updateLightbox();
+        currentIndex += 1;
+        updateImage();
       }
-    }
+    };
 
-    function showPrev() {
+    const showPrev = () => {
       if (currentIndex > 0) {
-        currentIndex--;
-        updateLightbox();
+        currentIndex -= 1;
+        updateImage();
       }
-    }
+    };
 
-    // Event listeners
-    galleryItems.forEach((item, index) => {
-      item.addEventListener('click', () => openLightbox(index));
-    });
+    const onKeydown = (event) => {
+      if (!lightbox.classList.contains('flex')) return;
 
-    closeBtn?.addEventListener('click', closeLightbox);
-    prevBtn?.addEventListener('click', showPrev);
-    nextBtn?.addEventListener('click', showNext);
-
-    // Close on background click
-    lightbox?.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox?.classList.contains('active')) return;
-
-      switch(e.key) {
+      switch (event.key) {
         case 'Escape':
+          event.preventDefault();
           closeLightbox();
           break;
         case 'ArrowLeft':
+          event.preventDefault();
           showPrev();
           break;
         case 'ArrowRight':
+          event.preventDefault();
           showNext();
           break;
+        case 'Tab': {
+          const focusable = getFocusableElements();
+          if (!focusable.length) break;
+
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          const active = document.activeElement;
+
+          if (event.shiftKey && active === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && active === last) {
+            event.preventDefault();
+            first.focus();
+          }
+          break;
+        }
       }
+    };
+
+    const handleBackgroundClick = (event) => {
+      const target = event.target;
+
+      if (target === lightbox) {
+        closeLightbox();
+        return;
+      }
+
+      const elementTarget =
+        target instanceof Element
+          ? target
+          : target instanceof Node
+            ? target.parentElement
+            : null;
+
+      const clickedControl = elementTarget?.closest('[data-lightbox-control]') ?? null;
+      const clickedContent =
+        elementTarget && imageContainer instanceof Element
+          ? imageContainer.contains(elementTarget)
+          : false;
+
+      if (!clickedControl && !clickedContent) {
+        closeLightbox();
+      }
+    };
+
+    const handleTouchStart = (event) => {
+      if (!lightbox.classList.contains('flex') || event.touches.length !== 1) return;
+      touchStartX = event.touches[0].clientX;
+      touchStartY = event.touches[0].clientY;
+      touchEndX = touchStartX;
+      touchEndY = touchStartY;
+    };
+
+    const handleTouchMove = (event) => {
+      if (!lightbox.classList.contains('flex') || event.touches.length !== 1) return;
+      touchEndX = event.touches[0].clientX;
+      touchEndY = event.touches[0].clientY;
+    };
+
+    const handleTouchEnd = () => {
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = Math.abs(touchEndY - touchStartY);
+      const minDistance = 48;
+
+      if (Math.abs(deltaX) >= minDistance && deltaY < 80) {
+        if (deltaX > 0) {
+          showPrev();
+        } else {
+          showNext();
+        }
+      }
+
+      touchStartX = 0;
+      touchStartY = 0;
+      touchEndX = 0;
+      touchEndY = 0;
+    };
+
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => openLightbox(index, item));
     });
-  });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if (prevBtn) prevBtn.addEventListener('click', showPrev);
+    if (nextBtn) nextBtn.addEventListener('click', showNext);
+    lightbox.addEventListener('click', handleBackgroundClick);
+    document.addEventListener('keydown', onKeydown);
+
+    if (!prefersReducedMotion && totalImages > 1) {
+      const touchTarget = imageContainer || lightbox;
+      touchTarget.addEventListener('touchstart', handleTouchStart, { passive: true });
+      touchTarget.addEventListener('touchmove', handleTouchMove, { passive: true });
+      touchTarget.addEventListener('touchend', handleTouchEnd);
+    }
+
+    setButtonState();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjectLightbox, { once: true });
+  } else {
+    initProjectLightbox();
+  }
+
+  document.addEventListener('astro:page-load', initProjectLightbox);
 </script>
