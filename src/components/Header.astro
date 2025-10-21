@@ -10,7 +10,7 @@ const currentPath = Astro.url.pathname;
 <header id="cs-navigation">
   <div class="cs-container">
     <a href="/" class="cs-logo" aria-label="back to home">
-      <div class="logo-svg flex h-full w-full items-center justify-center px-1" set:html={LogoSvg} />
+      <div class="logo-svg flex h-[40px] w-[clamp(120px,38vw,140px)] items-center justify-center [&>svg]:h-full [&>svg]:w-full" set:html={LogoSvg} />
     </a>
     <nav class="cs-nav" role="navigation">
       <button class="cs-toggle" aria-label="mobile menu toggle">
@@ -76,6 +76,7 @@ const currentPath = Astro.url.pathname;
   body.scroll #cs-navigation .cs-toggle {
     filter: invert(0);
   }
+
   #cs-navigation {
     font-family: "Poppins", system-ui, sans-serif;
     width: 100%;
@@ -124,7 +125,7 @@ const currentPath = Astro.url.pathname;
     align-items: center;
   }
   #cs-navigation .cs-logo {
-    width: clamp(110px, 35vw, 140px);
+    width: clamp(120px, 38vw, 140px);
     height: 2.1875rem;
     margin: 0 auto 0 0;
     box-sizing: border-box;
@@ -138,7 +139,6 @@ const currentPath = Astro.url.pathname;
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.35));
   }
   #cs-navigation .cs-toggle {
     width: clamp(2.75rem, 6vw, 3rem);
@@ -398,7 +398,6 @@ const currentPath = Astro.url.pathname;
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.35));
   }
   #cs-navigation .cs-ul {
     width: 100%;

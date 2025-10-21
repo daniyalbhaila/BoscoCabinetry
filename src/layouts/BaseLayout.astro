@@ -2,6 +2,8 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import logoPreload from '../assets/Logo-Light.svg?url';
+import heroPoster from '../assets/hero-poster.png';
 const {
   title = 'Custom Cabinetry Toronto | Kitchen, Closets & Built-ins | Bosco Cabinetry',
   description = 'Transform your Toronto home with custom kitchens, closets, built-ins & decorative paneling. 100+ completed projects, 100+ finishes, luxury quality at affordable prices. Free consultation & professional design.',
@@ -13,6 +15,7 @@ const {
 // Resolve OG image against the current request origin (falls back to Astro.site)
 const ogImageBase = Astro.url ?? Astro.site ?? null;
 const absoluteOgImage = ogImageBase ? new URL(ogImage, ogImageBase).href : ogImage;
+const heroPosterUrl = typeof heroPoster === 'string' ? heroPoster : heroPoster.src;
 ---
 <html lang="en" class="h-full">
   <head>
@@ -53,8 +56,8 @@ const absoluteOgImage = ogImageBase ? new URL(ogImage, ogImageBase).href : ogIma
     <meta property="twitter:image:alt" content="Bosco Cabinetry Showroom - Custom Kitchen Cabinets Toronto" />
 
     <!-- Critical resource preloads -->
-    <link rel="preload" href="/src/assets/Logo-Light.svg" as="image" type="image/svg+xml" />
-    <link rel="preload" href="/src/assets/hero-poster.png" as="image" />
+    <link rel="preload" href={logoPreload} as="image" type="image/svg+xml" />
+    <link rel="preload" href={heroPosterUrl} as="image" />
 
     <!-- Preload the exact fonts being used -->
     <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGj2Z1JlFc-K.woff2" as="font" type="font/woff2" crossorigin />
