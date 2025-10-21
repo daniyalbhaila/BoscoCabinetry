@@ -1,6 +1,7 @@
 ---
 import SectionWrapper from './SectionWrapper.astro';
 import SectionHeader from './SectionHeader.astro';
+import AnimatedSection from './AnimatedSection.astro';
 import Star from './icons/Star.astro';
 import ChevronLeft from './icons/ChevronLeft.astro';
 import ChevronRight from './icons/ChevronRight.astro';
@@ -88,7 +89,7 @@ const classes = getThemeClasses(theme);
 	/>
 
 	<!-- Reviews Carousel -->
-	<div class="max-w-7xl mx-auto">
+	<AnimatedSection className="max-w-7xl mx-auto">
 		<!-- Carousel with Side Navigation Layout -->
 		<div class="hidden md:flex items-center gap-6">
 			<!-- Left Navigation Button -->
@@ -207,10 +208,10 @@ const classes = getThemeClasses(theme);
 			</div>
 		</div>
 
-	</div>
+	</AnimatedSection>
 
 	<!-- Google Reviews CTA -->
-	<div class="mt-16 text-center">
+	<AnimatedSection className="mt-16 text-center">
 		<div class={`inline-flex items-center gap-4 rounded-2xl border ${classes.card} p-6 shadow-lg`}>
 			<div class="flex items-center gap-2">
 				<Star class="h-6 w-6 text-brand-accent" fill="currentColor" />
@@ -226,7 +227,7 @@ const classes = getThemeClasses(theme);
 				View on Google
 			</Button>
 		</div>
-	</div>
+	</AnimatedSection>
 </SectionWrapper>
 
 <script>

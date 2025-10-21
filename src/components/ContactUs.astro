@@ -1,6 +1,7 @@
 ---
 import SectionWrapper from './SectionWrapper.astro';
 import SectionHeader from './SectionHeader.astro';
+import AnimatedSection from './AnimatedSection.astro';
 import Phone from './icons/Phone.astro';
 import Mail from './icons/Mail.astro';
 import MapPin from './icons/MapPin.astro';
@@ -8,6 +9,7 @@ import Clock from './icons/Clock.astro';
 import { companyInfo, companyDescriptions } from '../content/shared.ts';
 import Button from './ui/Button.astro';
 import GoogleMap from './GoogleMap.astro';
+import { ANIMATION_DELAYS } from '../lib/animationConstants';
 ---
 
 <SectionWrapper theme="dark" id="contact">
@@ -21,8 +23,9 @@ import GoogleMap from './GoogleMap.astro';
 
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-[1200px] mx-auto">
 			<!-- Contact Form -->
-			<div class="contact-form gradient-card-dark-strong backdrop-blur-sm border border-brand-primary/20 rounded-2xl p-8">
-				<h3 class="text-xl font-semibold text-white mb-6">Get Your Free Quote</h3>
+			<AnimatedSection stagger={ANIMATION_DELAYS.NORMAL}>
+				<div class="contact-form gradient-card-dark-strong backdrop-blur-sm border border-brand-primary/20 rounded-2xl p-8">
+					<h3 class="text-xl font-semibold text-white mb-6">Get Your Free Quote</h3>
 
 				<form
 					name="contact"
@@ -126,10 +129,11 @@ import GoogleMap from './GoogleMap.astro';
 						Send My Request
 					</Button>
 				</form>
-			</div>
+				</div>
+			</AnimatedSection>
 
 			<!-- Contact Info & Map -->
-			<div class="space-y-8">
+			<AnimatedSection stagger={ANIMATION_DELAYS.MEDIUM} className="space-y-8">
 				<!-- Contact Details -->
 				<div class="contact-info space-y-6">
 					<div class="flex items-start gap-4">
@@ -197,7 +201,7 @@ import GoogleMap from './GoogleMap.astro';
 						className="border border-brand-primary/20"
 					/>
 				</div>
-			</div>
+			</AnimatedSection>
 	</div>
 </SectionWrapper>
 

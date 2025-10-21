@@ -1,5 +1,7 @@
 ---
+import AnimatedSection from './AnimatedSection.astro';
 import { getThemeClasses, type Theme } from '../lib/themeUtils';
+import { ANIMATION_DELAYS } from '../lib/animationConstants';
 
 export interface Props {
   tag?: string;
@@ -39,7 +41,7 @@ const wrapperClasses = `${layoutClasses} ${className}`.trim();
 
 {layout === 'center' ? (
   <!-- Centered Layout (WhyBosco, Reviews pattern) -->
-  <div class={wrapperClasses}>
+  <AnimatedSection stagger={ANIMATION_DELAYS.NORMAL} className={wrapperClasses}>
     {tag && (
       <p class={`text-[11px] uppercase tracking-[0.2em] ${themeClasses.tag} mb-4`}>
         [{tag}]
@@ -53,10 +55,10 @@ const wrapperClasses = `${layoutClasses} ${className}`.trim();
         {description}
       </p>
     )}
-  </div>
+  </AnimatedSection>
 ) : (
   <!-- Split Layout (Services pattern) -->
-  <div class={wrapperClasses}>
+  <AnimatedSection stagger={ANIMATION_DELAYS.NORMAL} className={wrapperClasses}>
     <div class="md:col-span-7">
       {tag && (
         <p class={`text-[11px] uppercase tracking-[0.2em] ${themeClasses.tag}`}>
@@ -72,5 +74,5 @@ const wrapperClasses = `${layoutClasses} ${className}`.trim();
         {description}
       </p>
     )}
-  </div>
+  </AnimatedSection>
 )}

@@ -2,6 +2,8 @@
 import { Image, type ImageMetadata } from 'astro:assets';
 import { CARD_IMAGE_DIMENSIONS } from '../lib/imageConfig';
 import { getThemeClasses, type Theme } from '../lib/themeUtils';
+import AnimatedSection from './AnimatedSection.astro';
+import { ANIMATION_DELAYS } from '../lib/animationConstants';
 
 // Type for Astro component imports
 type AstroComponentImport = (_props: Record<string, any>) => any;
@@ -73,7 +75,7 @@ const gridClasses = {
 const finalClasses = `${gridClasses[variant]} ${className}`.trim();
 ---
 
-<div class={finalClasses}>
+<AnimatedSection stagger={ANIMATION_DELAYS.MEDIUM} className={finalClasses}>
   {variant === 'services' &&
     items.map((item, i) =>
       item.href ? (
@@ -209,5 +211,5 @@ const finalClasses = `${gridClasses[variant]} ${className}`.trim();
       </div>
     </div>
   ))}
-</div>
+</AnimatedSection>
 

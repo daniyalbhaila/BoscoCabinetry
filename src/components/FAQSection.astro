@@ -1,9 +1,11 @@
 ---
 import SectionWrapper from './SectionWrapper.astro';
 import SectionHeader from './SectionHeader.astro';
+import AnimatedSection from './AnimatedSection.astro';
 import ChevronDown from './icons/ChevronDown.astro';
 import { companyInfo } from '../content/shared.ts';
 import Button from './ui/Button.astro';
+import { ANIMATION_DELAYS } from '../lib/animationConstants';
 import type { Theme } from '../lib/themeUtils';
 
 interface FAQ {
@@ -71,38 +73,36 @@ const isDark = theme === 'dark';
 
 	<!-- FAQ Accordion -->
 	<div class="max-w-4xl mx-auto">
-			<div class="space-y-4">
-				{faqs.map((faq, index) => (
-					<div class={`faq-item rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg ${isDark ? 'gradient-card-dark border border-brand-primary/20 hover:border-brand-primary/40' : 'gradient-card-light border border-brand-accent/30 hover:border-brand-primary/30'}`}>
-						<button
-							class={`faq-question w-full px-6 py-6 text-left flex items-center justify-between gap-4 transition-colors duration-200 ${isDark ? 'hover:bg-white/5' : 'hover:bg-brand-primary/5'}`}
-							aria-expanded="false"
-							data-faq-index={index}
-						>
-							<h3 class={`text-lg font-semibold leading-tight flex-1 ${isDark ? 'text-white' : 'text-brand-charcoal'}`}>
-								{faq.question}
-							</h3>
-							<div class="faq-icon w-6 h-6 text-brand-primary flex-shrink-0 transition-transform duration-200">
-								<ChevronDown class="w-6 h-6" />
-							</div>
-						</button>
+		<AnimatedSection stagger={ANIMATION_DELAYS.NORMAL} className="space-y-4">
+			{faqs.map((faq, index) => (
+				<div class={`faq-item rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg ${isDark ? 'gradient-card-dark border border-brand-primary/20 hover:border-brand-primary/40' : 'gradient-card-light border border-brand-accent/30 hover:border-brand-primary/30'}`}>
+					<button
+						class={`faq-question w-full px-6 py-6 text-left flex items-center justify-between gap-4 transition-colors duration-200 ${isDark ? 'hover:bg-white/5' : 'hover:bg-brand-primary/5'}`}
+						aria-expanded="false"
+						data-faq-index={index}
+					>
+						<h3 class={`text-lg font-semibold leading-tight flex-1 ${isDark ? 'text-white' : 'text-brand-charcoal'}`}>
+							{faq.question}
+						</h3>
+						<div class="faq-icon w-6 h-6 text-brand-primary flex-shrink-0 transition-transform duration-200">
+							<ChevronDown class="w-6 h-6" />
+						</div>
+					</button>
 
-						<div class="faq-answer overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0px;">
-							<div class="px-6 pb-6 pt-2">
-								<p class={`text-base leading-relaxed ${isDark ? 'text-white/70' : 'text-brand-darkGray/80'}`}>
-									{faq.answer}
-								</p>
-							</div>
+					<div class="faq-answer overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0px;">
+						<div class="px-6 pb-6 pt-2">
+							<p class={`text-base leading-relaxed ${isDark ? 'text-white/70' : 'text-brand-darkGray/80'}`}>
+								{faq.answer}
+							</p>
 						</div>
 					</div>
-				))}
-			</div>
-		</div>
-
+				</div>
+			))}
+		</AnimatedSection>
 	</div>
 
 	<!-- CTA -->
-	<div class="mt-16 text-center">
+	<AnimatedSection stagger={ANIMATION_DELAYS.NORMAL} className="mt-16 text-center">
 		<div class="inline-flex flex-col sm:flex-row gap-4">
 			<Button href="/#contact" variant="primary" size="lg">
 				Get Your Free Consultation
@@ -111,7 +111,7 @@ const isDark = theme === 'dark';
 				Call {companyInfo.contact.phone.display}
 			</Button>
 		</div>
-	</div>
+	</AnimatedSection>
 </SectionWrapper>
 
 <style>
