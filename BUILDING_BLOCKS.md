@@ -251,6 +251,82 @@ import IconName from './icons/IconName.astro';
 
 ---
 
+## Animation System 🎬
+
+### AnimatedSection.astro
+**Purpose**: Reusable scroll-triggered animation wrapper for consistent, performant animations across the site
+
+**Props:**
+```typescript
+interface Props {
+  stagger?: number | boolean;  // Animation delay between children (ms) or false to disable
+  repeat?: boolean;            // Re-animate when scrolling back into view
+  target?: string;             // CSS selector for child elements to stagger
+  className?: string;          // Additional CSS classes to apply
+}
+```
+
+**Usage Example:**
+```astro
+---
+import AnimatedSection from './AnimatedSection.astro';
+import { ANIMATION_DELAYS } from '../lib/animationConstants';
+---
+
+<!-- Simple fade-in -->
+<AnimatedSection>
+  <h2>This heading will fade in</h2>
+  <p>This paragraph will follow</p>
+</AnimatedSection>
+
+<!-- Staggered children with custom delay -->
+<AnimatedSection stagger={ANIMATION_DELAYS.NORMAL}>
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</AnimatedSection>
+
+<!-- With custom CSS classes -->
+<AnimatedSection stagger={80} className="grid grid-cols-3 gap-4">
+  <div>Card 1</div>
+  <div>Card 2</div>
+  <div>Card 3</div>
+</AnimatedSection>
+```
+
+**Animation Constants:**
+Use predefined delays from `src/lib/animationConstants.ts` for consistency:
+```typescript
+import { ANIMATION_DELAYS } from '../lib/animationConstants';
+
+ANIMATION_DELAYS.FAST        // 50ms  - Small lists, compact UI
+ANIMATION_DELAYS.QUICK       // 70ms  - Form fields, small grids
+ANIMATION_DELAYS.NORMAL      // 80ms  - Most content sections
+ANIMATION_DELAYS.MEDIUM      // 100ms - Feature cards, benefit lists
+ANIMATION_DELAYS.SLOW        // 120ms - Large sections, primary CTAs
+ANIMATION_DELAYS.EXTRA_SLOW  // 160ms - Split layouts, dramatic effect
+```
+
+**Performance Features:**
+- ✅ Uses IntersectionObserver for efficient scroll detection
+- ✅ Respects `prefers-reduced-motion` for accessibility
+- ✅ Optimized `will-change` usage (only during animation)
+- ✅ Zero layout shift on Hero sections
+- ✅ Supports Astro view transitions
+
+**Accessibility:**
+- Automatically disables animations if user prefers reduced motion
+- Progressive enhancement: works without JavaScript
+- No animation on Hero sections to prevent CLS
+
+**Notes:**
+- Hero.astro has NO animations to prevent Cumulative Layout Shift (CLS)
+- Avoid nesting more than 2 levels of AnimatedSection
+- Use SectionWrapper props for container-level animations
+- All animations use smooth cubic-bezier easing
+
+---
+
 ## Component Documentation Template
 
 When adding a new component, use this template:

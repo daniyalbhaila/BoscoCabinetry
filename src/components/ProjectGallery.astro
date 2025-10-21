@@ -1,6 +1,7 @@
 ---
 import Button from './ui/Button.astro';
 import { Image } from 'astro:assets';
+import AnimatedSection from './AnimatedSection.astro';
 // Portfolio Images - Diverse showcase of completed projects
 import DanLeckieKitchen from '../assets/Portfolio/Kitchen_DanLekcie/IMG_9932.JPG';
 import RobinaFullHome from '../assets/Portfolio/FullHome_Robina/1(a).jpg';
@@ -10,6 +11,7 @@ import RobinaKitchen from '../assets/Portfolio/FullHome_Robina/20.jpg';
 import BurningOakKitchen from '../assets/Portfolio/Kitchen_BurningOak/IMG_6738.jpg';
 import { CARD_IMAGE_DIMENSIONS } from '../lib/imageConfig';
 import { getThemeClasses, type Theme } from '../lib/themeUtils';
+import { ANIMATION_DELAYS } from '../lib/animationConstants';
 
 export interface Props {
 	theme?: Theme;
@@ -23,7 +25,7 @@ const classes = getThemeClasses(theme);
 <section id="gallery" class={`${classes.bgAlt} py-20`}>
   <div class="mx-auto flex max-w-6xl flex-col items-center gap-12 px-6">
     <!-- Section Header -->
-    <div class="max-w-2xl text-center">
+    <AnimatedSection stagger={ANIMATION_DELAYS.NORMAL} className="max-w-2xl text-center">
       <p class={`mb-4 text-[11px] uppercase tracking-[0.2em] ${classes.tag}`}>[Our Work]</p>
       <h2 class={`text-3xl font-semibold ${classes.heading} sm:text-4xl md:text-5xl`}>
         Recent Projects
@@ -33,10 +35,13 @@ const classes = getThemeClasses(theme);
       </p>
 
       <Button href="/portfolio" variant="primary" class="mt-6">View All Projects</Button>
-    </div>
+    </AnimatedSection>
 
     <!-- Mosaic Gallery Grid -->
-    <div class="grid w-full auto-rows-[220px] gap-4 md:auto-rows-[300px] md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)]">
+    <AnimatedSection
+      stagger={ANIMATION_DELAYS.NORMAL}
+      className="grid w-full auto-rows-[220px] gap-4 md:auto-rows-[300px] md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)]"
+    >
       {[
         {
           title: 'Dan Leckie Kitchen Renovation',
@@ -98,6 +103,6 @@ const classes = getThemeClasses(theme);
           </div>
         </article>
       ))}
-    </div>
+    </AnimatedSection>
   </div>
 </section>

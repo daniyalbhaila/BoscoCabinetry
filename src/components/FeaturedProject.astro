@@ -3,7 +3,9 @@
 import { Image } from 'astro:assets';
 import featuredProjectPoster from '../assets/Portfolio/FullHome_Robina/1(a).jpg';
 import Button from './ui/Button.astro';
+import AnimatedSection from './AnimatedSection.astro';
 import { getThemeClasses, type Theme } from '../lib/themeUtils';
+import { ANIMATION_DELAYS } from '../lib/animationConstants';
 
 export interface Props {
 	theme?: Theme;
@@ -17,18 +19,19 @@ const classes = getThemeClasses(theme);
 <section id="featured-project" class={`relative isolate ${classes.bg} min-h-screen flex items-center`}>
 	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
 		<!-- Header -->
-		<div class="mx-auto max-w-4xl text-center mb-16">
+		<AnimatedSection stagger={ANIMATION_DELAYS.NORMAL} className="mx-auto max-w-4xl text-center mb-16">
 			<p class={`text-[11px] uppercase tracking-[0.2em] ${classes.small} mb-4`}>[Featured Project]</p>
 			<h2 class={`text-3xl font-semibold tracking-tight ${classes.heading} sm:text-4xl md:text-5xl`}>
 				Recent Renovation: Toronto Full Home Remodel
 			</h2>
-		</div>
+		</AnimatedSection>
 
 		<!-- Side-by-Side Content -->
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-			<!-- Video Container -->
-			<div class="order-2 lg:order-1">
-				<div class="relative overflow-hidden rounded-2xl border border-brand-darkGray/40 gradient-card-light-subtle">
+		<AnimatedSection stagger={ANIMATION_DELAYS.EXTRA_SLOW}>
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+				<!-- Video Container -->
+				<div class="order-2 lg:order-1">
+					<div class="relative overflow-hidden rounded-2xl border border-brand-darkGray/40 gradient-card-light-subtle">
 					<div class="aspect-video w-full" role="region" aria-label="Featured Project Video">
 						<!-- YouTube Lazy Loading Facade -->
 						<div id="youtube-facade" class="relative h-full w-full cursor-pointer group">
@@ -76,9 +79,8 @@ const classes = getThemeClasses(theme);
 				</div>
 			</div>
 
-			<!-- Project Description -->
-			<div class="order-1 lg:order-2">
-				<div class="space-y-6">
+				<!-- Project Description -->
+				<AnimatedSection stagger={ANIMATION_DELAYS.NORMAL} className="order-1 lg:order-2 space-y-6">
 					<!-- Preview Text (Always Visible) -->
 					<p class={`text-lg ${classes.body} leading-relaxed`}>
 						This stunning Toronto home renovation showcases 2,100+ sq ft of expertly crafted custom kitchen cabinets and built-in storage solutions. Our team delivered a complete kitchen remodel featuring premium quartz countertops, custom cabinetry with undermount lighting, and a show-stopping double waterfall island that serves as the centerpiece of this modern family home.
@@ -115,9 +117,9 @@ const classes = getThemeClasses(theme);
 							</svg>
 						</Button>
 					</div>
-				</div>
+				</AnimatedSection>
 			</div>
-		</div>
+		</AnimatedSection>
 	</div>
 </section>
 

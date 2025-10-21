@@ -5,9 +5,11 @@ import House from './icons/House.astro';
 import Users from './icons/Users.astro';
 import MapPin from './icons/MapPin.astro';
 import Button from './ui/Button.astro';
+import AnimatedSection from './AnimatedSection.astro';
 import { Image } from 'astro:assets';
 import showroomImage from '../assets/showroom.jpg';
 import { getThemeClasses, type Theme } from '../lib/themeUtils';
+import { ANIMATION_DELAYS } from '../lib/animationConstants';
 
 export interface Props {
   theme?: Theme;
@@ -30,7 +32,7 @@ const themeClasses = {
 <section id="showroom" class={`relative isolate ${themeClasses.bg} min-h-screen flex items-center`}>
 	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
 		<!-- Header -->
-		<div class="mx-auto max-w-4xl text-center mb-12">
+		<AnimatedSection stagger={ANIMATION_DELAYS.NORMAL} className="mx-auto max-w-4xl text-center mb-12">
 			<p class={`text-[11px] uppercase tracking-[0.2em] ${themeClasses.tag} mb-4`}>[Virtual Showroom]</p>
 			<h2 class={`text-3xl font-semibold tracking-tight ${themeClasses.heading} sm:text-4xl md:text-5xl mb-6`}>
 				Explore Our 5,500 sq ft North York Showroom
@@ -38,7 +40,7 @@ const themeClasses = {
 			<p class={`text-lg ${themeClasses.bodyText}`}>
 				Walk through our space virtually, then come see it in person. Experience 100+ finishes, complete kitchen displays, media walls, closets, wall panels and more.
 			</p>
-		</div>
+		</AnimatedSection>
 
 		<!-- Virtual Tour Container -->
 		<div class="mx-auto max-w-6xl">
@@ -137,7 +139,7 @@ const themeClasses = {
 		</div>
 
 		<!-- Features Grid -->
-		<div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
+		<AnimatedSection stagger={ANIMATION_DELAYS.MEDIUM} className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
 			<div class="text-center">
 				<div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-primary/10">
 					<Palette class="h-6 w-6 text-brand-primary" />
@@ -159,10 +161,10 @@ const themeClasses = {
 				<h3 class={`mb-2 text-lg font-semibold ${themeClasses.heading}`}>Expert Consultation</h3>
 				<p class={`text-sm ${themeClasses.smallText}`}>Meet with our design experts to plan your perfect custom solution.</p>
 			</div>
-		</div>
+		</AnimatedSection>
 
 		<!-- Bottom CTA -->
-		<div class="mt-16 text-center">
+		<AnimatedSection stagger={ANIMATION_DELAYS.NORMAL} className="mt-16 text-center">
 			<div class="mb-6">
 				<p class={`${themeClasses.bodyText} mb-6`}>Ready to see our showroom in person?</p>
 				<Button href="https://tidycal.com/boscocabinetry/30-minute-meeting" variant="primary" size="lg" class="mr-4">
@@ -173,7 +175,7 @@ const themeClasses = {
 					Get Directions
 				</a>
 			</div>
-		</div>
+		</AnimatedSection>
 	</div>
 </section>
 

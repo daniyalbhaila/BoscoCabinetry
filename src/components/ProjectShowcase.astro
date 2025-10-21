@@ -6,12 +6,14 @@ import ChevronRight from './icons/ChevronRight.astro';
 import ChevronLeft from './icons/ChevronLeft.astro';
 import { Image } from 'astro:assets';
 import Button from './ui/Button.astro';
+import AnimatedSection from './AnimatedSection.astro';
 import DanLeckieImage1 from '../assets/Portfolio/Kitchen_DanLekcie/IMG_9931.JPG';
 import DanLeckieImage2 from '../assets/Portfolio/Kitchen_DanLekcie/IMG_9932.JPG';
 import DanLeckieImage3 from '../assets/Portfolio/Kitchen_DanLekcie/IMG_9934.JPG';
 import DanLeckieImage4 from '../assets/Portfolio/Kitchen_DanLekcie/IMG_9936.JPG';
 import { CARD_IMAGE_DIMENSIONS } from '../lib/imageConfig';
 import { getThemeClasses, type Theme } from '../lib/themeUtils';
+import { ANIMATION_DELAYS } from '../lib/animationConstants';
 
 export interface Props {
 	theme?: Theme;
@@ -80,18 +82,18 @@ const optimizedImages = projectData.imageUrls.map((image, index) => ({
 <section id="project-showcase" class={`relative isolate ${classes.bg} min-h-screen flex items-center`}>
 	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
 		<!-- Header -->
-		<div class="mx-auto max-w-4xl text-center mb-16">
+		<AnimatedSection stagger={ANIMATION_DELAYS.NORMAL} className="mx-auto max-w-4xl text-center mb-16">
 			<p class={`text-[11px] uppercase tracking-[0.2em] ${classes.tag} mb-4`}>[Project Showcase]</p>
 			<h2 class={`text-3xl font-semibold tracking-tight ${classes.heading} sm:text-4xl md:text-5xl`}>
 				{projectData.title}
 			</h2>
-		</div>
+		</AnimatedSection>
 
 		<!-- Side-by-Side Content -->
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-			<!-- Review Content (Left Side) -->
-			<div class="order-2 lg:order-1">
-				<div class="space-y-8">
+		<AnimatedSection stagger={ANIMATION_DELAYS.EXTRA_SLOW}>
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+				<!-- Review Content (Left Side) -->
+				<AnimatedSection stagger={ANIMATION_DELAYS.MEDIUM} className="order-2 lg:order-1 space-y-8">
 					<!-- Quote Icon -->
 					<div class="flex items-center justify-start">
 						<div class="rounded-xl bg-brand-primary/10 p-3">
@@ -138,12 +140,10 @@ const optimizedImages = projectData.imageUrls.map((image, index) => ({
 							<ChevronRight class="ml-2 w-4 h-4" />
 						</Button>
 					</div>
-				</div>
-			</div>
+				</AnimatedSection>
 
-			<!-- Image Carousel (Right Side) -->
-			<div class="order-1 lg:order-2">
-				<div class="relative">
+				<!-- Image Carousel (Right Side) -->
+				<div class="order-1 lg:order-2 relative">
 					<!-- Optimized Images Stack using Astro Image Component -->
 					<div class="relative mx-auto h-96 w-full max-w-lg cursor-grab select-none" style="perspective: 1000px;" id="image-stack">
 						{optimizedImages.map((image, index) => (
@@ -196,7 +196,7 @@ const optimizedImages = projectData.imageUrls.map((image, index) => ({
 					</div>
 				</div>
 			</div>
-		</div>
+		</AnimatedSection>
 	</div>
 </section>
 

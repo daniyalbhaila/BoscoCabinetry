@@ -182,5 +182,133 @@ const heroPosterUrl = typeof heroPoster === 'string' ? heroPoster : heroPoster.s
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        if (!root.classList.contains('js-enabled')) {
+          root.classList.add('js-enabled');
+        }
+
+        const SELECTOR = '[data-animate-on-scroll]';
+        let observer;
+        let observedElements = new WeakSet();
+        let itemMap = new WeakMap();
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        const ensureItems = (element) => {
+          let items = itemMap.get(element);
+          if (items) {
+            return items;
+          }
+
+          if (!element.hasAttribute('data-animate-stagger')) {
+            items = [];
+            itemMap.set(element, items);
+            return items;
+          }
+
+          const targetSelector = element.getAttribute('data-animate-target');
+          const rawStep = element.getAttribute('data-animate-stagger');
+          const parsed = rawStep && rawStep.trim() !== '' ? parseInt(rawStep, 10) : Number.NaN;
+          const delayStep = Number.isNaN(parsed) ? 80 : Math.max(0, parsed);
+          const candidates = targetSelector
+            ? Array.from(element.querySelectorAll(targetSelector))
+            : Array.from(element.children);
+
+          candidates.forEach((item, index) => {
+            item.setAttribute('data-animate-item', '');
+            item.style.setProperty('--scroll-animate-delay', String(index * delayStep));
+          });
+
+          itemMap.set(element, candidates);
+          return candidates;
+        };
+
+        const handleEntries = (entries) => {
+          entries.forEach((entry) => {
+            const element = entry.target;
+            const items = itemMap.get(element) ?? ensureItems(element);
+            const repeat = element.getAttribute('data-animate-repeat') === 'true';
+
+            if (entry.isIntersecting) {
+              element.classList.add('is-visible');
+              items.forEach((item) => item.classList.add('is-visible'));
+              if (!repeat && observer) {
+                observer.unobserve(element);
+              }
+            } else if (repeat) {
+              element.classList.remove('is-visible');
+              items.forEach((item) => item.classList.remove('is-visible'));
+            }
+          });
+        };
+
+        const ensureObserver = () => {
+          if (!observer) {
+            observer = new IntersectionObserver(handleEntries, {
+              threshold: 0.12,
+              rootMargin: '0px 0px -10% 0px'
+            });
+          }
+          return observer;
+        };
+
+        const initElement = (element) => {
+          if (observedElements.has(element)) {
+            return;
+          }
+
+          observedElements.add(element);
+          const items = ensureItems(element);
+
+          if (prefersReducedMotion.matches) {
+            element.classList.add('is-visible');
+            items.forEach((item) => item.classList.add('is-visible'));
+            return;
+          }
+
+          ensureObserver().observe(element);
+        };
+
+        const init = (scope = document) => {
+          const elements = scope.querySelectorAll(SELECTOR);
+          if (!elements.length) {
+            return;
+          }
+          elements.forEach((element) => initElement(element));
+        };
+
+        const scheduleInit = (scope) => {
+          const target = scope ?? document;
+          requestAnimationFrame(() => init(target));
+        };
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', () => scheduleInit(), { once: true });
+        } else {
+          scheduleInit();
+        }
+
+        document.addEventListener('astro:page-load', (event) => {
+          const scope = event.target && typeof event.target.querySelectorAll === 'function' ? event.target : document;
+          scheduleInit(scope);
+        });
+
+        document.addEventListener('astro:after-swap', (event) => {
+          const scope = event.target && typeof event.target.querySelectorAll === 'function' ? event.target : document;
+          scheduleInit(scope);
+        });
+
+        prefersReducedMotion.addEventListener('change', () => {
+          if (observer) {
+            observer.disconnect();
+          }
+          observer = undefined;
+          observedElements = new WeakSet();
+          itemMap = new WeakMap();
+          scheduleInit();
+        });
+      })();
+    </script>
   </body>
 </html>

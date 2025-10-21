@@ -1,0 +1,46 @@
+---
+/**
+ * AnimatedSection - Reusable scroll-triggered animation wrapper
+ *
+ * Wraps content with scroll animation attributes for consistent,
+ * maintainable animations across the site.
+ *
+ * @param stagger - Animation delay between child elements (ms) or false to disable
+ * @param repeat - Whether to re-animate when scrolling back into view
+ * @param target - CSS selector for child elements to stagger (default: direct children)
+ * @param className - Additional CSS classes to apply
+ *
+ * @example
+ * <AnimatedSection stagger={80}>
+ *   <div>Item 1</div>
+ *   <div>Item 2</div>
+ * </AnimatedSection>
+ */
+
+interface Props {
+  stagger?: number | boolean;
+  repeat?: boolean;
+  target?: string;
+  className?: string;
+}
+
+const {
+  stagger = true,
+  repeat = false,
+  target,
+  className = ''
+} = Astro.props;
+
+const staggerValue = typeof stagger === 'number' ? String(stagger) : '';
+const shouldStagger = stagger !== false;
+---
+
+<div
+  class={className}
+  data-animate-on-scroll
+  data-animate-stagger={shouldStagger ? staggerValue : undefined}
+  data-animate-repeat={repeat ? 'true' : undefined}
+  data-animate-target={target}
+>
+  <slot />
+</div>

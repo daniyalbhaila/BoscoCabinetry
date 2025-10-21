@@ -3,7 +3,9 @@
 import Check from './icons/Check.astro';
 import BookOpen from './icons/BookOpen.astro';
 import Button from './ui/Button.astro';
+import AnimatedSection from './AnimatedSection.astro';
 import { getThemeClasses, type Theme } from '../lib/themeUtils';
+import { ANIMATION_DELAYS } from '../lib/animationConstants';
 
 export interface Props {
 	theme?: Theme;
@@ -16,37 +18,38 @@ const classes = getThemeClasses(theme);
 ---
 <section id="design-inspiration" class={`relative isolate ${classes.bg} min-h-screen flex items-center`}>
 	<div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-			<!-- Left Content -->
-			<div>
-				<p class={`text-[11px] uppercase tracking-[0.2em] ${classes.tag} mb-4`}>[Free Design Guide]</p>
-				<h2 class={`text-3xl font-semibold tracking-tight ${classes.heading} sm:text-4xl md:text-5xl mb-6`}>
-					Get Inspired with Our Free Design Catalog
-				</h2>
-				<p class={`text-lg ${classes.body} mb-8`}>
-					Download our comprehensive design guide featuring the latest kitchen and closet trends and finish options.
-				</p>
+		<AnimatedSection stagger={ANIMATION_DELAYS.EXTRA_SLOW}>
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+				<!-- Left Content -->
+				<AnimatedSection stagger={ANIMATION_DELAYS.NORMAL}>
+					<p class={`text-[11px] uppercase tracking-[0.2em] ${classes.tag} mb-4`}>[Free Design Guide]</p>
+					<h2 class={`text-3xl font-semibold tracking-tight ${classes.heading} sm:text-4xl md:text-5xl mb-6`}>
+						Get Inspired with Our Free Design Catalog
+					</h2>
+					<p class={`text-lg ${classes.body} mb-8`}>
+						Download our comprehensive design guide featuring the latest kitchen and closet trends and finish options.
+					</p>
 
-				<!-- Benefits List -->
-				<div class="space-y-4 mb-8">
-					<div class="flex items-start gap-3">
-						<div class={`flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary/10 ${classes.icon} flex-shrink-0 mt-0.5`}>
-							<Check class="h-3 w-3" />
+					<!-- Benefits List -->
+					<AnimatedSection stagger={ANIMATION_DELAYS.QUICK} className="space-y-4 mb-8">
+						<div class="flex items-start gap-3">
+							<div class={`flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary/10 ${classes.icon} flex-shrink-0 mt-0.5`}>
+								<Check class="h-3 w-3" />
+							</div>
+							<p class={classes.body}>100+ kitchen and closet design inspirations</p>
 						</div>
-						<p class={classes.body}>100+ kitchen and closet design inspirations</p>
-					</div>
-					<div class="flex items-start gap-3">
-						<div class={`flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary/10 ${classes.icon} flex-shrink-0 mt-0.5`}>
-							<Check class="h-3 w-3" />
+						<div class="flex items-start gap-3">
+							<div class={`flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary/10 ${classes.icon} flex-shrink-0 mt-0.5`}>
+								<Check class="h-3 w-3" />
+							</div>
+							<p class={classes.body}>Complete finish and hardware catalog</p>
 						</div>
-						<p class={classes.body}>Complete finish and hardware catalog</p>
-					</div>
-				</div>
-			</div>
+					</AnimatedSection>
+				</AnimatedSection>
 
-			<!-- Right Form -->
-			<div class="lg:pl-8">
-				<div class={`rounded-2xl ${classes.card} p-8 shadow-lg`}>
+				<!-- Right Form -->
+				<div class="lg:pl-8">
+					<div class={`rounded-2xl ${classes.card} p-8 shadow-lg`}>
 					<div class="mb-6 text-center">
 						<div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-brand-primary/10">
 							<BookOpen class={`h-8 w-8 ${classes.icon}`} />
@@ -139,5 +142,6 @@ const classes = getThemeClasses(theme);
 				</div>
 			</div>
 		</div>
+		</AnimatedSection>
 	</div>
 </section>

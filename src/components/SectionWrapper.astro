@@ -1,4 +1,18 @@
 ---
+/**
+ * SectionWrapper - Container component for page sections
+ *
+ * Provides consistent spacing, theming, and optional scroll animations
+ * for all major page sections. Use AnimatedSection for nested animations.
+ *
+ * @param theme - Color theme (light/dark)
+ * @param fullHeight - Make section full viewport height
+ * @param className - Additional CSS classes
+ * @param id - Section ID for anchor links
+ * @param animate - Enable scroll-triggered animation on container
+ * @param staggerChildren - Stagger delay for direct children (ms) or false to disable
+ */
+
 import { getThemeClasses, type Theme } from '../lib/themeUtils';
 
 export interface Props {
@@ -6,13 +20,17 @@ export interface Props {
   fullHeight?: boolean;
   className?: string;
   id?: string;
+  animate?: boolean;
+  staggerChildren?: boolean | number;
 }
 
 const {
   theme = 'light',
   fullHeight = false,
   className = '',
-  id
+  id,
+  animate = true,
+  staggerChildren = false
 } = Astro.props;
 
 // Get theme classes from centralized utilities
@@ -22,13 +40,22 @@ const classes = getThemeClasses(theme);
 const heightClasses = fullHeight ? 'min-h-screen flex items-center' : '';
 
 const combinedClasses = `relative isolate ${classes.bg} ${heightClasses} ${className}`.trim();
+
+// Animation attributes
+const shouldAnimate = Boolean(animate);
+const shouldStagger = shouldAnimate && staggerChildren !== false;
+const staggerValue = typeof staggerChildren === 'number' ? String(staggerChildren) : '';
 ---
 
 <section
   class={combinedClasses}
   {id}
 >
-  <div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+  <div
+    class="mx-auto max-w-7xl px-6 py-20 md:py-28"
+    data-animate-on-scroll={shouldAnimate ? '' : undefined}
+    data-animate-stagger={shouldStagger ? staggerValue : undefined}
+  >
     <slot />
   </div>
 </section>
