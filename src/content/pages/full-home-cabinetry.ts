@@ -2,6 +2,12 @@
 // Target keywords: "Full Home Cabinetry Toronto", "Whole Home Cabinet Installation", "Custom Home Millwork"
 
 import FullHomeImage from '../../assets/FullHome.jpg';
+import FullHomeApproachImage from '../../assets/Portfolio/FullHome_Robina/10.jpg';
+import NewConstructionImage from '../../assets/Portfolio/FullHome_Robina/11.jpg';
+import RenovationCabinetryImage from '../../assets/Portfolio/FullHome_Robina/20.jpg';
+import DesignCohesionImage from '../../assets/Portfolio/FullHome_Robina/33.jpg';
+import GtaWholeHomeImage from '../../assets/Portfolio/FullHome_Robina/28.jpg';
+import WholeHomeInvestmentImage from '../../assets/Portfolio/FullHome_Robina/30.jpg';
 
 export const fullHomeCabinetryPageContent = {
   seo: {
@@ -190,7 +196,8 @@ export const fullHomeCabinetryPageContent = {
         "Single project management contact",
         "Coordinated installation schedule",
         "Less total disruption than phased approach"
-      ]
+      ],
+      image: FullHomeApproachImage
     },
     {
       tag: "New Construction",
@@ -208,7 +215,8 @@ export const fullHomeCabinetryPageContent = {
         "Experience with construction site protocols",
         "Custom home builder partnerships",
         "Timeline and budget coordination"
-      ]
+      ],
+      image: NewConstructionImage
     },
     {
       tag: "Whole-Home Renovations",
@@ -226,7 +234,8 @@ export const fullHomeCabinetryPageContent = {
         "Integration with electrical and plumbing updates",
         "Property value increase through cohesion",
         "Modernization of entire home aesthetic"
-      ]
+      ],
+      image: RenovationCabinetryImage
     },
     {
       tag: "Design Cohesion",
@@ -244,7 +253,8 @@ export const fullHomeCabinetryPageContent = {
         "Consistent hardware throughout",
         "Visual flow from room to room",
         "Professional design cohesion"
-      ]
+      ],
+      image: DesignCohesionImage
     },
     {
       tag: "Full Home Services Toronto",
@@ -262,7 +272,8 @@ export const fullHomeCabinetryPageContent = {
         "New construction partnerships",
         "Condo whole-home solutions",
         "Suburban family home specialists"
-      ]
+      ],
+      image: GtaWholeHomeImage
     },
     {
       tag: "Investment & Value",
@@ -280,7 +291,8 @@ export const fullHomeCabinetryPageContent = {
         "Significant property value increase",
         "Enhanced home marketability",
         "Quality that lasts decades"
-      ]
+      ],
+      image: WholeHomeInvestmentImage
     }
   ],
 

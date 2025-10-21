@@ -2,6 +2,12 @@
 // Target keywords: "Custom Built-ins Toronto", "Built-in Entertainment Units", "Built-in Bookshelves", "Home Office Built-ins"
 
 import MediaWallImage from '../../assets/MediaWall.jpg';
+import EntertainmentCenterImage from '../../assets/Portfolio/MediaWall_Thorold/IMG_0154.jpg';
+import BuiltInBookshelfImage from '../../assets/Portfolio/FullHome_Robina/33.jpg';
+import HomeOfficeBuiltInImage from '../../assets/Portfolio/FullHome_Robina/29.jpg';
+import CustomStorageImage from '../../assets/Portfolio/FullHome_Robina/30.jpg';
+import BuiltInsTorontoImage from '../../assets/Portfolio/FullHome_Robina/10.jpg';
+import BuiltInsInvestmentImage from '../../assets/Portfolio/FullHome_Robina/37.jpg';
 
 export const builtInsPageContent = {
   seo: {
@@ -181,7 +187,8 @@ export const builtInsPageContent = {
         "Integrated LED lighting",
         "Media and gaming console organization",
         "Display shelving for décor"
-      ]
+      ],
+      image: EntertainmentCenterImage
     },
     {
       tag: "Built-In Bookshelves",
@@ -199,7 +206,8 @@ export const builtInsPageContent = {
         "Display areas for photos and décor",
         "Optional library ladder integration",
         "Integrated reading lights"
-      ]
+      ],
+      image: BuiltInBookshelfImage
     },
     {
       tag: "Home Office Built-Ins",
@@ -217,7 +225,8 @@ export const builtInsPageContent = {
         "Printer storage with accessibility",
         "Integrated task lighting",
         "Dual-purpose Murphy desk options"
-      ]
+      ],
+      image: HomeOfficeBuiltInImage
     },
     {
       tag: "Custom Storage Solutions",
@@ -235,7 +244,8 @@ export const builtInsPageContent = {
         "Under-staircase built-in storage",
         "Basement shelving and organization",
         "Custom storage for any architectural feature"
-      ]
+      ],
+      image: CustomStorageImage
     },
     {
       tag: "Built-Ins Toronto",
@@ -253,7 +263,8 @@ export const builtInsPageContent = {
         "Service across entire GTA",
         "Expert installation teams",
         "Minimal disruption installation process"
-      ]
+      ],
+      image: BuiltInsTorontoImage
     },
     {
       tag: "Pricing & Investment",
@@ -270,7 +281,8 @@ export const builtInsPageContent = {
         "Options for various budgets",
         "Installation and delivery included",
         "Premium quality at competitive prices"
-      ]
+      ],
+      image: BuiltInsInvestmentImage
     }
   ],
 

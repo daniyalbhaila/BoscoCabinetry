@@ -2,6 +2,12 @@
 // Target keywords: "Custom Closets Toronto", "Walk-in Closet Systems", "Reach-in Closets", "Closet Organization"
 
 import ClosetImage from '../../assets/Closet.jpg';
+import WalkInClosetImage from '../../assets/Closet.jpg';
+import ReachInClosetImage from '../../assets/Portfolio/FullHome_Robina/21.jpg';
+import MudroomImage from '../../assets/Portfolio/FullHome_Robina/29.jpg';
+import ClosetOrganizationImage from '../../assets/Portfolio/FullHome_Robina/10.jpg';
+import TorontoClosetImage from '../../assets/Portfolio/FullHome_Robina/37.jpg';
+import ClosetInvestmentImage from '../../assets/Portfolio/FullHome_Robina/20.jpg';
 
 export const customClosetsPageContent = {
   seo: {
@@ -180,7 +186,8 @@ export const customClosetsPageContent = {
         "Jewelry trays and accessory organizers",
         "Integrated LED lighting systems",
         "Custom island or bench seating"
-      ]
+      ],
+      image: WalkInClosetImage
     },
     {
       tag: "Reach-In Closets",
@@ -198,7 +205,8 @@ export const customClosetsPageContent = {
         "Shoe racks and organizers",
         "Accessory hooks and organizers",
         "Vertical space maximization"
-      ]
+      ],
+      image: ReachInClosetImage
     },
     {
       tag: "Mudroom Organization",
@@ -216,7 +224,8 @@ export const customClosetsPageContent = {
         "Dedicated shoe storage and boot trays",
         "Overhead cabinets for seasonal items",
         "Drop zones for keys, mail, and accessories"
-      ]
+      ],
+      image: MudroomImage
     },
     {
       tag: "Closet Organization",
@@ -234,7 +243,8 @@ export const customClosetsPageContent = {
         "Handbag and accessory storage",
         "Pull-out hamper systems",
         "Integrated LED closet lighting"
-      ]
+      ],
+      image: ClosetOrganizationImage
     },
     {
       tag: "Closet Design Toronto",
@@ -252,7 +262,8 @@ export const customClosetsPageContent = {
         "Heritage home closet renovations",
         "Service across Toronto and entire GTA",
         "Professional installation with minimal disruption"
-      ]
+      ],
+      image: TorontoClosetImage
     },
     {
       tag: "Pricing & Investment",
@@ -269,7 +280,8 @@ export const customClosetsPageContent = {
         "Flexible options for any budget",
         "Installation and delivery included",
         "Premium quality at competitive prices"
-      ]
+      ],
+      image: ClosetInvestmentImage
     }
   ],
 

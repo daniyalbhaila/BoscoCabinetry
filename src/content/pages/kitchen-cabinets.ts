@@ -2,6 +2,12 @@
 // Target keywords: "Custom Kitchen Cabinets Toronto", "Luxury Kitchen Cabinets North York"
 
 import KitchenImage from '../../assets/kitchen.jpg';
+import CustomDesignImage from '../../assets/Portfolio/Kitchen_DanLekcie/IMG_9931.JPG';
+import ShowroomPhoto from '../../assets/showroom.jpg';
+import InstallationImage from '../../assets/Portfolio/Kitchen_BurningOak/IMG_6738.jpg';
+import RenovationSupportImage from '../../assets/Portfolio/FullHome_Robina/12.jpg';
+import GtaKitchenImage from '../../assets/Portfolio/Kitchen_BurningOak/IMG_6736.jpg';
+import KitchenInvestmentImage from '../../assets/Portfolio/FullHome_Robina/33.jpg';
 
 // Icons will be imported in the component that uses this content
 
@@ -176,7 +182,8 @@ export const kitchenPageContent = {
         "3D renderings after project commitment",
         "Design revisions included",
         "Expert guidance on materials and finishes"
-      ]
+      ],
+      image: CustomDesignImage
     },
     {
       tag: "Showroom Experience",
@@ -193,7 +200,8 @@ export const kitchenPageContent = {
         "Sustainable bamboo and eco-friendly materials",
         "100+ finish samples: matte, gloss, wood grain",
         "Expert guidance on style and material selection"
-      ]
+      ],
+      image: ShowroomPhoto
     },
     {
       tag: "Installation",
@@ -210,7 +218,8 @@ export const kitchenPageContent = {
         "Hardware and accessory installation",
         "Coordination with other trades",
         "Complete cleanup and final inspection"
-      ]
+      ],
+      image: InstallationImage
     },
     {
       tag: "Renovation Support",
@@ -228,7 +237,8 @@ export const kitchenPageContent = {
         "Flooring and tile work scheduling",
         "Timeline and budget management",
         "Single point of contact for entire project"
-      ]
+      ],
+      image: RenovationSupportImage
     },
     {
       tag: "Kitchen Renovation Toronto",
@@ -245,7 +255,8 @@ export const kitchenPageContent = {
         "Knowledge of local building requirements",
         "Adaptable to any kitchen size or layout",
         "Heritage home renovation expertise"
-      ]
+      ],
+      image: GtaKitchenImage
     },
     {
       tag: "Pricing & Investment",
@@ -262,7 +273,8 @@ export const kitchenPageContent = {
         "Flexible options to match your budget",
         "Installation and delivery included",
         "Competitive pricing for premium quality"
-      ]
+      ],
+      image: KitchenInvestmentImage
     }
   ],
 
