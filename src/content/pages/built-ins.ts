@@ -23,6 +23,7 @@ export const builtInsPageContent = {
     kicker: "Entertainment Centers, Bookshelves, Home Offices & Storage Solutions",
     description: "From floor-to-ceiling bookshelves to seamless entertainment centers with soft-close drawer organizers, our custom built-ins maximize space while adding architectural beauty to your Toronto home.",
     image: MediaWallImage,
+    transitionName: 'service-hero-built-ins',
     ctas: [
       { text: 'Book Free Design Consultation', href: 'https://tidycal.com/boscocabinetry/30-minute-meeting', variant: 'primary' },
       { text: 'View Built-In Gallery', href: '/portfolio', variant: 'ghost' }

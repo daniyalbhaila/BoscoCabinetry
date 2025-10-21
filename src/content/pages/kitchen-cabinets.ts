@@ -25,6 +25,7 @@ export const kitchenPageContent = {
     kicker: "From Design to Installation - Full-Service Kitchen Remodel Solutions",
     description: "Transform your kitchen with expertly designed custom cabinets featuring soft-close hinges, precision craftsmanship, and premium hardware. 100+ finishes, professional installation. Get your quote in 48 hours.",
     image: KitchenImage,
+    transitionName: 'service-hero-kitchen-cabinets',
     ctas: [
       { text: 'Book Free Consultation', href: 'https://tidycal.com/boscocabinetry/30-minute-meeting', variant: 'primary' },
       { text: 'View Kitchen Gallery', href: '/portfolio', variant: 'ghost' }

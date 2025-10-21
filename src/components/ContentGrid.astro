@@ -14,12 +14,14 @@ export interface Props {
     description?: string;
     iconComponent?: AstroComponentImport;  // For Astro icon components
     image?: ImageMetadata;  // Astro's image type
+    href?: string;
     link?: string;
     cta?: string;
     rating?: number;
     name?: string;  // For reviews
     project?: string;  // For reviews
     verified?: boolean;  // For reviews
+    transitionName?: string;
   }>;
   variant: 'services' | 'features' | 'reviews';
   theme?: Theme;
@@ -82,6 +84,7 @@ const finalClasses = `${gridClasses[variant]} ${className}`.trim();
         <a
           href={item.href}
           class="group surface-card block cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+          transition:name={item.transitionName}
         >
           {item.image && (
             <div class="surface-card-media">

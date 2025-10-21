@@ -81,6 +81,7 @@ interface ServicePageContent {
     videoSrc?: string;
     size?: 'full' | 'medium' | 'compact';
     ctas?: CTAButton[];
+    transitionName?: string;
   };
   overview: {
     tag: string;
@@ -196,6 +197,7 @@ const faqSchema = content.faqs && content.faqs.length > 0
     theme="dark"
     size={content.hero.size ?? 'full'}
     ctaButtons={content.hero.ctas}
+    transitionName={content.hero.transitionName}
   />
 
   <!-- Service Overview (Light) -->

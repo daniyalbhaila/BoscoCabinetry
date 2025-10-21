@@ -16,6 +16,7 @@ interface ServiceItem {
 	emoji?: string;
 	variant?: 'image' | 'text';
 	image?: any;
+	transitionName?: string;
 }
 
 const services: ServiceItem[] = [
@@ -27,7 +28,8 @@ const services: ServiceItem[] = [
 		href: '/services/kitchen-cabinets',
 		cta: 'Get a Kitchen Quote',
 		variant: 'image',
-		image: KitchenImage
+		image: KitchenImage,
+		transitionName: 'service-hero-kitchen-cabinets'
 	},
 	{
 		key: 'closets',
@@ -37,7 +39,8 @@ const services: ServiceItem[] = [
 		href: '/services/custom-closets',
 		cta: 'Design My Closet',
 		variant: 'image',
-		image: ClosetImage
+		image: ClosetImage,
+		transitionName: 'service-hero-custom-closets'
 	},
 	{
 		key: 'wall-units',
@@ -47,7 +50,8 @@ const services: ServiceItem[] = [
 		href: '/services/built-ins',
 		cta: 'Plan My Built‑In',
 		variant: 'image',
-		image: MediaWallImage
+		image: MediaWallImage,
+		transitionName: 'service-hero-built-ins'
 	},
 	{
 		key: 'paneling',
@@ -57,7 +61,8 @@ const services: ServiceItem[] = [
 		href: '/services/full-home-cabinetry',
 		cta: 'Explore Packages',
 		variant: 'image',
-		image: FullHomeImage
+		image: FullHomeImage,
+		transitionName: 'service-hero-full-home-cabinetry'
 	}
 ];
 ---

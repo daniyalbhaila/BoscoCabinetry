@@ -23,6 +23,7 @@ export const fullHomeCabinetryPageContent = {
     kicker: "Coordinated Custom Cabinets Throughout Your Entire Home",
     description: "From kitchen to bathrooms, closets to built-ins—create a cohesive aesthetic with coordinated cabinetry throughout your Toronto home. One team, one vision, seamless results.",
     image: FullHomeImage,
+    transitionName: 'service-hero-full-home-cabinetry',
     ctas: [
       { text: 'Book Whole-Home Consultation', href: 'https://tidycal.com/boscocabinetry/30-minute-meeting', variant: 'primary' },
       { text: 'View Complete Projects', href: '/portfolio', variant: 'ghost' }
