@@ -312,5 +312,92 @@ const heroPosterUrl = typeof heroPoster === 'string' ? heroPoster : heroPoster.s
         });
       })();
     </script>
+    <script is:inline>
+      (() => {
+        const MOBILE_BREAKPOINT = 1023;
+        const supportsPassive = (() => {
+          let passiveSupported = false;
+          try {
+            const opts = Object.defineProperty({}, 'passive', {
+              get() {
+                passiveSupported = true;
+                return true;
+              },
+            });
+            window.addEventListener('test-passive', null, opts);
+            window.removeEventListener('test-passive', null, opts);
+          } catch (e) {
+            passiveSupported = false;
+          }
+          return passiveSupported;
+        })();
+
+        const getQuery = () => window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
+        let mobileQuery = getQuery();
+        let isMobile = mobileQuery.matches;
+
+        const handleClick = (event) => {
+          if (!isMobile) return;
+
+          const anchor = event.target instanceof Element ? event.target.closest('a[href]') : null;
+          if (!anchor) return;
+
+          if (
+            anchor.hasAttribute('download') ||
+            anchor.hasAttribute('data-no-transition') ||
+            anchor.target && anchor.target !== '_self'
+          ) {
+            return;
+          }
+
+          const href = anchor.getAttribute('href');
+          if (!href || href.startsWith('#')) {
+            return;
+          }
+
+          const url = new URL(href, window.location.href);
+          if (url.origin !== window.location.origin) {
+            return;
+          }
+
+          if (url.pathname === window.location.pathname && url.search === window.location.search) {
+            return;
+          }
+
+          event.preventDefault();
+          window.location.assign(url.href);
+        };
+
+        const handleChange = (query) => {
+          isMobile = query.matches;
+        };
+
+        const init = () => {
+          mobileQuery = getQuery();
+          handleChange(mobileQuery);
+
+          if (typeof mobileQuery.addEventListener === 'function') {
+            mobileQuery.addEventListener('change', handleChange);
+          } else if (typeof mobileQuery.addListener === 'function') {
+            mobileQuery.addListener(handleChange);
+          }
+        };
+
+        document.addEventListener(
+          'click',
+          handleClick,
+          supportsPassive ? { capture: true, passive: false } : true
+        );
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+
+        document.addEventListener('astro:page-load', init);
+        document.addEventListener('astro:after-swap', init);
+      })();
+    </script>
   </body>
 </html>
