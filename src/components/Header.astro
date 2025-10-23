@@ -577,13 +577,24 @@ const currentPath = Astro.url.pathname;
     dropdownLinks.forEach((link) => link.setAttribute('aria-expanded', 'false'));
 
     const onNavClick = (event) => {
-      const dropdownLink = event.target.closest('.cs-li[data-dropdown="true"] .cs-li-link');
-      if (!dropdownLink || window.innerWidth > 1023) return;
+      // Only handle on mobile
+      if (window.innerWidth > 1023) return;
 
-      event.preventDefault();
-      const item = dropdownLink.closest('.cs-li');
-      const isExpanded = item.classList.toggle('dropdown-active');
-      dropdownLink.setAttribute('aria-expanded', isExpanded.toString());
+      // Find if we're clicking inside a dropdown li
+      const dropdownLi = event.target.closest('.cs-li[data-dropdown="true"]');
+      if (!dropdownLi) return;
+
+      // Find the link within this dropdown li
+      const dropdownLink = dropdownLi.querySelector('.cs-li-link');
+      if (!dropdownLink) return;
+
+      // Check if the click was on the link or its children
+      if (event.target === dropdownLink || dropdownLink.contains(event.target)) {
+        event.preventDefault();
+        event.stopPropagation();
+        const isExpanded = dropdownLi.classList.toggle('dropdown-active');
+        dropdownLink.setAttribute('aria-expanded', isExpanded.toString());
+      }
     };
 
     nav.addEventListener('click', onNavClick, { signal });
