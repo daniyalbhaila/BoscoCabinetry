@@ -27,14 +27,25 @@ const currentPath = Astro.url.pathname;
             const hasDropdown = item.hasDropdown && dropdownItems.length > 0;
             return (
               <li class="cs-li" data-dropdown={hasDropdown ? 'true' : 'false'}>
-                <a
-                  href={item.href}
-                  class={`cs-li-link ${isActiveNavItem(item, currentPath) ? 'cs-active' : ''}`}
-                  aria-haspopup={hasDropdown ? 'true' : 'false'}
-                >
-                  {item.label}
-                  {hasDropdown && <ChevronDown class="cs-dropdown-arrow" />}
-                </a>
+                {hasDropdown ? (
+                  <button
+                    type="button"
+                    class={`cs-li-link cs-dropdown-toggle ${isActiveNavItem(item, currentPath) ? 'cs-active' : ''}`}
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    data-desktop-href={item.href}
+                  >
+                    {item.label}
+                    <ChevronDown class="cs-dropdown-arrow" />
+                  </button>
+                ) : (
+                  <a
+                    href={item.href}
+                    class={`cs-li-link ${isActiveNavItem(item, currentPath) ? 'cs-active' : ''}`}
+                  >
+                    {item.label}
+                  </a>
+                )}
                 {hasDropdown && (
                   <ul class="cs-dropdown" aria-label={`${item.label} submenu`}>
                     {dropdownItems.map((link) => (
@@ -275,6 +286,18 @@ const currentPath = Astro.url.pathname;
   #cs-navigation .cs-li-link.cs-active:before {
     display: block;
   }
+
+  /* Button dropdown toggle styling for mobile */
+  #cs-navigation .cs-dropdown-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: inherit;
+    width: 100%;
+  }
+
   #cs-navigation .cs-nav-button {
     display: none;
   }
@@ -444,6 +467,16 @@ const currentPath = Astro.url.pathname;
     transition: width 0.3s;
   }
 
+  /* Button dropdown toggle styling for desktop */
+  #cs-navigation .cs-dropdown-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: inherit;
+  }
+
   /* Desktop dropdown styles */
   #cs-navigation .cs-dropdown-arrow {
     margin-left: 0.5rem;
@@ -537,8 +570,8 @@ const currentPath = Astro.url.pathname;
     });
 
     nav
-      .querySelectorAll('.cs-li[data-dropdown="true"] .cs-li-link')
-      .forEach((link) => link.setAttribute('aria-expanded', 'false'));
+      .querySelectorAll('.cs-dropdown-toggle')
+      .forEach((toggle) => toggle.setAttribute('aria-expanded', 'false'));
   };
 
   const initHeaderNav = () => {
@@ -573,31 +606,19 @@ const currentPath = Astro.url.pathname;
 
     document.addEventListener('scroll', onScroll, { signal });
 
-    const dropdownLinks = nav.querySelectorAll('.cs-li[data-dropdown="true"] .cs-li-link');
-    dropdownLinks.forEach((link) => link.setAttribute('aria-expanded', 'false'));
+    // Handle dropdown toggle buttons
+    const dropdownToggles = nav.querySelectorAll('.cs-dropdown-toggle');
 
-    const onNavClick = (event) => {
-      // Only handle on mobile
-      if (window.innerWidth > 1023) return;
+    dropdownToggles.forEach((toggle) => {
+      toggle.addEventListener('click', (event) => {
+        const dropdownLi = toggle.closest('.cs-li[data-dropdown="true"]');
+        if (!dropdownLi) return;
 
-      // Find if we're clicking inside a dropdown li
-      const dropdownLi = event.target.closest('.cs-li[data-dropdown="true"]');
-      if (!dropdownLi) return;
-
-      // Find the link within this dropdown li
-      const dropdownLink = dropdownLi.querySelector('.cs-li-link');
-      if (!dropdownLink) return;
-
-      // Check if the click was on the link or its children
-      if (event.target === dropdownLink || dropdownLink.contains(event.target)) {
-        event.preventDefault();
-        event.stopPropagation();
+        // Toggle the dropdown
         const isExpanded = dropdownLi.classList.toggle('dropdown-active');
-        dropdownLink.setAttribute('aria-expanded', isExpanded.toString());
-      }
-    };
-
-    nav.addEventListener('click', onNavClick, { signal });
+        toggle.setAttribute('aria-expanded', isExpanded.toString());
+      }, { signal });
+    });
 
     const closeNav = () => {
       toggle?.classList.remove('cs-active');
