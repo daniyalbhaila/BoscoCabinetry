@@ -12,6 +12,7 @@ import DesignInspiration from '../components/DesignInspiration.astro';
 import ContactUs from '../components/ContactUs.astro';
 import ExpandableContent from '../components/ExpandableContent.astro';
 import ServiceAreaSection from '../components/ServiceAreaSection.astro';
+import TradeAccountForm from '../components/TradeAccountForm.astro';
 import Button from '../components/ui/Button.astro';
 import Check from '../components/icons/Check.astro';
 import Factory from '../components/icons/Factory.astro';
@@ -228,6 +229,9 @@ const tradeAdvantages = tradePageContent.tradeAdvantages.advantages.map(advantag
 		description={tradePageContent.process.description}
 		steps={tradePageContent.process.steps}
 	/>
+
+	<!-- Trade Account Application Form -->
+	<TradeAccountForm />
 
 	<!-- FAQ Section -->
 	<FAQSection
