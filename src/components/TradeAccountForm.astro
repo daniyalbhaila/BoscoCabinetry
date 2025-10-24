@@ -1,0 +1,389 @@
+---
+import SectionWrapper from './SectionWrapper.astro';
+import SectionHeader from './SectionHeader.astro';
+import AnimatedSection from './AnimatedSection.astro';
+import Phone from './icons/Phone.astro';
+import Mail from './icons/Mail.astro';
+import MapPin from './icons/MapPin.astro';
+import Clock from './icons/Clock.astro';
+import { companyInfo } from '../content/shared.ts';
+import Button from './ui/Button.astro';
+import { ANIMATION_DELAYS } from '../lib/animationConstants';
+
+const businessTypes = [
+	{ value: 'contractor', label: 'General Contractor' },
+	{ value: 'builder', label: 'Home Builder / Developer' },
+	{ value: 'designer', label: 'Interior Designer' },
+	{ value: 'architect', label: 'Architect' },
+	{ value: 'cabinet-installer', label: 'Cabinet Installer' },
+	{ value: 'renovation', label: 'Renovation Specialist' },
+	{ value: 'other', label: 'Other Trade Professional' }
+];
+
+const howHeardOptions = [
+	{ value: 'google', label: 'Google Search' },
+	{ value: 'referral', label: 'Referral from another contractor' },
+	{ value: 'social-media', label: 'Social Media' },
+	{ value: 'trade-show', label: 'Trade Show / Event' },
+	{ value: 'existing-client', label: 'Existing Client' },
+	{ value: 'other', label: 'Other' }
+];
+---
+
+<SectionWrapper theme="dark" id="trade-account-form">
+	<SectionHeader
+		tag="Apply for Trade Account"
+		title="Join Our Trade Partner Network"
+		description="Complete the form below to apply for a trade account. Our team will review your application and be in touch within 1-2 business days to discuss your account setup and answer any questions."
+		layout="center"
+		theme="dark"
+	/>
+
+	<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-[1200px] mx-auto">
+		<!-- Trade Account Application Form -->
+		<AnimatedSection stagger={ANIMATION_DELAYS.NORMAL}>
+			<div class="trade-account-form gradient-card-dark-strong backdrop-blur-sm border border-brand-primary/20 rounded-2xl p-8">
+				<h3 class="text-xl font-semibold text-white mb-6">Trade Account Application</h3>
+
+				<form
+					name="trade-account"
+					method="POST"
+					action="/thank-you"
+					data-netlify="true"
+					netlify-honeypot="bot-field"
+					class="space-y-6"
+				>
+					<!-- Required hidden fields for Netlify Forms -->
+					<input type="hidden" name="form-name" value="trade-account" />
+
+					<!-- Honeypot field for spam protection -->
+					<p class="hidden">
+						<label>
+							Don't fill this out if you're human:
+							<input name="bot-field" tabindex="-1" autocomplete="off" />
+						</label>
+					</p>
+
+					<!-- Business Information Section -->
+					<div class="space-y-4">
+						<h4 class="text-sm font-semibold text-brand-accent uppercase tracking-wide">Business Information</h4>
+
+						<div>
+							<label for="businessName" class="form-label-dark">Business Name *</label>
+							<input
+								type="text"
+								id="businessName"
+								name="businessName"
+								required
+								class="form-input-dark"
+								placeholder="Your Company Name"
+							/>
+						</div>
+
+						<div>
+							<label for="businessType" class="form-label-dark">Business Type *</label>
+							<select
+								id="businessType"
+								name="businessType"
+								required
+								class="form-select-dark"
+							>
+								<option value="">Select your business type</option>
+								{businessTypes.map(type => (
+									<option value={type.value}>{type.label}</option>
+								))}
+							</select>
+						</div>
+
+						<div>
+							<label for="businessAddress" class="form-label-dark">Business Address *</label>
+							<input
+								type="text"
+								id="businessAddress"
+								name="businessAddress"
+								required
+								class="form-input-dark"
+								placeholder="Street Address"
+							/>
+						</div>
+
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+							<div>
+								<label for="city" class="form-label-dark">City *</label>
+								<input
+									type="text"
+									id="city"
+									name="city"
+									required
+									class="form-input-dark"
+									placeholder="Toronto"
+								/>
+							</div>
+							<div>
+								<label for="postalCode" class="form-label-dark">Postal Code *</label>
+								<input
+									type="text"
+									id="postalCode"
+									name="postalCode"
+									required
+									class="form-input-dark"
+									placeholder="M1A 2B3"
+								/>
+							</div>
+						</div>
+
+						<div>
+							<label for="hstNumber" class="form-label-dark">HST / Business Number</label>
+							<input
+								type="text"
+								id="hstNumber"
+								name="hstNumber"
+								class="form-input-dark"
+								placeholder="Optional - helps expedite processing"
+							/>
+						</div>
+					</div>
+
+					<!-- Contact Information Section -->
+					<div class="space-y-4">
+						<h4 class="text-sm font-semibold text-brand-accent uppercase tracking-wide">Primary Contact</h4>
+
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+							<div>
+								<label for="firstName" class="form-label-dark">First Name *</label>
+								<input
+									type="text"
+									id="firstName"
+									name="firstName"
+									required
+									class="form-input-dark"
+									placeholder="John"
+								/>
+							</div>
+							<div>
+								<label for="lastName" class="form-label-dark">Last Name *</label>
+								<input
+									type="text"
+									id="lastName"
+									name="lastName"
+									required
+									class="form-input-dark"
+									placeholder="Smith"
+								/>
+							</div>
+						</div>
+
+						<div>
+							<label for="email" class="form-label-dark">Email *</label>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								required
+								class="form-input-dark"
+								placeholder="john@company.com"
+							/>
+						</div>
+
+						<div>
+							<label for="phone" class="form-label-dark">Phone *</label>
+							<input
+								type="tel"
+								id="phone"
+								name="phone"
+								required
+								class="form-input-dark"
+								placeholder={companyInfo.contact.phone.display}
+							/>
+						</div>
+					</div>
+
+					<!-- Additional Information Section -->
+					<div class="space-y-4">
+						<h4 class="text-sm font-semibold text-brand-accent uppercase tracking-wide">Additional Information</h4>
+
+						<div>
+							<label for="howHeard" class="form-label-dark">How did you hear about us?</label>
+							<select
+								id="howHeard"
+								name="howHeard"
+								class="form-select-dark"
+							>
+								<option value="">Select an option</option>
+								{howHeardOptions.map(option => (
+									<option value={option.value}>{option.label}</option>
+								))}
+							</select>
+						</div>
+
+						<div>
+							<label for="projectVolume" class="form-label-dark">Estimated Annual Project Volume</label>
+							<select
+								id="projectVolume"
+								name="projectVolume"
+								class="form-select-dark"
+							>
+								<option value="">Select a range</option>
+								<option value="1-5">1-5 projects per year</option>
+								<option value="6-15">6-15 projects per year</option>
+								<option value="16-30">16-30 projects per year</option>
+								<option value="30+">30+ projects per year</option>
+							</select>
+						</div>
+
+						<div>
+							<label for="message" class="form-label-dark">Additional Notes or Questions</label>
+							<textarea
+								id="message"
+								name="message"
+								rows="4"
+								class="form-textarea-dark"
+								placeholder="Tell us about your typical projects, any specific requirements, or questions you have about our trade program..."
+							></textarea>
+						</div>
+					</div>
+
+					<Button
+						type="submit"
+						variant="primary"
+						size="lg"
+						class="w-full font-semibold"
+					>
+						Submit Trade Account Application
+					</Button>
+
+					<p class="text-xs text-white/60 text-center">
+						By submitting this form, you agree to be contacted by our trade team regarding your application.
+						We typically respond within 1-2 business days.
+					</p>
+				</form>
+			</div>
+		</AnimatedSection>
+
+		<!-- Trade Program Benefits & Contact Info -->
+		<AnimatedSection stagger={ANIMATION_DELAYS.MEDIUM} className="space-y-8">
+			<!-- What Happens Next -->
+			<div class="gradient-card-dark border border-brand-primary/30 rounded-2xl p-8">
+				<h4 class="text-xl font-semibold text-white mb-4">What Happens Next?</h4>
+				<div class="space-y-4">
+					<div class="flex items-start gap-3">
+						<span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-brand-primary/20 text-sm font-semibold text-brand-accent">1</span>
+						<div>
+							<p class="text-white/90 font-medium">Application Review</p>
+							<p class="text-sm text-white/60">We'll review your information within 1-2 business days</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-3">
+						<span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-brand-primary/20 text-sm font-semibold text-brand-accent">2</span>
+						<div>
+							<p class="text-white/90 font-medium">Account Setup Call</p>
+							<p class="text-sm text-white/60">Our trade team will contact you to discuss your needs</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-3">
+						<span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-brand-primary/20 text-sm font-semibold text-brand-accent">3</span>
+						<div>
+							<p class="text-white/90 font-medium">Account Activation</p>
+							<p class="text-sm text-white/60">Get access to trade pricing and start ordering</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Contact Details -->
+			<div class="contact-info space-y-6">
+				<h4 class="text-lg font-semibold text-white">Questions? Contact Our Trade Team</h4>
+
+				<div class="flex items-start gap-4">
+					<div class="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+						<Phone class="w-6 h-6 text-brand-primary" />
+					</div>
+					<div>
+						<h5 class="text-base font-semibold text-white mb-1">Call Us</h5>
+						<a href={companyInfo.contact.phone.href} class="text-brand-primary hover:text-white transition-colors duration-200">
+							{companyInfo.contact.phone.display}
+						</a>
+						<p class="text-sm text-white/60 mt-1">Trade team available during business hours</p>
+					</div>
+				</div>
+
+				<div class="flex items-start gap-4">
+					<div class="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+						<Mail class="w-6 h-6 text-brand-primary" />
+					</div>
+					<div>
+						<h5 class="text-base font-semibold text-white mb-1">Email Us</h5>
+						<a href={companyInfo.contact.email.href} class="text-brand-primary hover:text-white transition-colors duration-200">
+							{companyInfo.contact.email.address}
+						</a>
+						<p class="text-sm text-white/60 mt-1">Response {companyInfo.timelines.emailResponse}</p>
+					</div>
+				</div>
+
+				<div class="flex items-start gap-4">
+					<div class="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+						<MapPin class="w-6 h-6 text-brand-primary" />
+					</div>
+					<div>
+						<h5 class="text-base font-semibold text-white mb-1">Visit Our Showroom</h5>
+						<p class="text-white/80" set:html={companyInfo.location.address.display}>
+						</p>
+						<p class="text-sm text-white/60 mt-1">Schedule a private consultation</p>
+					</div>
+				</div>
+
+				<div class="flex items-start gap-4">
+					<div class="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+						<Clock class="w-6 h-6 text-brand-primary" />
+					</div>
+					<div>
+						<h5 class="text-base font-semibold text-white mb-1">Business Hours</h5>
+						<div class="text-white/80 text-sm leading-relaxed">
+							<p>{companyInfo.hours.display.weekdays}</p>
+							<p>{companyInfo.hours.display.saturday}</p>
+							<p>{companyInfo.hours.display.sunday}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</AnimatedSection>
+	</div>
+</SectionWrapper>
+
+<style>
+/* Trade Account Form Styling - Design System Compliant */
+.trade-account-form {
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.trade-account-form:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Input Styling */
+input, select, textarea {
+	transition: all 0.3s ease-in-out;
+}
+
+input:focus, select:focus, textarea:focus {
+	background: rgba(255, 255, 255, 0.15);
+	border-color: rgba(218, 210, 191, 0.5);
+}
+
+/* Touch target compliance */
+input, select, textarea, button {
+	min-height: 48px;
+}
+
+/* Contact Info Hover Effects */
+.contact-info a {
+	transition: color 0.3s ease-in-out;
+}
+
+/* Section Dividers */
+h4 {
+	border-bottom: 1px solid rgba(218, 210, 191, 0.1);
+	padding-bottom: 0.5rem;
+}
+</style>
