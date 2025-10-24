@@ -119,15 +119,38 @@ import { ANIMATION_DELAYS } from '../lib/animationConstants';
 						</div>
 					</div>
 
-					<div>
-						<label for="city" class="form-label-dark">City / Area</label>
-						<input
-							type="text"
-							id="city"
-							name="city"
-							class="form-input-dark"
-							placeholder="e.g., Toronto, North York, Mississauga"
-						>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+						<div>
+							<label for="city" class="form-label-dark">City / Area</label>
+							<input
+								type="text"
+								id="city"
+								name="city"
+								class="form-input-dark"
+								placeholder="e.g., Toronto, North York"
+							>
+						</div>
+						<div>
+							<label for="referralSource" class="form-label-dark">How did you hear about us?</label>
+							<select
+								id="referralSource"
+								name="referralSource"
+								class="form-select-dark"
+							>
+								<option value="">Select a source</option>
+								<option value="google-search">Google Search</option>
+								<option value="social-media">Social Media (Instagram/Facebook)</option>
+								<option value="friend-referral">Friend or Family Referral</option>
+								<option value="contractor-referral">Contractor/Designer Referral</option>
+								<option value="previous-client">Previous Client</option>
+								<option value="trade-show">Trade Show / Home Show</option>
+								<option value="website">Found Your Website</option>
+								<option value="driving-by">Drove Past Your Location</option>
+								<option value="online-ad">Online Ad</option>
+								<option value="review-site">Review Site (Google/Yelp/Houzz)</option>
+								<option value="other">Other</option>
+							</select>
+						</div>
 					</div>
 
 					<div>
