@@ -25,38 +25,19 @@ import { ANIMATION_DELAYS } from '../lib/animationConstants';
 			<!-- Contact Form -->
 			<AnimatedSection stagger={ANIMATION_DELAYS.NORMAL}>
 				<div class="contact-form gradient-card-dark-strong backdrop-blur-sm border border-brand-primary/20 rounded-2xl p-8">
-					<h3 class="text-lg font-medium text-white/60 mb-2">Confirm booking:</h3>
-
-					<!-- Booking Details -->
-					<div class="bg-white/5 border border-white/10 rounded-xl p-6 mb-8 space-y-3">
-						<h4 class="text-xl font-semibold text-white mb-4">30 Minute Meeting with Bilal @ Bosco Cabinetry</h4>
-
-						<div class="flex items-start gap-3 text-sm">
-							<span class="text-white/60 font-medium min-w-[80px]">date</span>
-							<span class="text-white">Thursday, October 30, 2025 at 1:15 PM</span>
-						</div>
-
-						<div class="flex items-start gap-3 text-sm">
-							<span class="text-white/60 font-medium min-w-[80px]">timezone</span>
-							<span class="text-white">America/Vancouver</span>
-						</div>
-
-						<div class="flex items-start gap-3 text-sm">
-							<span class="text-white/60 font-medium min-w-[80px]">duration</span>
-							<span class="text-white">30 minutes</span>
-						</div>
-					</div>
+					<h3 class="text-xl font-semibold text-white mb-2">Get in Touch</h3>
+					<p class="text-white/60 text-sm mb-6">Tell us about your project and we'll get back to you within 24 hours.</p>
 
 				<form
-					name="booking-confirmation"
+					name="contact"
 					method="POST"
 					action="/thank-you"
 					data-netlify="true"
 					netlify-honeypot="bot-field"
-					class="space-y-6"
+					class="space-y-5"
 				>
 					<!-- Required hidden fields for Netlify Forms -->
-					<input type="hidden" name="form-name" value="booking-confirmation" />
+					<input type="hidden" name="form-name" value="contact" />
 
 					<!-- Honeypot field for spam protection -->
 					<p class="hidden">
@@ -67,88 +48,75 @@ import { ANIMATION_DELAYS } from '../lib/animationConstants';
 					</p>
 
 					<div>
-						<label for="name" class="form-label-dark">Your name *</label>
+						<label for="name" class="form-label-dark">Name *</label>
 						<input
 							type="text"
 							id="name"
 							name="name"
 							required
 							class="form-input-dark"
-							placeholder="John Smith"
+							placeholder="Your name"
 						>
 					</div>
 
-					<div>
-						<label for="email" class="form-label-dark">Your email *</label>
-						<input
-							type="email"
-							id="email"
-							name="email"
-							required
-							class="form-input-dark"
-							placeholder="john@example.com"
-						>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+						<div>
+							<label for="email" class="form-label-dark">Email *</label>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								required
+								class="form-input-dark"
+								placeholder="your@email.com"
+							>
+						</div>
+						<div>
+							<label for="phone" class="form-label-dark">Phone</label>
+							<input
+								type="tel"
+								id="phone"
+								name="phone"
+								class="form-input-dark"
+								placeholder={companyInfo.contact.phone.display}
+							>
+						</div>
 					</div>
 
-					<div>
-						<label for="phone" class="form-label-dark">Phone Number *</label>
-						<input
-							type="tel"
-							id="phone"
-							name="phone"
-							required
-							class="form-input-dark"
-							placeholder={companyInfo.contact.phone.display}
-						>
-					</div>
-
-					<div>
-						<label for="consultationType" class="form-label-dark">Type of Consultation *</label>
-						<select
-							id="consultationType"
-							name="consultationType"
-							required
-							class="form-select-dark"
-						>
-							<option value="">Select consultation type</option>
-							<option value="kitchen">Kitchen Cabinetry</option>
-							<option value="closet">Closet Systems</option>
-							<option value="bathroom">Bathroom Vanities</option>
-							<option value="builtin">Built-in Units</option>
-							<option value="full-home">Full Home Cabinetry</option>
-							<option value="commercial">Commercial Project</option>
-							<option value="general">General Consultation</option>
-						</select>
-					</div>
-
-					<div>
-						<label for="lookingFor" class="form-label-dark">What are you looking for? *</label>
-						<textarea
-							id="lookingFor"
-							name="lookingFor"
-							rows="4"
-							required
-							class="form-textarea-dark"
-							placeholder="Describe your project goals, style preferences, and any specific requirements..."
-						></textarea>
-					</div>
-
-					<div>
-						<label for="timeline" class="form-label-dark">When do you plan to start your renovation? *</label>
-						<select
-							id="timeline"
-							name="timeline"
-							required
-							class="form-select-dark"
-						>
-							<option value="">Select timeline</option>
-							<option value="asap">As soon as possible</option>
-							<option value="1-3months">1-3 months</option>
-							<option value="3-6months">3-6 months</option>
-							<option value="6-12months">6-12 months</option>
-							<option value="12months+">12+ months</option>
-							<option value="flexible">Flexible / Just exploring</option>
-						</select>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+						<div>
+							<label for="projectType" class="form-label-dark">What are you interested in?</label>
+							<select
+								id="projectType"
+								name="projectType"
+								class="form-select-dark"
+							>
+								<option value="">Select a project type</option>
+								<option value="kitchen">Kitchen Cabinets</option>
+								<option value="closet">Closet Systems</option>
+								<option value="bathroom">Bathroom Vanities</option>
+								<option value="builtin">Built-in Units</option>
+								<option value="full-home">Full Home Cabinetry</option>
+								<option value="commercial">Commercial Project</option>
+								<option value="not-sure">Not sure yet</option>
+							</select>
+						</div>
+						<div>
+							<label for="timeline" class="form-label-dark">When do you want to start?</label>
+							<select
+								id="timeline"
+								name="timeline"
+								class="form-select-dark"
+							>
+								<option value="">Select timeline</option>
+								<option value="asap">ASAP</option>
+								<option value="1-3months">1-3 months</option>
+								<option value="3-6months">3-6 months</option>
+								<option value="6-12months">6-12 months</option>
+								<option value="12months+">12+ months</option>
+								<option value="just-exploring">Just exploring</option>
+							</select>
+						</div>
 					</div>
 
 					<div>
@@ -162,14 +130,27 @@ import { ANIMATION_DELAYS } from '../lib/animationConstants';
 						>
 					</div>
 
+					<div>
+						<label for="message" class="form-label-dark">Tell us about your project</label>
+						<textarea
+							id="message"
+							name="message"
+							rows="3"
+							class="form-textarea-dark"
+							placeholder="Any details about style, budget, or specific requirements..."
+						></textarea>
+					</div>
+
 					<Button
 						type="submit"
 						variant="primary"
 						size="lg"
 						class="w-full font-semibold"
 					>
-						Confirm Booking
+						Send Message
 					</Button>
+
+					<p class="text-xs text-white/40 text-center">We'll review your information and reach out to discuss your project in detail.</p>
 				</form>
 				</div>
 			</AnimatedSection>
