@@ -72,16 +72,18 @@ import { ANIMATION_DELAYS } from '../lib/animationConstants';
 							>
 						</div>
 						<div>
-							<label for="phone" class="form-label-dark">Phone</label>
+							<label for="phone" class="form-label-dark">Phone *</label>
 							<input
 								type="tel"
 								id="phone"
 								name="phone"
+								required
 								class="form-input-dark"
 								placeholder={companyInfo.contact.phone.display}
 							>
 						</div>
 					</div>
+					<p class="text-xs text-white/50 -mt-2">We'll call to schedule your free consultation and answer any questions.</p>
 
 					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 						<div>
