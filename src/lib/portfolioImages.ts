@@ -96,6 +96,26 @@ import queen12 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_012.jpg';
 import queen13 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_013.jpg';
 import queen14 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_014.jpg';
 import queen15 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_015.jpg';
+import queen16 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_016.jpg';
+import queen17 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_017.jpg';
+import queen18 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_018.jpg';
+import queen19 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_019.jpg';
+import queen20 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_020.jpg';
+import queen21 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_021.jpg';
+import queen22 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_022.jpg';
+import queen23 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_023.jpg';
+import queen24 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_024.jpg';
+import queen25 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_025.jpg';
+import queen26 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_026.jpg';
+import queen27 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_027.jpg';
+import queen28 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_028.jpg';
+import queen29 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_029.jpg';
+import queen30 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_030.jpg';
+import queen31 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_031.jpg';
+import queen32 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_032.jpg';
+import queen33 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_033.jpg';
+import queen34 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_034.jpg';
+import queen35 from '../assets/Portfolio/Ongoing/122 Queen/122-queen_035.jpg';
 
 // Modern Renewal Toronto (157 Mercury)
 import mercury1 from '../assets/Portfolio/Ongoing/157 Mercury/157-mercury_001.jpg';
@@ -227,6 +247,26 @@ export const portfolioImageMap: Record<string, any> = {
   'Portfolio/Ongoing/122 Queen/122-queen_013.jpg': queen13,
   'Portfolio/Ongoing/122 Queen/122-queen_014.jpg': queen14,
   'Portfolio/Ongoing/122 Queen/122-queen_015.jpg': queen15,
+  'Portfolio/Ongoing/122 Queen/122-queen_016.jpg': queen16,
+  'Portfolio/Ongoing/122 Queen/122-queen_017.jpg': queen17,
+  'Portfolio/Ongoing/122 Queen/122-queen_018.jpg': queen18,
+  'Portfolio/Ongoing/122 Queen/122-queen_019.jpg': queen19,
+  'Portfolio/Ongoing/122 Queen/122-queen_020.jpg': queen20,
+  'Portfolio/Ongoing/122 Queen/122-queen_021.jpg': queen21,
+  'Portfolio/Ongoing/122 Queen/122-queen_022.jpg': queen22,
+  'Portfolio/Ongoing/122 Queen/122-queen_023.jpg': queen23,
+  'Portfolio/Ongoing/122 Queen/122-queen_024.jpg': queen24,
+  'Portfolio/Ongoing/122 Queen/122-queen_025.jpg': queen25,
+  'Portfolio/Ongoing/122 Queen/122-queen_026.jpg': queen26,
+  'Portfolio/Ongoing/122 Queen/122-queen_027.jpg': queen27,
+  'Portfolio/Ongoing/122 Queen/122-queen_028.jpg': queen28,
+  'Portfolio/Ongoing/122 Queen/122-queen_029.jpg': queen29,
+  'Portfolio/Ongoing/122 Queen/122-queen_030.jpg': queen30,
+  'Portfolio/Ongoing/122 Queen/122-queen_031.jpg': queen31,
+  'Portfolio/Ongoing/122 Queen/122-queen_032.jpg': queen32,
+  'Portfolio/Ongoing/122 Queen/122-queen_033.jpg': queen33,
+  'Portfolio/Ongoing/122 Queen/122-queen_034.jpg': queen34,
+  'Portfolio/Ongoing/122 Queen/122-queen_035.jpg': queen35,
 
   // Modern Renewal Toronto
   'Portfolio/Ongoing/157 Mercury/157-mercury_001.jpg': mercury1,
