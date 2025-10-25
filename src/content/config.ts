@@ -7,7 +7,7 @@ const portfolioCollection = defineCollection({
   schema: ({ image }) => z.object({
     // Basic Information
     title: z.string(),
-    category: z.enum(['kitchen', 'bathroom', 'closet', 'built-in', 'media-wall', 'full-home']),
+    category: z.enum(['kitchen', 'bathroom', 'closet', 'built-in', 'media-wall', 'full-home', 'basement']),
 
     // SEO & Display
     description: z.string(), // Short description for cards and meta
