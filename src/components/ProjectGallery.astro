@@ -2,6 +2,7 @@
 import Button from './ui/Button.astro';
 import { Image } from 'astro:assets';
 import AnimatedSection from './AnimatedSection.astro';
+import { companyInfo } from '../content/shared.ts';
 // Portfolio Images - Diverse showcase of completed projects
 import DanLeckieKitchen from '../assets/Portfolio/Kitchen_DanLekcie/IMG_9932.JPG';
 import RobinaFullHome from '../assets/Portfolio/FullHome_Robina/1(a).jpg';
@@ -34,7 +35,10 @@ const classes = getThemeClasses(theme);
         Transforming homes across the Greater Toronto Area with custom cabinetry, closets, and built-ins. Each project showcases our commitment to quality craftsmanship and attention to detail.
       </p>
 
-      <Button href="/portfolio" variant="primary" class="mt-6">View All Projects</Button>
+      <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+        <Button href="/portfolio" variant="primary">View All Projects</Button>
+        <Button href={companyInfo.social.instagram} variant="secondary" target="_blank" rel="noopener noreferrer">Follow on Instagram</Button>
+      </div>
     </AnimatedSection>
 
     <!-- Mosaic Gallery Grid -->
