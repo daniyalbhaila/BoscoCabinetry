@@ -52,6 +52,7 @@ const categoryNames: Record<string, string> = {
   'built-in': 'Built-In Cabinetry',
   'media-wall': 'Media Wall',
   'full-home': 'Custom Home Cabinetry',
+  'basement': 'Basement Renovation',
 };
 
 const categoryName = categoryNames[entry.data.category] || entry.data.category;
@@ -107,7 +108,7 @@ const structuredData = {
   <!-- Structured Data for Rich Results -->
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(structuredData)} />
   <!-- Main Project Section - Dark Theme -->
-  <SectionWrapper theme="dark" id="project-main">
+  <SectionWrapper theme="dark" id="project-main" animate={false}>
     <div class="max-w-7xl mx-auto">
 
       <!-- Top Section: Quick Facts + Featured Image Side by Side -->
@@ -198,7 +199,7 @@ const structuredData = {
   </SectionWrapper>
 
   <!-- Description Section - Light Theme -->
-  <SectionWrapper theme="light" id="project-description">
+  <SectionWrapper theme="light" id="project-description" animate={false}>
     <div class="max-w-4xl mx-auto">
       <p class="text-lg text-gray-700 leading-relaxed">
         {entry.data.description}
@@ -216,7 +217,7 @@ const structuredData = {
   )}
 
   <!-- Additional SEO Content (MDX Content) - Light Theme -->
-  <SectionWrapper theme="light" id="project-details">
+  <SectionWrapper theme="light" id="project-details" animate={false}>
     <div class="max-w-4xl mx-auto">
       <div class="prose prose-lg prose-slate max-w-none prose-headings:text-brand-primary prose-a:text-brand-primary prose-strong:text-brand-primary prose-p:text-gray-700 prose-li:text-gray-700 text-gray-700">
         <Content />
@@ -242,7 +243,7 @@ const structuredData = {
   </SectionWrapper>
 
   <!-- Call to Action -->
-  <SectionWrapper theme="dark" id="project-cta">
+  <SectionWrapper theme="dark" id="project-cta" animate={false}>
     <div class="text-center max-w-3xl mx-auto">
       <h2 class="text-3xl font-semibold text-white mb-4">
         Ready to Start Your Project?
