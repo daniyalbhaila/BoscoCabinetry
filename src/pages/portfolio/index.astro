@@ -5,6 +5,7 @@ import SectionWrapper from '../../components/SectionWrapper.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import ContactUs from '../../components/ContactUs.astro';
+import PortfolioFilterWrapper from '../../components/PortfolioFilterWrapper';
 import { seoMetadata } from '../../content/seo-metadata';
 import { featuredImages } from '../../lib/portfolioImages';
 
@@ -35,6 +36,18 @@ const projectsWithImages = sortedProjects.map((project) => ({
   image: featuredImages[project.slug],
 })).filter(p => p.image); // Only include projects with valid images
 
+// Define filter categories
+const filterCategories = [
+  { id: 'all', label: 'All Projects' },
+  { id: 'full-home', label: 'Custom Home' },
+  { id: 'kitchen', label: 'Kitchen' },
+  { id: 'bathroom', label: 'Bathroom' },
+  { id: 'closet', label: 'Closet' },
+  { id: 'built-in', label: 'Built-In' },
+  { id: 'media-wall', label: 'Media Wall' },
+  { id: 'basement', label: 'Basement' },
+];
+
 ---
 
 <BaseLayout
@@ -54,16 +67,21 @@ const projectsWithImages = sortedProjects.map((project) => ({
       animate={false}
     />
 
+    <!-- Portfolio Filter -->
+    <PortfolioFilterWrapper categories={filterCategories} client:load />
+
     <!-- Portfolio Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {projectsWithImages.map((project) => (
-        <ProjectCard
-          title={project.data.title}
-          slug={project.slug}
-          category={project.data.category}
-          featuredImage={project.image}
-          location={project.data.location}
-        />
+        <div data-project-category={project.data.category}>
+          <ProjectCard
+            title={project.data.title}
+            slug={project.slug}
+            category={project.data.category}
+            featuredImage={project.image}
+            location={project.data.location}
+          />
+        </div>
       ))}
     </div>
 

@@ -18,13 +18,13 @@ const { title, slug, category, description, featuredImage, location } = Astro.pr
 
 // Category display labels and colors
 const categoryConfig: Record<string, { label: string; color: string }> = {
-  'kitchen': { label: 'Kitchen', color: 'bg-brand-primary text-white' },
+  'kitchen': { label: 'Kitchen', color: 'bg-brand-bronze text-white' },
   'bathroom': { label: 'Bathroom', color: 'bg-brand-slate text-white' },
-  'closet': { label: 'Closet', color: 'bg-brand-steel text-white' },
+  'closet': { label: 'Closet', color: 'bg-brand-forest text-white' },
   'built-in': { label: 'Built-In', color: 'bg-brand-oliveGray text-white' },
   'media-wall': { label: 'Media Wall', color: 'bg-brand-darkGray text-white' },
-  'full-home': { label: 'Full Home', color: 'bg-brand-bronze text-white' },
-  'basement': { label: 'Basement', color: 'bg-brand-slate text-white' },
+  'full-home': { label: 'Custom Home', color: 'bg-[#60533C] text-white' },
+  'basement': { label: 'Basement', color: 'bg-brand-charcoal text-white' },
 };
 
 const categoryInfo = categoryConfig[category] || { label: category, color: 'bg-gray-600 text-white' };
