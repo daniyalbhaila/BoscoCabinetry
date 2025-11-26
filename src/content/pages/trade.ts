@@ -4,8 +4,8 @@ import { companyInfo } from '../shared.ts';
 export const tradePageContent = {
 	// Hero Section
 	hero: {
-		title: "Wholesale Cabinet Supplier for the Building Trade | Toronto & GTA",
-		subtitle: "Partner with a global manufacturing leader for your projects. We supply contractors, builders, designers and developers across Toronto and the Greater Toronto Area with premium cabinetry backed by industrial-scale production and local expertise.",
+		title: "Cabinetry Solutions for Contractors, Builders & Designers in the GTA",
+		subtitle: "RTA, semi-custom, and fully custom cabinetry from a global manufacturing leader. Backed by professional design services, trade pricing, and priority production.",
 		stats: [
 			{ value: "1M sq ft", label: "State-of-the-art facility" },
 			{ value: "1,200+ sets/day", label: "Production capacity" },
