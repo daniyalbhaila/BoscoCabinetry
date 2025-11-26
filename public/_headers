@@ -6,7 +6,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
 
   # Content Security Policy
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com https://static.kuula.io https://kuula.co https://www.googletagmanager.com https://static.doubleclick.net https://js-na1.hs-scripts.com https://js-na3.hs-scripts.com https://js.hs-scripts.com https://js.hs-analytics.net https://js.hs-banner.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' https:; connect-src 'self' https:; frame-src 'self' https://www.youtube.com https://kuula.co; object-src 'none'; base-uri 'self';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com https://static.kuula.io https://kuula.co https://www.googletagmanager.com https://static.doubleclick.net https://js-na1.hs-scripts.com https://js-na3.hs-scripts.com https://js.hs-scripts.com https://js.hs-analytics.net https://js-na3.hs-analytics.net https://js.hs-banner.com https://js-na3.hs-banner.com https://js-na3.hscollectedforms.net https://js-na3.hsadspixel.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' https:; connect-src 'self' https:; frame-src 'self' https://www.youtube.com https://kuula.co; object-src 'none'; base-uri 'self';
 
   # Permissions Policy (fixes Kuula console errors)
   Permissions-Policy: accelerometer=(self "https://kuula.co"), xr-spatial-tracking=(self "https://kuula.co"), gyroscope=(self "https://kuula.co"), magnetometer=(self "https://kuula.co")
