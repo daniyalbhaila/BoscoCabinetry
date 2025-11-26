@@ -58,22 +58,35 @@ Add the tracking script to `src/layouts/BaseLayout.astro` in the `<head>` sectio
 **Placement**: Add after existing tracking scripts (Google Analytics, HubSpot) and before Structured Data (JSON-LD)
 
 #### Step 2: Update Content Security Policy
-Add the script domains to `public/_headers` in the CSP `script-src` directive:
+Add the script domains to `public/_headers` in the CSP `script-src` directive.
 
-**Before:**
-```
-Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://existing-domain.com;
-```
+**RECOMMENDED APPROACH: Use wildcards for third-party services**
 
-**After:**
+Wildcards prevent "whack-a-mole" issues with regional servers and new features:
+
 ```
-Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://existing-domain.com https://new-tracking-domain.com;
+Content-Security-Policy: script-src 'self' https://*.service-domain.com;
 ```
 
-**Common Tracking Domains to Add:**
-- **HubSpot**: `https://js-na1.hs-scripts.com https://js.hs-scripts.com https://js.hs-analytics.net https://js.hs-banner.com`
-- **Google Analytics**: `https://www.googletagmanager.com https://www.google-analytics.com`
-- **Meta Pixel**: Usually integrated via HubSpot, but direct: `https://connect.facebook.net`
+**Common Tracking Services (Wildcard Format):**
+- **HubSpot**: `https://*.hs-scripts.com https://*.hs-analytics.net https://*.hs-banner.com https://*.hscollectedforms.net https://*.hsadspixel.net`
+- **Meta Pixel (Facebook)**: `https://connect.facebook.net https://*.facebook.com https://*.facebook.net`
+- **Google Analytics**: `https://www.googletagmanager.com https://www.google-analytics.com` (no wildcards needed)
+
+**Why Wildcards?**
+- Covers all regional servers (na1, na3, eu1, etc.)
+- Automatically allows new service features
+- Still secure (only allows specific service subdomains)
+- Standard industry practice for third-party tracking
+
+**Example - Adding a New Service:**
+```
+# Before
+script-src 'self' https://existing.com;
+
+# After (with wildcards)
+script-src 'self' https://existing.com https://*.newservice.com;
+```
 
 #### Step 3: Test Locally
 ```bash
@@ -104,10 +117,15 @@ git push
 **Problem**: Script shows as "blocked" in DevTools
 - **Cause**: Missing domain in CSP `script-src`
 - **Solution**: Add script domain to `public/_headers` CSP configuration
+- **Best Practice**: Use wildcards (`https://*.service.com`) to avoid future blocks
 
 **Problem**: CSP error: "Refused to load script"
 - **Cause**: Protocol mismatch or missing `https://` in CSP
 - **Solution**: Ensure domain in CSP uses `https://` (not `//` or `http://`)
+
+**Problem**: Multiple CSP errors from same service (different subdomains)
+- **Cause**: Service uses regional servers (e.g., na1, na3, eu1) or multiple features
+- **Solution**: Use wildcards instead of individual domains: `https://*.hs-scripts.com` instead of `https://js-na1.hs-scripts.com https://js-na3.hs-scripts.com`
 
 **Problem**: Script loads but tracking doesn't work
 - **Cause**: May need additional CSP directives (`connect-src`, `img-src`, `frame-src`)
@@ -117,6 +135,10 @@ git push
 - **Cause**: `public/_headers` not deployed or cached
 - **Solution**: Wait for Netlify deployment, clear browser cache, test in incognito
 
+**Problem**: New tracking feature breaks after service update
+- **Cause**: Service added new subdomain not covered by CSP
+- **Solution**: Switch to wildcard format to future-proof configuration
+
 ### Current Tracking Configuration
 
 **Location**: `src/layouts/BaseLayout.astro` (lines 71-82)
@@ -125,10 +147,15 @@ git push
 1. **Google Analytics** (ID: G-GQTH54CJ0C)
    - Domain: `https://www.googletagmanager.com`
 2. **HubSpot** (ID: 342675669)
-   - Domains: `https://js-na1.hs-scripts.com`, `https://js.hs-scripts.com`, etc.
-   - Includes Meta Pixel integration
+   - Wildcard domains: `https://*.hs-scripts.com`, `https://*.hs-analytics.net`, `https://*.hs-banner.com`, `https://*.hscollectedforms.net`, `https://*.hsadspixel.net`
+   - Covers all regional servers and tracking features
+3. **Meta Pixel (Facebook)** - Integrated with HubSpot
+   - Domains: `https://connect.facebook.net`, `https://*.facebook.com`, `https://*.facebook.net`
+   - Enables Facebook advertising and conversion tracking
 
 **CSP Configuration**: `public/_headers` (line 9)
+- Uses wildcard format for HubSpot and Facebook domains
+- Future-proof: automatically supports new regional servers and features
 
 ## Architecture Overview
 
