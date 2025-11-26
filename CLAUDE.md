@@ -18,6 +18,118 @@ npm run preview
 npm run format
 ```
 
+## Deployment
+
+**Hosting Platform**: Netlify (auto-deploy from GitHub)
+
+- **Repository**: Connected to GitHub master branch
+- **Auto-deploy**: Pushes to `master` trigger automatic builds
+- **Build command**: `npm run build` (configured in `netlify.toml`)
+- **Publish directory**: `dist/`
+- **Deployment time**: ~2-3 minutes per deploy
+- **Configuration files**:
+  - `netlify.toml` - Build settings and security headers
+  - `public/_headers` - HTTP headers including Content Security Policy
+
+### Deployment Workflow
+1. Make changes and commit to git
+2. Push to `master` branch: `git push`
+3. Netlify automatically detects push and starts build
+4. Monitor deployment in Netlify dashboard
+5. Changes live at production URL after successful build
+
+## Tracking Scripts & Analytics
+
+**Current Tracking**: Google Analytics + HubSpot (with Meta Pixel integration)
+
+### Adding New Tracking Scripts - Standard Operating Procedure
+
+**IMPORTANT**: This site uses Content Security Policy (CSP) for security. All external scripts must be explicitly allowed in the CSP configuration.
+
+#### Step 1: Add Script to BaseLayout
+Add the tracking script to `src/layouts/BaseLayout.astro` in the `<head>` section:
+
+```astro
+<!-- Start of [Service Name] Code -->
+<script type="text/javascript" id="[script-id]" async defer src="https://example.com/tracking.js"></script>
+<!-- End of [Service Name] Code -->
+```
+
+**Placement**: Add after existing tracking scripts (Google Analytics, HubSpot) and before Structured Data (JSON-LD)
+
+#### Step 2: Update Content Security Policy
+Add the script domains to `public/_headers` in the CSP `script-src` directive:
+
+**Before:**
+```
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://existing-domain.com;
+```
+
+**After:**
+```
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://existing-domain.com https://new-tracking-domain.com;
+```
+
+**Common Tracking Domains to Add:**
+- **HubSpot**: `https://js-na1.hs-scripts.com https://js.hs-scripts.com https://js.hs-analytics.net https://js.hs-banner.com`
+- **Google Analytics**: `https://www.googletagmanager.com https://www.google-analytics.com`
+- **Meta Pixel**: Usually integrated via HubSpot, but direct: `https://connect.facebook.net`
+
+#### Step 3: Test Locally
+```bash
+npm run build
+npm run preview
+```
+Open browser DevTools Console and verify:
+- No CSP errors (look for "Content Security Policy" warnings)
+- Script loads successfully in Network tab
+- No JavaScript errors in Console
+
+#### Step 4: Deploy and Verify
+```bash
+git add .
+git commit -m "Add [tracking service] tracking code"
+git push
+```
+
+**After Netlify deployment completes:**
+1. Open production site in **private/incognito window** (avoids ad blockers)
+2. Open DevTools Console (F12)
+3. Check for CSP errors or blocked scripts
+4. Verify script loads in Network tab
+5. Confirm tracking in service's dashboard (may take 5-10 minutes)
+
+#### Common Issues and Solutions
+
+**Problem**: Script shows as "blocked" in DevTools
+- **Cause**: Missing domain in CSP `script-src`
+- **Solution**: Add script domain to `public/_headers` CSP configuration
+
+**Problem**: CSP error: "Refused to load script"
+- **Cause**: Protocol mismatch or missing `https://` in CSP
+- **Solution**: Ensure domain in CSP uses `https://` (not `//` or `http://`)
+
+**Problem**: Script loads but tracking doesn't work
+- **Cause**: May need additional CSP directives (`connect-src`, `img-src`, `frame-src`)
+- **Solution**: Check service documentation for all required domains and add to appropriate CSP directives
+
+**Problem**: Works locally but blocked in production
+- **Cause**: `public/_headers` not deployed or cached
+- **Solution**: Wait for Netlify deployment, clear browser cache, test in incognito
+
+### Current Tracking Configuration
+
+**Location**: `src/layouts/BaseLayout.astro` (lines 71-82)
+
+**Installed Tracking:**
+1. **Google Analytics** (ID: G-GQTH54CJ0C)
+   - Domain: `https://www.googletagmanager.com`
+2. **HubSpot** (ID: 342675669)
+   - Domains: `https://js-na1.hs-scripts.com`, `https://js.hs-scripts.com`, etc.
+   - Includes Meta Pixel integration
+
+**CSP Configuration**: `public/_headers` (line 9)
+
 ## Architecture Overview
 
 This is an Astro-based website for Bosco Cabinetry with a **componentized architecture** designed to support 30+ pages efficiently:
