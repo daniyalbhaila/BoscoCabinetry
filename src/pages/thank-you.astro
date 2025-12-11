@@ -50,6 +50,12 @@ const featuredReviews = [
   keywords={seoMetadata.thankYou.keywords}
   ogImage={seoMetadata.thankYou.ogImage}
 >
+  <!-- Conversion: fire Meta Lead event on thank-you page -->
+  <script is:inline>
+    if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead');
+    }
+  </script>
   <!-- 1. Confirmation Hero Section -->
   <SectionWrapper theme="dark" id="confirmation">
     <div class="max-w-3xl mx-auto text-center py-16">
