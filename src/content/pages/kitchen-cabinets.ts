@@ -1,6 +1,7 @@
 // SEO-optimized content for Kitchen Cabinets service page
 // Target keywords: "Custom Kitchen Cabinets Toronto", "Luxury Kitchen Cabinets North York"
 
+import { companyInfo } from '../shared.ts';
 import KitchenImage from '../../assets/kitchen.jpg';
 import CustomDesignImage from '../../assets/Portfolio/Kitchen_DanLekcie/IMG_9931.JPG';
 import ShowroomPhoto from '../../assets/showroom.jpg';
@@ -27,7 +28,7 @@ export const kitchenPageContent = {
     image: KitchenImage,
     transitionName: 'service-hero-kitchen-cabinets',
     ctas: [
-      { text: 'Book Free Consultation', href: 'https://tidycal.com/boscocabinetry/30-minute-meeting', variant: 'primary' },
+      { text: 'Book Free Consultation', href: companyInfo.urls.bookConsultation, variant: 'primary' },
       { text: 'View Kitchen Gallery', href: '/portfolio', variant: 'ghost' }
     ]
   },

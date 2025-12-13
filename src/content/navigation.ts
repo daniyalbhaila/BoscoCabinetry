@@ -78,7 +78,7 @@ export const footerNavigation = {
     links: [
       { label: 'Free Consultation', href: '/#contact', slug: 'contact' },
       { label: 'Get a Quote', href: '/quote', slug: 'quote' },
-      { label: 'Visit Showroom', href: 'https://tidycal.com/boscocabinetry/30-minute-meeting', slug: 'showroom-visit' },
+      { label: 'Visit Showroom', href: companyInfo.urls.bookConsultation, slug: 'showroom-visit' },
       { label: 'Financing Options', href: '', slug: 'financing' }
     ]
   }

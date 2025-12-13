@@ -1,6 +1,7 @@
 // SEO-optimized content for Custom Closets service page
 // Target keywords: "Custom Closets Toronto", "Walk-in Closet Systems", "Reach-in Closets", "Closet Organization"
 
+import { companyInfo } from '../shared.ts';
 import ClosetImage from '../../assets/Closet.jpg';
 import WalkInClosetImage from '../../assets/Closet.jpg';
 import ReachInClosetImage from '../../assets/Portfolio/FullHome_Robina/21.jpg';
@@ -25,7 +26,7 @@ export const customClosetsPageContent = {
     image: ClosetImage,
     transitionName: 'service-hero-custom-closets',
     ctas: [
-      { text: 'Book Free Design Consultation', href: 'https://tidycal.com/boscocabinetry/30-minute-meeting', variant: 'primary' },
+      { text: 'Book Free Design Consultation', href: companyInfo.urls.bookConsultation, variant: 'primary' },
       { text: 'Explore Closet Gallery', href: '/portfolio', variant: 'ghost' }
     ]
   },

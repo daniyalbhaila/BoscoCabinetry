@@ -12,6 +12,7 @@ import Ruler from '../../components/icons/Ruler.astro';
 import Tag from '../../components/icons/Tag.astro';
 import Clock from '../../components/icons/Clock.astro';
 import { portfolioImageMap } from '../../lib/portfolioImages';
+import { companyInfo } from '../../content/shared.ts';
 
 // Generate static paths for all portfolio projects
 export const getStaticPaths = (async () => {
@@ -252,7 +253,7 @@ const structuredData = {
         Let's bring your vision to life with custom cabinetry designed and built for your space.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button href="https://tidycal.com/boscocabinetry/30-minute-meeting" variant="primary" size="lg">
+        <Button href={companyInfo.urls.bookConsultation} variant="primary" size="lg">
           Get Free Consultation
         </Button>
         <Button href="/portfolio" variant="secondary" size="lg">

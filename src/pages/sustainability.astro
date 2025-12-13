@@ -10,6 +10,7 @@ import SustainabilityDiagram from '../assets/sustainability.webp';
 import FormaldehyDiagram from '../assets/sustainability2.webp';
 import KitchenImage from '../assets/kitchen.jpg';
 import Button from '../components/ui/Button.astro';
+import { companyInfo } from '../content/shared.ts';
 
 // Import icons
 import Wind from '../components/icons/Wind.astro';
@@ -340,7 +341,7 @@ const solutionFeatures = [
           </ul>
         </div>
 
-        <Button variant="primary" size="lg" href="https://tidycal.com/boscocabinetry/30-minute-meeting" class="w-full mt-auto">
+        <Button variant="primary" size="lg" href={companyInfo.urls.bookConsultation} class="w-full mt-auto">
           Request Free Consultation
         </Button>
       </div>

@@ -1,6 +1,7 @@
 // SEO-optimized content for Built-in Units service page
 // Target keywords: "Custom Built-ins Toronto", "Built-in Entertainment Units", "Built-in Bookshelves", "Home Office Built-ins"
 
+import { companyInfo } from '../shared.ts';
 import MediaWallImage from '../../assets/MediaWall.jpg';
 import EntertainmentCenterImage from '../../assets/Portfolio/MediaWall_Thorold/IMG_0154.jpg';
 import BuiltInBookshelfImage from '../../assets/Portfolio/FullHome_Robina/33.jpg';
@@ -25,7 +26,7 @@ export const builtInsPageContent = {
     image: MediaWallImage,
     transitionName: 'service-hero-built-ins',
     ctas: [
-      { text: 'Book Free Design Consultation', href: 'https://tidycal.com/boscocabinetry/30-minute-meeting', variant: 'primary' },
+      { text: 'Book Free Design Consultation', href: companyInfo.urls.bookConsultation, variant: 'primary' },
       { text: 'View Built-In Gallery', href: '/portfolio', variant: 'ghost' }
     ]
   },

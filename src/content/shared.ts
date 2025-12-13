@@ -110,7 +110,8 @@ export const companyInfo = {
 
   // URLs
   urls: {
-    googleReviews: 'https://maps.app.goo.gl/YBFNcghn4mcuqdNw8'
+    googleReviews: 'https://maps.app.goo.gl/YBFNcghn4mcuqdNw8',
+    bookConsultation: 'https://api.leadconnectorhq.com/widget/booking/NATTWhNx0XNmCEdbp6SN'
   },
 
   // Social Media

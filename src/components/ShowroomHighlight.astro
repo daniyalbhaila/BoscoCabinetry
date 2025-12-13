@@ -10,6 +10,7 @@ import { Image } from 'astro:assets';
 import showroomImage from '../assets/showroom.jpg';
 import { getThemeClasses, type Theme } from '../lib/themeUtils';
 import { ANIMATION_DELAYS } from '../lib/animationConstants';
+import { companyInfo } from '../content/shared.ts';
 
 export interface Props {
   theme?: Theme;
@@ -167,7 +168,7 @@ const themeClasses = {
 		<AnimatedSection stagger={ANIMATION_DELAYS.NORMAL} className="mt-16 text-center">
 			<div class="mb-6">
 				<p class={`${themeClasses.bodyText} mb-6`}>Ready to see our showroom in person?</p>
-				<Button href="https://tidycal.com/boscocabinetry/30-minute-meeting" variant="primary" size="lg" class="mr-4">
+				<Button href={companyInfo.urls.bookConsultation} variant="primary" size="lg" class="mr-4">
 					Book Your Showroom Tour
 				</Button>
 				<a href="https://maps.app.goo.gl/YBFNcghn4mcuqdNw8" class="inline-flex items-center gap-2 text-brand-primary hover:text-brand-primary/80 font-medium">

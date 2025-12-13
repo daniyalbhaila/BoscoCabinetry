@@ -8,6 +8,7 @@ import Trophy from './icons/Trophy.astro';
 import Building from './icons/Building.astro';
 import Wrench from './icons/Wrench.astro';
 import Button from './ui/Button.astro';
+import { companyInfo } from '../content/shared.ts';
 
 interface DifferentiatorItem {
 	title: string;
@@ -54,7 +55,7 @@ const differentiators: DifferentiatorItem[] = [
 
 	<!-- Bottom CTA -->
 	<AnimatedSection className="mt-16 text-center">
-		<Button href="https://tidycal.com/boscocabinetry/30-minute-meeting" variant="primary" size="lg">
+		<Button href={companyInfo.urls.bookConsultation} variant="primary" size="lg">
 			Experience the Bosco Cabinetry Difference
 		</Button>
 	</AnimatedSection>

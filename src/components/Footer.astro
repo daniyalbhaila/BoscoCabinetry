@@ -92,7 +92,7 @@ import LogoSvg from '../assets/Logo-Light.svg?raw';
 					<h4 class="text-white font-semibold mb-4">Get Started</h4>
 				<div class="space-y-2 text-sm">
 					<a href="/#contact" class="block text-white/70 hover:text-brand-primary transition-colors">Start a Project</a>
-					<a href="https://tidycal.com/boscocabinetry/30-minute-meeting" class="block text-white/70 hover:text-brand-primary transition-colors" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+					<a href={companyInfo.urls.bookConsultation} class="block text-white/70 hover:text-brand-primary transition-colors" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
 					<a href={companyInfo.contact.phone.href} class="block text-white/70 hover:text-brand-primary transition-colors">Call {companyInfo.contact.phone.display}</a>
 					<a href={companyInfo.contact.email.href} class="block text-white/70 hover:text-brand-primary transition-colors">{companyInfo.contact.email.address}</a>
 				</div>
