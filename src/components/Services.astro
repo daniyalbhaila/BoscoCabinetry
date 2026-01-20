@@ -2,10 +2,12 @@
 import SectionWrapper from './SectionWrapper.astro';
 import SectionHeader from './SectionHeader.astro';
 import ContentGrid from './ContentGrid.astro';
+import AnimatedSection from './AnimatedSection.astro';
 import KitchenImage from '../assets/kitchen.jpg';
 import ClosetImage from '../assets/Closet.jpg';
 import MediaWallImage from '../assets/MediaWall.jpg';
 import FullHomeImage from '../assets/FullHome.jpg';
+import { companyInfo } from '../content/shared.ts';
 
 interface ServiceItem {
 	key: string;
@@ -19,7 +21,8 @@ interface ServiceItem {
 	transitionName?: string;
 }
 
-const services: ServiceItem[] = [
+// PRIMARY: Core cabinetry expertise (with images)
+const primaryServices: ServiceItem[] = [
 	{
 		key: 'kitchens',
 		title: 'Custom Kitchen Cabinets',
@@ -54,32 +57,96 @@ const services: ServiceItem[] = [
 		transitionName: 'service-hero-built-ins'
 	},
 	{
-		key: 'paneling',
-		title: 'Whole Home Cabinetry',
-		description: 'Complete cabinetry packages for your entire home—including wall panels and interior doors—to create a cohesive, unified look throughout.',
-		emoji: '🎛️',
-		href: '/services/full-home-cabinetry',
-		cta: 'Explore Packages',
+		key: 'bathroom',
+		title: 'Bathroom Vanities',
+		description: 'Custom bathroom cabinetry with premium finishes and smart storage solutions.',
+		emoji: '🚿',
+		href: '/services/kitchen-cabinets',
+		cta: 'Explore Vanities',
 		variant: 'image',
 		image: FullHomeImage,
-		transitionName: 'service-hero-full-home-cabinetry'
+		transitionName: 'service-hero-bathroom'
+	}
+];
+
+// COMPLEMENTARY: Complete your project from one source
+const complementaryProducts: ServiceItem[] = [
+	{
+		key: 'doors',
+		title: 'Interior Doors',
+		description: 'Matching doors in the same finish as your cabinetry—standard, frameless, or hidden pantry doors.',
+		href: '/services#doors',
+		cta: 'Learn More',
+		variant: 'text'
+	},
+	{
+		key: 'paneling',
+		title: 'Wall Paneling',
+		description: 'Custom wall panels in matching finishes for accent walls and cohesive design throughout your space.',
+		href: '/services#paneling',
+		cta: 'See Options',
+		variant: 'text'
+	},
+	{
+		key: 'countertops',
+		title: 'Countertops',
+		description: 'Premium quartz and sintered stone countertops. Coordinated design and installation with your cabinetry.',
+		href: '/services#countertops',
+		cta: 'Explore Materials',
+		variant: 'text'
+	},
+	{
+		key: 'accessories',
+		title: 'Smart Accessories',
+		description: 'Integrated LED lighting, smart storage solutions, and modern hardware to elevate your cabinetry.',
+		href: '/services#accessories',
+		cta: 'View Accessories',
+		variant: 'text'
 	}
 ];
 ---
 
 <SectionWrapper theme="light" id="services">
 	<SectionHeader
-		tag="Services"
-		title="How We Help You Reimagine Your Home"
-		description="We design, build, and install custom cabinetry across kitchens, closets, built‑ins, and more—delivering a cohesive, modern look with reliable timelines and transparent pricing."
+		tag="Our Core Expertise"
+		title="Custom Cabinetry for Every Room"
+		description="Expert design, manufacturing, and installation for kitchens, closets, built-ins, and bathrooms. Over 100+ finishes with builder-backed reliability."
 		layout="split"
 		theme="light"
 	/>
 
+	<!-- Primary Services Grid (Cabinetry with images) -->
 	<ContentGrid
-		items={services}
+		items={primaryServices}
 		variant="services"
 	/>
+
+	<!-- Complementary Products Section -->
+	<AnimatedSection className="mt-20">
+		<div class="text-center mb-12">
+			<p class="text-[11px] uppercase tracking-[0.2em] text-brand-bronze mb-4">Complete Your Project</p>
+			<h3 class="text-3xl font-bold text-brand-charcoal mb-4">Everything from One Source</h3>
+			<p class="text-lg text-brand-darkGray max-w-3xl mx-auto">
+				Why coordinate 5 different vendors? We also provide interior doors, wall paneling, countertops, and smart accessories—all designed to match your cabinetry perfectly.
+			</p>
+		</div>
+
+		<ContentGrid
+			items={complementaryProducts}
+			variant="features"
+		/>
+
+		<!-- Value Proposition Callout -->
+		<div class="mt-12 p-8 rounded-2xl border border-brand-accent/30 gradient-card-light max-w-4xl mx-auto text-center">
+			<h4 class="text-xl font-bold text-brand-charcoal mb-3">Single Consultation. Unified Design. One Timeline.</h4>
+			<p class="text-brand-darkGray mb-4">
+				Get everything coordinated in one project—no juggling multiple contractors, delivery schedules, or hoping finishes match. Just beautiful, cohesive results.
+			</p>
+			<p class="text-sm text-brand-darkGray/75 italic">
+				Order just cabinets or bundle everything. Your choice, our capability.
+			</p>
+		</div>
+	</AnimatedSection>
 </SectionWrapper>
 
- 
+

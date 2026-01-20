@@ -3,7 +3,9 @@
 
 export const companyInfo = {
   name: 'Bosco Cabinetry',
-  tagline: 'Luxury without the luxury price tag',
+  tagline: 'Luxury without the luxury price tag', // Legacy - used for cabinetry-focused contexts
+  cabinetryTagline: 'Luxury without the luxury price tag',
+  completeSolutionsTagline: 'Complete interior solutions from one source',
 
   // Contact Information
   contact: {
@@ -89,15 +91,67 @@ export const companyInfo = {
     { city: 'Niagara Falls', region: 'Niagara Region' }
   ],
 
-  // Project Types
+  // Project Types (legacy - used in forms)
   projectTypes: [
     { value: 'kitchen-cabinets', label: 'Kitchen Cabinets' },
     { value: 'custom-closets', label: 'Custom Closets' },
     { value: 'built-ins', label: 'Built-Ins & Media Walls' },
     { value: 'full-home-cabinetry', label: 'Full Home Cabinetry' },
+    { value: 'interior-doors', label: 'Interior Doors' },
+    { value: 'wall-paneling', label: 'Wall Paneling' },
+    { value: 'countertops', label: 'Countertops' },
+    { value: 'smart-accessories', label: 'Smart Accessories' },
     { value: 'multiple-projects', label: 'Multiple Projects' },
     { value: 'other', label: 'Other' }
   ],
+
+  // Product Categories (5 core offerings - new positioning)
+  productCategories: {
+    primary: [
+      {
+        id: 'cabinetry',
+        name: 'Custom Cabinetry',
+        tagline: 'Our core expertise',
+        description: 'Fully custom cabinets for kitchens, bathrooms, closets, storage, living spaces, and home offices. 100+ finishes, builder-backed quality.',
+        subcategories: ['Kitchen Cabinets', 'Bathroom Vanities', 'Custom Closets', 'Built-Ins & Media Walls', 'Home Office', 'Storage Solutions'],
+        url: '/services/kitchen-cabinets'
+      }
+    ],
+    complementary: [
+      {
+        id: 'doors',
+        name: 'Interior Doors',
+        tagline: 'Matching finishes for cohesive design',
+        description: 'Custom interior doors in the same finishes as your cabinetry—standard, frameless with hidden hinges, or integrated hidden doors for pantries and closets.',
+        features: ['Standard doors', 'Frameless doors', 'Hidden/integrated doors'],
+        url: '/services#doors'
+      },
+      {
+        id: 'paneling',
+        name: 'Wall Paneling',
+        tagline: 'Complete the look',
+        description: 'Custom wall panels in matching cabinet finishes for accent walls, feature walls, or full-room coverage. Creates a beautifully cohesive space.',
+        features: ['Accent walls', 'Feature walls', 'Full-room paneling'],
+        url: '/services#paneling'
+      },
+      {
+        id: 'countertops',
+        name: 'Countertops',
+        tagline: 'Premium surfaces from one source',
+        description: 'Quartz and sintered stone countertops to complete your project. Coordinated design and installation when bundled with cabinetry.',
+        features: ['Quartz', 'Sintered stone', 'Custom edge profiles'],
+        url: '/services#countertops'
+      },
+      {
+        id: 'accessories',
+        name: 'Smart Accessories',
+        tagline: 'Elevate your space',
+        description: 'Integrated LED lighting, smart storage solutions, and modern hardware that transform your cabinetry into a high-performance system.',
+        features: ['LED lighting', 'Smart storage', 'Modern hardware', 'Soft-close systems'],
+        url: '/services#accessories'
+      }
+    ]
+  },
 
   // Timelines
   timelines: {
@@ -173,14 +227,37 @@ export const sustainability = {
     ]
   },
   bamboo: {
-    title: 'Innovative Bamboo Board Technology',
-    description: 'Made from highly sustainable bamboo which grows 30 times faster than hardwoods.',
+    title: 'Bringing Bamboo Board to the Canadian Market',
+    description: 'Advanced coating technology designed for better air quality. Bamboo grows 30 times faster than hardwood (3-5 years vs. 30-50 years), making it a truly sustainable material.',
+    innovation: 'First to bring Holike\'s advanced coating technology to Canada',
     benefits: [
-      'Grows 30x faster than hardwoods',
+      'Grows 30x faster than hardwoods (3-5 years vs. 30-50 years)',
       'Zero-added formaldehyde (NAF)',
-      'Advanced air-cleaning technology',
-      'Highly renewable and sustainable',
-      'CARB, EPA, and F4 Star certified'
+      'Advanced air-cleaning technology with antibacterial properties',
+      'Highly renewable and sustainable resource',
+      'CARB, EPA, and F4 Star certified',
+      'Superior durability and moisture resistance'
+    ]
+  },
+  powderSpray: {
+    title: 'Zero VOC Powder Spray Finishing',
+    description: 'Aerospace and medical equipment technology for cabinetry. More durable than traditional paint with zero VOC emissions.',
+    benefits: [
+      'Zero VOC emissions - completely safe for indoor air quality',
+      'Safe to occupy immediately after installation',
+      'Superior durability compared to traditional paint',
+      'Same technology used in aerospace and medical equipment',
+      'Environmentally responsible finishing process'
+    ]
+  },
+  leed: {
+    title: 'LEED & Green Building Contribution',
+    description: 'Our sustainable materials contribute to LEED and green building certifications for residential and commercial projects.',
+    benefits: [
+      'Supports LEED certification goals',
+      'Meets Canada Green Building Council (CaGBC) standards',
+      'Contributes to net-zero ready buildings',
+      'Helps builders win green building projects'
     ]
   },
   nanoClean: {
@@ -204,9 +281,42 @@ export const sustainability = {
 
 // Company description variations for different contexts
 export const companyDescriptions = {
-  hero: 'Explore 100+ finishes in our 5,500 sq ft North York showroom. Bring your own design or work with Bosco Cabinetrys\'s in-house designer to create kitchens, closets, and full-home renovations that fit your lifestyle. Luxury without the luxury price tag.',
+  // Homepage hero (dual message - cabinets + complete solutions)
+  hero: 'Expert custom cabinetry—plus matching interior doors, wall paneling, countertops, and accessories. Everything from one source for beautifully cohesive results. Explore 100+ finishes in our 5,500 sq ft North York showroom.',
+
+  // Complete solutions positioning
+  completeSolution: {
+    headline: 'Complete Interior Solutions for the Whole Home',
+    tagline: 'Everything from one source',
+    problem: 'Most homeowners need to coordinate 5 different vendors to get a cohesive interior—dealing with mismatched timelines, inflated middleman pricing, and hoping everything comes together.',
+    solution: 'Bosco Cabinetry provides custom cabinetry, interior doors, wall paneling, countertops, and smart accessories from one trusted source. Coordinated design, unified timelines, and direct manufacturer pricing.',
+    benefits: [
+      'Single consultation covers all products',
+      'Coordinated design across cabinetry, doors, and paneling',
+      'One timeline, one point of contact',
+      'Direct pricing without multiple middlemen',
+      'Better than managing 5 different vendors'
+    ]
+  },
+
+  // Custom at Production Scale differentiator
+  customAtScale: {
+    headline: 'Custom Quality at Production Scale',
+    tagline: 'Most custom shops can\'t scale. Most production shops can\'t customize. We do both.',
+    description: 'Our partnership with Holike—an ISO-certified manufacturer with 22+ years of experience and over 1 million square feet of production space—lets us deliver custom quality with production-scale reliability, without the inflated pricing typical of custom shops.',
+    whatYouGet: [
+      'Full customization - your sizes, your finishes, your design',
+      'Consistent quality across projects',
+      'Direct supply chain - no unnecessary middleman markup',
+      'Production-scale reliability with custom shop flexibility',
+      'Builder-backed systems that prevent delays'
+    ],
+    proof: '100+ completed projects with globally-proven manufacturing excellence'
+  },
+
+  // Legacy descriptions (still used in various places)
   about: 'With 100+ completed projects, Bosco Cabinetry specializes in custom kitchen cabinets, closet systems, and built-in units. Visit our North York showroom to explore over 100 finish options.',
-  aboutOrigin: 'Founded by Toronto custom-home builders who saw homeowners struggling with impossible choices: overpriced luxury brands, cheap big-box cabinets, or mid-range options with zero flexibility. We created Bosco Cabinetry to bring builder-backed expertise, luxury finishes, and accessible prices to Toronto.',
+  aboutOrigin: 'Founded by Toronto custom-home builders who saw homeowners struggling with impossible choices: overpriced luxury brands, cheap big-box cabinets, or mid-range options with zero flexibility. Then our clients started asking: "Can you source the doors too? What about countertops?" We realized we could solve the ENTIRE coordination problem—not just part of it. Today, we provide complete interior solutions while maintaining our core expertise in custom cabinetry.',
   contact: 'Get your free consultation and quote within 48 hours. Let\'s bring your vision to life.',
   serviceAreaExpanded: `
     <div class="space-y-6">

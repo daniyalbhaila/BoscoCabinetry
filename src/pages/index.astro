@@ -10,7 +10,7 @@ import ProjectGallery from '../components/ProjectGallery.astro';
 import ShowroomHighlight from '../components/ShowroomHighlight.astro';
 import ServiceAreaSection from '../components/ServiceAreaSection.astro';
 import SectionWrapper from '../components/SectionWrapper.astro';
-import { companyInfo } from '../content/shared.ts';
+import { companyInfo, companyDescriptions } from '../content/shared.ts';
 import ProcessSection from '../components/ProcessSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import DesignInspiration from '../components/DesignInspiration.astro';
@@ -27,8 +27,13 @@ import { localBusinessSchema } from '../content/structured-data.ts';
 >
 	<!-- LocalBusiness Schema -->
 	<script type="application/ld+json" slot="head" set:html={JSON.stringify(localBusinessSchema)} />
-	<!-- Hero (dark) -->
-	<Hero />
+	<!-- Hero (dark) - Dual message: Cabinets + Complete Solutions -->
+	<Hero
+		titleHighlight="Custom Kitchen Cabinets"
+		titleRest="& Complete Interior Solutions"
+		kicker={companyInfo.completeSolutionsTagline}
+		description={companyDescriptions.hero}
+	/>
 	<!-- Services Snapshot (light) -->
 	<Services />
 	<!-- Single Review with Project (dark) -->
@@ -55,8 +60,39 @@ import { localBusinessSchema } from '../content/structured-data.ts';
 	</SectionWrapper>
 	<!-- Process Section (dark) -->
 	<ProcessSection />
-	<!-- FAQ Section (light) -->
-	<FAQSection />
+	<!-- FAQ Section (light) - Clarity-focused for new positioning -->
+	<FAQSection
+		items={[
+			{
+				question: 'Can I just order cabinets, or do I have to buy everything?',
+				answer: 'Absolutely! Many clients start with just cabinets. The advantage is you CAN add matching doors or paneling later from the same source. No pressure to bundle—we\'re happy to quote any combination that works for your project.'
+			},
+			{
+				question: 'Do you do full renovations or just provide products?',
+				answer: 'We provide all the interior products (cabinets, doors, paneling, countertops) and coordinate installation. You may still need a contractor for plumbing, electrical, and structural work. We focus on the beautiful finishes that make your space complete.'
+			},
+			{
+				question: 'How does pricing work if I order multiple products?',
+				answer: 'Bundling multiple products often costs LESS than using separate vendors because you avoid multiple delivery fees and middleman markups. Plus, everything is coordinated in one timeline. We provide transparent quotes with no hidden fees.'
+			},
+			{
+				question: 'Are you competing with my contractor or working with them?',
+				answer: 'We work with your contractor! Many contractors order products from us and handle the installation themselves. We also work directly with homeowners and coordinate our own installation team. Either way works—your choice.'
+			},
+			{
+				question: 'How long does a typical kitchen cabinet project take?',
+				answer: 'Custom cabinetry takes 8-12 weeks depending on project complexity and customization. If you bundle multiple products (cabinets + countertops + doors), we coordinate everything in one unified timeline—often faster than managing separate vendors.'
+			},
+			{
+				question: 'What makes Bosco different from other cabinet companies?',
+				answer: 'Most custom shops can\'t scale. Most production shops can\'t customize. We do both through our partnership with Holike—delivering fully custom quality with production-scale reliability and direct manufacturer pricing. Plus, we\'re the only company offering everything from cabinets to doors to countertops from one source.'
+			},
+			{
+				question: 'Do your sustainable materials apply to all products or just cabinets?',
+				answer: 'Our formaldehyde-free (NAF) materials and sustainable options are available across ALL our products—cabinets, doors, and paneling. We maintain the same eco-certified standards throughout our complete product line.'
+			}
+		]}
+	/>
 	<!-- Multiple Reviews (dark) -->
 	<Reviews />
 	<!-- Lead Magnet (light) -->
