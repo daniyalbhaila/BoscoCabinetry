@@ -1,4 +1,4 @@
-# robots.txt for Bosco Cabinetry
+# robots.txt for B3 Interiors
 # Allow all search engines and AI crawlers
 
 User-agent: *
