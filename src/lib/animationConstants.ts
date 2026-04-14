@@ -40,10 +40,11 @@ export const ANIMATION_DELAYS = {
    * EXTRA_SLOW - Dramatic effect (160ms)
    * Use for: Split layouts, side-by-side content
    */
-  EXTRA_SLOW: 160
+  EXTRA_SLOW: 160,
 } as const;
 
 /**
  * Type for animation delay values
  */
-export type AnimationDelay = typeof ANIMATION_DELAYS[keyof typeof ANIMATION_DELAYS];
+export type AnimationDelay =
+  (typeof ANIMATION_DELAYS)[keyof typeof ANIMATION_DELAYS];

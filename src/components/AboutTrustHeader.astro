@@ -31,7 +31,7 @@ import Star from './icons/Star.astro';
 
     <!-- Main Heading -->
     <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
-      About Bosco Cabinetry
+      About B3 Interiors
     </h1>
 
     <!-- Subtitle -->
@@ -41,19 +41,10 @@ import Star from './icons/Star.astro';
 
     <!-- Trust Signals Grid -->
     <div class="flex flex-wrap gap-6 md:gap-8 items-center text-sm md:text-base">
-      <!-- Google Rating -->
+      <!-- Reviews -->
       <div class="flex items-center gap-2">
-        <div class="flex items-center">
-          {[...Array(5)].map(() => (
-            <Star class="w-4 h-4 md:w-5 md:h-5 text-yellow-400 fill-yellow-400" />
-          ))}
-        </div>
-        <span class="text-white font-medium">
-          {companyInfo.stats.googleRating}
-        </span>
-        <span class="text-white/70">
-          ({companyInfo.stats.googleReviews})
-        </span>
+        <Star class="w-4 h-4 md:w-5 md:h-5 text-yellow-400 fill-yellow-400" />
+        <span class="font-medium text-white">Reviews</span>
       </div>
 
       <!-- Divider -->
@@ -67,9 +58,9 @@ import Star from './icons/Star.astro';
       <!-- Divider -->
       <span class="hidden md:block text-brand-accent">|</span>
 
-      <!-- Holike Partnership -->
+      <!-- Service Positioning -->
       <div class="text-white/70">
-        <span class="font-medium text-white">Exclusive Holike Distributor</span>
+        <span class="font-medium text-white">Complete Interior Solutions</span>
       </div>
 
       <!-- Divider -->
