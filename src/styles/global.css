@@ -1,4 +1,4 @@
-/* Bosco design system base (optional) - removed non-existent import */
+/* B3 design system base (optional) - removed non-existent import */
 
 @tailwind base;
 @tailwind components;
@@ -243,12 +243,12 @@ body.font-loaded * {
 @layer utilities {
   /* Hide scrollbar but keep functionality */
   .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 
   .scrollbar-hide::-webkit-scrollbar {
-    display: none;  /* Chrome, Safari, Opera */
+    display: none; /* Chrome, Safari, Opera */
   }
 }
 
@@ -321,7 +321,9 @@ body.font-loaded * {
 .js-enabled [data-animate-on-scroll] {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Only apply will-change before animation starts */
@@ -338,7 +340,9 @@ body.font-loaded * {
 .js-enabled [data-animate-item] {
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: calc(var(--scroll-animate-delay, 0) * 1ms);
 }
 
