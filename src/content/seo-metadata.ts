@@ -15,7 +15,8 @@ export interface SEOMetadata {
 // Homepage SEO
 export const homepageSEO: SEOMetadata = {
   // Primary (60 chars) - Keyword-first, emotional trigger, brand
-  title: "Custom Cabinets Toronto | Luxury Quality | B3 Interiors",
+  title:
+    "Custom Cabinets Toronto | Luxury Custom Cabinetry & Renovations | B3 Interiors",
   description:
     "Transform your Toronto home with custom kitchen cabinets, closets & built-ins. 100+ finishes, 100+ completed projects, professional design. Book consultation ✓",
   keywords:
@@ -39,11 +40,11 @@ export const homepageSEO: SEOMetadata = {
 // About Page SEO
 export const aboutSEO: SEOMetadata = {
   // Primary (60 chars) - Trust signals, local focus
-  title: "About B3 Interiors | Builder-Founded Toronto Since 2003",
+  title: "About B3 Interiors | Luxury Custom Cabinets & Interiors Toronto",
   description:
     "Founded by Toronto renovation contractors & custom-home builders. 20+ years crafting luxury kitchen cabinets with premium hardware, closets & cabinetry. Eco-certified (NAF), 5,500 sq ft showroom →",
   keywords:
-    "about bosco cabinetry, toronto renovation contractor, custom home builders, interior design cabinetry, eco-certified cabinets, formaldehyde-free, sustainable cabinetry, holike distributor canada",
+    "about b3 interiors, toronto renovation contractor, custom home builders, interior design cabinetry, eco-certified cabinets, formaldehyde-free, sustainable cabinetry, holike distributor canada",
   ogImage: "/media/og-image.jpg",
 
   titleVariations: [
@@ -148,7 +149,8 @@ export const builtInsSEO: SEOMetadata = {
 
 // Full Home Cabinetry Service Page SEO
 export const fullHomeCabinetrySEO: SEOMetadata = {
-  title: "Full Home Cabinetry Toronto | Complete Solutions | B3",
+  title:
+    "Full-Home Interiors Toronto | Custom Cabinets, Kitchen & Bathroom Renovations | B3 Interiors",
   description:
     "Coordinated cabinetry throughout your Toronto home. Kitchens, bathrooms, closets, built-ins with unified design. One team, seamless results. Get quote ✓",
   keywords:
@@ -170,7 +172,8 @@ export const fullHomeCabinetrySEO: SEOMetadata = {
 
 // Portfolio Page SEO
 export const portfolioSEO: SEOMetadata = {
-  title: "Portfolio | Toronto Custom Cabinetry Projects | B3",
+  title:
+    "Portfolio | Custom Cabinet & Renovation Projects Toronto | B3 Interiors",
   description:
     "Browse our custom cabinetry portfolio. Kitchen cabinets, closets, built-ins & bathroom vanities across Toronto GTA. Get inspired for your project ✓",
   keywords:
@@ -196,7 +199,7 @@ export const contactSEO: SEOMetadata = {
   description:
     "Get your free custom cabinetry consultation. Call (647) 766-7744, visit our North York showroom, or book online. Serving Toronto GTA. 48-hour response ✓",
   keywords:
-    "contact bosco cabinetry, free cabinetry consultation toronto, north york showroom, custom cabinet quote, toronto cabinetry experts",
+    "contact b3 interiors, free cabinetry consultation toronto, north york showroom, custom cabinet quote, toronto cabinetry experts",
   ogImage: "/media/og-image.jpg",
 
   titleVariations: [
@@ -214,7 +217,8 @@ export const contactSEO: SEOMetadata = {
 
 // Trade/Wholesale Page SEO
 export const tradeSEO: SEOMetadata = {
-  title: "Trade Program Toronto | Wholesale Cabinets | B3",
+  title:
+    "Trade Program Toronto | Wholesale Cabinets & Interiors | B3 Interiors",
   description:
     "Builder & designer trade program. Wholesale custom cabinets, LEED-compatible materials, dedicated support. Exclusive Holike distributor. Join Toronto pros ✓",
   keywords:
@@ -236,7 +240,8 @@ export const tradeSEO: SEOMetadata = {
 
 // Sustainability Page SEO
 export const sustainabilitySEO: SEOMetadata = {
-  title: "Sustainable Cabinets Toronto | Formaldehyde-Free | B3",
+  title:
+    "Sustainable Cabinetry & Interiors Toronto | Eco-Friendly & Formaldehyde-Free | B3 Interiors",
   description:
     "Healthier homes through eco-friendly cabinetry. Zero-added formaldehyde (NAF), air-purifying technology, EPA & CARB certified. Sustainable options for Toronto ✓",
   keywords:
@@ -262,7 +267,7 @@ export const thankYouSEO: SEOMetadata = {
   description:
     "Thank you for contacting B3 Interiors. We'll respond within 48 hours to discuss your custom cabinetry project. Toronto's trusted cabinetry experts.",
   keywords:
-    "thank you, bosco cabinetry confirmation, consultation scheduled, toronto cabinetry",
+    "thank you, b3 interiors confirmation, consultation scheduled, toronto cabinetry",
   ogImage: "/media/og-image.jpg",
 
   titleVariations: [
@@ -277,7 +282,8 @@ export const thankYouSEO: SEOMetadata = {
 
 // Blog Hub SEO
 export const blogHubSEO: SEOMetadata = {
-  title: "Cabinetry Blog Toronto | Guides & Insights | B3",
+  title:
+    "Cabinetry & Interiors Blog Toronto | Guides & Insights | B3 Interiors",
   description:
     "Expert cabinetry blog featuring renovation guides, trade insights, and sourcing advice for Toronto homeowners and professionals. Stay informed with B3 Interiors ✓",
   keywords:

@@ -20,7 +20,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "importing-custom-cabinetry-from-china",
     title: "Importing Cabinetry from China | 2025 Guide | B3 Interiors",
     description:
-      "Complete guide to importing custom cabinetry from China. Learn about Holike partnership, quality standards, certifications & Toronto delivery. Expert insights ✓",
+      "Complete guide to importing custom cabinetry from China. Learn about quality standards, certifications, direct sourcing & Toronto delivery. Expert insights ✓",
     keywords:
       "importing cabinets from china, chinese cabinetry manufacturers, holike cabinets canada, overseas cabinetry import, custom cabinet sourcing",
     author: "B3 Interiors Team",

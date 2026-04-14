@@ -12,7 +12,8 @@ import WholeHomeInvestmentImage from "../../assets/Portfolio/FullHome_Robina/30.
 
 export const fullHomeCabinetryPageContent = {
   seo: {
-    title: "Full-Home Interiors Toronto | Complete Solutions | B3 Interiors",
+    title:
+      "Full-Home Interiors Toronto | Custom Cabinets, Kitchen & Bathroom Renovations | B3 Interiors",
     description:
       "Coordinated cabinetry throughout your Toronto home. Kitchens, bathrooms, closets, built-ins with unified design. One team, seamless results. Get quote ✓",
     keywords:
@@ -22,10 +23,10 @@ export const fullHomeCabinetryPageContent = {
 
   hero: {
     highlight: "Complete",
-    title: "Full-Home Interiors Solutions",
-    kicker: "Coordinated Custom Cabinets Throughout Your Entire Home",
+    title: "Complete Full-Home Interior Solutions",
+    kicker: "Your Entire Home. One Team. One Vision.",
     description:
-      "From kitchen to bathrooms, closets to built-ins—create a cohesive aesthetic with coordinated cabinetry throughout your Toronto home. One team, one vision, seamless results.",
+      "From kitchens to bathrooms, closets to built-ins — create a cohesive, luxury aesthetic throughout your Toronto home with fully custom cabinetry, stone slabs, wall paneling, interior doors, and more. All made to your specifications, from one source.",
     image: FullHomeImage,
     transitionName: "service-hero-full-home-cabinetry",
     ctas: [
@@ -40,9 +41,9 @@ export const fullHomeCabinetryPageContent = {
 
   overview: {
     tag: "Whole-Home Solutions",
-    title: "Coordinated Cabinetry for Your Entire Home",
+    title: "Custom Cabinetry & Interiors for Your Entire Home",
     description:
-      "Full home cabinetry projects create visual cohesion throughout your property with coordinated finishes, consistent quality, and unified design. Whether you're building a new home or renovating, our whole-home approach ensures every cabinet—from kitchen to closets—works together harmoniously.",
+      "A full-home project means every room is designed together — same finishes, same quality, same vision. Whether you’re building new or renovating, we handle everything from one source.",
   },
 
   features: [
@@ -55,7 +56,7 @@ export const fullHomeCabinetryPageContent = {
     {
       title: "Single-Source Convenience",
       description:
-        "One team handles all cabinetry—kitchens, bathrooms, closets, built-ins, and storage. Simplified project management with consistent quality and communication.",
+        "One team handles everything — cabinetry, stone slabs, wall paneling, interior doors, closets, and more. Simplified project management, consistent quality.",
       icon: "Users",
     },
     {

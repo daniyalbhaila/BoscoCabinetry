@@ -110,17 +110,17 @@ export const companyInfo = {
 
   // URLs
   urls: {
-    googleReviews: "https://maps.app.goo.gl/YBFNcghn4mcuqdNw8",
+    googleReviews: "https://maps.app.goo.gl/C6pw5ws9NRF8YitR8",
     bookConsultation:
       "https://api.leadconnectorhq.com/widget/booking/NATTWhNx0XNmCEdbp6SN",
   },
 
   // Social Media
   social: {
-    facebook: "https://www.facebook.com/boscocabinetrycan/",
-    instagram: "https://www.instagram.com/bosco.cabinetry",
-    linkedin: "https://linkedin.com/company/bosco-cabinetry/",
-    tiktok: "https://www.tiktok.com/@boscocabinetry",
+    facebook: "https://www.facebook.com/b3interiorsca",
+    instagram: "https://www.instagram.com/b3interiorsca",
+    linkedin: "https://linkedin.com/company/b3interiorsca/",
+    tiktok: "https://www.tiktok.com/@b3interiors",
   },
 };
 
@@ -218,11 +218,11 @@ export const sustainability = {
 
 // Company description variations for different contexts
 export const companyDescriptions = {
-  hero: "Explore 100+ finishes in our 5,500 sq ft North York showroom. Bring your own design or work with B3 Interiors' in-house designer to create kitchens, bathrooms, closets, and full-home renovations that fit your lifestyle. Luxury without the luxury price tag.",
+  hero: "Explore 100+ finishes in our 5,500 sq ft North York showroom. Bring your own design or work with B3 Interiors’ in-house designer to create kitchens, bathrooms, closets, and full-home renovations that fit your lifestyle. From custom cabinetry to stone slabs, wall paneling, interior doors, and more — everything from one source.",
   about:
     "With 100+ completed projects, B3 Interiors specializes in complete interior solutions across kitchens, bathrooms, closets, and built-ins. Visit our North York showroom to explore over 100 finish options.",
   aboutOrigin:
-    "Founded by Toronto custom-home builders who saw homeowners struggling with impossible choices: overpriced luxury brands, cheap big-box cabinets, or mid-range options with zero flexibility. We created B3 Interiors to bring builder-backed expertise, luxury finishes, and accessible prices to Toronto.",
+    "Founded by Toronto custom-home builders who saw homeowners struggling with impossible choices: overpriced luxury brands, cheap big-box cabinets, or mid-range options with zero flexibility. We created B3 Interiors to bring builder-backed expertise, premium finishes, and transparent pricing to Toronto.",
   contact:
     "Get your free consultation and quote within 48 hours. Let's bring your vision to life.",
   serviceAreaExpanded: `

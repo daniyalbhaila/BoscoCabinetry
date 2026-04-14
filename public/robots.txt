@@ -35,4 +35,4 @@ Allow: /images/
 Allow: /media/
 
 # Sitemap location (Astro generates sitemap-index.xml automatically)
-Sitemap: https://boscocabinetry.ca/sitemap-index.xml
+Sitemap: https://b3interiors.ca/sitemap-index.xml

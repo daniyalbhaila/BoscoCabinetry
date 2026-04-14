@@ -3,7 +3,7 @@
 
 import { companyInfo, holikePartnership } from "./shared";
 
-const OG_IMAGE_ABSOLUTE = "https://boscocabinetry.ca/media/og-image.jpg";
+const OG_IMAGE_ABSOLUTE = "https://b3interiors.ca/media/og-image.jpg";
 
 // Helper to generate BreadcrumbList schema
 export function generateBreadcrumbs(
@@ -16,7 +16,7 @@ export function generateBreadcrumbs(
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      ...(item.url && { item: `https://boscocabinetry.ca${item.url}` }),
+      ...(item.url && { item: `https://b3interiors.ca${item.url}` }),
     })),
   };
 }
@@ -25,12 +25,12 @@ export function generateBreadcrumbs(
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://boscocabinetry.ca/#business",
+  "@id": "https://b3interiors.ca/#business",
   name: companyInfo.name,
   description:
     "Custom kitchen cabinets, closets, and built-ins serving Toronto and the Greater Toronto Area. Builder-founded with 100+ completed projects.",
-  url: "https://boscocabinetry.ca",
-  logo: "https://boscocabinetry.ca/logo.png",
+  url: "https://b3interiors.ca",
+  logo: "https://b3interiors.ca/logo.png",
   image: OG_IMAGE_ABSOLUTE,
   telephone: companyInfo.contact.phone.number,
   email: companyInfo.contact.email.address,
@@ -138,16 +138,16 @@ export function generateServiceSchema(service: {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `https://boscocabinetry.ca${service.url}#service`,
+    "@id": `https://b3interiors.ca${service.url}#service`,
     serviceType: service.name,
     name: service.name,
     description: service.description,
     provider: {
       "@type": "LocalBusiness",
-      "@id": "https://boscocabinetry.ca/#business",
+      "@id": "https://b3interiors.ca/#business",
       name: companyInfo.name,
       telephone: companyInfo.contact.phone.number,
-      url: "https://boscocabinetry.ca",
+      url: "https://b3interiors.ca",
     },
     areaServed: (
       service.areaServed || companyInfo.serviceAreas.map((a) => a.city)
@@ -216,7 +216,7 @@ export const fullHomeCabinetryServiceSchema = generateServiceSchema({
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://boscocabinetry.ca/#organization",
+  "@id": "https://b3interiors.ca/#organization",
   name: companyInfo.name,
   alternateName: "B3 Custom Cabinetry Toronto",
   description:
@@ -302,18 +302,18 @@ export function generateWebPageSchema(page: {
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `https://boscocabinetry.ca${page.url}#webpage`,
+    "@id": `https://b3interiors.ca${page.url}#webpage`,
     name: page.name,
     description: page.description,
-    url: `https://boscocabinetry.ca${page.url}`,
+    url: `https://b3interiors.ca${page.url}`,
     isPartOf: {
       "@type": "WebSite",
-      "@id": "https://boscocabinetry.ca/#website",
+      "@id": "https://b3interiors.ca/#website",
       name: "B3 Interiors",
-      url: "https://boscocabinetry.ca",
+      url: "https://b3interiors.ca",
     },
     about: {
-      "@id": "https://boscocabinetry.ca/#organization",
+      "@id": "https://b3interiors.ca/#organization",
     },
     primaryImageOfPage: {
       "@type": "ImageObject",
@@ -362,7 +362,7 @@ export function generateProductSchema(product: {
       },
       seller: {
         "@type": "Organization",
-        "@id": "https://boscocabinetry.ca/#organization",
+        "@id": "https://b3interiors.ca/#organization",
       },
     },
     aggregateRating: {

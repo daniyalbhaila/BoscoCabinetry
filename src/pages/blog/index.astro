@@ -24,13 +24,13 @@ const breadcrumbSchema = generateBreadcrumbs([
   description={seoMetadata.blogHub.description}
   keywords={seoMetadata.blogHub.keywords}
   ogImage={seoMetadata.blogHub.ogImage}
-  canonicalURL="https://boscocabinetry.ca/blog"
+  canonicalURL="https://b3interiors.ca/blog"
 >
   <!-- Blog & Resources Page - SEO-focused, minimal consumer visibility -->
 
   <!-- Trust Header (DRY - reused from About page pattern) -->
   <TrustHeader
-    title="Cabinetry Blog & Trade Guides"
+    title="Cabinetry & Interiors Blog — Expert Guides"
     subtitle="Expert insights for Toronto homeowners, designers, and contractors"
     breadcrumbs={breadcrumbs}
   />
@@ -106,9 +106,9 @@ const breadcrumbSchema = generateBreadcrumbs([
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      "name": "Cabinetry Blog & Trade Guides",
+      "name": "Cabinetry & Interiors Blog — Expert Guides",
       "description": "Expert cabinetry blog with renovation guides, trade insights, and sourcing advice from B3 Interiors.",
-      "url": "https://boscocabinetry.ca/blog",
+      "url": "https://b3interiors.ca/blog",
       "publisher": {
         "@type": "Organization",
         "name": "B3 Interiors"
@@ -117,7 +117,7 @@ const breadcrumbSchema = generateBreadcrumbs([
         "@type": "Article",
         "headline": article.title,
         "description": article.description,
-        "url": `https://boscocabinetry.ca/blog/${article.slug}`,
+        "url": `https://b3interiors.ca/blog/${article.slug}`,
         "datePublished": article.publishDate,
         "author": {
           "@type": "Organization",
