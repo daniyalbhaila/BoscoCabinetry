@@ -1,174 +1,202 @@
 // SEO-optimized content for Custom Closets service page
 // Target keywords: "Custom Closets Toronto", "Walk-in Closet Systems", "Reach-in Closets", "Closet Organization"
 
-import { companyInfo } from '../shared.ts';
-import ClosetImage from '../../assets/Closet.jpg';
-import WalkInClosetImage from '../../assets/Closet.jpg';
-import ReachInClosetImage from '../../assets/Portfolio/FullHome_Robina/21.jpg';
-import MudroomImage from '../../assets/Portfolio/FullHome_Robina/29.jpg';
-import ClosetOrganizationImage from '../../assets/Portfolio/FullHome_Robina/10.jpg';
-import TorontoClosetImage from '../../assets/Portfolio/FullHome_Robina/37.jpg';
-import ClosetInvestmentImage from '../../assets/Portfolio/FullHome_Robina/20.jpg';
+import { companyInfo } from "../shared.ts";
+import ClosetImage from "../../assets/Closet.jpg";
+import WalkInClosetImage from "../../assets/Closet.jpg";
+import ReachInClosetImage from "../../assets/Portfolio/FullHome_Robina/21.jpg";
+import MudroomImage from "../../assets/Portfolio/FullHome_Robina/29.jpg";
+import ClosetOrganizationImage from "../../assets/Portfolio/FullHome_Robina/10.jpg";
+import TorontoClosetImage from "../../assets/Portfolio/FullHome_Robina/37.jpg";
+import ClosetInvestmentImage from "../../assets/Portfolio/FullHome_Robina/20.jpg";
 
 export const customClosetsPageContent = {
   seo: {
-    title: "Custom Closets Toronto | Walk-In & Reach-In | Bosco Cabinetry",
-    description: "Transform storage with custom walk-in closets, reach-in systems & mudroom organization. 100+ finishes, expert design, professional install. Free quote ✓",
-    keywords: "custom closets toronto, walk-in closet systems, reach-in closets, closet organization, wardrobe systems, mudroom storage toronto",
-    ogImage: "/media/og-image.jpg"
+    title: "Custom Closets Toronto | Walk-In & Reach-In | B3 Interiors",
+    description:
+      "Transform storage with custom walk-in closets, reach-in systems & mudroom organization. 100+ finishes, expert design, professional install. Free quote ✓",
+    keywords:
+      "custom closets toronto, walk-in closet systems, reach-in closets, closet organization, wardrobe systems, mudroom storage toronto",
+    ogImage: "/media/og-image.jpg",
   },
 
   hero: {
     highlight: "Custom",
     title: "Closet Systems That Maximize Every Inch",
     kicker: "Walk-In Closets, Reach-In Systems & Mudroom Organization",
-    description: "From luxury walk-in wardrobes with soft-close drawer organizers to space-saving reach-in systems, we design custom closets with premium hardware that bring order and elegance to your Toronto home.",
+    description:
+      "From luxury walk-in wardrobes with soft-close drawer organizers to space-saving reach-in systems, we design custom closets with premium hardware that bring order and elegance to your Toronto home.",
     image: ClosetImage,
-    transitionName: 'service-hero-custom-closets',
+    transitionName: "service-hero-custom-closets",
     ctas: [
-      { text: 'Book Free Design Consultation', href: companyInfo.urls.bookConsultation, variant: 'primary' },
-      { text: 'Explore Closet Gallery', href: '/portfolio', variant: 'ghost' }
-    ]
+      {
+        text: "Book Free Design Consultation",
+        href: companyInfo.urls.bookConsultation,
+        variant: "primary",
+      },
+      { text: "Explore Closet Gallery", href: "/portfolio", variant: "ghost" },
+    ],
   },
 
   overview: {
     tag: "Closet Solutions",
     title: "Complete Custom Closet & Home Improvement Systems",
-    description: "Whether you need a luxurious walk-in closet Toronto solution, an efficient reach-in system, or organized mudroom storage, our custom closet systems transform cluttered spaces into beautifully organized environments. Every closet features premium hardware, soft-close drawer organizers, and interior design elements tailored to your space, storage needs, and lifestyle."
+    description:
+      "Whether you need a luxurious walk-in closet Toronto solution, an efficient reach-in system, or organized mudroom storage, our custom closet systems transform cluttered spaces into beautifully organized environments. Every closet features premium hardware, soft-close drawer organizers, and interior design elements tailored to your space, storage needs, and lifestyle.",
   },
 
   features: [
     {
       title: "Walk-In Closet Design",
-      description: "Luxury walk-in closets with custom hanging systems, built-in drawers, shoe racks, and accessories. Transform your master bedroom into a boutique dressing room.",
-      icon: "Ruler"
+      description:
+        "Luxury walk-in closets with custom hanging systems, built-in drawers, shoe racks, and accessories. Transform your master bedroom into a boutique dressing room.",
+      icon: "Ruler",
     },
     {
       title: "Reach-In Closet Systems",
-      description: "Maximize bedroom and hallway closets with smart organization systems. Custom shelving, adjustable rods, and pull-out accessories make the most of compact spaces.",
-      icon: "Building"
+      description:
+        "Maximize bedroom and hallway closets with smart organization systems. Custom shelving, adjustable rods, and pull-out accessories make the most of compact spaces.",
+      icon: "Building",
     },
     {
       title: "Mudroom & Entryway Storage",
-      description: "Keep your entryway organized with custom mudroom systems featuring coat hooks, shoe storage, bench seating, and cubby systems for busy families.",
-      icon: "Hammer"
+      description:
+        "Keep your entryway organized with custom mudroom systems featuring coat hooks, shoe storage, bench seating, and cubby systems for busy families.",
+      icon: "Hammer",
     },
     {
       title: "100+ Premium Finishes",
-      description: "Choose from wood grain, matte, gloss, and specialty finishes that complement your bedroom design. Visit our showroom to see samples in person.",
-      icon: "Sparkles"
-    }
+      description:
+        "Choose from wood grain, matte, gloss, and specialty finishes that complement your bedroom design. Visit our showroom to see samples in person.",
+      icon: "Sparkles",
+    },
   ],
 
   process: {
     tag: "Our Process",
     title: "From Cluttered to Organized in 4 Steps",
-    description: "Our proven closet design process ensures your storage solution is perfectly tailored to your wardrobe, accessories, and daily routine.",
+    description:
+      "Our proven closet design process ensures your storage solution is perfectly tailored to your wardrobe, accessories, and daily routine.",
     steps: [
       {
-        step: '01',
-        title: 'Free Closet Consultation',
-        description: 'We assess your space, discuss your storage needs, wardrobe size, and organizational preferences at our showroom or in your home.',
+        step: "01",
+        title: "Free Closet Consultation",
+        description:
+          "We assess your space, discuss your storage needs, wardrobe size, and organizational preferences at our showroom or in your home.",
         icon: "Users",
         features: [
-          'Showroom or in-home closet assessment',
-          'Wardrobe and storage needs analysis',
-          'Space optimization recommendations',
-          'Style and finish recommendations through mood boards',
-          'Initial budget discussion',
-          'Transparent pricing with no hidden fees'
-        ]
+          "Showroom or in-home closet assessment",
+          "Wardrobe and storage needs analysis",
+          "Space optimization recommendations",
+          "Style and finish recommendations through mood boards",
+          "Initial budget discussion",
+          "Transparent pricing with no hidden fees",
+        ],
       },
       {
-        step: '02',
-        title: 'Design Commitment & 3D Rendering',
-        description: 'Once you commit to your project, we create detailed 3D renderings and finalize material selections at our showroom. Our interior design team helps you choose systems with soft-close hinges, drawer organizers, and features that maximize storage.',
+        step: "02",
+        title: "Design Commitment & 3D Rendering",
+        description:
+          "Once you commit to your project, we create detailed 3D renderings and finalize material selections at our showroom. Our interior design team helps you choose systems with soft-close hinges, drawer organizers, and features that maximize storage.",
         icon: "Ruler",
         features: [
-          'Detailed 3D renderings of your new closet system',
-          'Guided showroom tour with interior design consultation',
-          '100+ finish options',
-          'Drawer organizers and organizational accessories',
-          'Premium cabinet hardware: soft-close hinges and slides',
-          'Pull-out shelves and storage solutions',
-          'Final design approval'
-        ]
+          "Detailed 3D renderings of your new closet system",
+          "Guided showroom tour with interior design consultation",
+          "100+ finish options",
+          "Drawer organizers and organizational accessories",
+          "Premium cabinet hardware: soft-close hinges and slides",
+          "Pull-out shelves and storage solutions",
+          "Final design approval",
+        ],
       },
       {
-        step: '03',
-        title: 'Precision Manufacturing',
-        description: 'Your closet components are custom-built to exact specifications using premium materials. Every piece is quality-checked before delivery.',
+        step: "03",
+        title: "Precision Manufacturing",
+        description:
+          "Your closet components are custom-built to exact specifications using premium materials. Every piece is quality-checked before delivery.",
         icon: "Hammer",
         features: [
-          'Custom sizing for perfect fit',
-          'Quality materials and construction',
-          'Progress updates throughout',
-          'Pre-installation quality inspection',
-          'Rigorous quality control'
-        ]
+          "Custom sizing for perfect fit",
+          "Quality materials and construction",
+          "Progress updates throughout",
+          "Pre-installation quality inspection",
+          "Rigorous quality control",
+        ],
       },
       {
-        step: '04',
-        title: 'Professional Installation',
-        description: 'Expert installers assemble and mount your closet system with precision. We ensure everything is level, secure, and functioning perfectly.',
+        step: "04",
+        title: "Professional Installation",
+        description:
+          "Expert installers assemble and mount your closet system with precision. We ensure everything is level, secure, and functioning perfectly.",
         icon: "CheckCircle",
         features: [
-          'Experienced installation team',
-          'Minimal disruption to your home',
-          'Precise fitting and finishing',
-          'Final walk-through and adjustments',
-          'Post-installation support and warranty'
-        ]
-      }
-    ]
+          "Experienced installation team",
+          "Minimal disruption to your home",
+          "Precise fitting and finishing",
+          "Final walk-through and adjustments",
+          "Post-installation support and warranty",
+        ],
+      },
+    ],
   },
 
   serviceArea: {
     title: "Custom Closet Systems Across the Greater Toronto Area",
-    description: "From downtown Toronto condos to North York estates, we deliver custom walk-in closets, reach-in systems, and mudroom organization throughout the GTA with expert design and professional installation."
+    description:
+      "From downtown Toronto condos to North York estates, we deliver custom walk-in closets, reach-in systems, and mudroom organization throughout the GTA with expert design and professional installation.",
   },
 
   faqs: [
     {
       question: "How much do custom closets cost in Toronto?",
-      answer: "Custom closet systems range from $2,500 for basic reach-in closets to $15,000+ for luxury walk-in wardrobe systems. Pricing depends on closet size, finish selections, and organizational accessories. Walk-in closets typically range $5,000-$15,000, while reach-in systems are $2,500-$6,000. Book a free consultation for an accurate quote based on your specific space."
+      answer:
+        "Custom closet systems range from $2,500 for basic reach-in closets to $15,000+ for luxury walk-in wardrobe systems. Pricing depends on closet size, finish selections, and organizational accessories. Walk-in closets typically range $5,000-$15,000, while reach-in systems are $2,500-$6,000. Book a free consultation for an accurate quote based on your specific space.",
     },
     {
       question: "What's the difference between walk-in and reach-in closets?",
-      answer: "Walk-in closets are rooms you can enter, offering maximum storage with hanging space, drawers, shelving, and seating. They're ideal for master bedrooms with available square footage. Reach-in closets are accessed from the front with sliding or hinged doors, designed for bedrooms, hallways, and smaller spaces. Both can be custom-designed with organizational systems to maximize storage."
+      answer:
+        "Walk-in closets are rooms you can enter, offering maximum storage with hanging space, drawers, shelving, and seating. They're ideal for master bedrooms with available square footage. Reach-in closets are accessed from the front with sliding or hinged doors, designed for bedrooms, hallways, and smaller spaces. Both can be custom-designed with organizational systems to maximize storage.",
     },
     {
       question: "How long does custom closet installation take?",
-      answer: "Stock closets take 2 weeks. Custom cabinetry, it takes 8-12 weeks depending on project complexity and customization requirements."
+      answer:
+        "Stock closets take 2 weeks. Custom cabinetry, it takes 8-12 weeks depending on project complexity and customization requirements.",
     },
     {
       question: "Can you design closets for small spaces?",
-      answer: "Absolutely! Our reach-in closet systems excel in compact spaces. We use vertical space efficiently with adjustable shelving, double hanging rods, pull-out drawers, and specialized organizers. Even small closets can be transformed into highly functional storage systems that maximize every inch."
+      answer:
+        "Absolutely! Our reach-in closet systems excel in compact spaces. We use vertical space efficiently with adjustable shelving, double hanging rods, pull-out drawers, and specialized organizers. Even small closets can be transformed into highly functional storage systems that maximize every inch.",
     },
     {
       question: "What organizational features can you include?",
-      answer: "We offer extensive organizational accessories: adjustable shelving, double hanging rods, pull-out drawers, shoe racks, belt and tie organizers, jewelry trays, valet rods, LED lighting, mirrors, hampers, and specialty storage for handbags, scarves, and accessories. Our designers recommend features based on your wardrobe and habits."
+      answer:
+        "We offer extensive organizational accessories: adjustable shelving, double hanging rods, pull-out drawers, shoe racks, belt and tie organizers, jewelry trays, valet rods, LED lighting, mirrors, hampers, and specialty storage for handbags, scarves, and accessories. Our designers recommend features based on your wardrobe and habits.",
     },
     {
       question: "Do you provide 3D closet designs?",
-      answer: "Yes! Once you commit to your project, we create detailed 3D renderings so you can visualize your new closet system before we build. You'll see exactly how your closet will look, where items will be stored, and how the organizational systems function. This ensures complete satisfaction with the design."
+      answer:
+        "Yes! Once you commit to your project, we create detailed 3D renderings so you can visualize your new closet system before we build. You'll see exactly how your closet will look, where items will be stored, and how the organizational systems function. This ensures complete satisfaction with the design.",
     },
     {
       question: "Can you install closets in condos?",
-      answer: "Yes, we specialize in condo closet systems throughout Toronto. Our designs work within condo building restrictions, noise bylaws, and space constraints. We understand condo-specific challenges like concrete walls, limited access, and HOA requirements."
+      answer:
+        "Yes, we specialize in condo closet systems throughout Toronto. Our designs work within condo building restrictions, noise bylaws, and space constraints. We understand condo-specific challenges like concrete walls, limited access, and HOA requirements.",
     },
     {
       question: "What materials do you use for closet systems?",
-      answer: "We use premium materials including melamine, high-grade plywood, solid wood, and specialty finishes. All materials are durable and designed for daily use. Shelving is reinforced to support heavy items, and hardware is commercial-grade for long-lasting performance."
+      answer:
+        "We use premium materials including melamine, high-grade plywood, solid wood, and specialty finishes. All materials are durable and designed for daily use. Shelving is reinforced to support heavy items, and hardware is commercial-grade for long-lasting performance.",
     },
     {
       question: "Do you offer mudroom and entryway organization?",
-      answer: "Yes! We design custom mudroom systems with bench seating, coat hooks, shoe storage, cubbies for bags and accessories, and specialized storage for sports equipment and seasonal items. Mudroom systems keep your entryway organized and clutter-free."
+      answer:
+        "Yes! We design custom mudroom systems with bench seating, coat hooks, shoe storage, cubbies for bags and accessories, and specialized storage for sports equipment and seasonal items. Mudroom systems keep your entryway organized and clutter-free.",
     },
     {
       question: "Can I see closet system examples before deciding?",
-      answer: "Our 5,500 sq ft North York showroom features multiple closet system displays including walk-in configurations, reach-in examples, and mudroom setups. You can see organizational accessories, finishes, and hardware options in person. Appointments recommended but walk-ins welcome."
-    }
+      answer:
+        "Our 5,500 sq ft North York showroom features multiple closet system displays including walk-in configurations, reach-in examples, and mudroom setups. You can see organizational accessories, finishes, and hardware options in person. Appointments recommended but walk-ins welcome.",
+    },
   ],
 
   seoSections: [
@@ -187,9 +215,9 @@ export const customClosetsPageContent = {
         "Dedicated shoe storage and display",
         "Jewelry trays and accessory organizers",
         "Integrated LED lighting systems",
-        "Custom island or bench seating"
+        "Custom island or bench seating",
       ],
-      image: WalkInClosetImage
+      image: WalkInClosetImage,
     },
     {
       tag: "Reach-In Closets",
@@ -206,9 +234,9 @@ export const customClosetsPageContent = {
         "Pull-out drawers and baskets",
         "Shoe racks and organizers",
         "Accessory hooks and organizers",
-        "Vertical space maximization"
+        "Vertical space maximization",
       ],
-      image: ReachInClosetImage
+      image: ReachInClosetImage,
     },
     {
       tag: "Mudroom Organization",
@@ -225,9 +253,9 @@ export const customClosetsPageContent = {
         "Coat hooks and hanging space",
         "Dedicated shoe storage and boot trays",
         "Overhead cabinets for seasonal items",
-        "Drop zones for keys, mail, and accessories"
+        "Drop zones for keys, mail, and accessories",
       ],
-      image: MudroomImage
+      image: MudroomImage,
     },
     {
       tag: "Closet Organization",
@@ -244,14 +272,14 @@ export const customClosetsPageContent = {
         "Valet rods for outfit planning",
         "Handbag and accessory storage",
         "Pull-out hamper systems",
-        "Integrated LED closet lighting"
+        "Integrated LED closet lighting",
       ],
-      image: ClosetOrganizationImage
+      image: ClosetOrganizationImage,
     },
     {
       tag: "Closet Design Toronto",
       title: "Custom Closet Design Services in Toronto & GTA",
-      content: `<p>Toronto homeowners trust Bosco Cabinetry for custom closet design that maximizes space in condos, townhomes, and detached homes. From downtown Toronto apartments to North York estates, we create closet solutions tailored to your property's unique characteristics.</p>
+      content: `<p>Toronto homeowners trust B3 Interiors for custom closet design that maximizes space in condos, townhomes, and detached homes. From downtown Toronto apartments to North York estates, we create closet solutions tailored to your property's unique characteristics.</p>
 
 <p>Condo closets require creative solutions for limited square footage and building restrictions. Our designs maximize vertical space, use compact organizational systems, and work within condo bylaws. Detached homes with generous master bedrooms benefit from walk-in wardrobe designs that create boutique-style dressing spaces.</p>
 
@@ -263,9 +291,9 @@ export const customClosetsPageContent = {
         "Reach-in systems for bedrooms and hallways",
         "Heritage home closet renovations",
         "Service across Toronto and entire GTA",
-        "Professional installation with minimal disruption"
+        "Professional installation with minimal disruption",
       ],
-      image: TorontoClosetImage
+      image: TorontoClosetImage,
     },
     {
       tag: "Pricing & Investment",
@@ -281,10 +309,10 @@ export const customClosetsPageContent = {
         "Free in-home consultations",
         "Flexible options for any budget",
         "Installation and delivery included",
-        "Premium quality at competitive prices"
+        "Premium quality at competitive prices",
       ],
-      image: ClosetInvestmentImage
-    }
+      image: ClosetInvestmentImage,
+    },
   ],
 
   projectType: "closet",
@@ -294,18 +322,21 @@ export const customClosetsPageContent = {
   relatedServices: [
     {
       title: "Custom Kitchen Cabinets",
-      description: "Transform your kitchen with custom cabinets featuring soft-close hinges and premium hardware. 100+ finishes, expert design.",
-      url: "/services/kitchen-cabinets"
+      description:
+        "Transform your kitchen with custom cabinets featuring soft-close hinges and premium hardware. 100+ finishes, expert design.",
+      url: "/services/kitchen-cabinets",
     },
     {
       title: "Entertainment Centers & Built-Ins",
-      description: "Custom entertainment centers, home office built-ins, bookshelves, and storage solutions for every room.",
-      url: "/services/built-ins"
+      description:
+        "Custom entertainment centers, home office built-ins, bookshelves, and storage solutions for every room.",
+      url: "/services/built-ins",
     },
     {
       title: "Full Home Cabinetry",
-      description: "Unified design throughout your entire home. One team, seamless coordination, consistent quality.",
-      url: "/services/full-home-cabinetry"
-    }
-  ]
+      description:
+        "Unified design throughout your entire home. One team, seamless coordination, consistent quality.",
+      url: "/services/full-home-cabinetry",
+    },
+  ],
 };

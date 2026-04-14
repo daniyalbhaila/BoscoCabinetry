@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export interface FilterCategory {
   id: string;
@@ -9,24 +9,26 @@ export interface PortfolioFilterWrapperProps {
   categories: FilterCategory[];
 }
 
-export default function PortfolioFilterWrapper({ categories }: PortfolioFilterWrapperProps) {
-  const [activeFilter, setActiveFilter] = useState<string>('all');
+export default function PortfolioFilterWrapper({
+  categories,
+}: PortfolioFilterWrapperProps) {
+  const [activeFilter, setActiveFilter] = useState<string>("all");
   const [projectCount, setProjectCount] = useState<number>(0);
 
   useEffect(() => {
     // Get all project cards
-    const projectCards = document.querySelectorAll('[data-project-category]');
+    const projectCards = document.querySelectorAll("[data-project-category]");
     let visibleCount = 0;
 
     projectCards.forEach((card) => {
-      const category = card.getAttribute('data-project-category');
-      const shouldShow = activeFilter === 'all' || category === activeFilter;
+      const category = card.getAttribute("data-project-category");
+      const shouldShow = activeFilter === "all" || category === activeFilter;
 
       if (shouldShow) {
-        card.classList.remove('hidden');
+        card.classList.remove("hidden");
         visibleCount++;
       } else {
-        card.classList.add('hidden');
+        card.classList.add("hidden");
       }
     });
 
@@ -41,7 +43,10 @@ export default function PortfolioFilterWrapper({ categories }: PortfolioFilterWr
     <div>
       {/* Mobile: Dropdown Filter */}
       <div className="mb-12 md:hidden">
-        <label htmlFor="portfolio-filter" className="block text-sm font-medium text-white/90 mb-3 text-center">
+        <label
+          htmlFor="portfolio-filter"
+          className="block text-sm font-medium text-white/90 mb-3 text-center"
+        >
           Filter by Category
         </label>
         <select
@@ -49,7 +54,7 @@ export default function PortfolioFilterWrapper({ categories }: PortfolioFilterWr
           value={activeFilter}
           onChange={(e) => handleFilterClick(e.target.value)}
           className="w-full max-w-sm mx-auto block px-4 py-3 bg-white/10 border border-white/20 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent text-base"
-          style={{ minHeight: '48px' }}
+          style={{ minHeight: "48px" }}
         >
           {categories.map((category) => (
             <option
@@ -75,8 +80,8 @@ export default function PortfolioFilterWrapper({ categories }: PortfolioFilterWr
                 transition-all duration-300 ease-out
                 ${
                   activeFilter === category.id
-                    ? 'bg-[#60533C] text-white shadow-lg shadow-brand-primary/30 scale-105 border border-brand-accent/20'
-                    : 'bg-white/5 text-white/90 border border-white/20 hover:bg-white/10 hover:border-white/30 hover:scale-102'
+                    ? "bg-[#60533C] text-white shadow-lg shadow-brand-primary/30 scale-105 border border-brand-accent/20"
+                    : "bg-white/5 text-white/90 border border-white/20 hover:bg-white/10 hover:border-white/30 hover:scale-102"
                 }
               `}
               aria-pressed={activeFilter === category.id}
@@ -89,10 +94,12 @@ export default function PortfolioFilterWrapper({ categories }: PortfolioFilterWr
       </div>
 
       {/* No results message */}
-      {activeFilter !== 'all' && projectCount === 0 && (
+      {activeFilter !== "all" && projectCount === 0 && (
         <div className="text-center mb-8">
           <p className="text-gray-400 text-sm">
-            No projects found in {categories.find(c => c.id === activeFilter)?.label}. Try selecting a different filter.
+            No projects found in{" "}
+            {categories.find((c) => c.id === activeFilter)?.label}. Try
+            selecting a different filter.
           </p>
         </div>
       )}
