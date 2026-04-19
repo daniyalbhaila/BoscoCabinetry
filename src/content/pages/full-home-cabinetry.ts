@@ -1,5 +1,5 @@
-// SEO-optimized content for Full-Home Interiors service page
-// Target keywords: "Full-Home Interiors Toronto", "Whole Home Cabinet Installation", "Custom Home Millwork"
+// SEO-optimized content for Whole-Home Interiors service page
+// Target keywords: "Whole-Home Interiors Toronto", "Whole Home Cabinet Installation", "Custom Home Millwork"
 
 import { companyInfo } from "../shared.ts";
 import FullHomeImage from "../../assets/FullHome.jpg";
@@ -13,17 +13,17 @@ import WholeHomeInvestmentImage from "../../assets/Portfolio/FullHome_Robina/30.
 export const fullHomeCabinetryPageContent = {
   seo: {
     title:
-      "Full-Home Interiors Toronto | Custom Cabinets, Kitchen & Bathroom Renovations | B3 Interiors",
+      "Whole-Home Interiors Toronto | Custom Cabinets, Kitchens, Bathrooms & More | B3 Interiors",
     description:
       "Coordinated cabinetry throughout your Toronto home. Kitchens, bathrooms, closets, built-ins with unified design. One team, seamless results. Get quote ✓",
     keywords:
-      "full home cabinetry toronto, whole home cabinets, complete cabinetry solutions, coordinated millwork, home renovation cabinets",
+      "whole-home cabinetry toronto, whole home cabinets, complete cabinetry solutions, coordinated millwork, home renovation cabinets",
     ogImage: "/media/og-image.jpg",
   },
 
   hero: {
-    highlight: "Complete",
-    title: "Complete Full-Home Interior Solutions",
+    highlight: "Beautifully",
+    title: "Complete Whole-Home Interior Solutions",
     kicker: "Your Entire Home. One Team. One Vision.",
     description:
       "From kitchens to bathrooms, closets to built-ins — create a cohesive, luxury aesthetic throughout your Toronto home with fully custom cabinetry, stone slabs, wall paneling, interior doors, and more. All made to your specifications, from one source.",
@@ -43,7 +43,7 @@ export const fullHomeCabinetryPageContent = {
     tag: "Whole-Home Solutions",
     title: "Custom Cabinetry & Interiors for Your Entire Home",
     description:
-      "A full-home project means every room is designed together — same finishes, same quality, same vision. Whether you’re building new or renovating, we handle everything from one source.",
+      "A whole-home project means every room is designed together — same finishes, same quality, same vision. Whether you’re building new or renovating, we handle cabinetry, stone, paneling, doors, and more from one source.",
   },
 
   features: [
@@ -62,13 +62,13 @@ export const fullHomeCabinetryPageContent = {
     {
       title: "Cost Efficiencies",
       description:
-        "Whole-home projects benefit from volume pricing, coordinated installation schedules, and reduced overall project costs compared to piecemeal approaches.",
+        "Whole-home projects benefit from volume pricing, coordinated installation schedules, and reduced overall project costs compared to hiring multiple vendors separately.",
       icon: "Trophy",
     },
     {
       title: "Streamlined Timeline",
       description:
-        "Coordinated manufacturing and installation across all spaces. Complete home cabinetry finished in one comprehensive project timeline.",
+        "Coordinated manufacturing and installation across all spaces. Cabinetry, stone slabs, wall paneling, and doors — all coordinated and completed in one comprehensive project timeline.",
       icon: "Clock",
     },
   ],
@@ -83,7 +83,7 @@ export const fullHomeCabinetryPageContent = {
         step: "01",
         title: "Whole-Home Consultation",
         description:
-          "We tour your entire home, discuss your vision for each space, and identify opportunities for coordinated cabinetry throughout. Our team creates a master plan that ensures visual cohesion.",
+          "We tour your entire home, discuss your vision for each space, and identify opportunities for coordinated cabinetry, stone, and interiors throughout. Our team creates a master plan that ensures visual cohesion.",
         icon: "Users",
         features: [
           "Complete home assessment and measurements",
@@ -97,7 +97,7 @@ export const fullHomeCabinetryPageContent = {
         step: "02",
         title: "Design Commitment & Unified Development",
         description:
-          "Once you commit to your project, our designers create coordinated plans for kitchen, bathrooms, closets, and built-ins. Detailed 3D renderings show how finishes and styles work together throughout your home.",
+          "Once you commit to your project, our designers create coordinated plans for kitchens, bathrooms, closets, built-ins, stone slabs, and wall paneling. Detailed 3D renderings show how finishes and styles work together throughout your home.",
         icon: "Palette",
         features: [
           "Coordinated design planning for all spaces",
@@ -111,7 +111,7 @@ export const fullHomeCabinetryPageContent = {
         step: "03",
         title: "Material Selection",
         description:
-          "Visit our showroom to select coordinated finishes for all cabinetry. Our team ensures selections work harmoniously across different spaces while accommodating room-specific needs.",
+          "Visit our showroom to select coordinated finishes for all cabinetry, stone slabs, and wall paneling. Our team ensures selections work harmoniously across different spaces while accommodating room-specific needs.",
         icon: "Sparkles",
         features: [
           "Guided finish selection for cohesion",
@@ -125,7 +125,7 @@ export const fullHomeCabinetryPageContent = {
         step: "04",
         title: "Coordinated Manufacturing",
         description:
-          "All cabinetry is manufactured together, ensuring perfect finish matching and quality consistency across every room. Batch production provides cost efficiencies.",
+          "All cabinetry and materials are manufactured and sourced together, ensuring perfect finish matching and quality consistency across every room. Batch production provides cost efficiencies.",
         icon: "Hammer",
         features: [
           "Coordinated production schedule",
@@ -139,7 +139,7 @@ export const fullHomeCabinetryPageContent = {
         step: "05",
         title: "Whole-Home Installation",
         description:
-          "Our installation team works room by room, completing all cabinetry with consistent quality. Strategic scheduling minimizes disruption while ensuring efficient completion.",
+          "Our installation team works room by room, completing cabinetry, stone, and all interiors with consistent quality. Strategic scheduling minimizes disruption while ensuring efficient completion.",
         icon: "CheckCircle",
         features: [
           "Room-by-room installation sequence",
@@ -153,31 +153,31 @@ export const fullHomeCabinetryPageContent = {
   },
 
   serviceArea: {
-    title: "Full-Home Interiors Services Across the Greater Toronto Area",
+    title: "Whole-Home Interiors Services Across the Greater Toronto Area",
     description:
-      "From new home builds to complete renovations, we deliver coordinated whole-home cabinetry throughout Toronto, North York, Vaughan, Markham, and the entire GTA with expert design and seamless installation.",
+      "From new home builds to complete renovations, we deliver coordinated whole-home cabinetry and interiors throughout Toronto, North York, Vaughan, Markham, and the entire GTA with expert design and seamless installation.",
   },
 
   faqs: [
     {
-      question: "What does full home cabinetry include?",
+      question: "What does whole-home cabinetry include?",
       answer:
-        "Full home cabinetry encompasses all custom cabinets throughout your property: kitchen cabinets, bathroom vanities, walk-in and reach-in closets, entertainment centers, home office built-ins, mudroom storage, laundry room cabinets, basement storage systems, and any other built-in cabinetry. We coordinate finishes, hardware, and design across all spaces for visual cohesion.",
+        "Whole-home cabinetry encompasses all custom cabinets throughout your property: kitchen cabinets, bathroom vanities, walk-in and reach-in closets, entertainment centers, home office built-ins, mudroom storage, laundry room cabinets, basement storage systems, and any other built-in cabinetry. We coordinate finishes, hardware, and design across all spaces for visual cohesion.",
     },
     {
       question: "How much does whole-home cabinetry cost?",
       answer:
-        "Full home cabinetry projects typically range from $40,000 to $150,000+ depending on home size, number of spaces being fitted, finish selections, and complexity. A 3-bedroom home might include kitchen ($20-40k), 2 bathrooms ($8-15k), master walk-in closet ($8-12k), other closets ($10-15k), and built-ins ($5-15k). Whole-home projects often provide 30-50% cost savings versus individual room projects due to volume pricing and coordinated manufacturing.",
+        "Whole-home cabinetry projects typically range from $40,000 to $150,000+ depending on home size, number of spaces being fitted, finish selections, and complexity. A 3-bedroom home might include kitchen ($20-40k), 2 bathrooms ($8-15k), master walk-in closet ($8-12k), other closets ($10-15k), and built-ins ($5-15k). Whole-home projects often provide 30-50% cost savings versus individual room projects due to volume pricing and coordinated manufacturing.",
     },
     {
-      question: "How long does a full home cabinetry project take?",
+      question: "How long does a whole-home cabinetry project take?",
       answer:
         "Complete whole-home cabinetry projects typically take 4-8 weeks to 14-16 weeks from design approval to installation, depending on home size, project complexity, and customization requirements. We respect your timeline and provide detailed schedules during consultation to keep you updated throughout the entire process.",
     },
     {
       question: "Is whole-home cabinetry only for new construction?",
       answer:
-        "No, full home cabinetry works for both new construction and renovations. New builds benefit from coordinated planning during finishing phases. Renovations can refresh entire homes with updated cabinetry throughout. Many Toronto homeowners choose whole-home cabinetry when doing major renovations, ensuring all spaces receive coordinated updates rather than piecemeal improvements over time.",
+        "No, whole-home cabinetry works for both new construction and renovations. New builds benefit from coordinated planning during finishing phases. Renovations can refresh entire homes with updated cabinetry throughout. Many Toronto homeowners choose whole-home cabinetry when doing major renovations, ensuring all spaces receive coordinated updates rather than piecemeal improvements over time.",
     },
     {
       question: "How do you ensure finishes match across different rooms?",
@@ -215,13 +215,13 @@ export const fullHomeCabinetryPageContent = {
   seoSections: [
     {
       tag: "Whole-Home Approach",
-      title: "The Advantages of Complete Home Cabinetry",
-      content: `<p>Whole-home cabinetry projects transform properties with coordinated custom cabinets throughout every room. Rather than addressing spaces individually over time—resulting in mismatched finishes and varying quality—full home projects create unified aesthetics and consistent craftsmanship across your entire property.</p>
+      title: "The Advantages of a Complete Whole-Home Approach",
+      content: `<p>Whole-home interior projects transform properties with coordinated custom cabinetry, stone, paneling, and doors throughout every room. Rather than addressing spaces individually over time—resulting in mismatched finishes and varying quality—whole-home projects create unified aesthetics and consistent craftsmanship across your entire property.</p>
 
-<p>The comprehensive approach begins with understanding your home's architecture, your family's lifestyle, and your design preferences. Our team develops a coordinated plan that ensures kitchen cabinets, bathroom vanities, closet systems, and built-in cabinetry work together harmoniously while meeting each space's specific functional requirements.</p>
+<p>The comprehensive approach begins with understanding your home's architecture, your family's lifestyle, and your design preferences. Our team develops a coordinated plan that ensures cabinetry, stone surfaces, wall paneling, interior doors, and built-ins work together harmoniously while meeting each space's specific functional requirements.</p>
 
 <h3>Cost and Time Efficiencies</h3>
-<p>Full home cabinetry provides significant cost advantages—volume pricing typically saves 30-50% compared to individual room projects. Coordinated manufacturing means all cabinetry is produced together, ensuring finish consistency while reducing per-unit costs. Installation is more efficient when scheduled as one comprehensive project rather than multiple separate installations over months or years. The result is higher quality at lower overall cost with less total disruption to your household.</p>`,
+<p>A whole-home interiors project provides significant cost advantages—volume pricing typically saves 30-50% compared to individual room projects. Coordinated manufacturing means all cabinetry is produced together, ensuring finish consistency while reducing per-unit costs. Installation is more efficient when scheduled as one comprehensive project rather than multiple separate installations over months or years. The result is higher quality at lower overall cost with less total disruption to your household.</p>`,
       features: [
         "30-50% cost savings through volume pricing",
         "Perfect finish matching across all rooms",
@@ -234,8 +234,8 @@ export const fullHomeCabinetryPageContent = {
     },
     {
       tag: "New Construction",
-      title: "Full-Home Interiors for New Construction",
-      content: `<p>New home construction offers the ideal opportunity for whole-home cabinetry planning. Working with builders during finishing phases, we coordinate cabinetry design and installation to align with construction schedules and budgets.</p>
+      title: "Whole-Home Interiors for New Construction",
+      content: `<p>New home construction offers the ideal opportunity for whole-home interiors planning. Working with builders during finishing phases, we coordinate cabinetry, stone, and interior design and installation to align with construction schedules and budgets.</p>
 
 <p>Our team collaborates with your builder, architect, and interior designer to ensure cabinetry integrates seamlessly with your new home's design. We accommodate structural considerations, coordinate with electrical and plumbing rough-ins, and ensure installation timing works within the overall construction timeline.</p>
 
@@ -253,13 +253,13 @@ export const fullHomeCabinetryPageContent = {
     },
     {
       tag: "Whole-Home Renovations",
-      title: "Complete Home Renovation Cabinetry",
-      content: `<p>Whole-home renovations provide opportunities to update every space with coordinated cabinetry. Rather than living with dated cabinets in some rooms while updating others, complete renovation projects bring consistent quality and design throughout your home.</p>
+      title: "Complete Home Renovation — Cabinetry & Interiors",
+      content: `<p>Whole-home renovations provide opportunities to update every space with coordinated cabinetry and interiors. Rather than living with dated cabinets, surfaces, and finishes in some rooms while updating others, complete renovation projects bring consistent quality and design throughout your home.</p>
 
 <p>Toronto homeowners choosing whole-home renovations often want to increase property value, modernize aesthetics, improve functionality, and address aging cabinetry all at once. Our coordinated approach ensures the kitchen, all bathrooms, master closet, and built-in areas receive matching updates that work together cohesively.</p>
 
 <h3>Renovation Coordination</h3>
-<p>Full home renovation cabinetry requires careful coordination with other trades. We work alongside contractors handling demolition, electrical, plumbing, flooring, and finishing to ensure smooth project flow. Our team understands renovation timelines, manages homeowner disruption, and coordinates installation to minimize the time your home is under construction.</p>`,
+<p>Whole-home renovation cabinetry and interiors require careful coordination with other trades. We work alongside contractors handling demolition, electrical, plumbing, flooring, and finishing to ensure smooth project flow. Our team understands renovation timelines, manages homeowner disruption, and coordinates installation to minimize the time your home is under construction.</p>`,
       features: [
         "Coordinated updates across all rooms",
         "Collaboration with renovation contractors",
@@ -273,7 +273,7 @@ export const fullHomeCabinetryPageContent = {
     {
       tag: "Design Cohesion",
       title: "Creating Visual Flow Throughout Your Home",
-      content: `<p>Design cohesion is the hallmark of successful whole-home cabinetry. Our designers ensure visual flow from room to room—whether through consistent finishes, complementary styles, or coordinated hardware—creating a unified aesthetic that enhances your home's appeal.</p>
+      content: `<p>Design cohesion is the hallmark of successful whole-home interiors. Our designers ensure visual flow from room to room—whether through consistent finishes, complementary styles, or coordinated hardware—creating a unified aesthetic that enhances your home's appeal.</p>
 
 <p>Cohesion doesn't require identical cabinetry in every space. Modern kitchens might feature bold two-tone designs, while bathrooms use complementary neutrals, and closets employ coordinated wood tones. The key is intentional variation that works together rather than random differences that create visual discord.</p>
 
@@ -290,9 +290,9 @@ export const fullHomeCabinetryPageContent = {
       image: DesignCohesionImage,
     },
     {
-      tag: "Full Home Services Toronto",
+      tag: "Whole Home Services Toronto",
       title: "Whole-Home Interiors Services Across Toronto & GTA",
-      content: `<p>B3 Interiors serves Toronto area homeowners with complete whole-home cabinetry solutions. From downtown Toronto condos requiring coordinated space-saving solutions to North York luxury homes with expansive cabinetry needs, Vaughan new construction projects, and Markham renovation properties, we deliver full home cabinetry throughout the GTA.</p>
+      content: `<p>B3 Interiors serves Toronto area homeowners with complete whole-home cabinetry and interior solutions. From downtown Toronto condos requiring coordinated space-saving solutions to North York luxury homes with expansive cabinetry needs, Vaughan new construction projects, and Markham renovation properties, we deliver whole-home interiors throughout the GTA.</p>
 
 <p>Our Toronto experience includes diverse property types: heritage homes requiring respectful updates, modern new builds demanding contemporary aesthetics, condos needing coordinated space optimization, and suburban family homes seeking functional beauty. Each property receives customized whole-home solutions appropriate to architecture, lifestyle, and budget.</p>
 
@@ -311,7 +311,7 @@ export const fullHomeCabinetryPageContent = {
     {
       tag: "Investment & Value",
       title: "Whole-Home Interiors Investment & Home Value",
-      content: `<p>Full home cabinetry represents a significant investment in your property—typically $40,000 to $150,000+ depending on home size and specifications. However, coordinated whole-home projects provide superior return on investment compared to piecemeal room-by-room approaches over time.</p>
+      content: `<p>A whole-home interiors project represents a significant investment in your property—typically $40,000 to $150,000+ depending on home size and specifications. However, coordinated whole-home interior projects provide superior return on investment compared to piecemeal room-by-room approaches over time.</p>
 
 <p>Investment factors include total square footage of cabinetry, number of rooms being fitted, finish and material selections, integrated features (lighting, organizational systems, specialized storage), hardware quality, and installation complexity. Volume pricing for whole-home projects reduces per-unit costs significantly—often saving 30-50% versus individual room pricing.</p>
 

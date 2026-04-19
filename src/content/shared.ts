@@ -94,7 +94,7 @@ export const companyInfo = {
     { value: "kitchen-cabinets", label: "Kitchen Renovation" },
     { value: "custom-closets", label: "Custom Closets" },
     { value: "built-ins", label: "Built-Ins & Media Walls" },
-    { value: "full-home-cabinetry", label: "Full-Home Interiors" },
+    { value: "full-home-cabinetry", label: "Whole-Home Interiors" },
     { value: "multiple-projects", label: "Multiple Projects" },
     { value: "other", label: "Other" },
   ],

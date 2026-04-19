@@ -66,7 +66,7 @@ export const servicesHubSEO: SEOMetadata = {
   description:
     "Kitchen cabinets, custom closets, built-ins & full-home cabinetry. Professional design, premium materials, expert installation across Toronto GTA ✓",
   keywords:
-    "custom cabinetry services toronto, kitchen cabinet installation, closet systems, built-in units, full home cabinetry",
+    "custom cabinetry services toronto, kitchen cabinet installation, closet systems, built-in units, whole home cabinetry",
   ogImage: "/media/og-image.jpg",
 
   titleVariations: [
@@ -147,21 +147,21 @@ export const builtInsSEO: SEOMetadata = {
   ],
 };
 
-// Full Home Cabinetry Service Page SEO
+// Whole Home Cabinetry Service Page SEO
 export const fullHomeCabinetrySEO: SEOMetadata = {
   title:
-    "Full-Home Interiors Toronto | Custom Cabinets, Kitchen & Bathroom Renovations | B3 Interiors",
+    "Whole-Home Interiors Toronto | Custom Cabinets, Kitchens, Bathrooms & More | B3 Interiors",
   description:
     "Coordinated cabinetry throughout your Toronto home. Kitchens, bathrooms, closets, built-ins with unified design. One team, seamless results. Get quote ✓",
   keywords:
-    "full home cabinetry toronto, whole home cabinets, complete cabinetry solutions, coordinated millwork, home renovation cabinets",
+    "whole home cabinetry toronto, whole home cabinets, complete cabinetry solutions, coordinated millwork, home renovation cabinets",
   ogImage: "/media/og-image.jpg",
 
   titleVariations: [
     "Whole Home Cabinets Toronto | Complete Design | B3", // 54 chars
     "Toronto Home Cabinetry | Kitchen to Closets | B3", // 52 chars
     "Complete Home Millwork Toronto | B3 Interiors", // 49 chars
-    "Full Home Renovation Cabinets Toronto | B3", // 46 chars
+    "Whole Home Renovation Cabinets Toronto | B3", // 46 chars
   ],
   descriptionVariations: [
     "Complete home cabinetry from kitchen to closets. Coordinated design, unified finishes, one expert team. Serving Toronto GTA. Free whole-home consultation →", // 158 chars

@@ -333,7 +333,7 @@ export const customClosetsPageContent = {
       url: "/services/built-ins",
     },
     {
-      title: "Full Home Cabinetry",
+      title: "Whole Home Cabinetry",
       description:
         "Unified design throughout your entire home. One team, seamless coordination, consistent quality.",
       url: "/services/full-home-cabinetry",

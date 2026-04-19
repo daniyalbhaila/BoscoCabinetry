@@ -118,7 +118,7 @@ export const localBusinessSchema = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Full Home Cabinetry",
+          name: "Whole Home Cabinetry",
           description: "Coordinated custom cabinetry throughout entire home",
         },
       },
@@ -203,9 +203,9 @@ export const builtInsServiceSchema = generateServiceSchema({
   image: OG_IMAGE_ABSOLUTE,
 });
 
-// Full Home Cabinetry Service Schema
+// Whole Home Cabinetry Service Schema
 export const fullHomeCabinetryServiceSchema = generateServiceSchema({
-  name: "Full Home Cabinetry",
+  name: "Whole Home Cabinetry",
   description:
     "Coordinated custom cabinetry throughout your entire Toronto home. Unified design from kitchen to closets and beyond.",
   url: "/services/full-home-cabinetry",

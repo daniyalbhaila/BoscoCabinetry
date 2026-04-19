@@ -15,7 +15,7 @@ import bathroom10 from "../assets/Portfolio/Bathroom_GrandHighland/IMG_0098.JPG"
 import bathroom11 from "../assets/Portfolio/Bathroom_GrandHighland/IMG_0099.JPG";
 import bathroom12 from "../assets/Portfolio/Bathroom_GrandHighland/IMG_0100.JPG";
 
-// Full Home Robina
+// Whole Home Robina
 import robina1 from "../assets/Portfolio/FullHome_Robina/1(a).jpg";
 import robina2 from "../assets/Portfolio/FullHome_Robina/2 (1).jpg";
 import robina3 from "../assets/Portfolio/FullHome_Robina/3 (1).jpg";
@@ -166,7 +166,7 @@ export const portfolioImageMap: Record<string, any> = {
   "Portfolio/Bathroom_GrandHighland/IMG_0099.JPG": bathroom11,
   "Portfolio/Bathroom_GrandHighland/IMG_0100.JPG": bathroom12,
 
-  // Full Home Robina
+  // Whole Home Robina
   "Portfolio/FullHome_Robina/1(a).jpg": robina1,
   "Portfolio/FullHome_Robina/2 (1).jpg": robina2,
   "Portfolio/FullHome_Robina/3 (1).jpg": robina3,

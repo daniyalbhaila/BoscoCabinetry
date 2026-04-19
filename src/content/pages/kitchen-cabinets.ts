@@ -326,7 +326,7 @@ export const kitchenPageContent = {
       url: "/services/built-ins",
     },
     {
-      title: "Full Home Cabinetry",
+      title: "Whole Home Cabinetry",
       description:
         "Coordinated cabinetry throughout your entire home with unified design and seamless results.",
       url: "/services/full-home-cabinetry",

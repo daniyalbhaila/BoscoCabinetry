@@ -153,7 +153,7 @@ export const builtInsPageContent = {
     {
       question: "How much do custom built-ins cost in Toronto?",
       answer:
-        "Custom built-in cabinetry ranges from $3,000 for simple alcove shelving to $25,000+ for comprehensive entertainment walls or full home office systems. Entertainment centers typically range $5,000-$15,000, bookshelves $3,000-$10,000, and home office built-ins $4,000-$12,000. Pricing depends on size, complexity, finish selections, and integrated features. Book a free consultation for accurate pricing based on your specific space.",
+        "Custom built-in cabinetry ranges from $3,000 for simple alcove shelving to $25,000+ for comprehensive entertainment walls or whole home office systems. Entertainment centers typically range $5,000-$15,000, bookshelves $3,000-$10,000, and home office built-ins $4,000-$12,000. Pricing depends on size, complexity, finish selections, and integrated features. Book a free consultation for accurate pricing based on your specific space.",
     },
     {
       question: "What rooms are best for built-in cabinetry?",
@@ -338,7 +338,7 @@ export const builtInsPageContent = {
       url: "/services/custom-closets",
     },
     {
-      title: "Full Home Cabinetry",
+      title: "Whole Home Cabinetry",
       description:
         "Complete your home with coordinated cabinetry in every room. Consistent design, seamless results.",
       url: "/services/full-home-cabinetry",

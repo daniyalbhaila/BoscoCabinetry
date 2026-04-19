@@ -7,7 +7,7 @@ export const tradePageContent = {
     title:
       "Cabinetry Solutions for Contractors, Builders & Designers in the GTA",
     subtitle:
-      "RTA, semi-custom, and fully custom cabinetry from a global manufacturing leader. Backed by professional design services, trade pricing, and priority production.",
+      "Semi-custom and fully custom cabinetry, stone slabs, wall paneling, and interior doors from a global manufacturing leader. Backed by professional design services, trade pricing, and priority production.",
     stats: [
       { value: "1M sq ft", label: "State-of-the-art facility" },
       { value: "1,200+ sets/day", label: "Production capacity" },
@@ -147,7 +147,7 @@ export const tradePageContent = {
         "Open your trade account",
         "Provide business details - name, address, etc.",
         "Someone will be in touch",
-        "Start ordering quality cabinetry",
+        "Start ordering quality cabinetry and interiors",
       ],
       primaryCta: {
         text: "Apply for Trade Account",
@@ -191,60 +191,60 @@ export const tradePageContent = {
   // Product Collections
   productShowcase: {
     tag: "Cabinet Collections",
-    title: "Premium Quality Across Every Style",
+    title: "What We Supply",
     description:
-      "From modern frameless to traditional shaker, supply your clients with the styles they want at the margins you need.",
+      "Factory-direct supply across cabinetry and interiors, with consistent quality and scalable support for single projects through multi-unit developments.",
     collections: [
       {
-        name: "Modern Frameless Kitchens",
+        name: "Custom Kitchen Cabinetry",
         image: "kitchen",
         features: [
-          "Popular with Toronto condo developers",
-          "Full-access European-style design",
-          "Premium soft-close hardware included",
+          "Modern frameless & shaker styles",
+          "100+ finishes available",
           "Custom sizing for any space",
+          "Soft-close hardware included",
         ],
         description:
-          "Modern frameless cabinetry is the #1 choice for Toronto and Vaughan condo projects. Clean lines, maximized storage, and contemporary aesthetics that appeal to urban buyers. Our wholesale pricing makes high-end frameless kitchens accessible for mid-range developments.",
+          "Fully custom kitchen cabinets in modern frameless and traditional styles. Available in 100+ finishes, built to exact specifications for any project size — from single units to full developments.",
         link: "/services/kitchen-cabinets#modern",
-      },
-      {
-        name: "Shaker Style Cabinetry",
-        image: "kitchen",
-        features: [
-          "Timeless appeal for GTA custom homes",
-          "Multiple door profiles available",
-          "20+ finish options in stock",
-          "Fast turnaround for high-volume orders",
-        ],
-        description:
-          "Shaker cabinets remain the most requested style among Markham custom home builders and renovation contractors. Versatile design works in traditional or transitional kitchens. Our trade pricing and consistent quality make it easy to standardize across multiple projects.",
-        link: "/services/kitchen-cabinets#shaker",
       },
       {
         name: "Custom Closet Systems",
         image: "kitchen",
         features: [
-          "High-margin add-on for any project",
-          "Modular design adapts to any space",
+          "Walk-in and reach-in configurations",
           "Full accessory suite available",
-          "Popular in Mississauga luxury homes",
+          "Modular design for easy spec",
+          "Popular in luxury residential builds",
         ],
         description:
-          "Custom closets are a profitable upsell for contractors throughout the GTA. From walk-in primary closets in Richmond Hill estates to reach-in systems for Toronto condos, our modular approach makes design simple and installation straightforward. Wholesale pricing gives you healthy margins.",
+          "Walk-in and reach-in closet systems designed for new builds and renovations. Modular approach for easy specification, with full accessory suites available.",
+        link: "/services/kitchen-cabinets#shaker",
+      },
+      {
+        name: "Stone Slabs & Surfaces",
+        image: "kitchen",
+        features: [
+          "Quartz, sintered stone, and more",
+          "Countertops, walls, and vanities",
+          "Consistent quality across projects",
+          "Available for single and multi-unit supply",
+        ],
+        description:
+          "Premium stone slabs for countertops, feature walls, and bathroom surfaces. Factory-direct supply with consistent quality across projects.",
         link: "/services/closet-systems",
       },
       {
-        name: "Built-in & Media Units",
+        name: "Wall Paneling & Interior Doors",
         image: "kitchen",
         features: [
-          "Custom entertainment centers",
-          "Home office built-ins gaining popularity",
-          "Integrated lighting compatible",
-          "Value-add differentiator for builders",
+          "Matching finishes to cabinetry",
+          "Standard and frameless door options",
+          "Hidden hinge and integrated door options",
+          "One source for full interior supply",
         ],
         description:
-          "Built-in cabinetry adds significant perceived value to new homes and renovations across North York, Scarborough, and beyond. Media walls, home office systems, and custom storage solutions help GTA builders stand out in competitive markets. Our manufacturing flexibility handles even complex custom designs.",
+          "Coordinated wall paneling and interior doors in matching finishes to your cabinetry. Everything from one source for a cohesive finish throughout.",
         link: "/services/built-ins",
       },
     ],
@@ -380,7 +380,7 @@ export const tradePageContent = {
       points: [
         "Simple online application",
         "Our team will be in touch",
-        "Start ordering quality cabinetry",
+        "Start ordering quality cabinetry and interiors",
       ],
       button: { text: "Apply Now", href: "#trade-account-form" },
     },
