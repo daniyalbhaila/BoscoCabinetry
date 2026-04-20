@@ -13,8 +13,8 @@ export const companyInfo = {
       href: "tel:+1-647-766-7744",
     },
     email: {
-      address: "info@boscocabinetry.ca",
-      href: "mailto:info@boscocabinetry.ca",
+      address: "info@b3interiors.ca",
+      href: "mailto:info@b3interiors.ca",
     },
   },
 
@@ -118,7 +118,7 @@ export const companyInfo = {
   // Social Media
   social: {
     facebook: "https://www.facebook.com/b3interiorsca",
-    instagram: "https://www.instagram.com/b3interiorsca",
+    instagram: "https://www.instagram.com/b3interiors.ca/",
     linkedin: "https://linkedin.com/company/b3interiorsca/",
     tiktok: "https://www.tiktok.com/@b3interiors",
   },
