@@ -1,4 +1,11 @@
-# Site retirement redirect
-# Permanently redirect all Bosco Cabinetry URLs to matching B3 Interiors URLs
-# while adding from=bosco so the rebrand banner can be shown.
-/*  https://b3interiors.ca/:splat?from=bosco  301!
+# Bosco Cabinetry has rebranded to B3 Interiors (b3interiors.ca).
+#
+# Permanently redirect every request to the matching path on the new domain.
+# `:splat` preserves the path so deep links land on the equivalent B3 page;
+# `301!` forces the redirect even when a built file exists at that path.
+#
+# The `?from=bosco` tracking param is intentionally NOT added here: the B3
+# site detects bosco traffic via the HTTP referrer, so the rebrand banner
+# still shows without creating duplicate parameterised URLs in Google's index.
+
+/*  https://b3interiors.ca/:splat  301!
