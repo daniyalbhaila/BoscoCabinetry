@@ -59,7 +59,7 @@ const categoryNames: Record<string, string> = {
 const categoryName = categoryNames[entry.data.category] || entry.data.category;
 
 // SEO metadata
-const seoTitle = `${entry.data.title} | ${categoryName} ${entry.data.location.city} | Bosco Cabinetry`;
+const seoTitle = `${entry.data.title} | ${categoryName} ${entry.data.location.city} | B3 Interiors`;
 const seoDescription = entry.data.excerpt || entry.data.description;
 const seoKeywords = entry.data.keywords?.join(', ') || `custom ${entry.data.category} ${entry.data.location.city}, custom cabinetry Toronto`;
 
@@ -83,7 +83,7 @@ const structuredData = {
   "image": resolveOgImage(entry.data.ogImage),
   "creator": {
     "@type": "Organization",
-    "name": "Bosco Cabinetry",
+    "name": "B3 Interiors",
     "url": siteBase instanceof URL ? siteBase.origin : new URL(siteBase).origin
   },
   "datePublished": entry.data.completionDate?.toISOString(),

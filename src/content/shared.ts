@@ -2,212 +2,229 @@
 // Used across multiple components and pages
 
 export const companyInfo = {
-  name: 'Bosco Cabinetry',
-  tagline: 'Luxury without the luxury price tag',
+  name: "B3 Interiors",
+  tagline: "Complete Interiors. One Source.",
 
   // Contact Information
   contact: {
     phone: {
-      number: '+1-647-766-7744',
-      display: '(647) 766-7744',
-      href: 'tel:+1-647-766-7744'
+      number: "+1-647-766-7744",
+      display: "(647) 766-7744",
+      href: "tel:+1-647-766-7744",
     },
     email: {
-      address: 'info@boscocabinetry.ca',
-      href: 'mailto:info@boscocabinetry.ca'
-    }
+      address: "info@boscocabinetry.ca",
+      href: "mailto:info@boscocabinetry.ca",
+    },
   },
 
   // Physical Location
   location: {
     address: {
-      street: '85 Brisbane Rd',
-      city: 'North York',
-      province: 'ON',
-      postalCode: 'M3J 2K3',
-      full: '85 Brisbane Rd, North York, ON M3J 2K3',
-      display: '85 Brisbane Rd<br>North York, ON M3J 2K3'
+      street: "85 Brisbane Rd",
+      city: "North York",
+      province: "ON",
+      postalCode: "M3J 2K3",
+      full: "85 Brisbane Rd, North York, ON M3J 2K3",
+      display: "85 Brisbane Rd<br>North York, ON M3J 2K3",
     },
     coordinates: {
       lat: 43.7615,
       lng: -79.4665,
-      zoom: 15
+      zoom: 15,
     },
     showroom: {
-      size: '5,500 sq ft',
-      description: '5,500 sq ft North York showroom',
-      location: 'North York Location'
+      size: "5,500 sq ft",
+      description: "5,500 sq ft North York showroom",
+      location: "North York Location",
     },
     facility: {
-      description: 'our facility',
-      location: 'North York'
-    }
+      description: "our facility",
+      location: "North York",
+    },
   },
 
   // Business Hours
   hours: {
-    monday: { open: '10:00 AM', close: '7:00 PM' },
-    tuesday: { open: '10:00 AM', close: '7:00 PM' },
-    wednesday: { open: '10:00 AM', close: '7:00 PM' },
-    thursday: { open: '10:00 AM', close: '7:00 PM' },
-    friday: { open: '10:00 AM', close: '7:00 PM' },
-    saturday: { open: '10:00 AM', close: '5:00 PM' },
-    sunday: 'By Appointment Only',
+    monday: { open: "10:00 AM", close: "7:00 PM" },
+    tuesday: { open: "10:00 AM", close: "7:00 PM" },
+    wednesday: { open: "10:00 AM", close: "7:00 PM" },
+    thursday: { open: "10:00 AM", close: "7:00 PM" },
+    friday: { open: "10:00 AM", close: "7:00 PM" },
+    saturday: { open: "10:00 AM", close: "5:00 PM" },
+    sunday: "By Appointment Only",
     display: {
-      weekdays: 'Monday - Friday: 10:00 AM - 7:00 PM',
-      saturday: 'Saturday: 10:00 AM - 5:00 PM',
-      sunday: 'Sunday: By Appointment Only'
-    }
+      weekdays: "Monday - Friday: 10:00 AM - 7:00 PM",
+      saturday: "Saturday: 10:00 AM - 5:00 PM",
+      sunday: "Sunday: By Appointment Only",
+    },
   },
 
   // Company Stats & Features
   stats: {
-    experience: '100+ projects',
-    showroomSize: '5,500 sq ft',
-    finishOptions: '100+ finishes'
+    experience: "100+ Projects",
+    showroomSize: "5,500 sq ft",
+    finishOptions: "100+ finishes",
   },
 
   // Service Areas
   serviceAreas: [
-    { city: 'Toronto', region: 'Downtown Core' },
-    { city: 'North York', region: 'North Toronto' },
-    { city: 'Scarborough', region: 'East Toronto' },
-    { city: 'Pickering', region: 'Durham Region' },
-    { city: 'Whitby', region: 'Durham Region' },
-    { city: 'Vaughan', region: 'York Region' },
-    { city: 'Richmond Hill', region: 'York Region' },
-    { city: 'Markham', region: 'York Region' },
-    { city: 'Barrie', region: 'Simcoe County' },
-    { city: 'Etobicoke', region: 'West Toronto' },
-    { city: 'Mississauga', region: 'Peel Region' },
-    { city: 'Brampton', region: 'Peel Region' },
-    { city: 'Oakville', region: 'Halton Region' },
-    { city: 'Burlington', region: 'Halton Region' },
-    { city: 'Hamilton', region: 'City of Hamilton' },
-    { city: 'Guelph', region: 'Wellington County' },
-    { city: 'Kitchener', region: 'Waterloo Region' },
-    { city: 'Niagara Falls', region: 'Niagara Region' }
+    { city: "Toronto", region: "Downtown Core" },
+    { city: "North York", region: "North Toronto" },
+    { city: "Scarborough", region: "East Toronto" },
+    { city: "Pickering", region: "Durham Region" },
+    { city: "Whitby", region: "Durham Region" },
+    { city: "Vaughan", region: "York Region" },
+    { city: "Richmond Hill", region: "York Region" },
+    { city: "Markham", region: "York Region" },
+    { city: "Barrie", region: "Simcoe County" },
+    { city: "Etobicoke", region: "West Toronto" },
+    { city: "Mississauga", region: "Peel Region" },
+    { city: "Brampton", region: "Peel Region" },
+    { city: "Oakville", region: "Halton Region" },
+    { city: "Burlington", region: "Halton Region" },
+    { city: "Hamilton", region: "City of Hamilton" },
+    { city: "Guelph", region: "Wellington County" },
+    { city: "Kitchener", region: "Waterloo Region" },
+    { city: "Niagara Falls", region: "Niagara Region" },
   ],
 
   // Project Types
   projectTypes: [
-    { value: 'kitchen-cabinets', label: 'Kitchen Cabinets' },
-    { value: 'custom-closets', label: 'Custom Closets' },
-    { value: 'built-ins', label: 'Built-Ins & Media Walls' },
-    { value: 'full-home-cabinetry', label: 'Full Home Cabinetry' },
-    { value: 'multiple-projects', label: 'Multiple Projects' },
-    { value: 'other', label: 'Other' }
+    { value: "kitchen-cabinets", label: "Kitchen Renovation" },
+    { value: "custom-closets", label: "Custom Closets" },
+    { value: "built-ins", label: "Built-Ins & Media Walls" },
+    { value: "full-home-cabinetry", label: "Full-Home Interiors" },
+    { value: "multiple-projects", label: "Multiple Projects" },
+    { value: "other", label: "Other" },
   ],
 
   // Timelines
   timelines: {
-    consultation: 'within 48 hours',
-    manufacturing: 'varies by project',
-    installation: 'varies by project',
-    total: '2-4 weeks to 10-12 weeks depending on complexity',
-    emailResponse: 'within 24 hours'
+    consultation: "within 48 hours",
+    manufacturing: "varies by project",
+    installation: "varies by project",
+    total: "2-4 weeks to 10-12 weeks depending on complexity",
+    emailResponse: "within 24 hours",
   },
 
   // URLs
   urls: {
-    googleReviews: 'https://maps.app.goo.gl/YBFNcghn4mcuqdNw8',
-    bookConsultation: 'https://api.leadconnectorhq.com/widget/booking/NATTWhNx0XNmCEdbp6SN'
+    googleReviews: "https://maps.app.goo.gl/C6pw5ws9NRF8YitR8",
+    bookConsultation:
+      "https://api.leadconnectorhq.com/widget/booking/NATTWhNx0XNmCEdbp6SN",
   },
 
   // Social Media
   social: {
-    facebook: 'https://www.facebook.com/boscocabinetrycan/',
-    instagram: 'https://www.instagram.com/bosco.cabinetry',
-    linkedin: 'https://linkedin.com/company/bosco-cabinetry/',
-    tiktok: 'https://www.tiktok.com/@boscocabinetry'
-  }
+    facebook: "https://www.facebook.com/b3interiorsca",
+    instagram: "https://www.instagram.com/b3interiorsca",
+    linkedin: "https://linkedin.com/company/b3interiorsca/",
+    tiktok: "https://www.tiktok.com/@b3interiors",
+  },
 };
 
 // Holike Partnership Data
 export const holikePartnership = {
-  status: 'Exclusive Canadian Distributor',
-  company: 'Holike Creative Home',
-  established: '2002',
+  status: "Exclusive Canadian Distributor",
+  company: "Holike Creative Home",
+  established: "2002",
   stats: {
-    showrooms: '2,000+',
-    manufacturing: '1,000,000 sqm',
-    facilities: '4 manufacturing bases',
-    employees: '4,000+',
-    technology: 'German HOMAG equipment',
+    showrooms: "2,000+",
+    manufacturing: "1,000,000 sqm",
+    facilities: "4 manufacturing bases",
+    employees: "4,000+",
+    technology: "German HOMAG equipment",
     production: {
-      kitchens: '1,200 sets/day',
-      wardrobes: '2,500 sets/day'
+      kitchens: "1,200 sets/day",
+      wardrobes: "2,500 sets/day",
     },
-    markets: ['North America', 'Southeast Asia', 'Global']
+    markets: ["North America", "Southeast Asia", "Global"],
   },
-  certifications: ['CARB', 'NAF', 'SGS', 'Japanese F4 Star', 'ISO9001', 'ISO14001'],
+  certifications: [
+    "CARB",
+    "NAF",
+    "SGS",
+    "Japanese F4 Star",
+    "ISO9001",
+    "ISO14001",
+  ],
   benefits: {
     homeowners: [
-      'Globally-proven quality and reliability',
-      'Advanced German manufacturing technology',
-      'Eco-certifications for healthier homes',
-      'Scale to handle any project size',
-      'Local Toronto expertise and service'
+      "Globally-proven quality and reliability",
+      "Advanced German manufacturing technology",
+      "Eco-certifications for healthier homes",
+      "Scale to handle any project size",
+      "Local Toronto expertise and service",
     ],
     trade: [
-      'Scalable manufacturing capacity',
-      'Proven global supply chain',
-      'Technical support and training',
-      '5-year warranty program',
-      'German precision equipment'
-    ]
-  }
+      "Scalable manufacturing capacity",
+      "Proven global supply chain",
+      "Technical support and training",
+      "5-year warranty program",
+      "German precision equipment",
+    ],
+  },
 };
 
 // Sustainability Information
 export const sustainability = {
   naf: {
-    title: 'Zero-Added Formaldehyde (NAF) Materials',
-    description: 'Every cabinet uses special adhesives with no added formaldehyde—meeting strict EPA and CARB standards for healthier homes.',
-    certifications: ['EPA', 'CARB', 'F4 Star'],
+    title: "Zero-Added Formaldehyde (NAF) Materials",
+    description:
+      "Every cabinet uses special adhesives with no added formaldehyde—meeting strict EPA and CARB standards for healthier homes.",
+    certifications: ["EPA", "CARB", "F4 Star"],
     benefits: [
-      'Protects your health and the environment',
-      'No harmful VOC emissions',
-      'Meets strict California Air Resources Board (CARB) standards',
-      'EPA certified for indoor air quality'
-    ]
+      "Protects your health and the environment",
+      "No harmful VOC emissions",
+      "Meets strict California Air Resources Board (CARB) standards",
+      "EPA certified for indoor air quality",
+    ],
   },
   bamboo: {
-    title: 'Innovative Bamboo Board Technology',
-    description: 'Made from highly sustainable bamboo which grows 30 times faster than hardwoods.',
+    title: "Innovative Bamboo Board Technology",
+    description:
+      "Made from highly sustainable bamboo which grows 30 times faster than hardwoods.",
     benefits: [
-      'Grows 30x faster than hardwoods',
-      'Zero-added formaldehyde (NAF)',
-      'Advanced air-cleaning technology',
-      'Highly renewable and sustainable',
-      'CARB, EPA, and F4 Star certified'
-    ]
+      "Grows 30x faster than hardwoods",
+      "Zero-added formaldehyde (NAF)",
+      "Advanced air-cleaning technology",
+      "Highly renewable and sustainable",
+      "CARB, EPA, and F4 Star certified",
+    ],
   },
   nanoClean: {
-    title: 'Nano-Clean Air Technology',
-    description: 'Advanced technology that continuously purifies indoor air using negative oxygen ions.',
+    title: "Nano-Clean Air Technology",
+    description:
+      "Advanced technology that continuously purifies indoor air using negative oxygen ions.",
     features: [
-      'Breaks down harmful chemicals like formaldehyde and toluene into harmless substances',
-      'Antibacterial coating prevents harmful bacteria growth',
-      'Mold prevention and protection',
-      'No electricity needed—works 24/7 naturally',
-      'Powered by negative oxygen ions'
+      "Breaks down harmful chemicals like formaldehyde and toluene into harmless substances",
+      "Antibacterial coating prevents harmful bacteria growth",
+      "Mold prevention and protection",
+      "No electricity needed—works 24/7 naturally",
+      "Powered by negative oxygen ions",
     ],
-    howItWorks: 'Using a special nano-coating that releases negative oxygen ions, this system provides triple purification: active air cleaning, antibacterial protection, and mold prevention—all without requiring power or maintenance.'
+    howItWorks:
+      "Using a special nano-coating that releases negative oxygen ions, this system provides triple purification: active air cleaning, antibacterial protection, and mold prevention—all without requiring power or maintenance.",
   },
   sourcing: {
-    title: 'Sustainable Sourcing',
-    description: 'We prioritize renewable resources and formaldehyde-free adhesives to minimize environmental impact.',
-    commitment: 'At Bosco Cabinetry, we are proud to contribute to Canada\'s growing focus on sustainable building practices.'
-  }
+    title: "Sustainable Sourcing",
+    description:
+      "We prioritize renewable resources and formaldehyde-free adhesives to minimize environmental impact.",
+    commitment:
+      "At B3 Interiors, we are proud to contribute to Canada's growing focus on sustainable building practices.",
+  },
 };
 
 // Company description variations for different contexts
 export const companyDescriptions = {
-  hero: 'Explore 100+ finishes in our 5,500 sq ft North York showroom. Bring your own design or work with Bosco Cabinetrys\'s in-house designer to create kitchens, closets, and full-home renovations that fit your lifestyle. Luxury without the luxury price tag.',
-  about: 'With 100+ completed projects, Bosco Cabinetry specializes in custom kitchen cabinets, closet systems, and built-in units. Visit our North York showroom to explore over 100 finish options.',
-  aboutOrigin: 'Founded by Toronto custom-home builders who saw homeowners struggling with impossible choices: overpriced luxury brands, cheap big-box cabinets, or mid-range options with zero flexibility. We created Bosco Cabinetry to bring builder-backed expertise, luxury finishes, and accessible prices to Toronto.',
-  contact: 'Get your free consultation and quote within 48 hours. Let\'s bring your vision to life.',
+  hero: "Explore 100+ finishes in our 5,500 sq ft North York showroom. Bring your own design or work with B3 Interiors’ in-house designer to create kitchens, bathrooms, closets, and full-home renovations that fit your lifestyle. From custom cabinetry to stone slabs, wall paneling, interior doors, and more — everything from one source.",
+  about:
+    "With 100+ completed projects, B3 Interiors specializes in complete interior solutions across kitchens, bathrooms, closets, and built-ins. Visit our North York showroom to explore over 100 finish options.",
+  aboutOrigin:
+    "Founded by Toronto custom-home builders who saw homeowners struggling with impossible choices: overpriced luxury brands, cheap big-box cabinets, or mid-range options with zero flexibility. We created B3 Interiors to bring builder-backed expertise, premium finishes, and transparent pricing to Toronto.",
+  contact:
+    "Get your free consultation and quote within 48 hours. Let's bring your vision to life.",
   serviceAreaExpanded: `
     <div class="space-y-6">
       <div>
@@ -227,7 +244,7 @@ export const companyDescriptions = {
 
       <div>
         <h3 class="text-xl font-bold mb-3">Markham & Richmond Hill Kitchen Renovations</h3>
-        <p>Richmond Hill and Markham homeowners trust Bosco Cabinetry for kitchen renovations, custom closet systems, and built-in units. Our proximity to York Region makes us the ideal partner for Markham and Richmond Hill cabinetry projects.</p>
+        <p>Richmond Hill and Markham homeowners trust B3 Interiors for kitchen renovations, custom closet systems, and built-in units. Our proximity to York Region makes us the ideal partner for Markham and Richmond Hill cabinetry projects.</p>
       </div>
 
       <div>
@@ -240,5 +257,5 @@ export const companyDescriptions = {
         <p>Scarborough and Etobicoke homeowners benefit from our local Toronto expertise and builder-backed reliability. Whether it's a condo kitchen renovation in Scarborough or a custom closet system in Etobicoke, we bring proven experience from 100+ completed projects to every job.</p>
       </div>
     </div>
-  `
+  `,
 };
