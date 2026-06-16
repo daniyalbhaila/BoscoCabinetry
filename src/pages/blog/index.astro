@@ -24,13 +24,13 @@ const breadcrumbSchema = generateBreadcrumbs([
   description={seoMetadata.blogHub.description}
   keywords={seoMetadata.blogHub.keywords}
   ogImage={seoMetadata.blogHub.ogImage}
-  canonicalURL="https://boscocabinetry.ca/blog"
+  canonicalURL="https://b3interiors.ca/blog"
 >
   <!-- Blog & Resources Page - SEO-focused, minimal consumer visibility -->
 
   <!-- Trust Header (DRY - reused from About page pattern) -->
   <TrustHeader
-    title="Cabinetry Blog & Trade Guides"
+    title="Cabinetry & Interiors Blog — Expert Guides"
     subtitle="Expert insights for Toronto homeowners, designers, and contractors"
     breadcrumbs={breadcrumbs}
   />
@@ -78,7 +78,7 @@ const breadcrumbSchema = generateBreadcrumbs([
         Ready to Work With a Local Expert?
       </h2>
       <p class="text-lg text-white/80 mb-8">
-        Skip the complexity of direct import. Partner with Bosco Cabinetry for
+        Skip the complexity of direct import. Partner with B3 Interiors for
         quality, reliability, and local support.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -106,18 +106,18 @@ const breadcrumbSchema = generateBreadcrumbs([
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      "name": "Cabinetry Blog & Trade Guides",
-      "description": "Expert cabinetry blog with renovation guides, trade insights, and sourcing advice from Bosco Cabinetry.",
-      "url": "https://boscocabinetry.ca/blog",
+      "name": "Cabinetry & Interiors Blog — Expert Guides",
+      "description": "Expert cabinetry blog with renovation guides, trade insights, and sourcing advice from B3 Interiors.",
+      "url": "https://b3interiors.ca/blog",
       "publisher": {
         "@type": "Organization",
-        "name": "Bosco Cabinetry"
+        "name": "B3 Interiors"
       },
       "hasPart": {blogArticles.map(article => ({
         "@type": "Article",
         "headline": article.title,
         "description": article.description,
-        "url": `https://boscocabinetry.ca/blog/${article.slug}`,
+        "url": `https://b3interiors.ca/blog/${article.slug}`,
         "datePublished": article.publishDate,
         "author": {
           "@type": "Organization",

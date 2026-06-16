@@ -1,170 +1,198 @@
-// SEO-optimized content for Kitchen Cabinets service page
-// Target keywords: "Custom Kitchen Cabinets Toronto", "Luxury Kitchen Cabinets North York"
+// SEO-optimized content for Kitchen Renovation service page
+// Target keywords: "Kitchen Renovation Toronto", "Kitchen Renovation Contractors GTA"
 
-import { companyInfo } from '../shared.ts';
-import KitchenImage from '../../assets/kitchen.jpg';
-import CustomDesignImage from '../../assets/Portfolio/Kitchen_DanLekcie/IMG_9931.JPG';
-import ShowroomPhoto from '../../assets/showroom.jpg';
-import InstallationImage from '../../assets/Portfolio/Kitchen_BurningOak/IMG_6738.jpg';
-import RenovationSupportImage from '../../assets/Portfolio/FullHome_Robina/12.jpg';
-import GtaKitchenImage from '../../assets/Portfolio/Kitchen_BurningOak/IMG_6736.jpg';
-import KitchenInvestmentImage from '../../assets/Portfolio/FullHome_Robina/33.jpg';
+import { companyInfo } from "../shared.ts";
+import KitchenImage from "../../assets/kitchen.jpg";
+import CustomDesignImage from "../../assets/Portfolio/Kitchen_DanLekcie/IMG_9931.JPG";
+import ShowroomPhoto from "../../assets/showroom.jpg";
+import InstallationImage from "../../assets/Portfolio/Kitchen_BurningOak/IMG_6738.jpg";
+import RenovationSupportImage from "../../assets/Portfolio/FullHome_Robina/12.jpg";
+import GtaKitchenImage from "../../assets/Portfolio/Kitchen_BurningOak/IMG_6736.jpg";
+import KitchenInvestmentImage from "../../assets/Portfolio/FullHome_Robina/33.jpg";
 
 // Icons will be imported in the component that uses this content
 
 export const kitchenPageContent = {
   seo: {
-    title: "Kitchen Cabinets Toronto | Design to Install | Bosco Cabinetry",
-    description: "Transform your Toronto kitchen with custom cabinets designed, built & installed by experts. 100+ finishes, flexible timelines. Free consultation ✓",
-    keywords: "custom kitchen cabinets toronto, luxury kitchen cabinets, kitchen renovation toronto, kitchen installer, kitchen cabinetry north york",
-    ogImage: "/media/og-image.jpg"
+    title: "Kitchen Renovation Toronto | Design to Install | B3 Interiors",
+    description:
+      "Transform your Toronto kitchen with custom cabinets designed, built & installed by experts. 100+ finishes, flexible timelines. Free consultation ✓",
+    keywords:
+      "kitchen renovation toronto, kitchen renovations gta, custom kitchen renovation, kitchen remodel north york, kitchen renovation contractor",
+    ogImage: "/media/og-image.jpg",
   },
 
   hero: {
     highlight: "Custom",
-    title: "Kitchen Cabinets Designed & Installed in Toronto",
-    kicker: "From Design to Installation - Full-Service Kitchen Remodel Solutions",
-    description: "Transform your kitchen with expertly designed custom cabinets featuring soft-close hinges, precision craftsmanship, and premium hardware. 100+ finishes, professional installation. Get your quote in 48 hours.",
+    title: "Kitchen Renovation Designed & Installed in Toronto",
+    kicker:
+      "From Design to Installation - Full-Service Kitchen Remodel Solutions",
+    description:
+      "Transform your kitchen with expertly designed custom cabinets featuring soft-close hinges, precision craftsmanship, and premium hardware. 100+ finishes, professional installation. Get your quote in 48 hours.",
     image: KitchenImage,
-    transitionName: 'service-hero-kitchen-cabinets',
+    transitionName: "service-hero-kitchen-cabinets",
     ctas: [
-      { text: 'Book Free Consultation', href: companyInfo.urls.bookConsultation, variant: 'primary' },
-      { text: 'View Kitchen Gallery', href: '/portfolio', variant: 'ghost' }
-    ]
+      {
+        text: "Book Free Consultation",
+        href: companyInfo.urls.bookConsultation,
+        variant: "primary",
+      },
+      { text: "View Kitchen Gallery", href: "/portfolio", variant: "ghost" },
+    ],
   },
 
   overview: {
-    tag: "What We Offer",
-    title: "Complete Kitchen Remodel & Cabinetry Solutions",
-    description: "From modern minimalist to classic traditional, we design, build, and install custom kitchen cabinets tailored to your style, space, and budget. Every kitchen remodel is unique, and our proven track record of 100+ completed projects ensures your vision becomes reality with superior craftsmanship and interior design expertise."
+    tag: "Kitchen Renovation Services",
+    title: "Complete Kitchen Renovation & Cabinetry Solutions",
+    description:
+      "From modern minimalist to classic traditional, we design, build, and install custom kitchen cabinets tailored to your style, space, and budget. Every kitchen remodel is unique, and our proven track record of 100+ completed projects ensures your vision becomes reality with superior craftsmanship and interior design expertise.",
   },
 
   features: [
     {
       title: "Professional Design Service",
-      description: "Work with our experienced designers to create your dream kitchen. After project commitment, we provide detailed 3D renderings so you can visualize your space before we build.",
-      icon: "Palette"
+      description:
+        "Work with our experienced designers to create your dream kitchen. After project commitment, we provide detailed 3D renderings so you can visualize your space before we build.",
+      icon: "Palette",
     },
     {
       title: "Premium Quality Materials & Hardware",
-      description: "Premium cabinets crafted with high-grade plywood, MDF, and sustainable bamboo materials. Features soft-close hinges, undermount slides, and premium cabinet hardware for lasting quality.",
-      icon: "Building"
+      description:
+        "Premium cabinets crafted with high-grade plywood, MDF, and sustainable bamboo materials. Features soft-close hinges, undermount slides, and premium cabinet hardware for lasting quality.",
+      icon: "Building",
     },
     {
       title: "Professional Installation Included",
-      description: "Expert installers ensure perfect fit and finish. Installation is included in all our pricing - no hidden costs or surprises.",
-      icon: "Hammer"
+      description:
+        "Expert installers ensure perfect fit and finish. Installation is included in all our pricing - no hidden costs or surprises.",
+      icon: "Hammer",
     },
     {
       title: "100+ Premium Finishes & Accessories",
-      description: "Choose from matte, gloss, wood grain, and specialty finishes. Add crown molding, drawer organizers, and custom accessories to complete your kitchen design.",
-      icon: "Sparkles"
-    }
+      description:
+        "Choose from matte, gloss, wood grain, and specialty finishes. Add crown molding, drawer organizers, and custom accessories to complete your kitchen design.",
+      icon: "Sparkles",
+    },
   ],
 
   process: {
     tag: "Our Process",
     title: "From Concept to Completion in 4 Simple Steps",
-    description: "Our proven process ensures every kitchen project is delivered on time, on budget, and exceeds your expectations. We handle everything from initial design to final installation.",
+    description:
+      "Our proven process ensures every kitchen project is delivered on time, on budget, and exceeds your expectations. We handle everything from initial design to final installation.",
     steps: [
       {
-        step: '01',
-        title: 'Free Consultation',
-        description: 'Visit our showroom or schedule an in-home consultation to discuss your vision, measure your space, and understand your budget.',
+        step: "01",
+        title: "Free Consultation",
+        description:
+          "Visit our showroom or schedule an in-home consultation to discuss your vision, measure your space, and understand your budget.",
         icon: "Users",
         features: [
-          'Showroom or in-home consultation within 48 hours',
-          'Professional space assessment and measurements',
-          'Style and finish recommendations through mood boards',
-          'Initial budget discussion',
-          'Transparent pricing - no hidden fees'
-        ]
+          "Showroom or in-home consultation within 48 hours",
+          "Professional space assessment and measurements",
+          "Style and finish recommendations through mood boards",
+          "Initial budget discussion",
+          "Transparent pricing - no hidden fees",
+        ],
       },
       {
-        step: '02',
-        title: 'Design Commitment & 3D Rendering',
-        description: 'Once you commit to your project, we create detailed 3D renderings and finalize material selections at our showroom.',
+        step: "02",
+        title: "Design Commitment & 3D Rendering",
+        description:
+          "Once you commit to your project, we create detailed 3D renderings and finalize material selections at our showroom.",
         icon: "Ruler",
         features: [
-          'Detailed 3D renderings of your new kitchen',
-          'Guided showroom tour with interior design consultation',
-          '100+ finish options including crown molding profiles',
-          'Premium materials: plywood, MDF, bamboo board',
-          'Cabinet hardware selection: soft-close hinges, undermount slides',
-          'Drawer organizers and storage accessories'
-        ]
+          "Detailed 3D renderings of your new kitchen",
+          "Guided showroom tour with interior design consultation",
+          "100+ finish options including crown molding profiles",
+          "Premium materials: plywood, MDF, bamboo board",
+          "Cabinet hardware selection: soft-close hinges, undermount slides",
+          "Drawer organizers and storage accessories",
+        ],
       },
       {
-        step: '03',
-        title: 'Quality Manufacturing',
-        description: 'Your cabinets are precision-crafted using premium materials and quality construction methods. Rigorous inspection ensures every piece meets our standards.',
+        step: "03",
+        title: "Quality Manufacturing",
+        description:
+          "Your cabinets are precision-crafted using premium materials and quality construction methods. Rigorous inspection ensures every piece meets our standards.",
         icon: "Hammer",
         features: [
-          'Premium materials and construction',
-          'Quality control at every stage',
-          'Regular progress updates',
-          'Eco-friendly finishing processes',
-          'Precision craftsmanship'
-        ]
+          "Premium materials and construction",
+          "Quality control at every stage",
+          "Regular progress updates",
+          "Eco-friendly finishing processes",
+          "Precision craftsmanship",
+        ],
       },
       {
-        step: '04',
-        title: 'Professional Installation',
-        description: 'Expert installers bring your kitchen to life with precision and care. We handle everything and leave your space clean.',
+        step: "04",
+        title: "Professional Installation",
+        description:
+          "Expert installers bring your kitchen to life with precision and care. We handle everything and leave your space clean.",
         icon: "CheckCircle",
         features: [
-          'Experienced installation team',
-          'Minimal disruption to your home',
-          'Precise fitting and finishing',
-          'Final walk-through and inspection',
-          'Post-installation support and warranty'
-        ]
-      }
-    ]
+          "Experienced installation team",
+          "Minimal disruption to your home",
+          "Precise fitting and finishing",
+          "Final walk-through and inspection",
+          "Post-installation support and warranty",
+        ],
+      },
+    ],
   },
 
   serviceArea: {
     title: "Custom Kitchen Cabinets Across the Greater Toronto Area",
-    description: "From downtown Toronto to North York, Scarborough, Etobicoke, and surrounding regions, we deliver luxury custom kitchen cabinetry directly to your home with professional installation and ongoing support."
+    description:
+      "From downtown Toronto to North York, Scarborough, Etobicoke, and surrounding regions, we deliver luxury custom kitchen cabinetry directly to your home with professional installation and ongoing support.",
   },
 
   faqs: [
     {
       question: "How much do custom kitchen cabinets cost in Toronto?",
-      answer: "Custom kitchen cabinet projects typically range from $8,000 to $50,000+ depending on kitchen size, materials selected, and finish options. We offer luxury quality at competitive prices - significantly less than big-box retailers charging premium for lower quality. Book an initial consultation for an accurate quote based on your specific kitchen."
+      answer:
+        "Custom kitchen cabinet projects typically range from $8,000 to $50,000+ depending on kitchen size, materials selected, and finish options. We offer luxury quality at competitive prices - significantly less than big-box retailers charging premium for lower quality. Book an initial consultation for an accurate quote based on your specific kitchen.",
     },
     {
       question: "How long does it take to get custom kitchen cabinets?",
-      answer: "Our typical timeline is 2-4 weeks to 10-12 weeks from design approval to installation, depending on project complexity and customization requirements. We respect your timeline and keep you updated throughout the entire process."
+      answer:
+        "Our typical timeline is 2-4 weeks to 10-12 weeks from design approval to installation, depending on project complexity and customization requirements. We respect your timeline and keep you updated throughout the entire process.",
     },
     {
       question: "What types of kitchen cabinet styles do you offer?",
-      answer: "We offer all cabinet styles including modern/contemporary, traditional, transitional, shaker, flat-panel (slab), and custom designs. With 100+ finish options including matte, gloss, wood grain, and specialty finishes, we can match any aesthetic from sleek minimalist to classic elegance."
+      answer:
+        "We offer all cabinet styles including modern/contemporary, traditional, transitional, shaker, flat-panel (slab), and custom designs. With 100+ finish options including matte, gloss, wood grain, and specialty finishes, we can match any aesthetic from sleek minimalist to classic elegance.",
     },
     {
       question: "Do you provide 3D kitchen design renderings?",
-      answer: "Yes! Once you commit to your project, we create detailed 3D design renderings so you can visualize your new space before we build. This ensures you're 100% satisfied with the design, layout, and finishes before manufacturing begins."
+      answer:
+        "Yes! Once you commit to your project, we create detailed 3D design renderings so you can visualize your new space before we build. This ensures you're 100% satisfied with the design, layout, and finishes before manufacturing begins.",
     },
     {
       question: "What materials do you use for kitchen cabinets?",
-      answer: "We use only premium materials including solid wood, high-grade plywood, and quality MDF depending on your preferences and budget. All materials are sourced from trusted suppliers and finished with eco-friendly processes. We never use particle board for cabinet boxes."
+      answer:
+        "We use only premium materials including solid wood, high-grade plywood, and quality MDF depending on your preferences and budget. All materials are sourced from trusted suppliers and finished with eco-friendly processes. We never use particle board for cabinet boxes.",
     },
     {
       question: "Do you handle kitchen renovations or just cabinets?",
-      answer: "While we specialize in custom cabinetry, we can coordinate full kitchen renovations through our trusted network of contractors including electricians, plumbers, and flooring specialists. We manage the entire process to ensure seamless integration of your new cabinets."
+      answer:
+        "While we specialize in custom cabinetry, we can coordinate full kitchen renovations through our trusted network of contractors including electricians, plumbers, and flooring specialists. We manage the entire process to ensure seamless integration of your new cabinets.",
     },
     {
       question: "What is included in your kitchen cabinet installation?",
-      answer: "Professional installation is included in all our pricing. Our experienced installers handle delivery, assembly, installation, hardware mounting, and final adjustments. We ensure perfect fit and finish, clean up completely, and perform a final walk-through with you."
+      answer:
+        "Professional installation is included in all our pricing. Our experienced installers handle delivery, assembly, installation, hardware mounting, and final adjustments. We ensure perfect fit and finish, clean up completely, and perform a final walk-through with you.",
     },
     {
       question: "Do you offer a warranty on kitchen cabinets?",
-      answer: "Yes, all our kitchen cabinets come with a comprehensive warranty covering materials and workmanship. We stand behind our quality craftsmanship and provide ongoing support even after installation is complete."
+      answer:
+        "Yes, all our kitchen cabinets come with a comprehensive warranty covering materials and workmanship. We stand behind our quality craftsmanship and provide ongoing support even after installation is complete.",
     },
     {
       question: "Can I visit your showroom to see kitchen cabinet samples?",
-      answer: "Absolutely! Our 5,500 sq ft North York showroom features multiple kitchen displays and over 100 finish samples. You can see and touch materials in person, get design inspiration, and work with our team to select the perfect options for your kitchen. Appointments are recommended but walk-ins are welcome."
-    }
+      answer:
+        "Absolutely! Our 5,500 sq ft North York showroom features multiple kitchen displays and over 100 finish samples. You can see and touch materials in person, get design inspiration, and work with our team to select the perfect options for your kitchen. Appointments are recommended but walk-ins are welcome.",
+    },
   ],
 
   // SEO Content Sections - Side-by-side image/content layouts
@@ -183,9 +211,9 @@ export const kitchenPageContent = {
         "Professional space planning and measurements",
         "3D renderings after project commitment",
         "Design revisions included",
-        "Expert guidance on materials and finishes"
+        "Expert guidance on materials and finishes",
       ],
-      image: CustomDesignImage
+      image: CustomDesignImage,
     },
     {
       tag: "Showroom Experience",
@@ -201,9 +229,9 @@ export const kitchenPageContent = {
         "Premium plywood and MDF construction",
         "Sustainable bamboo and eco-friendly materials",
         "100+ finish samples: matte, gloss, wood grain",
-        "Expert guidance on style and material selection"
+        "Expert guidance on style and material selection",
       ],
-      image: ShowroomPhoto
+      image: ShowroomPhoto,
     },
     {
       tag: "Installation",
@@ -219,9 +247,9 @@ export const kitchenPageContent = {
         "Precise cabinet mounting and alignment",
         "Hardware and accessory installation",
         "Coordination with other trades",
-        "Complete cleanup and final inspection"
+        "Complete cleanup and final inspection",
       ],
-      image: InstallationImage
+      image: InstallationImage,
     },
     {
       tag: "Renovation Support",
@@ -238,9 +266,9 @@ export const kitchenPageContent = {
         "Backsplash design and installation coordination",
         "Flooring and tile work scheduling",
         "Timeline and budget management",
-        "Single point of contact for entire project"
+        "Single point of contact for entire project",
       ],
-      image: RenovationSupportImage
+      image: RenovationSupportImage,
     },
     {
       tag: "Kitchen Renovation Toronto",
@@ -256,9 +284,9 @@ export const kitchenPageContent = {
         "Experience with condos and houses",
         "Knowledge of local building requirements",
         "Adaptable to any kitchen size or layout",
-        "Heritage home renovation expertise"
+        "Heritage home renovation expertise",
       ],
-      image: GtaKitchenImage
+      image: GtaKitchenImage,
     },
     {
       tag: "Pricing & Investment",
@@ -274,10 +302,10 @@ export const kitchenPageContent = {
         "Detailed quotes and estimates",
         "Flexible options to match your budget",
         "Installation and delivery included",
-        "Competitive pricing for premium quality"
+        "Competitive pricing for premium quality",
       ],
-      image: KitchenInvestmentImage
-    }
+      image: KitchenInvestmentImage,
+    },
   ],
 
   projectType: "kitchen",
@@ -287,18 +315,21 @@ export const kitchenPageContent = {
   relatedServices: [
     {
       title: "Custom Closet Systems",
-      description: "Complete your home with matching custom closets. Walk-in closets, reach-in solutions, and mudroom storage systems.",
-      url: "/services/custom-closets"
+      description:
+        "Complete your home with matching custom closets. Walk-in closets, reach-in solutions, and mudroom storage systems.",
+      url: "/services/custom-closets",
     },
     {
       title: "Custom Built-Ins & Entertainment Centers",
-      description: "Extend your design to living spaces with custom entertainment centers, home office built-ins, bookshelves, and display units.",
-      url: "/services/built-ins"
+      description:
+        "Extend your design to living spaces with custom entertainment centers, home office built-ins, bookshelves, and display units.",
+      url: "/services/built-ins",
     },
     {
       title: "Full Home Cabinetry",
-      description: "Coordinated cabinetry throughout your entire home with unified design and seamless results.",
-      url: "/services/full-home-cabinetry"
-    }
-  ]
+      description:
+        "Coordinated cabinetry throughout your entire home with unified design and seamless results.",
+      url: "/services/full-home-cabinetry",
+    },
+  ],
 };

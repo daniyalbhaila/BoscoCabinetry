@@ -5,7 +5,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: 'https://boscocabinetry.ca',
+  site: "https://boscocabinetry.ca",
   integrations: [
     react(),
     mdx(),
@@ -13,41 +13,48 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap({
-      filter: (page) => !page.includes('/admin') && !page.includes('/private'),
-      changefreq: 'weekly',
+      filter: (page) => !page.includes("/admin") && !page.includes("/private"),
+      changefreq: "weekly",
       priority: 0.7,
       lastmod: new Date(),
       // Custom priorities for different page types
       serialize(item) {
         // Homepage gets highest priority
-        if (item.url === 'https://boscocabinetry.ca/') {
-          return { ...item, priority: 1.0, changefreq: 'daily' };
+        if (item.url === "https://boscocabinetry.ca/") {
+          return { ...item, priority: 1.0, changefreq: "daily" };
         }
         // Main service pages
-        if (item.url.includes('/services/')) {
-          return { ...item, priority: 0.9, changefreq: 'weekly' };
+        if (item.url.includes("/services/")) {
+          return { ...item, priority: 0.9, changefreq: "weekly" };
         }
         // Services overview and portfolio
-        if (item.url === 'https://boscocabinetry.ca/services' ||
-            item.url === 'https://boscocabinetry.ca/portfolio') {
-          return { ...item, priority: 0.9, changefreq: 'weekly' };
+        if (
+          item.url === "https://boscocabinetry.ca/services" ||
+          item.url === "https://boscocabinetry.ca/portfolio"
+        ) {
+          return { ...item, priority: 0.9, changefreq: "weekly" };
         }
         // Individual portfolio projects
-        if (item.url.includes('/portfolio/') && item.url !== 'https://boscocabinetry.ca/portfolio') {
-          return { ...item, priority: 0.85, changefreq: 'monthly' };
+        if (
+          item.url.includes("/portfolio/") &&
+          item.url !== "https://boscocabinetry.ca/portfolio"
+        ) {
+          return { ...item, priority: 0.85, changefreq: "monthly" };
         }
         // Blog content
-        if (item.url.includes('/blog/')) {
-          return { ...item, priority: 0.7, changefreq: 'monthly' };
+        if (item.url.includes("/blog/")) {
+          return { ...item, priority: 0.7, changefreq: "monthly" };
         }
         // About and sustainability
-        if (item.url.includes('/about') ||
-            item.url.includes('/sustainability')) {
-          return { ...item, priority: 0.8, changefreq: 'monthly' };
+        if (
+          item.url.includes("/about") ||
+          item.url.includes("/sustainability")
+        ) {
+          return { ...item, priority: 0.8, changefreq: "monthly" };
         }
         // Everything else
-        return { ...item, priority: 0.6, changefreq: 'monthly' };
-      }
+        return { ...item, priority: 0.6, changefreq: "monthly" };
+      },
     }),
   ],
   build: {
@@ -56,7 +63,7 @@ export default defineConfig({
   },
   vite: {
     // Add HEIC and other image formats to assets
-    assetsInclude: ['**/*.HEIC', '**/*.heic'],
+    assetsInclude: ["**/*.HEIC", "**/*.heic"],
     build: {
       // CSS optimization
       cssCodeSplit: true,
