@@ -14,10 +14,10 @@ export interface SEOMetadata {
 
 // Homepage SEO
 export const homepageSEO: SEOMetadata = {
-  // Primary (60 chars) - Keyword-first, emotional trigger, brand
-  title: "Custom Cabinets Toronto | Luxury Quality | Bosco Cabinetry",
-  description: "Transform your Toronto home with custom kitchen cabinets, closets & built-ins. 100+ finishes, 100+ completed projects, professional design. Book consultation ✓",
-  keywords: "custom cabinets toronto, kitchen cabinets, custom closets, built-ins, cabinetry north york, luxury cabinets affordable",
+  // Primary (60 chars) - Dual message: Cabinets + Complete Solutions
+  title: "Custom Cabinets Toronto | Interior Doors & Solutions | Bosco",
+  description: "Custom kitchen cabinets, interior doors, wall paneling, countertops & accessories—everything from one source. 100+ finishes, 100+ projects. Toronto GTA ✓",
+  keywords: "custom cabinets toronto, kitchen cabinets, interior doors, wall paneling, countertops, complete interior solutions, custom closets, built-ins, cabinetry north york",
   ogImage: "/media/og-image.jpg",
 
   // A/B Test Variations
@@ -36,10 +36,10 @@ export const homepageSEO: SEOMetadata = {
 
 // About Page SEO
 export const aboutSEO: SEOMetadata = {
-  // Primary (60 chars) - Trust signals, local focus
-  title: "About Bosco Cabinetry | Builder-Founded Toronto Since 2003",
-  description: "Founded by Toronto renovation contractors & custom-home builders. 20+ years crafting luxury kitchen cabinets with premium hardware, closets & cabinetry. Eco-certified (NAF), 5,500 sq ft showroom →",
-  keywords: "about bosco cabinetry, toronto renovation contractor, custom home builders, interior design cabinetry, eco-certified cabinets, formaldehyde-free, sustainable cabinetry, holike distributor canada",
+  // Primary (60 chars) - Custom at Production Scale positioning
+  title: "About Bosco Cabinetry | Custom at Production Scale | Toronto",
+  description: "Custom quality with production-scale reliability. Complete interior solutions from one source. 100+ projects, 5,500 sq ft showroom. Direct manufacturer pricing Toronto →",
+  keywords: "about bosco cabinetry, custom at production scale, complete interior solutions, holike distributor canada, toronto renovation contractor, eco-certified cabinets, formaldehyde-free, sustainable cabinetry",
   ogImage: "/media/og-image.jpg",
 
   titleVariations: [
@@ -57,9 +57,9 @@ export const aboutSEO: SEOMetadata = {
 
 // Services Hub SEO
 export const servicesHubSEO: SEOMetadata = {
-  title: "Cabinetry Services Toronto | Design to Install | Bosco",
-  description: "Kitchen cabinets, custom closets, built-ins & full-home cabinetry. Professional design, premium materials, expert installation across Toronto GTA ✓",
-  keywords: "custom cabinetry services toronto, kitchen cabinet installation, closet systems, built-in units, full home cabinetry",
+  title: "Complete Interior Solutions Toronto | Cabinets & More | Bosco",
+  description: "Custom cabinetry, interior doors, wall paneling, countertops & smart accessories. Everything from one source. Professional design & install Toronto GTA ✓",
+  keywords: "complete interior solutions toronto, custom cabinetry services, interior doors toronto, wall paneling, countertops, kitchen cabinet installation, closet systems, built-in units",
   ogImage: "/media/og-image.jpg",
 
   titleVariations: [
@@ -216,9 +216,9 @@ export const tradeSEO: SEOMetadata = {
 
 // Sustainability Page SEO
 export const sustainabilitySEO: SEOMetadata = {
-  title: "Sustainable Cabinets Toronto | Formaldehyde-Free | Bosco",
-  description: "Healthier homes through eco-friendly cabinetry. Zero-added formaldehyde (NAF), air-purifying technology, EPA & CARB certified. Sustainable options for Toronto ✓",
-  keywords: "sustainable cabinets toronto, formaldehyde-free cabinets, low VOC kitchen cabinets, eco-friendly cabinetry, green building materials, LEED certified cabinets, healthy home materials, air purifying cabinets, NAF materials, CARB certified",
+  title: "Sustainable Cabinets Toronto | Bamboo & Zero VOC | Bosco",
+  description: "Bringing bamboo board & zero-VOC powder spray to Canada. Formaldehyde-free, LEED-compatible, EPA & CARB certified. Innovation leadership in sustainable cabinetry ✓",
+  keywords: "sustainable cabinets toronto, bamboo cabinetry, zero VOC finishing, formaldehyde-free cabinets, powder spray finishing, LEED certified cabinets, green building materials, air purifying cabinets, NAF materials, CARB certified",
   ogImage: "/media/og-image.jpg",
 
   titleVariations: [

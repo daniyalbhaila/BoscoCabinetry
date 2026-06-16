@@ -25,23 +25,23 @@ import Trophy from '../components/icons/Trophy.astro';
 // What Makes Us Different - 4 Pillars
 const differentiators = [
   {
-    title: 'Luxury Made Affordable',
-    description: 'Premium kitchen cabinets with builder-direct pricing. No luxury brand markup.',
+    title: 'Custom at Production Scale',
+    description: 'Fully custom cabinetry with production-scale reliability. Direct manufacturer pricing without inflated custom shop markups.',
     iconComponent: Sparkles
   },
   {
-    title: '5,500 sq ft Showroom',
-    description: 'See, touch, and compare 100+ finishes. In-house designer consultations.',
-    iconComponent: Building
-  },
-  {
-    title: 'Builder-Backed Reliability',
-    description: '100+ completed projects. Systems that prevent delays and callbacks.',
+    title: 'Complete Interior Solutions',
+    description: 'Everything from one source: cabinetry, doors, paneling, countertops, and accessories. No more coordinating 5 different vendors.',
     iconComponent: Check
   },
   {
-    title: 'Eco-Certified Materials',
-    description: 'Zero-added formaldehyde (NAF). CARB certified for healthier Toronto homes.',
+    title: '5,500 sq ft Showroom',
+    description: 'See, touch, and compare 100+ finishes. Explore all our products in person with in-house designer consultations.',
+    iconComponent: Building
+  },
+  {
+    title: 'Sustainable Innovation',
+    description: 'First to bring bamboo board and zero-VOC powder spray finishing to the Canadian market. CARB and EPA certified materials.',
     iconComponent: Trophy
   }
 ];
@@ -98,7 +98,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
           <!-- Preview Content (Always Visible) -->
           <div slot="preview">
             <p class="text-lg text-brand-darkGray mb-4">
-              Every homeowner in Toronto faced the same impossible choice for custom cabinetry:
+              Every homeowner in Toronto faced the same impossible choices:
             </p>
             <ul class="space-y-3 mb-6">
               <li class="flex items-start gap-3 text-brand-darkGray">
@@ -111,11 +111,14 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
               </li>
               <li class="flex items-start gap-3 text-brand-darkGray">
                 <span class="text-brand-primary mt-1">→</span>
-                <span>Mid-range options with no showroom experience and zero design flexibility</span>
+                <span>Coordinating 5 different vendors—cabinets, doors, countertops, tile, hardware—with mismatched timelines and inflated middleman pricing</span>
               </li>
             </ul>
+            <p class="text-lg text-brand-darkGray mb-4">
+              We started Bosco Cabinetry focused on custom cabinetry with builder-backed expertise and direct manufacturer pricing.
+            </p>
             <p class="text-lg text-brand-darkGray">
-              We founded Bosco Cabinetry to fix this: builder-backed expertise, luxury finishes, and accessible prices for Toronto homeowners.
+              Then our clients started asking: "Can you source the doors too? What about countertops?" We realized we could solve the ENTIRE coordination problem—not just part of it. Today, we provide complete interior solutions while maintaining our core expertise in custom cabinetry.
             </p>
           </div>
 
@@ -179,7 +182,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
     <SectionHeader
       tag="Global Partnership"
       title="Powered by Global Excellence"
-      description="Bosco Cabinetry is the exclusive Canadian distributor of Holike—one of the world's largest cabinetry manufacturers serving 2,000+ showrooms globally."
+      description="Our partnership with Holike—an ISO-certified manufacturer with 22+ years of experience—lets us deliver custom quality with production-scale reliability, without the inflated pricing typical of custom shops."
       layout="center"
       theme="light"
     />
