@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import logoPreload from '../assets/Logo-Light.svg?url';
 import heroPoster from '../assets/hero-poster.png';
 const {
-  title = 'Custom Cabinetry Toronto | Kitchen, Closets & Built-ins | Bosco Cabinetry',
+  title = 'Custom Cabinetry Toronto | Kitchen, Closets & Built-ins | B3 Interiors',
   description = 'Transform your Toronto home with custom kitchens, closets, built-ins & decorative paneling. 100+ completed projects, 100+ finishes, luxury quality at affordable prices. Free consultation & professional design.',
   ogImage = '/media/og-image.jpg',
   canonicalURL = Astro.url.href,
@@ -24,7 +24,7 @@ const heroPosterUrl = typeof heroPoster === 'string' ? heroPoster : heroPoster.s
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
-    <meta name="author" content="Bosco Cabinetry" />
+    <meta name="author" content="B3 Interiors" />
     <meta name="robots" content="index, follow" />
     <title>{title}</title>
 
@@ -50,8 +50,8 @@ const heroPosterUrl = typeof heroPoster === 'string' ? heroPoster : heroPoster.s
     <meta property="og:image:width" content="3840" />
     <meta property="og:image:height" content="2560" />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:alt" content="Bosco Cabinetry Showroom - Custom Kitchen Cabinets Toronto" />
-    <meta property="og:site_name" content="Bosco Cabinetry" />
+    <meta property="og:image:alt" content="B3 Interiors Showroom - Custom Kitchen Cabinets Toronto" />
+    <meta property="og:site_name" content="B3 Interiors" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -59,7 +59,7 @@ const heroPosterUrl = typeof heroPoster === 'string' ? heroPoster : heroPoster.s
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={absoluteOgImage} />
-    <meta property="twitter:image:alt" content="Bosco Cabinetry Showroom - Custom Kitchen Cabinets Toronto" />
+    <meta property="twitter:image:alt" content="B3 Interiors Showroom - Custom Kitchen Cabinets Toronto" />
 
     <!-- Critical resource preloads -->
     <link rel="preload" href={logoPreload} as="image" type="image/svg+xml" />
@@ -108,11 +108,11 @@ const heroPosterUrl = typeof heroPoster === 'string' ? heroPoster : heroPoster.s
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Bosco Cabinetry",
+        "name": "B3 Interiors",
         "description": "Custom kitchen cabinets, closets, and built-ins serving Toronto and the Greater Toronto Area",
-        "url": "https://boscocabinetry.ca",
+        "url": "https://b3interiors.ca",
         "telephone": "(416) 123-4567",
-        "email": "info@boscocabinetry.ca",
+        "email": "info@b3interiors.ca",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "123 Industrial Road",
@@ -193,11 +193,11 @@ const heroPosterUrl = typeof heroPoster === 'string' ? heroPoster : heroPoster.s
         },
         "founder": {
           "@type": "Person",
-          "name": "Bosco Cabinetry Team"
+          "name": "B3 Interiors Team"
         },
         "foundingDate": "2003",
         "sameAs": [
-          "https://www.google.com/search?q=bosco+cabinetry+reviews"
+          "https://maps.app.goo.gl/C6pw5ws9NRF8YitR8"
         ]
       }
     </script>

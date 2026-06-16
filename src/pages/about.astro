@@ -25,8 +25,8 @@ import Trophy from '../components/icons/Trophy.astro';
 // What Makes Us Different - 4 Pillars
 const differentiators = [
   {
-    title: 'Luxury Made Affordable',
-    description: 'Premium kitchen cabinets with builder-direct pricing. No luxury brand markup.',
+    title: 'Fully Custom, Made for You',
+    description: 'Every project built to your exact specifications. Your sizes, your finishes, your design.',
     iconComponent: Sparkles
   },
   {
@@ -49,16 +49,16 @@ const differentiators = [
 // FAQ data for schema generation
 const aboutFAQs = [
   {
-    question: "Does Bosco Cabinetry use sustainable materials?",
+    question: "Does B3 Interiors use sustainable materials?",
     answer: "Yes, we offer sustainable options across all our product lines. Our eco-friendly cabinets feature zero-added formaldehyde (NAF) materials certified by EPA, CARB, and Japanese F4 Star standards. We also offer sustainable bamboo boards with nano-clean air technology that purifies indoor air 24/7."
   },
   {
-    question: "Where is Bosco Cabinetry located?",
+    question: "Where is B3 Interiors located?",
     answer: `Our 5,500 sq ft showroom is located at ${companyInfo.location.address.full}. We serve Toronto, North York, Vaughan, Markham, Richmond Hill, Mississauga, Scarborough, Etobicoke, and the Greater Toronto Area.`
   },
   {
-    question: "Who founded Bosco Cabinetry?",
-    answer: "Bosco Cabinetry was founded by Toronto custom-home builders who've completed 100+ projects. We saw homeowners struggling to find affordable luxury kitchen cabinets and closet systems, so we created Bosco Cabinetry to bring builder-backed expertise and accessible prices to Toronto."
+    question: "Who founded B3 Interiors?",
+    answer: "B3 Interiors was founded by Toronto custom-home builders who've completed 100+ projects. We saw homeowners struggling to find premium custom kitchen cabinets and closet systems, so we created B3 Interiors to bring builder-backed expertise and transparent pricing to Toronto."
   }
 ];
 
@@ -98,7 +98,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
           <!-- Preview Content (Always Visible) -->
           <div slot="preview">
             <p class="text-lg text-brand-darkGray mb-4">
-              Every homeowner in Toronto faced the same impossible choice for custom cabinetry:
+              Every homeowner in Toronto faced the same impossible choice for their interiors:
             </p>
             <ul class="space-y-3 mb-6">
               <li class="flex items-start gap-3 text-brand-darkGray">
@@ -107,7 +107,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
               </li>
               <li class="flex items-start gap-3 text-brand-darkGray">
                 <span class="text-brand-primary mt-1">→</span>
-                <span>Big-box cabinets that looked and felt cheap</span>
+                <span>Big-box options that looked and felt cheap</span>
               </li>
               <li class="flex items-start gap-3 text-brand-darkGray">
                 <span class="text-brand-primary mt-1">→</span>
@@ -115,7 +115,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
               </li>
             </ul>
             <p class="text-lg text-brand-darkGray">
-              We founded Bosco Cabinetry to fix this: builder-backed expertise, luxury finishes, and accessible prices for Toronto homeowners.
+              We founded B3 Interiors to fix this: builder-backed expertise, premium finishes, and transparent pricing for Toronto homeowners.
             </p>
           </div>
 
@@ -125,7 +125,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
               From Renovation Contractors & Home Builders to Cabinetry Specialists
             </h3>
             <p class="text-brand-darkGray mb-4">
-              After years as renovation contractors building custom homes across Toronto, North York, Vaughan, and the Greater Toronto Area (GTA), we saw a recurring problem: homeowners couldn't find affordable luxury cabinetry with quality cabinet hardware and interior design expertise that met their home improvement vision.
+              After years as renovation contractors building custom homes across Toronto, North York, Vaughan, and the Greater Toronto Area (GTA), we saw a recurring problem: homeowners couldn't find premium custom cabinetry with quality cabinet hardware and interior design expertise that met their home improvement vision.
             </p>
             <p class="text-brand-darkGray mb-4">
               Traditional luxury kitchen cabinet brands in Toronto charged premium prices with little transparency. Big-box retailers offered cheap cabinets that compromised quality and lacked premium features like soft-close hinges and drawer organizers. Mid-range cabinet suppliers provided limited customization options.
@@ -134,7 +134,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
               We knew there was a better way. With our background as renovation contractors and custom home construction experts, we understood what Toronto homeowners truly needed: designer-quality kitchen cabinets with premium hardware, custom closet systems with soft-close drawer organizers, and built-in entertainment centers at fair, transparent prices.
             </p>
             <p class="text-brand-darkGray">
-              Today, Bosco Cabinetry serves Toronto, North York, Scarborough, Etobicoke, Vaughan, Richmond Hill, Markham, and Mississauga from our 5,500 square foot showroom in North York. As the exclusive Canadian distributor of Holike—one of the world's largest cabinetry manufacturers—we bring Toronto homeowners globally-proven quality with local, personalized service.
+              Today, B3 Interiors supplies custom cabinetry, stone slabs, wall paneling, interior doors, and more to Toronto homeowners and builders — from our 5,500 sq ft North York showroom. Through our direct manufacturer partnerships, we bring Toronto homeowners globally-proven quality with local, personalized service.
             </p>
           </div>
         </ExpandableContent>
@@ -146,7 +146,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
           <div class="rounded-2xl border border-brand-accent/30 overflow-hidden shadow-xl">
             <Image
               src={ShowroomImage}
-              alt="Bosco Cabinetry Toronto showroom design consultation"
+              alt="B3 Interiors Toronto showroom design consultation"
               class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               format="webp"
@@ -161,8 +161,8 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
   <!-- What Makes Us Different (Dark theme) -->
   <SectionWrapper theme="dark" id="differentiators">
     <SectionHeader
-      tag="Why Choose Bosco Cabinetry"
-      title="What Makes Bosco Cabinetry Different"
+      tag="WHY CHOOSE B3 INTERIORS"
+      title="What Makes Us Different"
       description="Four pillars that set us apart from other Toronto cabinet makers."
       layout="center"
       theme="dark"
@@ -179,7 +179,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
     <SectionHeader
       tag="Global Partnership"
       title="Powered by Global Excellence"
-      description="Bosco Cabinetry is the exclusive Canadian distributor of Holike—one of the world's largest cabinetry manufacturers serving 2,000+ showrooms globally."
+      description="Through our direct manufacturer partnerships, B3 Interiors delivers globally-proven cabinetry quality with local Toronto service."
       layout="center"
       theme="light"
     />
@@ -255,7 +255,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
         </ul>
 
         <p class="text-brand-darkGray mb-4">
-          By partnering with Holike, Bosco Cabinetry brings Toronto homeowners access to world-class custom cabinetry manufacturing at accessible prices—without sacrificing quality, sustainability, or design flexibility.
+          Through our direct manufacturer partnerships, B3 Interiors brings Toronto homeowners access to world-class custom cabinetry manufacturing with transparent pricing—without sacrificing quality, sustainability, or design flexibility.
         </p>
         <p class="text-brand-darkGray">
           Whether you're renovating a kitchen in downtown Toronto, designing a custom closet system in North York, or building a new home in Vaughan, you benefit from global manufacturing scale with local, personalized service.
@@ -263,7 +263,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
 
         <div class="mt-8 p-6 rounded-2xl border border-brand-accent/30 gradient-card-light">
           <p class="text-brand-charcoal font-medium">
-            <strong>Builders & Designers:</strong> Interested in partnering with us as the exclusive Holike distributor?
+            <strong>Builders & Designers:</strong> Interested in partnering with us through our direct manufacturer network?
             <a href="/trade" class="text-brand-primary hover:underline ml-2">Learn about trade partnership →</a>
           </p>
         </div>
@@ -275,8 +275,8 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
   <SectionWrapper theme="dark" id="sustainability">
     <SectionHeader
       tag="Eco-Friendly"
-      title="Our Commitment to Sustainable Cabinetry"
-      description="Beautiful design can be eco-friendly. From materials to craftsmanship, we create stylish custom kitchen cabinets that are kind to the environment and your Toronto home."
+      title="Our Commitment to Sustainable Interiors"
+      description="Beautiful design can be eco-friendly. From materials to craftsmanship, we create stylish custom cabinetry and interiors that are kind to the environment and your Toronto home."
       layout="center"
       theme="dark"
     />
@@ -327,7 +327,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
           Traditional kitchen cabinets and closet systems use adhesives containing formaldehyde—a harmful chemical that emits VOCs (volatile organic compounds) into your Toronto home's indoor air for years after installation.
         </p>
         <p class="text-gray-300 mb-4">
-          Bosco Cabinetry prioritizes materials that protect both your health and the environment. We offer sustainable options across all our product lines, featuring special adhesives that contain no added formaldehyde (NAF) for healthier indoor air quality.
+          B3 Interiors prioritizes materials that protect both your health and the environment. We offer sustainable options across all our product lines, featuring special adhesives that contain no added formaldehyde (NAF) for healthier indoor air quality.
         </p>
         <p class="text-gray-300 mb-6">
           Our NAF materials meet strict safety standards set by: U.S. Environmental Protection Agency (EPA), California Air Resources Board (CARB), and Japanese F4 Star certification. This ensures your Toronto home, whether in North York, Scarborough, or Vaughan, stays free from harmful emissions.
@@ -335,7 +335,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
 
         <h4 class="text-xl font-bold text-white mb-3">Bamboo Board Technology: Sustainable + Air-Purifying</h4>
         <p class="text-gray-300 mb-4">
-          While materials like MDF, plywood, and particle board are part of our offerings for affordable custom cabinetry, our bamboo boards are a real game-changer for eco-conscious Toronto homeowners.
+          While materials like MDF, plywood, and particle board are part of our offerings, our bamboo boards are a real game-changer for eco-conscious Toronto homeowners.
         </p>
         <div class="rounded-2xl border border-white/20 gradient-card-dark p-6 mb-6">
           <p class="text-white font-medium mb-3">Why Bamboo?</p>
@@ -373,7 +373,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
           {sustainability.sourcing.commitment}
         </p>
         <p class="text-gray-300 mt-4">
-          By choosing Bosco Cabinetry for your custom kitchen cabinets, closet systems, or built-in units, you are not just investing in beautiful, high-quality furniture—you are also helping to build a more sustainable future for both your Toronto family and the planet.
+          By choosing B3 Interiors for your custom cabinetry, stone, wall paneling, or any interior project, you are not just investing in beautiful, high-quality furniture—you are also helping to build a more sustainable future for both your Toronto family and the planet.
         </p>
 
         <!-- Certification Badges -->
@@ -398,7 +398,7 @@ const faqStructuredData = generateFAQSchema(aboutFAQs);
     <ServiceAreaSection
       theme="dark"
       title="Serving Toronto & the GTA"
-      description="Bosco Cabinetry proudly serves homeowners, builders, and designers across the Greater Toronto Area with custom kitchen cabinets, closet systems, bathroom vanities, and built-in cabinetry."
+      description="B3 Interiors proudly serves homeowners, builders, and designers across the Greater Toronto Area with custom cabinetry, stone slabs, wall paneling, interior doors, and more."
       cities={companyInfo.serviceAreas}
       showCTA={true}
       expandableContent={companyDescriptions.serviceAreaExpanded}
